@@ -81,56 +81,56 @@
                         </div>
                         <div class="widget-body">
                             <!-- BEGIN FORM-->
-                            <form action="#" class="form-horizontal">
+                            <form  method="POST" class="form-horizontal">
                             <div class="control-group">
                                 <label class="control-label">First Name</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " />
+                                    <input type="text" class="span6 " name="admin_fname" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Last Name</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " />
+                                    <input type="text" class="span6 " name="admin_lname" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Username</label>
                                 <div class="controls">
-                                    <input type="email" class="span6 " />
+                                    <input type="text" class="span6 " name="admin_username"/>
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Password</label>
                                 <div class="controls">
-                                    <input type="password" class="span6 " />
+                                    <input type="password" class="span6 " name="admin_password"/>
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Email</label>
                                 <div class="controls">
-                                    <input type="email" class="span6 " />
+                                    <input type="email" class="span6 " name="admin_email" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>                           
                             <div class="control-group">
                                 <label class="control-label">Phone no</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " />
+                                    <input type="text" class="span6 " name="admin_phone" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"> Status</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" id="selCSI">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
                                         <option value=""></option>
-                                        <option>Active</option>
-                                        <option>Deactive</option>
+                                        <option value="active">Active</option>
+                                        <option value="deactive">Deactive</option>
                                     </select>
                                 </div>
                             </div>
@@ -142,7 +142,7 @@
                                 </div>
                             </div> -->
                             <div class="form-actions">
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success" name="submitBtn">Submit</button>
                                 <button type="button" class="btn">Cancel</button>
                             </div>
                             </form>
@@ -205,3 +205,19 @@
 </body>
 <!-- END BODY -->
 </html>
+<?php
+if(isset($_POST['submitBtn'])){
+// print_r($_POST);
+if(insertAdminUser($conn, $_POST)){
+    echo '<script language="javascript">';
+    echo 'alert("New Admin Successfully created")';
+    echo '</script>';
+}else{
+    echo '<script language="javascript">';
+    echo 'alert("Failed to create new Admin ")';
+    echo '</script>';
+}
+
+}
+
+?>

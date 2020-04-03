@@ -88,18 +88,36 @@
                         </div>
                         <div class="widget-body">
                             <!-- BEGIN FORM-->
-                            <form action="#" class="form-horizontal">
+                            <form method="POST" class="form-horizontal">
                             <div class="control-group">
                                 <label class="control-label">Catagory Name</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " />
+                                    <input type="text" class="span6 " name="category_name" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Catagory Description</label>
+                                <div class="controls">
+                                <textarea name="category_descrption" class="span6"></textarea>
+                                    <!-- <input type="text" class="span6 " name="category_name" /> -->
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"> Status</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
+                                        <option value=""></option>
+                                        <option value="active">Active</option>
+                                        <option value="deactive">Deactive</option>
+                                    </select>
                                 </div>
                             </div>
                             
                         
                             <div class="form-actions">
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success" name="submitBtn">Submit</button>
                                 <button type="button" class="btn">Cancel</button>
                             </div>
                             </form>
@@ -162,3 +180,17 @@
 </body>
 <!-- END BODY -->
 </html>
+<?php
+if(isset($_POST['submitBtn'])){
+// print_r($_POST);
+if(insertCatagory($conn, $_POST)){
+    echo '<script language="javascript">';
+    echo 'alert("New Catagory Added Successfully")';
+    echo '</script>';
+}else{
+    echo '<script language="javascript">';
+    echo 'alert("Failed to create new catagory ")';
+    echo '</script>';
+}
+}
+?>

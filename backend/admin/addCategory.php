@@ -187,7 +187,7 @@ if(insertCategory($conn, $_POST)){
     echo '<script language="javascript">';
     echo '</script>';
     showMsg('New Category Added Successfully');
-    redirection('manageCatagory.php');
+    redirection('manageCategory.php');
 }else{
     echo '<script language="javascript">';
     echo 'alert("Failed to create new catagory ")';

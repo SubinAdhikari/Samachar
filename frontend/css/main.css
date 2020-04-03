@@ -82,8 +82,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 [ LOADDING ]*/
 .animsition-loading-1 {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50  left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -167,7 +166,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 /*==================================================================
 [ Top-bar ]*/
 .topbar {
-  background-color: #111;
+  background-color: #212F3D;
 }
 
 .content-topbar {
@@ -347,7 +346,7 @@ a.left-topbar-item:hover {
 [ Main nav ]*/
 .wrap-main-nav {
   width: 100%;
-  height: 55px;
+  height: 60px;
   z-index: 1000;
   position: relative;
 }

@@ -3,5 +3,5 @@ require 'config.php';
 require 'connect.php';
 require 'helperfunction.php';
 require 'adminfunctions.php';
-require 'catagoryfunction.php';
+require 'categoryfunction.php';
 ?>

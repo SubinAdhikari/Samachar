@@ -17,4 +17,40 @@ function insertAdminUser($conn, $data){
 	}
 	return false; 
 }
+function updateAdminUser($conn, $data){
 
+	$stmtupdate=$conn->prepare("UPDATE tbladmin SET admin_fname=:admin_fname, admin_lname=:admin_lname, admin_username=:admin_username, admin_email=:admin_email, admin_phone=:admin_phone, is_active=:is_active WHERE admin_id=:admin_id");
+
+	$stmtupdate->bindParam(':admin_fname', $data['admin_fname']);
+	$stmtupdate->bindParam(':admin_lname', $data['admin_lname']);
+	$stmtupdate->bindParam(':admin_username', $data['admin_username']);
+	$stmtupdate->bindParam(':admin_email', $data['admin_email']);
+	$stmtupdate->bindParam(':admin_phone', $data['admin_phone']);
+	$stmtupdate->bindParam(':is_active', $data['is_active']);
+	$stmtupdate->bindParam(':admin_id', $data['admin_id']);
+	if ($stmtupdate->execute()) {
+		return true;
+	}
+	return false;
+}
+function getAllAdminUsers($conn){
+ 	$stmtSelect = $conn->prepare("SELECT * FROM tbladmin");
+ 	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetchAll();
+}
+function getAdminUserById($conn, $adminId){
+ 	$stmtSelect = $conn->prepare("SELECT * FROM tbladmin where admin_id=:admin_id");
+ 	$stmtSelect->bindParam(':admin_id',$adminId);
+ 	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetch();
+}
+function deleteAdminUser($conn, $adminId){
+	$stmtdelete=$conn->prepare("DELETE FROM tbladmin WHERE admin_id=:admin_id");
+	$stmtdelete->bindParam(':admin_id', $adminId);
+	if ($stmtdelete->execute()) {
+		return true;
+	}
+	return false;
+}

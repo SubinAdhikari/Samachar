@@ -1,13 +1,13 @@
  <?php
   include 'layouts/header.php';
-  $admin_id=$_GET['ref'];
-  $adminUser=getAdminUserById($conn, $admin_id);
-  //dump($adminUser);
+  $category_id=$_GET['ref'];
+  $category=getCategoryById($conn, $category_id);
+  //dump($category);
   if (isset($_POST['savebtn'])) {
-    if(updateAdminUser($conn, $_POST)){
+    if(updatecategory($conn, $_POST)){
         //echo "User Updated SuccessFully";
-         showMsg('User Updated Successfully');
-         redirection('manageadmin.php');
+         showMsg('Category Updated Successfully');
+         redirection('managecategory.php');
 }
 }
  ?>
@@ -91,42 +91,18 @@
                             <!-- BEGIN FORM-->
                             <form  class="form-horizontal" method="POST">
                             <div class="control-group">
-                                <label class="control-label">First Name</label>
+                                <label class="control-label">Category Name</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " required name="admin_fname" 
-                                    value="<?php echo $adminUser['admin_fname'];?>" />
+                                    <input type="text" class="span6 " required name="category_name" 
+                                    value="<?php echo $category['category_name'];?>" />
                                     
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label">Last Name</label>
+                                <label class="control-label">Description</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " required name="admin_lname"
-                                    value="<?php echo $adminUser['admin_lname'];?>" />
-                                    
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Username</label>
-                                <div class="controls">
-                                    <input type="text" class="span6 " required name="admin_username" 
-                                    value="<?php echo $adminUser['admin_username'];?>"/>
-                                    
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Email</label>
-                                <div class="controls">
-                                    <input type="email" class="span6 " required name="admin_email" 
-                                    value="<?php echo $adminUser['admin_email'];?>"/>
-                                    
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Phone No.</label>
-                                <div class="controls">
-                                    <input type="text" class="span6 " required name="admin_phone" 
-                                    value="<?php echo $adminUser['admin_phone'];?>"/>
+                                    <input type="text" class="span6 " required name="category_descrption"
+                                    value="<?php echo $category['category_descrption'];?>" />
                                     
                                 </div>
                             </div>
@@ -135,10 +111,10 @@
                                 <div class="controls">
                                 <select name="is_active" class="form-control">
                         <optgroup label="Select status">                        
-                                                    <option <?php if($adminUser['is_active']=='active')
+                                                    <option <?php if($category['is_active']=='active')
                                                      echo 'selected="selected"'; ?>
                                                     value="active">Active</option>
-                                                    <option <?php if($adminUser['is_active']=='inactive')
+                                                    <option <?php if($category['is_active']=='inactive')
                                                      echo 'selected="selected"'; ?>
                                                     value="inactive">Inactive</option>
                         </optgroup>
@@ -146,7 +122,7 @@
                                     
                                 </div>
                             </div>
-                            <input type="hidden" name="admin_id" value="<?php echo $adminUser['admin_id']; ?>">
+                            <input type="hidden" name="category_id" value="<?php echo $category['category_id']; ?>">
 
                             <div class="form-actions">
                                 <button type="submit" name ="savebtn" class="btn btn-success">Save</button>

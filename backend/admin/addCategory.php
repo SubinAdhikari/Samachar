@@ -110,7 +110,7 @@
                                     <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
                                         <option value=""></option>
                                         <option value="active">Active</option>
-                                        <option value="deactive">Deactive</option>
+                                        <option value="inactive">Inactive</option>
                                     </select>
                                 </div>
                             </div>
@@ -183,10 +183,11 @@
 <?php
 if(isset($_POST['submitBtn'])){
 // print_r($_POST);
-if(insertCatagory($conn, $_POST)){
+if(insertCategory($conn, $_POST)){
     echo '<script language="javascript">';
-    echo 'alert("New Catagory Added Successfully")';
     echo '</script>';
+    showMsg('New Category Added Successfully');
+    redirection('manageCatagory.php');
 }else{
     echo '<script language="javascript">';
     echo 'alert("Failed to create new catagory ")';

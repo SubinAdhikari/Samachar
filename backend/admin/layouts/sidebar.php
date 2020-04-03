@@ -19,7 +19,7 @@
                   </a>
                   <ul class="sub">
                       <li><a class="" href="addAdmin.php">Add Admin</a></li>
-                      <li><a class="" href="editAdmin.php">Edit Admin</a></li>
+                      <li><a class="" href="manageAdmin.php">Manage Admin</a></li>
                       
                   </ul>
               </li>
@@ -30,8 +30,8 @@
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">
-                      <li><a class="" href="addCatagory.php">Add catagory</a></li>
-                      <li><a class="" href="editCatagory.php">Edit catagory</a></li>
+                      <li><a class="" href="addCategory.php">Add catagory</a></li>
+                      <li><a class="" href="manageCategory.php">Managecatagory</a></li>
                       
                   </ul>
               </li>

@@ -1,13 +1,11 @@
-
-
-<!-- HEADER HERE -->
 <?php
-include 'layouts/header.php';
+  include 'layouts/header.php';
 ?>
+   <!-- END HEADER -->
    <!-- BEGIN CONTAINER -->
    <div id="container" class="row-fluid">
       <!-- BEGIN SIDEBAR -->
-      <div class="sidebar-scroll">
+         <div class="sidebar-scroll">
         <div id="sidebar" class="nav-collapse collapse">
 
          <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
@@ -18,10 +16,10 @@ include 'layouts/header.php';
          </div>
          <!-- END RESPONSIVE QUICK SEARCH FORM -->
         <!-- SIDEBAR HERE -->
-        <?php
-include 'layouts/sidebar.php';
+      <?php
+  include 'layouts/sidebar.php';
 ?>
-      </div>
+</div>
       </div>
       <!-- END SIDEBAR -->
       <!-- BEGIN PAGE -->  
@@ -48,7 +46,7 @@ include 'layouts/sidebar.php';
                    <!-- END THEME CUSTOMIZER-->
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                    <h3 class="page-title">
-                     Catagory Details
+                     Dynamic Table
                    </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -56,11 +54,11 @@ include 'layouts/sidebar.php';
                            <span class="divider">/</span>
                        </li>
                        <li>
-                           <a href="#">catagory</a>
+                           <a href="#">User</a>
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Catagory List
+                           Manage Users
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -75,15 +73,15 @@ include 'layouts/sidebar.php';
                </div>
             </div>
             <!-- END PAGE HEADER-->
-            <!-- BEGIN PAGE CONTENT-->
-            
- <!-- BEGIN ADVANCED TABLE widget-->
- <div class="row-fluid">
+            <!-- BEGIN ADVANCED TABLE widget-->
+            <div class="row-fluid">
                 <div class="span12">
                 <!-- BEGIN EXAMPLE TABLE widget-->
                 <div class="widget red">
+                <?php if (isset(($_SESSION['msg'])))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
                     <div class="widget-title">
-                        <h4><i class="icon-reorder"></i> Catagroy List</h4>
+                        <h4><i class="icon-reorder"></i> Users' Information</h4>
+                        
                             <span class="tools">
                                 <a href="javascript:;" class="icon-chevron-down"></a>
                                 <a href="javascript:;" class="icon-remove"></a>
@@ -93,28 +91,37 @@ include 'layouts/sidebar.php';
                         <table class="table table-striped table-bordered" id="sample_1">
                             <thead>
                             <tr>
-                                <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
-                                <th>Registration Number</th>
-                                <th class="hidden-phone">Name</th>
-                                <th class="hidden-phone">Contact Number</th>
-                                <th class="hidden-phone">Address</th>
-                                <th class="hidden-phone">Details</th>
+                                <th style="width:8px;"><input type="hidden" class="group-checkable" data-set="#sample_1 .checkboxes" />S.N</th>
+                                <th>Category Name</th>
+                                <th class="hidden-phone">Description</th>
+                                <th class="hidden-phone">Status</th>
+                                <th class="hidden-phone">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php
-                                                              
-                                ?>
+                            <?php $catagories=getAllCategories($conn);
+                            //dump($catagories);
+                            foreach ($catagories as $key => $catagory):
+                            ?>
                             <tr class="odd gradeX">
-                                <td><input type="checkbox" class="checkboxes" value="1" /></td>
-                                <td></td>
-                                <td class="hidden-phone"></td>
-                                <td class="hidden-phone"></td>
-                                <td class="center hidden-phone"></td>
-                                <!-- <td class="hidden-phone"><span class="label label-success">Approved</span></td> -->
-                                <td class="hidden-phone"><a href="editCatagoryDetails.php?ref=<?php echo 1;?>">Edit</a></td>
+                                <td><input type="hidden" class="checkboxes" value="1" /><?php echo ++$key; ?></td>
+                                <td class="hidden-phone"><?php echo $catagory['category_name']; ?></td>
+                                <td class="hidden-phone"><?php echo $catagory['category_descrption']; ?></td>
+                                <td class="center hidden-phone"><?php if($catagory['is_active']=='active'): ?>
+															<span class="label label-sm label-success">
+																Active</span>
+															<?php else: ?>
+																<span class="label label-sm label-danger">
+																	Inactive</span>
+															<?php endif; ?></td>
+                                <td class="hidden-phone"><a href="editCategory.php?ref=<?php echo $catagory['category_id'];?>" class="btn btn-xs btn-info">
+																	Edit
+																</a>
+																<a href="deleteCategory.php?ref=<?php echo $catagory['category_id'];?>" onclick="return confirm('Really Deleting that user??');" class="btn btn-xs btn-danger">
+																	Delete
+																</a></td>
                             </tr>
-                            <?php ?>
+                            <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -124,27 +131,6 @@ include 'layouts/sidebar.php';
             </div>
 
             <!-- END ADVANCED TABLE widget-->
-
-
-
-
-
-
-
-            
-
-            <!-- END PAGE CONTENT-->         
-         </div>
-
-
- 
-
-
-
-
-            
-
-            <!-- END PAGE CONTENT-->         
          </div>
          <!-- END PAGE CONTAINER-->
       </div>
@@ -162,39 +148,7 @@ include 'layouts/sidebar.php';
    <!-- Load javascripts at bottom, this will reduce page load time -->
    <script src="js/jquery-1.8.3.min.js"></script>
    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-   <script type="text/javascript" src="assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>
-   <script type="text/javascript" src="assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-   <script src="assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-
-   <!-- ie8 fixes -->
-   <!--[if lt IE 9]>
-   <script src="js/excanvas.js"></script>
-   <script src="js/respond.js"></script>
-   <![endif]-->
-
-   <script src="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
-   <script src="js/jquery.sparkline.js" type="text/javascript"></script>
-   <script src="assets/chart-master/Chart.js"></script>
-   <script src="js/jquery.scrollTo.min.js"></script>
-
-
-   <!--common script for all pages-->
-   <script src="js/common-scripts.js"></script>
-
-   <!--script for this page only-->
-
-   <script src="js/easy-pie-chart.js"></script>
-   <script src="js/sparkline-chart.js"></script>
-   <script src="js/home-page-calender.js"></script>
-   <script src="js/home-chartjs.js"></script>
-
-   <!-- END JAVASCRIPTS -->   
-   
-
-<!-- MAKE TABLE DYNAMIC -->
-    <!-- BEGIN JAVASCRIPTS -->
-   <!-- Load javascripts at bottom, this will reduce page load time -->
    <script src="js/jquery.blockui.js"></script>
    <!-- ie8 fixes -->
    <!--[if lt IE 9]>
@@ -204,14 +158,16 @@ include 'layouts/sidebar.php';
    <script type="text/javascript" src="assets/uniform/jquery.uniform.min.js"></script>
    <script type="text/javascript" src="assets/data-tables/jquery.dataTables.js"></script>
    <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
+   <script src="js/jquery.scrollTo.min.js"></script>
 
 
    <!--common script for all pages-->
+   <script src="js/common-scripts.js"></script>
 
    <!--script for this page only-->
    <script src="js/dynamic-table.js"></script>
 
-   <!-- END JAVASCRIPTS FOR DYNAMIC TABLE -->   
+   <!-- END JAVASCRIPTS -->   
 </body>
 <!-- END BODY -->
 </html>

@@ -57,14 +57,7 @@
                        <li class="active">
                            Add Admin
                        </li>
-                       <li class="pull-right search-wrap">
-                           <form action="search_result.html" class="hidden-phone">
-                               <div class="input-append search-input-area">
-                                   <input class="" id="appendedInputButton" type="text">
-                                   <button class="btn" type="button"><i class="icon-search"></i> </button>
-                               </div>
-                           </form>
-                       </li>
+                       
                    </ul>
                    <!-- END PAGE TITLE & BREADCRUMB-->
                </div>
@@ -104,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label">Email</label>
+                                <label class="control-label">Username</label>
                                 <div class="controls">
                                     <input type="email" class="span6 " />
                                     <!-- <span class="help-inline">Some hint here</span> -->
@@ -118,215 +111,19 @@
                                 </div>
                             </div>
                             <div class="control-group">
+                                <label class="control-label">Email</label>
+                                <div class="controls">
+                                    <input type="email" class="span6 " />
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>                           
+                            <div class="control-group">
                                 <label class="control-label">Phone no</label>
                                 <div class="controls">
                                     <input type="text" class="span6 " />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
-                            <!-- <div class="control-group">
-                                <label class="control-label">Readonly Input</label>
-                                <div class="controls">
-                                    <input class="span6 " type="text" placeholder="Readonly input here..." disabled />
-                                    <span class="help-inline">Some hint here</span>
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                <label class="control-label">Input with Tooltip</label>
-                                <div class="controls">
-                                    <input type="text" class="span6  tooltips" data-trigger="hover" data-original-title="Tooltip text goes here. Tooltip text goes here." />
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Input with Popover</label>
-                                <div class="controls">
-                                    <input type="text" class="span6  popovers" data-trigger="hover" data-content="Popover body goes here. Popover body goes here." data-original-title="Popover header" />
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Auto Complete</label>
-                                <div class="controls">
-                                    <input type="text" class="span6 " style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]" />
-                                    <p class="help-block">Start typing to auto complete!. E.g: Florida</p>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Email Address Input</label>
-                                <div class="controls">
-                                    <div class="input-prepend">
-                                        <span class="add-on">@</span><input class=" " type="text" placeholder="Email Address" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Email Address Input</label>
-                                <div class="controls">
-                                    <div class="input-icon left">
-                                        <i class="icon-envelope"></i>
-                                        <input class=" " type="text" placeholder="Email Address" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Currency Input</label>
-                                <div class="controls">
-                                    <div class="input-prepend input-append">
-                                        <span class="add-on">$</span><input class=" " type="text" /><span class="add-on">.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Default Dropdown</label>
-                                <div class="controls">
-                                    <select class="span6 " data-placeholder="Choose a Category" tabindex="1">
-                                        <option value="">Select...</option>
-                                        <option value="Category 1">Category 1</option>
-                                        <option value="Category 2">Category 2</option>
-                                        <option value="Category 3">Category 5</option>
-                                        <option value="Category 4">Category 4</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Default Dropdown(Multiple)</label>
-                                <div class="controls">
-                                    <select class="span6 " multiple="multiple" data-placeholder="Choose a Category" tabindex="1">
-                                        <option value="Category 1">Category 1</option>
-                                        <option value="Category 2">Category 2</option>
-                                        <option value="Category 3">Category 5</option>
-                                        <option value="Category 4">Category 4</option>
-                                        <option value="Category 3">Category 6</option>
-                                        <option value="Category 4">Category 7</option>
-                                        <option value="Category 3">Category 8</option>
-                                        <option value="Category 4">Category 9</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Custom Dropdown</label>
-                                <div class="controls">
-                                    <select class="span6 chzn-select" data-placeholder="Choose a Category" tabindex="1">
-                                        <option value=""></option>
-                                        <option value="Category 1">Category 1</option>
-                                        <option value="Category 2">Category 2</option>
-                                        <option value="Category 3">Category 5</option>
-                                        <option value="Category 4">Category 4</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Grouped Dropdown</label>
-                                <div class="controls">
-                                    <select data-placeholder="Your Favorite Team" class="chzn-select span6" tabindex="-1" id="selS0V">
-                                        <option value=""></option>
-                                        <optgroup label="NFC EAST">
-                                            <option>Dallas Cowboys</option>
-                                            <option>New York Giants</option>
-                                            <option>Philadelphia Eagles</option>
-                                            <option>Washington Redskins</option>
-                                        </optgroup>
-                                        <optgroup label="NFC NORTH">
-                                            <option>Chicago Bears</option>
-                                            <option>Detroit Lions</option>
-                                            <option>Green Bay Packers</option>
-                                            <option>Minnesota Vikings</option>
-                                        </optgroup>
-                                        <optgroup label="NFC SOUTH">
-                                            <option>Atlanta Falcons</option>
-                                            <option>Carolina Panthers</option>
-                                            <option>New Orleans Saints</option>
-                                            <option>Tampa Bay Buccaneers</option>
-                                        </optgroup>
-                                        <optgroup label="NFC WEST">
-                                            <option>Arizona Cardinals</option>
-                                            <option>St. Louis Rams</option>
-                                            <option>San Francisco 49ers</option>
-                                            <option>Seattle Seahawks</option>
-                                        </optgroup>
-                                        <optgroup label="AFC EAST">
-                                            <option>Buffalo Bills</option>
-                                            <option>Miami Dolphins</option>
-                                            <option>New England Patriots</option>
-                                            <option>New York Jets</option>
-                                        </optgroup>
-                                        <optgroup label="AFC NORTH">
-                                            <option>Baltimore Ravens</option>
-                                            <option>Cincinnati Bengals</option>
-                                            <option>Cleveland Browns</option>
-                                            <option>Pittsburgh Steelers</option>
-                                        </optgroup>
-                                        <optgroup label="AFC SOUTH">
-                                            <option>Houston Texans</option>
-                                            <option>Indianapolis Colts</option>
-                                            <option>Jacksonville Jaguars</option>
-                                            <option>Tennessee Titans</option>
-                                        </optgroup>
-                                        <optgroup label="AFC WEST">
-                                            <option>Denver Broncos</option>
-                                            <option>Kansas City Chiefs</option>
-                                            <option>Oakland Raiders</option>
-                                            <option>San Diego Chargers</option>
-                                        </optgroup>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Multiple Dropdown Select</label>
-                                <div class="controls">
-                                    <select data-placeholder="Your Favorite Teams" class="chzn-select span6" multiple="multiple" tabindex="6">
-                                        <option value=""></option>
-                                        <optgroup label="NFC EAST">
-                                            <option>Dallas Cowboys</option>
-                                            <option>New York Giants</option>
-                                            <option>Philadelphia Eagles</option>
-                                            <option>Washington Redskins</option>
-                                        </optgroup>
-                                        <optgroup label="NFC NORTH">
-                                            <option selected>Chicago Bears</option>
-                                            <option>Detroit Lions</option>
-                                            <option>Green Bay Packers</option>
-                                            <option>Minnesota Vikings</option>
-                                        </optgroup>
-                                        <optgroup label="NFC SOUTH">
-                                            <option>Atlanta Falcons</option>
-                                            <option selected>Carolina Panthers</option>
-                                            <option>New Orleans Saints</option>
-                                            <option>Tampa Bay Buccaneers</option>
-                                        </optgroup>
-                                        <optgroup label="NFC WEST">
-                                            <option>Arizona Cardinals</option>
-                                            <option>St. Louis Rams</option>
-                                            <option>San Francisco 49ers</option>
-                                            <option>Seattle Seahawks</option>
-                                        </optgroup>
-                                        <optgroup label="AFC EAST">
-                                            <option>Buffalo Bills</option>
-                                            <option>Miami Dolphins</option>
-                                            <option>New England Patriots</option>
-                                            <option>New York Jets</option>
-                                        </optgroup>
-                                        <optgroup label="AFC NORTH">
-                                            <option>Baltimore Ravens</option>
-                                            <option>Cincinnati Bengals</option>
-                                            <option>Cleveland Browns</option>
-                                            <option>Pittsburgh Steelers</option>
-                                        </optgroup>
-                                        <optgroup label="AFC SOUTH">
-                                            <option>Houston Texans</option>
-                                            <option>Indianapolis Colts</option>
-                                            <option>Jacksonville Jaguars</option>
-                                            <option>Tennessee Titans</option>
-                                        </optgroup>
-                                        <optgroup label="AFC WEST">
-                                            <option>Denver Broncos</option>
-                                            <option>Kansas City Chiefs</option>
-                                            <option>Oakland Raiders</option>
-                                            <option>San Diego Chargers</option>
-                                        </optgroup>
-                                    </select>
-                                </div>
-                            </div> -->
                             <div class="control-group">
                                 <label class="control-label"> Status</label>
                                 <div class="controls">

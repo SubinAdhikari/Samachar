@@ -43,7 +43,7 @@
                   </a>
                   <ul class="sub">
                       <li><a class="" href="addSubCatagory.php">Add Sub-Catagory</a></li>
-                      <li><a class="" href="editSubCatagory.php">Edit Sub-Catagory</a></li>
+                      <li><a class="" href="manageSubCategory.php">Manage Sub-Catagory</a></li>
                       
                   </ul>
               </li>

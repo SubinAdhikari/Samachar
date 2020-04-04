@@ -1154,6 +1154,7 @@ a.breadcrumb-item:hover {
 .cl16 {color: #e5e5e5;}
 .cl17 {color: #00b5e9;}
 .cl18 {color: #2489b0;}
+.cl19 {color: red;}
 
 
 /*==================================================================
@@ -1697,6 +1698,9 @@ a.breadcrumb-item:hover {
   left: -1px;
 }
 
+.how2-cl0::before {
+  background-color: red;
+}
 .how2-cl1::before {
   background-color: #e71d69;
 }

@@ -10,7 +10,7 @@
 dataString = 'categoryName='+categoryName; 
 
 var req=new XMLHttpRequest();
-req.open("GET","SubCategoryIDRetrive1.php?categoryName="+categoryName,true);
+req.open("GET","SubCategoryIDRetrive.php?categoryName="+categoryName,true);
 req.send();
 
 req.onreadystatechange=function(){
@@ -20,33 +20,30 @@ if(req.readyState==4 && req.status==200){
 }; 
 
 
-// $.ajax({
-//       type: 'post',
-//       url: 'SubCategoryIDRetrive2.php',
-//       data: dataString,
-//       datatype : "json",
-//       success: function (data) {
-//         console.log(data['sub'];
-//          var a = '<option value="">No Sub-Catagory Available</option>';
-//        console.log(a);
-
-//         // if (response==0) {
-
-//         //   $('#subCategory').html(a);
-//         //   $("#data").hide();
-//         //   console.log(response);
+$.ajax({
+      type: 'post',
+      url: 'SubCategoryIDRetrive1.php',
+      data: dataString,
+      datatype : "json",
+      success: function (response) {
+        console.log(response);
+         var a = '<option value="">No Sub-Catagory Available</option>';        
+        if (response==0) {
+          $('#subCategory').html(a);
+          $("#data").hide();
+          console.log(response);
                      
-//         // }
-//         // else{
-//         //   console.log(response);
-//         //   $("#data").show();
-//         //   $('#subCategory').html(response);
+        }
+        else{
+          console.log(response);
+          $("#data").show();
+          $('#subCategory').html(response);
        
-//         // }
-//       }
+        }
+      }
 
         
-//     });
+    });
 // alert(123); 
 
            

@@ -6,7 +6,7 @@
 <script>
     function fetchId(str){
 var req=new XMLHttpRequest();
-req.open("GET","http://localhost:8080/samachar/backend/admin/SubCategoryIDRetrive.php?categoryName="+str,true);
+req.open("GET","SubCategoryIDRetrive.php?categoryName="+str,true);
 req.send();
 
 req.onreadystatechange=function(){

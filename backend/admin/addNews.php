@@ -1,4 +1,60 @@
-<?php include 'layouts/header.php'; ?>
+<?php include 'layouts/header.php'; 
+  $categoryName=retriveCategories($conn);
+
+  //$subCategoryName=retriveSubCategories($conn);
+  
+?>
+<script>
+    function fetchCategoryId(categoryName){ 
+      
+dataString = 'categoryName='+categoryName; 
+
+var req=new XMLHttpRequest();
+req.open("GET","SubCategoryIDRetrive1.php?categoryName="+categoryName,true);
+req.send();
+
+req.onreadystatechange=function(){
+if(req.readyState==4 && req.status==200){
+    document.getElementById("categoryid").innerHTML=req.responseText;
+}
+}; 
+
+
+// $.ajax({
+//       type: 'post',
+//       url: 'SubCategoryIDRetrive2.php',
+//       data: dataString,
+//       datatype : "json",
+//       success: function (data) {
+//         console.log(data['sub'];
+//          var a = '<option value="">No Sub-Catagory Available</option>';
+//        console.log(a);
+
+//         // if (response==0) {
+
+//         //   $('#subCategory').html(a);
+//         //   $("#data").hide();
+//         //   console.log(response);
+                     
+//         // }
+//         // else{
+//         //   console.log(response);
+//         //   $("#data").show();
+//         //   $('#subCategory').html(response);
+       
+//         // }
+//       }
+
+        
+//     });
+// alert(123); 
+
+           
+
+}
+
+ 
+    </script>
    <!-- END HEADER -->
    <!-- BEGIN CONTAINER -->
    <div id="container" class="row-fluid">
@@ -90,23 +146,52 @@
                             <!-- BEGIN FORM-->
                             <form action="#" class="form-horizontal">
                             <div class="control-group">
-                                <label class="control-label"> News Catagory</label>
+                                <label class="control-label">Heading/Title</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" id="selCSI">
-                                        <option value=""></option>
-                                        <option>Active</option>
-                                        <option>Deactive</option>
+                                    <input type="text" class="span6 " name="news_title" />
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>  
+                            <div class="control-group">
+                                <label class="control-label">News Catagory</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" onchange="fetchCategoryId(this.value)"  name="category_name" id="selCSI">
+                                        <option value="">Select Category</option>
+                                        <?php
+                                        foreach($categoryName as $key){
+                                            foreach($key as $value){?>
+                                        <option value="<?php echo $value; ?>"><?php echo $value; ?></option>
+                                     <?php   } }
+                                        
+                                        ?>
+                                        <!-- <option>catagory1</option>
+                                        <option>catagory2</option> -->
                                     </select>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"> News Sub-Catagory</label>
+                                <label class="control-label">Category Id</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" id="selCSI">
-                                        <option value=""></option>
-                                        <option>Active</option>
-                                        <option>Deactive</option>
+                                    <select name="category_id" id="categoryid" class="span6">
                                     </select>
+                                    <!-- <input type="text"  class="span6 " name="category_id" id="categoryid"   /> -->
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">News Sub-Catagory</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" "  name="category_name" id="subCategory">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Sub-Category Id</label>
+                                <div class="controls">
+                                    <select name="subcategory_id" id="subcategoryid" class="span6">
+                                    </select>
+                                    <!-- <input type="text"  class="span6 " name="category_id" id="categoryid"   /> -->
+                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                                 <div class="control-group">

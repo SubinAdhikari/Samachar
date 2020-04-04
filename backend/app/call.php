@@ -5,4 +5,5 @@ require 'helperfunction.php';
 require 'adminfunctions.php';
 require 'categoryfunction.php';
 require 'subCategoryfunction.php';
+require 'newsfunctions.php';
 ?>

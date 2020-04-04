@@ -1,4 +1,23 @@
-<?php include 'layouts/header.php'; ?>
+<?php include 'layouts/header.php';
+ 
+ $categoryName=retriveCategories($conn);
+
+?>
+<script>
+    function fetchId(str){
+var req=new XMLHttpRequest();
+req.open("GET","http://localhost:8080/samachar/backend/admin/SubCategoryIDRetrive.php?categoryName="+str,true);
+req.send();
+
+req.onreadystatechange=function(){
+if(req.readyState==4 && req.status==200){
+    document.getElementById("categoryid").innerHTML=req.responseText;
+}
+}; 
+// alert(123);  
+}
+ 
+    </script>
    <!-- END HEADER -->
    <!-- BEGIN CONTAINER -->
    <div id="container" class="row-fluid">
@@ -92,18 +111,52 @@
                             <div class="control-group">
                                 <label class="control-label"> Catagory Name</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" id="selCSI">
-                                        <option value=""></option>
-                                        <option>catagory1</option>
-                                        <option>catagory2</option>
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" onchange="fetchId(this.value)"  name="category_name" id="selCSI">
+                                        <option value="">Select Category</option>
+                                        <?php
+                                        foreach($categoryName as $key){
+                                            foreach($key as $value){?>
+                                        <option value="<?php echo $value; ?>"><?php echo $value; ?></option>
+                                     <?php   } }
+                                        
+                                        ?>
+                                        <!-- <option>catagory1</option>
+                                        <option>catagory2</option> -->
                                     </select>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label">Sub-Catagory Name</label>
+                                <label class="control-label">Category Id</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " />
+                                    <select name="category_id" id="categoryid" class="span6">
+                                    <select>
+                                    <!-- <input type="text"  class="span6 " name="category_id" id="categoryid"   /> -->
                                     <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Sub-Category Name</label>
+                                <div class="controls">
+                                    <input type="text" class="span6 " name="subcategory_name" />
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Sub-Category Description</label>
+                                <div class="controls">
+                                <textarea name="category_descrption" class="span6"></textarea>
+                                    <!-- <input type="text" class="span6 " name="category_name" /> -->
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"> Status</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
+                                        <option value=""></option>
+                                        <option value="active">Active</option>
+                                        <option value="inactive">Inactive</option>
+                                    </select>
                                 </div>
                             </div>
                         
@@ -134,6 +187,8 @@
    <div id="footer">
        2013 &copy; Metro Lab Dashboard.
    </div>
+
+ 
    <!-- END FOOTER -->
 
    <!-- BEGIN JAVASCRIPTS -->
@@ -166,6 +221,8 @@
    <script src="js/sparkline-chart.js"></script>
    <script src="js/home-page-calender.js"></script>
    <script src="js/home-chartjs.js"></script>
+
+
 
    <!-- END JAVASCRIPTS -->   
 </body>

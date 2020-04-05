@@ -96,6 +96,7 @@
                                 <th>Category Name</th>
                                 <th>Sub-Category Name</th>                                
                                 <th class="hidden-phone">News Url</th>
+                                <th class="hidden-phone">Image</th>
                                 <th class="hidden-phone">Status</th>
                                 <th class="hidden-phone">Top News</th>
                                 <th class="hidden-phone">Action</th>
@@ -121,6 +122,19 @@
                                 $subCategoryName = implode("", $subCategoryNames);  
                                 echo $subCategoryName; ?></td>
                                 <td class="hidden-phone"><?php echo $news['news_url']; ?></td>
+                                <td><?php 
+                                  $s=$news['news_image'];
+                                
+                                   ?>
+                                     <img src="../newsImage/<?php echo $s; ?>" alt="News Image" width="200px"/>
+                                </td>
+                                <td><?php 
+                                  $featuredImg=$news['news_featuredimage'];
+                                
+                                   ?>
+                                     <img src="../newsFeaturedImage/<?php echo $featuredImg; ?>" alt="News Featured Image" width="200px"/>
+                                </td>
+
                                 <td class="center hidden-phone"><?php if($news['is_active']=='active'): ?>
                               <span class="label label-sm label-success">
                                 Active</span>

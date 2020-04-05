@@ -95,7 +95,7 @@ $result=selectNewsFromId($conn,$ref);
                         </div>
                         <div class="widget-body form">
                             <!-- BEGIN FORM-->
-                            <form method="POST" accept-charset="utf-8" class="form-horizontal">
+                            <form method="POST" accept-charset="utf-8" class="form-horizontal" enctype="multipart/form-data">
 
                             <div class="control-group">
                                 <label class="control-label">Heading/Title</label>
@@ -158,7 +158,21 @@ $result=selectNewsFromId($conn,$ref);
                                     <input type="text" class="span6 " name="news_url" value="<?php echo $result['news_url'];?>"/>
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
-                            </div>                            
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">News Image</label>
+                                <div class="controls">
+                                    <input type="file" class="span6" name="file1up" />                              
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">News Featured Image</label>
+                                <div class="controls">
+                                    <input type="file" class="span6" name="news_featuredimageup"  />                              
+                                </div>
+                            </div>    
+                                                
                             <div class="control-group">
                                 <label class="control-label"> Status</label>
                                 <div class="controls">
@@ -263,7 +277,25 @@ $result=selectNewsFromId($conn,$ref);
 </html>
 <?php
 if(isset($_POST['updateBtn'])){
-    if(updateNews($conn,$_POST,$ref)){
+   $fileName = $_FILES['file1up']['name'];
+    $tmp_name=$_FILES['file1up']['tmp_name'];
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+    $fileNameNew = uniqid('',true).".".$fileActualExt;
+    $path='../newsImage/'.$fileNameNew;
+    chmod('uploads/',0777);
+    move_uploaded_file($tmp_name, $path);
+
+    // for featured image
+    $fileName1 = $_FILES['news_featuredimageup']['name'];
+    $tmp_name1=$_FILES['news_featuredimageup']['tmp_name'];
+    $fileExt1 = explode('.', $fileName1);
+    $fileActualExt1 = strtolower(end($fileExt1));
+    $fileNameNew1 = uniqid('',true).".".$fileActualExt1;
+    $path='../newsFeaturedImage/'.$fileNameNew1;
+    chmod('uploads/',0777);
+    move_uploaded_file($tmp_name1, $path);
+    if(updateNews($conn,$_POST,$ref,$fileNameNew,$fileNameNew1)){
         showMsg('News Updated Successfully');
         redirection('manageNews.php');
     }else{

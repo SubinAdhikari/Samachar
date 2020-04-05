@@ -149,7 +149,7 @@ if(req.readyState==4 && req.status==200){
                         </div>
                         <div class="widget-body form">
                             <!-- BEGIN FORM-->
-                            <form method="POST" accept-charset="utf-8" class="form-horizontal">
+                            <form method="POST" accept-charset="utf-8" class="form-horizontal" enctype="multipart/form-data">
                             <div class="control-group">
                                 <label class="control-label">Heading/Title</label>
                                 <div class="controls">
@@ -213,11 +213,10 @@ if(req.readyState==4 && req.status==200){
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
-                            <!-- <div class="control-group">
+                            <div class="control-group">
                                 <label class="control-label">News Image</label>
                                 <div class="controls">
-                                    <input type="file" class="span6 " name="news_image" />
-                                    
+                                    <input type="file" class="span6" name="file1" />                              
                                 </div>
                             </div>
                             <div class="control-group">
@@ -226,7 +225,7 @@ if(req.readyState==4 && req.status==200){
                                     <input type="file" class="span6 " name="news_featuredimage" />
                                     
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="control-group">
                                 <label class="control-label"> Status</label>
                                 <div class="controls">
@@ -319,8 +318,27 @@ if(req.readyState==4 && req.status==200){
 </html>
 <?php
 if(isset($_POST['addNews'])){
+  // for image
+    $fileName = $_FILES['file1']['name'];
+    $tmp_name=$_FILES['file1']['tmp_name'];
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+    $fileNameNew = uniqid('',true).".".$fileActualExt;
+    $path='../newsImage/'.$fileNameNew;
+    chmod('uploads/',0777);
+    move_uploaded_file($tmp_name, $path);
+
+    // for featured image
+    $fileName1 = $_FILES['news_featuredimage']['name'];
+    $tmp_name1=$_FILES['news_featuredimage']['tmp_name'];
+    $fileExt1 = explode('.', $fileName1);
+    $fileActualExt1 = strtolower(end($fileExt1));
+    $fileNameNew1 = uniqid('',true).".".$fileActualExt1;
+    $path='../newsFeaturedImage/'.$fileNameNew1;
+    chmod('uploads/',0777);
+    move_uploaded_file($tmp_name1, $path);
 // print_r($_POST);
-if(insertNews($conn, $_POST)){
+if(insertNews($conn, $_POST, $fileNameNew, $fileNameNew1)){
     echo '<script language="javascript">';
     echo '</script>';
     showMsg('News Created Successfully');

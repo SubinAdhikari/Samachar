@@ -102,7 +102,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <?php $allNews=getAllNewsDetails($conn);
+                            <?php $allNews=getAllTrashNewsDetails($conn);
                             //dump($allNews);
                             foreach ($allNews as $key => $news):
                                 
@@ -135,10 +135,10 @@
                                 <span class="label label-sm label-danger">
                                   No</span>
                               <?php endif; ?></td>
-                                <td class="hidden-phone"><a href="editNews.php?ref=<?php echo $news['news_id'];?>" class="btn btn-xs btn-info">
-                                  Edit
+                                <td class="hidden-phone"><a href="restoreDeletedNews.php?ref=<?php echo $news['trash_id'];?>" class="btn btn-xs btn-info">
+                                  Restore
                                 </a>
-                                <a href="deleteNews.php?ref=<?php echo $news['news_id'];?>" onclick="return confirm('Really Deleting that News??');" class="btn btn-xs btn-danger">
+                                <a href="deleteTrashNews.php?ref=<?php echo $news['trash_id'];?>" onclick="return confirm('Really Deleting that News??');" class="btn btn-xs btn-danger">
                                   Delete
                                 </a></td> 
                             </tr>

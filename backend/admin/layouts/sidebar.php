@@ -59,6 +59,17 @@
                      
                   </ul>
               </li>
+              <li class="sub-menu">
+                  <a href="javascript:;" class="">
+                      <i class="icon-th"></i>
+                      <span>Trash</span>
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="manageTrash.php">Manage News</a></li>
+                     
+                  </ul>
+              </li>
               <!-- <li class="sub-menu">
                   <a href="javascript:;" class="">
                       <i class="icon-fire"></i>

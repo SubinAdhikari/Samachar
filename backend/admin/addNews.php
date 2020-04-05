@@ -186,7 +186,7 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label">News Sub-Catagory</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" "  name="category_name" id="subCategory" onchange="fetchSubCategoryId(this.value)">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1"   name="category_name" id="subCategory" onchange="fetchSubCategoryId(this.value)">
                                     </select>
                                 </div>
                             </div>
@@ -202,7 +202,7 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label">News Details</label>
                                 <div class="controls">
-                                    <textarea class="span12 ckeditor" name="editor1" rows="6"></textarea>
+                                    <textarea class="span12 ckeditor" name="news_details" rows="6"></textarea>
                                  </div>                               
                             </div>    
                             

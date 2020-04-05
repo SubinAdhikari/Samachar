@@ -5,7 +5,7 @@ $result=selectNewsFromId($conn,$ref);
 // print_r($result['category_id']);
 // print_r($categoryNameAndID);
 ?>
-
+   
    <!-- END HEADER -->
    <!-- BEGIN CONTAINER -->
    <div id="container" class="row-fluid">
@@ -50,7 +50,7 @@ $result=selectNewsFromId($conn,$ref);
                    <!-- END THEME CUSTOMIZER-->
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                    <h3 class="page-title">
-                     Add Subcatagory
+                     Add News
                    </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -62,7 +62,7 @@ $result=selectNewsFromId($conn,$ref);
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Edit News
+                           Add News
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -84,16 +84,16 @@ $result=selectNewsFromId($conn,$ref);
 
             <div class="row-fluid">
                 <div class="span12">
-                    <!-- BEGIN SAMPLE FORMPORTLET-->
-                    <div class="widget green">
+                    <!-- BEGIN  widget-->
+                    <div class="widget yellow">
                         <div class="widget-title">
-                            <h4><i class="icon-reorder"></i> Add sub-catagory Form </h4>
-                            <span class="tools">
-                            <a href="javascript:;" class="icon-chevron-down"></a>
-                            <a href="javascript:;" class="icon-remove"></a>
-                            </span>
+                            <h4><i class="icon-reorder"></i> Add News</h4>
+                        <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>
                         </div>
-                        <div class="widget-body">
+                        <div class="widget-body form">
                             <!-- BEGIN FORM-->
                             <form method="POST" accept-charset="utf-8" class="form-horizontal">
 
@@ -145,7 +145,13 @@ $result=selectNewsFromId($conn,$ref);
                                     <option value="<?php echo $result['subcategory_id']; ?>"><?php echo $result['subcategory_id']; ?></option>
                                     </select>
                                 </div>
-                            </div>                               
+                            </div>  
+                            <div class="control-group">
+                                <label class="control-label">News Details</label>
+                                <div class="controls">
+                                    <textarea class="span12 ckeditor" name="news_deails" rows="6"><?php echo $result['news_deails']; ?></textarea>
+                                 </div>                               
+                            </div>                              
                             <div class="control-group">
                                 <label class="control-label">News Url</label>
                                 <div class="controls">
@@ -192,12 +198,13 @@ $result=selectNewsFromId($conn,$ref);
                             <!-- END FORM-->
                         </div>
                     </div>
-                    <!-- END SAMPLE FORM PORTLET-->
+                    <!-- END EXTRAS widget-->
                 </div>
             </div>
 
 
 
+            
 
             <!-- END PAGE CONTENT-->         
          </div>
@@ -211,18 +218,19 @@ $result=selectNewsFromId($conn,$ref);
    <div id="footer">
        2013 &copy; Metro Lab Dashboard.
    </div>
-
- 
    <!-- END FOOTER -->
 
    <!-- BEGIN JAVASCRIPTS -->
    <!-- Load javascripts at bottom, this will reduce page load time -->
    <script src="js/jquery-1.8.3.min.js"></script>
    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+   <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
    <script type="text/javascript" src="assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>
    <script type="text/javascript" src="assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+   <!-- <script type="text/javascript" src="assets/bootstrap/js/bootstrap-fileupload.js"></script> -->
    <script src="assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+   <!-- <script src="js/jquery.blockui.js"></script> -->
 
    <!-- ie8 fixes -->
    <!--[if lt IE 9]>
@@ -246,9 +254,10 @@ $result=selectNewsFromId($conn,$ref);
    <script src="js/home-page-calender.js"></script>
    <script src="js/home-chartjs.js"></script>
 
-
-
    <!-- END JAVASCRIPTS -->   
+
+   <!--script for this page-->
+   <script src="js/form-component.js"></script>
 </body>
 <!-- END BODY -->
 </html>

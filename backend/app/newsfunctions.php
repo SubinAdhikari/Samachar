@@ -28,12 +28,12 @@ function subCategoryIdFetchByName($conn,$subCategoryName){
  	return $stmtSelect->fetchAll();
 }
 function insertNews($conn, $data){
-	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_title`,`category_id`,`subcategory_id`,	`news_url`,`is_active`,`top_news`) VALUES (:news_title, :category_id, :subcategory_id,  :news_url, :is_active, :top_news)");
+	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_title`,`category_id`,`subcategory_id`,`news_deails`,`news_url`,`is_active`,`top_news`) VALUES (:news_title, :category_id, :subcategory_id,:news_details, :news_url, :is_active, :top_news)");
 
 	$stmtinsert->bindParam(':news_title', $data['news_title']);
     $stmtinsert->bindParam(':category_id', $data['category_id']);
     $stmtinsert->bindParam(':subcategory_id', $data['subcategory_id']);
-    // $stmtinsert->bindParam(':news_deails', $data['news_deails']);
+    $stmtinsert->bindParam(':news_details', $data['news_details']);
     $stmtinsert->bindParam(':news_url', $data['news_url']);
     $stmtinsert->bindParam(':is_active', $data['is_active']);
     $stmtinsert->bindParam(':top_news', $data['top_news']);
@@ -72,9 +72,10 @@ function selectNewsFromId($conn,$newsId){
     return $stmtSelect->fetch();
 }
 function updateNews($conn, $data, $ref){
-    $stmtupdate=$conn->prepare("UPDATE tblnews SET news_title=:news_title, news_url=:news_url,  is_active=:is_active,top_news=:top_news WHERE news_id=:news_id");
+    $stmtupdate=$conn->prepare("UPDATE tblnews SET news_title=:news_title, news_deails=:news_deails ,news_url=:news_url,  is_active=:is_active,top_news=:top_news WHERE news_id=:news_id");
 
     $stmtupdate->bindParam(':news_title', $data['news_title']);
+    $stmtupdate->bindParam(':news_deails', $data['news_deails']);
     $stmtupdate->bindParam(':news_url', $data['news_url']);
     $stmtupdate->bindParam(':top_news', $data['top_news']);
     $stmtupdate->bindParam(':is_active', $data['is_active']);

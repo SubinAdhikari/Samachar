@@ -55,7 +55,7 @@
                   </a>
                   <ul class="sub">
                       <li><a class="" href="addNews.php">Add News</a></li>
-                      <li><a class="" href="editNews.php">Edit News</a></li>
+                      <li><a class="" href="manageNews.php">Manage News</a></li>
                      
                   </ul>
               </li>

@@ -1,9 +1,12 @@
-
-
-<!-- HEADER HERE -->
-<?php
-include 'layouts/header.php';
+<?php include 'layouts/header.php';
+$categoryName=retriveCategories($conn);
+$ref=$_GET['ref'];
+$result=selectNewsFromId($conn,$ref);
+// print_r($result['category_id']);
+// print_r($categoryNameAndID);
 ?>
+
+   <!-- END HEADER -->
    <!-- BEGIN CONTAINER -->
    <div id="container" class="row-fluid">
       <!-- BEGIN SIDEBAR -->
@@ -17,10 +20,9 @@ include 'layouts/header.php';
             </form>
          </div>
          <!-- END RESPONSIVE QUICK SEARCH FORM -->
-        <!-- SIDEBAR HERE -->
-        <?php
-include 'layouts/sidebar.php';
-?>
+         <!-- BEGIN SIDEBAR MENU -->
+          <?php include'layouts/sidebar.php'; ?>
+         <!-- END SIDEBAR MENU -->
       </div>
       </div>
       <!-- END SIDEBAR -->
@@ -48,7 +50,7 @@ include 'layouts/sidebar.php';
                    <!-- END THEME CUSTOMIZER-->
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                    <h3 class="page-title">
-                     Catagory Details
+                     Add Subcatagory
                    </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -56,11 +58,11 @@ include 'layouts/sidebar.php';
                            <span class="divider">/</span>
                        </li>
                        <li>
-                           <a href="#">catagory</a>
+                           <a href="#">News</a>
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Catagory List
+                           Edit News
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -76,73 +78,126 @@ include 'layouts/sidebar.php';
             </div>
             <!-- END PAGE HEADER-->
             <!-- BEGIN PAGE CONTENT-->
-            
- <!-- BEGIN ADVANCED TABLE widget-->
- <div class="row-fluid">
+           
+
+
+
+            <div class="row-fluid">
                 <div class="span12">
-                <!-- BEGIN EXAMPLE TABLE widget-->
-                <div class="widget red">
-                    <div class="widget-title">
-                        <h4><i class="icon-reorder"></i> Catagroy List</h4>
+                    <!-- BEGIN SAMPLE FORMPORTLET-->
+                    <div class="widget green">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i> Add sub-catagory Form </h4>
                             <span class="tools">
-                                <a href="javascript:;" class="icon-chevron-down"></a>
-                                <a href="javascript:;" class="icon-remove"></a>
+                            <a href="javascript:;" class="icon-chevron-down"></a>
+                            <a href="javascript:;" class="icon-remove"></a>
                             </span>
+                        </div>
+                        <div class="widget-body">
+                            <!-- BEGIN FORM-->
+                            <form method="POST" accept-charset="utf-8" class="form-horizontal">
+
+                            <div class="control-group">
+                                <label class="control-label">Heading/Title</label>
+                                <div class="controls">
+                                    <input type="text" class="span6 " name="news_title" value="<?php echo $result['news_title'];?>"/>
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>  
+                            <div class="control-group">
+                                <label class="control-label"> Category Name</label>
+                                <div class="controls">
+                                <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1"  id="selCSI" readonly>
+                                  <?php $categoryNames=getCategoryNameByCategoryId($conn,$result['category_id']); 
+                                $categoryName = implode("", $categoryNames);  ?>
+                                        <option value="<?php echo $categoryName; ?>"><?php echo $categoryName; ?></option>
+                                        
+                                        <!-- <option>catagory1</option>
+                                        <option>catagory2</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Category Id</label>
+                                <div class="controls">
+                                    <select name="category_id" id="categoryid" class="span6" readonly>
+                                    <option value="<?php echo $result['category_id']; ?>"><?php echo $result['category_id']; ?></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"> Sub-Category Name</label>
+                                <div class="controls">
+                                <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1"  id="selCSI" readonly>
+                                  <?php $subCategoryNames=getSubCategoryNameByCategoryId($conn,$result['subcategory_id']); 
+                                $subCategoryName = implode("", $subCategoryNames);  ?>
+                                        <option value="<?php echo $subCategoryName; ?>"><?php echo $subCategoryName; ?></option>
+                                        
+                                        <!-- <option>catagory1</option>
+                                        <option>catagory2</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Sub-Category Id</label>
+                                <div class="controls">
+                                    <select name="category_id" id="categoryid" class="span6" readonly>
+                                    <option value="<?php echo $result['subcategory_id']; ?>"><?php echo $result['subcategory_id']; ?></option>
+                                    </select>
+                                </div>
+                            </div>                               
+                            <div class="control-group">
+                                <label class="control-label">News Url</label>
+                                <div class="controls">
+                                    <input type="text" class="span6 " name="news_url" value="<?php echo $result['news_url'];?>"/>
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>                            
+                            <div class="control-group">
+                                <label class="control-label"> Status</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
+                                    <optgroup label="Select status">                        
+                                                    <option <?php if($result['is_active']=='active')
+                                                     echo 'selected="selected"'; ?>
+                                                    value="active">Active</option>
+                                                    <option <?php if($result['is_active']=='inactive')
+                                                     echo 'selected="selected"'; ?>
+                                                    value="inactive">Inactive</option>
+                                    </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"> Topnews</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="top_news" id="selCSI">
+                                    <optgroup label="Select status">                        
+                                                    <option <?php if($result['top_news']=='yes')
+                                                     echo 'selected="selected"'; ?>
+                                                    value="yes">Yes</option>
+                                                    <option <?php if($result['top_news']=='no')
+                                                     echo 'selected="selected"'; ?>
+                                                    value="no">No</option>
+                                    </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success" name="updateBtn">Update</button>
+                                <button type="button" class="btn">Cancel</button>
+                            </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
                     </div>
-                    <div class="widget-body">
-                        <table class="table table-striped table-bordered" id="sample_1">
-                            <thead>
-                            <tr>
-                                <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
-                                <th>Registration Number</th>
-                                <th class="hidden-phone">Name</th>
-                                <th class="hidden-phone">Contact Number</th>
-                                <th class="hidden-phone">Address</th>
-                                <th class="hidden-phone">Details</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                                                              
-                                ?>
-                            <tr class="odd gradeX">
-                                <td><input type="checkbox" class="checkboxes" value="1" /></td>
-                                <td></td>
-                                <td class="hidden-phone"></td>
-                                <td class="hidden-phone"></td>
-                                <td class="center hidden-phone"></td>
-                                <!-- <td class="hidden-phone"><span class="label label-success">Approved</span></td> -->
-                                <td class="hidden-phone"><a href="editNewsDetails.php?ref=<?php echo 1;?>">Edit</a></td>
-                            </tr>
-                            <?php ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- END EXAMPLE TABLE widget-->
+                    <!-- END SAMPLE FORM PORTLET-->
                 </div>
             </div>
 
-            <!-- END ADVANCED TABLE widget-->
 
 
-
-
-
-
-
-            
-
-            <!-- END PAGE CONTENT-->         
-         </div>
-
-
- 
-
-
-
-
-            
 
             <!-- END PAGE CONTENT-->         
          </div>
@@ -156,6 +211,8 @@ include 'layouts/sidebar.php';
    <div id="footer">
        2013 &copy; Metro Lab Dashboard.
    </div>
+
+ 
    <!-- END FOOTER -->
 
    <!-- BEGIN JAVASCRIPTS -->
@@ -189,29 +246,22 @@ include 'layouts/sidebar.php';
    <script src="js/home-page-calender.js"></script>
    <script src="js/home-chartjs.js"></script>
 
+
+
    <!-- END JAVASCRIPTS -->   
-   
-
-<!-- MAKE TABLE DYNAMIC -->
-    <!-- BEGIN JAVASCRIPTS -->
-   <!-- Load javascripts at bottom, this will reduce page load time -->
-   <script src="js/jquery.blockui.js"></script>
-   <!-- ie8 fixes -->
-   <!--[if lt IE 9]>
-   <script src="js/excanvas.js"></script>
-   <script src="js/respond.js"></script>
-   <![endif]-->
-   <script type="text/javascript" src="assets/uniform/jquery.uniform.min.js"></script>
-   <script type="text/javascript" src="assets/data-tables/jquery.dataTables.js"></script>
-   <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
-
-
-   <!--common script for all pages-->
-
-   <!--script for this page only-->
-   <script src="js/dynamic-table.js"></script>
-
-   <!-- END JAVASCRIPTS FOR DYNAMIC TABLE -->   
 </body>
 <!-- END BODY -->
 </html>
+<?php
+if(isset($_POST['updateBtn'])){
+    if(updateNews($conn,$_POST,$ref)){
+        showMsg('News Updated Successfully');
+        redirection('manageNews.php');
+    }else{
+        echo '<script language="javascript">';
+        echo 'alert("Failed to Update News ")';
+        echo '</script>';
+    }
+
+}
+?>

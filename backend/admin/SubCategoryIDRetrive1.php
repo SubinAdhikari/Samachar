@@ -2,32 +2,10 @@
 session_start();
 include '../app/call.php';
 
-// $categoryName=$_GET['categoryName'];
- 
-// $message = array(); 
-
-//  $categoryId=subCategoryIdFetch($conn,$categoryName);
-//  $subCategories = getSubCategoriesByCategoryId($conn, $categoryId);
-
-
-// if(isset($categoryId)){
-//     foreach($categoryId as $row => $value){
-//         foreach($value as $key){
-//         	echo "<option value=$key>$key</option>";
-            
-//         }
-//     }
-//     }
 
 $categoryName = $_POST['categoryName'];
-$optionText='';
+$optionText='<option value="">Select Subcategory</option>';
 $categoryId=subCategoryIdFetch1($conn,$categoryName);
-// $subcategories = getSubCategoriesByCategoryId($conn, $categoryId);
-//  foreach($categoryId as $key){
-//      foreach($key as $value){
-//         $subCategories = getSubCategoriesByCategoryId($conn, $value);
-//      }
-//  }
 $abc = implode("", $categoryId);
 $subcategories = getSubCategoriesByCategoryId($conn, $abc);
 

@@ -43,11 +43,19 @@ $.ajax({
       }
 
         
-    });
-// alert(123); 
+    });       
+}
+function fetchSubCategoryId(str){
+var req=new XMLHttpRequest();
+req.open("GET","SubCategoryIDRetrive2.php?subCategoryName="+str,true);
+req.send();
 
-           
-
+req.onreadystatechange=function(){
+if(req.readyState==4 && req.status==200){
+    document.getElementById("subcategoryid").innerHTML=req.responseText;
+}
+}; 
+// alert(123);  
 }
 
  
@@ -141,7 +149,7 @@ $.ajax({
                         </div>
                         <div class="widget-body form">
                             <!-- BEGIN FORM-->
-                            <form action="#" class="form-horizontal">
+                            <form method="POST" accept-charset="utf-8" class="form-horizontal">
                             <div class="control-group">
                                 <label class="control-label">Heading/Title</label>
                                 <div class="controls">
@@ -178,7 +186,7 @@ $.ajax({
                             <div class="control-group">
                                 <label class="control-label">News Sub-Catagory</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" "  name="category_name" id="subCategory">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" "  name="category_name" id="subCategory" onchange="fetchSubCategoryId(this.value)">
                                     </select>
                                 </div>
                             </div>
@@ -191,17 +199,57 @@ $.ajax({
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
-                                <div class="control-group">
-                                    <label class="control-label">News</label>
-                                    <div class="controls">
-                                        <textarea class="span12 ckeditor" name="editor1" rows="6"></textarea>
-                                        <div class="form-actions">
-                                    <button class="btn btn-success"  type="submit">Add News</button>
+                            <div class="control-group">
+                                <label class="control-label">News Details</label>
+                                <div class="controls">
+                                    <textarea class="span12 ckeditor" name="editor1" rows="6"></textarea>
+                                 </div>                               
+                            </div>    
+                            
+                            <div class="control-group">
+                                <label class="control-label">News Url</label>
+                                <div class="controls">
+                                    <input type="text" class="span6 " name="news_url" />
+                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
-                                    </div>
+                            </div>
+                            <!-- <div class="control-group">
+                                <label class="control-label">News Image</label>
+                                <div class="controls">
+                                    <input type="file" class="span6 " name="news_image" />
                                     
                                 </div>
-                                
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Featured Image</label>
+                                <div class="controls">
+                                    <input type="file" class="span6 " name="news_featuredimage" />
+                                    
+                                </div>
+                            </div> -->
+                            <div class="control-group">
+                                <label class="control-label"> Status</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
+                                        <option value="">Select</option>
+                                        <option value="active">Active</option>
+                                        <option value="inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"> Top News</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="top_news" id="selCSI">
+                                        <option value="">Select</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                            </div>       
+                             <div class="form-actions">
+                                <button class="btn btn-success" name="addNews" type="submit">Add News</button>
+                            </div>   
                             </form>
                             <!-- END FORM-->
                         </div>
@@ -269,3 +317,21 @@ $.ajax({
 </body>
 <!-- END BODY -->
 </html>
+<?php
+if(isset($_POST['addNews'])){
+// print_r($_POST);
+if(insertNews($conn, $_POST)){
+    echo '<script language="javascript">';
+    echo '</script>';
+    showMsg('News Created Successfully');
+    redirection('manageNews.php');
+    
+}else{
+    echo '<script language="javascript">';
+    echo 'alert("Failed to create new Admin ")';
+    echo '</script>';
+}
+
+}
+
+?>

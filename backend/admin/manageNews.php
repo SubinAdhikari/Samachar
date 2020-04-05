@@ -125,9 +125,13 @@
                                 <td class="hidden-phone"><?php echo $news['news_url']; ?></td>
                                 <td><?php 
                                   $s=$news['news_image'];
-                                
+                                  $arr = explode(",", $s);
+                                    foreach ($arr as $value) {
+                                      
+                                    
                                    ?>
-                                     <img src="../newsImage/<?php echo $s; ?>" alt="News Image" width="200px"/>
+                                     <img src="../newsImage/<?php echo $value; ?>" alt="News Image" width="200px"/><hr/>
+                                   <?php } ?>
                                 </td>
                                 <td><?php 
                                   $featuredImg=$news['news_featuredimage'];

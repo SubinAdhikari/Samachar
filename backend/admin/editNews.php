@@ -162,7 +162,7 @@ $result=selectNewsFromId($conn,$ref);
                             <div class="control-group">
                                 <label class="control-label">News Image</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" name="file1up" />                              
+                                    <input type="file" class="span6" name="file1up[]" multiple />                              
                                 </div>
                             </div>
 
@@ -277,14 +277,20 @@ $result=selectNewsFromId($conn,$ref);
 </html>
 <?php
 if(isset($_POST['updateBtn'])){
-   $fileName = $_FILES['file1up']['name'];
-    $tmp_name=$_FILES['file1up']['tmp_name'];
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
-    $fileNameNew = uniqid('',true).".".$fileActualExt;
-    $path='../newsImage/'.$fileNameNew;
-    chmod('uploads/',0777);
-    move_uploaded_file($tmp_name, $path);
+    $fileNamesInString='';
+    $countfiles = count($_FILES['file1up']['name']);
+    for($i=0;$i<$countfiles;$i++){
+      $fileName = $_FILES['file1up']['name'][$i];
+      $tmp_name=$_FILES['file1up']['tmp_name'][$i];
+      $fileExt = explode('.', $fileName);
+      $fileActualExt = strtolower(end($fileExt));
+      $fileNameNew = uniqid('',true).".".$fileActualExt;
+      $fileNamesInString.=$fileNameNew.",";
+      $path='../newsImage/'.$fileNameNew;
+      chmod('uploads/',0777);
+      move_uploaded_file($tmp_name, $path);
+    }
+    $fileNamesInString = rtrim($fileNamesInString, ",");
 
     // for featured image
     $fileName1 = $_FILES['news_featuredimageup']['name'];
@@ -295,7 +301,7 @@ if(isset($_POST['updateBtn'])){
     $path='../newsFeaturedImage/'.$fileNameNew1;
     chmod('uploads/',0777);
     move_uploaded_file($tmp_name1, $path);
-    if(updateNews($conn,$_POST,$ref,$fileNameNew,$fileNameNew1)){
+    if(updateNews($conn,$_POST,$ref,$fileNamesInString,$fileNameNew1)){
         showMsg('News Updated Successfully');
         redirection('manageNews.php');
     }else{

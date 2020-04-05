@@ -216,7 +216,7 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label">News Image</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" name="file1" />                              
+                                    <input type="file" class="span6" name="file1[]" multiple />                              
                                 </div>
                             </div>
                             <div class="control-group">
@@ -319,16 +319,22 @@ if(req.readyState==4 && req.status==200){
 <?php
 if(isset($_POST['addNews'])){
   // for image
-    $fileName = $_FILES['file1']['name'];
-    $tmp_name=$_FILES['file1']['tmp_name'];
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
-    $fileNameNew = uniqid('',true).".".$fileActualExt;
-    $path='../newsImage/'.$fileNameNew;
-    chmod('uploads/',0777);
-    move_uploaded_file($tmp_name, $path);
-
+    $fileNamesInString='';
+    $countfiles = count($_FILES['file1']['name']);
+    for($i=0;$i<$countfiles;$i++){
+      $fileName = $_FILES['file1']['name'][$i];
+      $tmp_name=$_FILES['file1']['tmp_name'][$i];
+      $fileExt = explode('.', $fileName);
+      $fileActualExt = strtolower(end($fileExt));
+      $fileNameNew = uniqid('',true).".".$fileActualExt;
+      $fileNamesInString.=$fileNameNew.","; 
+      $path='../newsImage/'.$fileNameNew;
+      chmod('uploads/',0777);
+      move_uploaded_file($tmp_name, $path);
+    }
+    $fileNamesInString = rtrim($fileNamesInString, ",");
     // for featured image
+
     $fileName1 = $_FILES['news_featuredimage']['name'];
     $tmp_name1=$_FILES['news_featuredimage']['tmp_name'];
     $fileExt1 = explode('.', $fileName1);
@@ -338,7 +344,7 @@ if(isset($_POST['addNews'])){
     chmod('uploads/',0777);
     move_uploaded_file($tmp_name1, $path);
 // print_r($_POST);
-if(insertNews($conn, $_POST, $fileNameNew, $fileNameNew1)){
+if(insertNews($conn, $_POST, $fileNamesInString, $fileNameNew1)){
     echo '<script language="javascript">';
     echo '</script>';
     showMsg('News Created Successfully');

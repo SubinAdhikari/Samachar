@@ -97,6 +97,7 @@
                                 <th>Sub-Category Name</th>                                
                                 <th class="hidden-phone">News Url</th>
                                 <th class="hidden-phone">Image</th>
+                                <th class="hidden-phone">Featured Image</th>
                                 <th class="hidden-phone">Status</th>
                                 <th class="hidden-phone">Top News</th>
                                 <th class="hidden-phone">Action</th>

@@ -6,4 +6,5 @@ require 'adminfunctions.php';
 require 'categoryfunction.php';
 require 'subCategoryfunction.php';
 require 'newsfunctions.php';
+require 'frontendfunctions.php';
 ?>

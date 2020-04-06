@@ -44,4 +44,10 @@ function getNewsByCategoryID($conn,$key){
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
  	return $stmtSelect->fetchAll();
 }
+function GetLatestThreeNews($conn){
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews ORDER BY news_id DESC LIMIT 3 ");
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
+}
 ?>

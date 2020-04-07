@@ -219,7 +219,7 @@ $result=selectNewsFromId($conn,$ref);
 			<div class="wrap-logo container">
 				<!-- Logo desktop -->		
 				<div class="logo">
-					<a href="index.html"><img src="images/icons/logo-01.png" alt="LOGO"></a>
+					<a href="index.html"><img src="images/icons/samachar.png" alt="LOGO"></a>
 				</div>	
 
 				<!-- Banner -->
@@ -427,7 +427,51 @@ $result=selectNewsFromId($conn,$ref);
 								</div>
 							</div>
 						</div>
+						<!-- Comment Section -->
 
+
+						<div>
+							<h4 class="f1-l-4 cl3 p-b-12">
+								Comments
+							</h4>	
+							<ul class="p-t-35">
+								<?php
+									$comments = getAllCommentsByNewsId($conn, $ref);
+									foreach ($comments as $comment ) {
+										# code...
+										if ($comment['is_active']=='active') {
+											# code...
+										
+									
+							
+								?>
+								<li class="flex-wr-sb-s p-b-30">									
+									<div class="size-w-11">
+										<h5 class="p-b-4">
+											
+												<b><?php echo $comment['name'];?></b>
+											
+										</h6>
+
+										<span class="cl8 txt-center p-b-24">
+											
+												<?php echo $comment['comment'];?>
+											<span class="f1-s-3 m-rl-3">
+												-
+											</span>
+
+											<span class="f1-s-3">
+												<?php echo $comment['postingDate'];?>
+											</span>
+										</span>
+									</div>
+								</li>
+							<?php }} ?>
+								
+							</ul>
+								
+							
+						</div>
 						<!-- Leave a comment -->
 						<div>
 							<h4 class="f1-l-4 cl3 p-b-12">
@@ -438,18 +482,15 @@ $result=selectNewsFromId($conn,$ref);
 								Your email address will not be published. Required fields are marked *
 							</p>
 
-							<form>
-								<textarea class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" name="msg" placeholder="Comment..."></textarea>
+							<form method="POST">
+								<textarea class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" name="comment" placeholder="Comment..."></textarea>
 
 								<input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="name" placeholder="Name*">
 
-								<input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="email" placeholder="Email*">
+								<input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="email" name="email" placeholder="Email*">
 
-								<input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="website" placeholder="Website">
-
-								<button class="size-a-17 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-10">
-									Post Comment
-								</button>
+								
+								<input  class="size-a-17 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-10" type="submit" name="submitBtn" value="Post Comment"/>									 								
 							</form>
 						</div>
 					</div>
@@ -892,3 +933,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 </body>
 </html>
+<?php
+if(isset($_POST['submitBtn'])){
+	
+if (!empty($_POST['name'])) {
+		# code...
+	
+if(insertComment($conn, $_POST, $ref)){
+
+    redirection("newsDetail.php?ref=$ref");
+    
+}}else{
+    
+    echo 'alert("Failed to create new comment ")';
+    
+}
+
+}
+
+?>

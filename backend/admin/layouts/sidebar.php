@@ -6,7 +6,7 @@
                   </a>
               </li>
               <li>
-                  <a class="" href="../../frontend/index.html">
+                  <a class="" href="../../frontend/index.php">
                     <i class="icon-user"></i>
                     <span>Visit Website</span>
                   </a>
@@ -56,6 +56,8 @@
                   <ul class="sub">
                       <li><a class="" href="addNews.php">Add News</a></li>
                       <li><a class="" href="manageNews.php">Manage News</a></li>
+                      <li><a class="" href="manageComments.php">Manage Comments</a></li>
+
                      
                   </ul>
               </li>

@@ -1,8 +1,8 @@
 <?php
 function insertArticle($conn, $data, $fileNameNew1){
-	$stmtinsert=$conn->prepare("INSERT INTO tblarticle (`article_id`,`article_title`,`article_details`,`article_featuredimage`,`is_active`,`top_article`) VALUES (:article_id, :article_title, :article_details, :article_featuredimage, :is_active, :top_article)");
-
-    $stmtinsert->bindParam(':article_id', $data['article_id']);
+	$stmtinsert=$conn->prepare("INSERT INTO tblarticle (`article_author`,`article_title`,`article_details`,`article_featuredimage`,`is_active`,`top_article`) VALUES (:article_author, :article_title, :article_details, :article_featuredimage, :is_active, :top_article)");
+   
+    $stmtinsert->bindParam(':article_author', $data['article_author']);
     $stmtinsert->bindParam(':article_title', $data['article_title']);
     $stmtinsert->bindParam(':article_details', $data['article_details']);
     $stmtinsert->bindParam(':article_featuredimage', $fileNameNew1);
@@ -20,5 +20,11 @@ function selectArticleFromId($conn,$articleId){
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetch();
+}
+function GetLatestThreeArticles($conn){
+    $stmtSelect = $conn->prepare("SELECT * FROM tblarticle ORDER BY article_id DESC LIMIT 3 ");
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
 }
 ?>

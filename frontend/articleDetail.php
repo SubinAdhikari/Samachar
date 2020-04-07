@@ -336,7 +336,7 @@ $result=selectArticleFromId($conn,$ref);
 							<div class="flex-wr-s-s p-b-40">
 								<span class="f1-s-3 cl8 m-r-15">
 									<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-										by John Alvarado
+										<?php echo $result['article_author']; ?>
 									</a>
 
 									<span class="m-rl-3">-</span>
@@ -655,34 +655,32 @@ $result=selectArticleFromId($conn,$ref);
 								</h3>
 							</div>
 							<?php
-							$latestNewsDetails=GetLatestThreeNews($conn);
+							$latestArticleDetails=GetLatestThreeArticles($conn);
 							// dump($latestNewsDetails);
 							
 								# code...
 							
 							?>
 							<ul class="p-t-35">
-								<?php foreach ($latestNewsDetails as $latestNewsDetail ) {
-									$imageName = $latestNewsDetail['news_featuredimage'];
+								<?php foreach ($latestArticleDetails as $latestArticleDetail ) {
+									$imageName = $latestArticleDetail['article_featuredimage'];
 								?>
 								<li class="flex-wr-sb-s p-b-30">
 									<a href="#" class="size-w-10 wrap-pic-w hov1 trans-03">
 
-										<img src="../backend/newsImage/<?php echo $imageName; ?>" alt="IMG">
+										<img src="../backend/articleFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
 									</a>
 
 									<div class="size-w-11">
 										<h6 class="p-b-4">
 											<a href="blog-detail-02.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-												<?php echo $latestNewsDetail['news_title']; ?>
+												<?php echo $latestArticleDetail['article_title']; ?>
 											</a>
 										</h6>
 
 										<span class="cl8 txt-center p-b-24">
 											<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
-												<?php $categoryNames=getCategoryNameByCategoryId($conn,$latestNewsDetail['category_id']); 
-                                $categoryName = implode("", $categoryNames);  ?>
-												<?php echo $categoryName; ?>
+												<?php echo $latestArticleDetail['article_author']; ?>
 											</a>
 
 											<span class="f1-s-3 m-rl-3">
@@ -690,7 +688,7 @@ $result=selectArticleFromId($conn,$ref);
 											</span>
 
 											<span class="f1-s-3">
-												<?php echo $latestNewsDetail['created_at']; ?>
+												<?php echo $latestArticleDetail['created_at']; ?>
 											</span>
 										</span>
 									</div>

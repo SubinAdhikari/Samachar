@@ -113,6 +113,9 @@
                                 echo $news['news_title']; ?></td>
 
                                 <td class="hidden-phone"><?php
+                                echo $news['news_writtenby']; ?></td>
+
+                                <td class="hidden-phone"><?php
                                 $categoryNames=getCategoryNameByCategoryId($conn,$news['category_id']); 
                                 $categoryName = implode("", $categoryNames);  
                                 echo $categoryName; ?></td>

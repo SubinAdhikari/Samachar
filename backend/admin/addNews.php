@@ -156,7 +156,14 @@ if(req.readyState==4 && req.status==200){
                                     <input type="text" class="span6 " name="news_title" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
-                            </div>  
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Written By</label>
+                                <div class="controls">
+                                    <input type="text" class="span6 " name="news_writtenby" />
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>   
                             <div class="control-group">
                                 <label class="control-label">News Catagory</label>
                                 <div class="controls">

@@ -101,6 +101,13 @@
                                     <input type="text" class="span6 " name="article_title" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
+                            </div> 
+                            <div class="control-group">
+                                <label class="control-label">Auhor</label>
+                                <div class="controls">
+                                    <input type="text" class="span6 " name="article_author" />
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
                             </div>  
                             <div class="control-group">
                                 <label class="control-label">Article Details</label>
@@ -214,7 +221,7 @@ if(isset($_POST['addarticle'])){
     $fileActualExt1 = strtolower(end($fileExt1));
     $fileNameNew1 = uniqid('',true).".".$fileActualExt1;
     $path='../articleFeaturedImage/'.$fileNameNew1;
-    chmod('uploads/',0777);
+    //chmod('uploads/',0777);
     move_uploaded_file($tmp_name1, $path);
 // print_r($_POST);
 if(insertArticle($conn, $_POST, $fileNameNew1)){

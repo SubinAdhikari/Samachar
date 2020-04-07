@@ -105,6 +105,13 @@ $result=selectNewsFromId($conn,$ref);
                                 </div>
                             </div>  
                             <div class="control-group">
+                                <label class="control-label">Written By</label>
+                                <div class="controls">
+                                    <input type="text" class="span6 " name="news_writtenby" value="<?php echo $result['news_writtenby'];?>"/>
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div> 
+                            <div class="control-group">
                                 <label class="control-label"> Category Name</label>
                                 <div class="controls">
                                 <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1"  id="selCSI" readonly>

@@ -93,6 +93,7 @@
                             <tr>
                                 <th style="width:8px;"><input type="hidden" class="group-checkable" data-set="#sample_1 .checkboxes" />S.N</th>
                                 <th>Heading/Title</th>
+                                <th>Written By</th>
                                 <th>Category Name</th>
                                 <th>Sub-Category Name</th>                                
                                 <th class="hidden-phone">News Url</th>
@@ -113,6 +114,9 @@
                                 <td><input type="hidden" class="checkboxes" value="1" /><?php echo ++$key; ?></td>
                                 <td class="hidden-phone"><?php
                                 echo $news['news_title']; ?></td>
+
+                                <td class="hidden-phone"><?php
+                                echo $news['news_writtenby']; ?></td>
 
                                 <td class="hidden-phone"><?php
                                 $categoryNames=getCategoryNameByCategoryId($conn,$news['category_id']); 

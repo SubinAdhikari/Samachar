@@ -194,7 +194,7 @@
 						<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
 
 							<h3 class="how1-child2 m-t-14">
-								<a href="blog-detail-01.html" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+								<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
 									<?php echo $key['news_title']; ?>
 								</a>
 							</h3>

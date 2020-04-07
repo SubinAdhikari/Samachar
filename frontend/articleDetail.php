@@ -356,7 +356,8 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								</span>
 
 								<a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">
-									0 Comment
+									<?php $comments1 = getAllArticleCommentsByArticleId($conn, $ref); ?>
+									<?php echo count($comments1); ?> Comment
 								</a>
 							</div>
 
@@ -442,6 +443,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 							<ul class="p-t-35">
 								<?php
 									$comments = getAllArticleCommentsByArticleId($conn, $ref);
+
 									foreach ($comments as $comment ) {
 										# code...
 										if ($comment['is_active']=='active') {
@@ -656,7 +658,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Latest News
+									Popular Article
 								</h3>
 							</div>
 							<?php

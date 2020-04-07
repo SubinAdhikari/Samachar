@@ -364,7 +364,8 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 								</span>
 
 								<a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">
-									0 Comment
+									<?php $comments1 = getAllCommentsByNewsId($conn, $ref); ?>
+									<?php echo count($comments1); ?> Comment
 								</a>
 							</div>
 
@@ -665,7 +666,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Latest News
+									Popular News
 								</h3>
 							</div>
 							<?php

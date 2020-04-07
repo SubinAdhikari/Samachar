@@ -3,6 +3,20 @@ include '../backend/app/call.php';
 $ref=$_GET['ref'];
 
 $result=selectNewsFromId($conn,$ref);
+
+//  print_r($result);
+// $user_ip=$_SERVER['REMOTE_ADDR'];
+
+// echo $result['news_title'];
+
+
+$news_visit=$result['news_visit'];
+
+
+
+$news_visit=(int)$news_visit + 1 ;
+UpdateNewsVisitPage($conn,$news_visit,$ref);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -346,7 +360,7 @@ $result=selectNewsFromId($conn,$ref);
 								</span>
 
 								<span class="f1-s-3 cl8 m-r-15">
-									5239 Views
+									<?php echo $news_visit; ?> Views
 								</span>
 
 								<a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">

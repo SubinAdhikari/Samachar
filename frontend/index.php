@@ -392,6 +392,7 @@ foreach($forthLastNews as $key){
 													<h5 class="p-b-5">
 														<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03">
 															<?php echo $key['news_title']; ?>
+															
 														</a>
 													</h5>
 
@@ -403,6 +404,7 @@ foreach($forthLastNews as $key){
 														</span>
 
 														<span class="f1-s-3">
+														<?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
 															<?php echo $key['created_at']; ?>
 														</span>
 													</span>
@@ -633,7 +635,7 @@ foreach($forthLastNews as $key){
 
 									<span class="cl8">
 										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											by John Alvarado
+											<?php echo $key['article_author']; ?>
 										</a>
 
 										<span class="f1-s-3 m-rl-3">

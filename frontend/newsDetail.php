@@ -335,7 +335,7 @@ $result=selectNewsFromId($conn,$ref);
 							<div class="flex-wr-s-s p-b-40">
 								<span class="f1-s-3 cl8 m-r-15">
 									<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-										by John Alvarado
+										by <?php echo $result['news_writtenby']; ?>
 									</a>
 
 									<span class="m-rl-3">-</span>

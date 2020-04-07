@@ -6,7 +6,7 @@
                   </a>
               </li>
               <li>
-                  <a class="" href="../../frontend/index.html">
+                  <a class="" href="../../frontend/index.php">
                     <i class="icon-user"></i>
                     <span>Visit Website</span>
                   </a>

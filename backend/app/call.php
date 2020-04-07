@@ -8,5 +8,5 @@ require 'subCategoryfunction.php';
 require 'newsfunctions.php';
 require 'frontendfunctions.php';
 require 'commentfunctions.php';
-
+require 'articlefunctions.php';
 ?>

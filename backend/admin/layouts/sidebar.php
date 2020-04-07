@@ -64,6 +64,17 @@
               <li class="sub-menu">
                   <a href="javascript:;" class="">
                       <i class="icon-th"></i>
+                      <span>News</span>
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="addArticle.php">Add Article</a></li>
+                      <li><a class="" href="manageArticle.php">Manage Article</a></li>                                           
+                  </ul>
+              </li>
+              <li class="sub-menu">
+                  <a href="javascript:;" class="">
+                      <i class="icon-th"></i>
                       <span>Trash</span>
                       <span class="arrow"></span>
                   </a>

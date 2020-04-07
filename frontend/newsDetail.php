@@ -670,7 +670,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 							</div>
 							<?php
 							$latestNewsDetails=GetLatestThreeNews($conn);
-							// dump($latestNewsDetails);
+							
 							
 								# code...
 							

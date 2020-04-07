@@ -157,7 +157,6 @@ function deleteTrashNewsFromTrash($conn, $newsId){
     return false;
 }
 
-
 function UpdateNewsVisitPage($conn,$data,$ref){
     $stmtupdate=$conn->prepare("UPDATE tblnews SET news_visit=:news_visit  WHERE news_id=:news_id");
 

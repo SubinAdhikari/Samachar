@@ -4,6 +4,11 @@ $ref=$_GET['ref'];
 
 $result=selectArticleFromId($conn,$ref);
 //dump($result);
+
+$article_visit=$result['article_views'];
+
+$article_visit=(int)$article_visit + 1 ;
+UpdateArticleVisitPage($conn,$article_visit,$ref);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -347,7 +352,7 @@ $result=selectArticleFromId($conn,$ref);
 								</span>
 
 								<span class="f1-s-3 cl8 m-r-15">
-									5239 Views
+									 <?php echo $article_visit; ?> Views
 								</span>
 
 								<a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">
@@ -436,7 +441,7 @@ $result=selectArticleFromId($conn,$ref);
 							</h4>	
 							<ul class="p-t-35">
 								<?php
-									$comments = getAllCommentsByNewsId($conn, $ref);
+									$comments = getAllArticleCommentsByArticleId($conn, $ref);
 									foreach ($comments as $comment ) {
 										# code...
 										if ($comment['is_active']=='active') {
@@ -937,9 +942,9 @@ if(isset($_POST['submitBtn'])){
 if (!empty($_POST['name'])) {
 		# code...
 	
-if(insertComment($conn, $_POST, $ref)){
+if(insertArticleComment($conn, $_POST, $ref)){
 
-    redirection("newsDetail.php?ref=$ref");
+    redirection("articleDetail.php?ref=$ref");
     
 }}else{
     

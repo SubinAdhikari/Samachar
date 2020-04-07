@@ -22,9 +22,19 @@ function selectArticleFromId($conn,$articleId){
     return $stmtSelect->fetch();
 }
 function GetLatestThreeArticles($conn){
-    $stmtSelect = $conn->prepare("SELECT * FROM tblarticle ORDER BY article_id DESC LIMIT 3 ");
+    $stmtSelect = $conn->prepare("SELECT * FROM tblarticle ORDER BY article_views DESC LIMIT 3 ");
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
+}
+function UpdateArticleVisitPage($conn,$data,$ref){
+    $stmtupdate=$conn->prepare("UPDATE tblarticle SET article_views=:article_views  WHERE article_id=:article_id");
+
+    $stmtupdate->bindParam(':article_views', $data);
+    $stmtupdate->bindParam(':article_id', $ref);
+    if ($stmtupdate->execute()) {
+        return true;
+    }
+    return false;
 }
 ?>

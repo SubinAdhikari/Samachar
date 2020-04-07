@@ -55,3 +55,24 @@ function deleteComment($conn, $commentId){
 	}
 	return false;
 }
+function insertArticleComment($conn, $data, $articleId){
+	$stmtinsert=$conn->prepare("INSERT INTO tblarticlecomment (`article_id`,`name`,`email`,`comment`) VALUES (:article_id, :name, :email, :comment)");
+
+	$stmtinsert->bindParam(':article_id', $articleId);
+	$stmtinsert->bindParam(':name', $data['name']);
+	$stmtinsert->bindParam(':email', $data['email']);
+	$stmtinsert->bindParam(':comment', $data['comment']);
+
+
+	if ($stmtinsert->execute()) {
+		return true;
+	}
+	return false; 
+}
+function getAllArticleCommentsByArticleId($conn, $articleId){
+ 	$stmtSelect = $conn->prepare("SELECT * FROM tblarticlecomment where article_id=:article_id");
+ 	$stmtSelect->bindParam(':article_id',$articleId);
+ 	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetchAll();
+}

@@ -64,7 +64,7 @@
               <li class="sub-menu">
                   <a href="javascript:;" class="">
                       <i class="icon-th"></i>
-                      <span>News</span>
+                      <span>Article</span>
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">

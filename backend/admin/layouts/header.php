@@ -13,7 +13,7 @@ if (!checkAdminLogin()) {
 <!-- BEGIN HEAD -->
 <head>
    <meta charset="utf-8" />
-   <title>Metro Lab</title>
+   <title>Admin Panel</title>
    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
    <meta content="" name="description" />
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -43,7 +43,7 @@ if (!checkAdminLogin()) {
                </div>
                <!--END SIDEBAR TOGGLE-->
                <!-- BEGIN LOGO -->
-               <a class="brand" href="index.html">
+               <a class="brand" href="index.php">
                    <img src="img/logo.png" alt="Metro Lab" />
                </a>
                <!-- END LOGO -->

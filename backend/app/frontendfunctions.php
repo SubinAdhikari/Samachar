@@ -10,7 +10,7 @@ function selectSubcategoryFromCategoryId($conn,$key){
 	$stmtSelect = $conn->prepare("SELECT subcategory_name FROM tblsubcategory WHERE category_id=:category_id");
     $stmtSelect->bindParam(':category_id',$key);
  	$stmtSelect->execute();
- 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC); 
  	return $stmtSelect->fetchAll();
 }
 function GetLatestNews($conn){
@@ -64,5 +64,10 @@ function getCategoryDetailByCategoryID($conn,$key){
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
     }
-
+function selectLatestArticle($conn){
+    $stmtSelect = $conn->prepare("SELECT * FROM tblarticle ORDER BY article_id DESC LIMIT 6 ");
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
+}
 ?>

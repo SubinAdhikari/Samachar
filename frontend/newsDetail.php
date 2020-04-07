@@ -91,7 +91,7 @@ $result=selectNewsFromId($conn,$ref);
 			<div class="wrap-header-mobile">
 				<!-- Logo moblie -->		
 				<div class="logo-mobile">
-					<a href="index.html"><img src="images/icons/samachar.png" alt="IMG-LOGO"></a>
+					<a href="index.php"><img src="images/icons/samachar.png" alt="IMG-LOGO"></a>
 				</div>
 
 				<!-- Button show menu -->
@@ -219,7 +219,7 @@ $result=selectNewsFromId($conn,$ref);
 			<div class="wrap-logo container">
 				<!-- Logo desktop -->		
 				<div class="logo">
-					<a href="index.html"><img src="images/icons/samachar.png" alt="LOGO"></a>
+					<a href="index.php"><img src="images/icons/samachar.png" alt="LOGO"></a>
 				</div>	
 
 				<!-- Banner -->
@@ -668,7 +668,7 @@ $result=selectNewsFromId($conn,$ref);
 								<li class="flex-wr-sb-s p-b-30">
 									<a href="#" class="size-w-10 wrap-pic-w hov1 trans-03">
 
-										<img src="../backend/newsImage/<?php echo $imageName; ?>" alt="IMG">
+										<img src="../backend/newsFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
 									</a>
 
 									<div class="size-w-11">

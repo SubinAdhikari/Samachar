@@ -90,7 +90,7 @@
 			<div class="wrap-logo container">
 				<!-- Logo desktop -->		
 				<div class="logo">
-					<a href="index.html"><img src="images/icons/samachar.png" alt="LOGO"></a>
+					<a href="index.php"><img src="images/icons/samachar.png" alt="LOGO"></a>
 				</div>	
 
 				<!-- Banner -->
@@ -611,17 +611,23 @@ foreach($forthLastNews as $key){
 					</div>
 
 					<div class="row p-t-35">
+					<?php 
+							$LatestSixArticle=selectLatestArticle($conn);
+							// print_r($LatestSixArticle);
+							foreach($LatestSixArticle as $key){
+							?>
 						<div class="col-sm-6 p-r-25 p-r-15-sr991">
-							<!-- Item latest -->	
+							<!-- Item latest -->
+								
 							<div class="m-b-45">
-								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-01.jpg" alt="IMG">
+								<a href="articleDetail.php?ref=<?php echo $key['article_id']; ?>" class="wrap-pic-w hov1 trans-03">
+									<img src="../backend/articleFeaturedImage/<?php echo $key['article_featuredimage']; ?>" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
 									<h5 class="p-b-5">
-										<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-											Latest Articles 1 
+										<a href="articleDetail.php?ref=<?php echo $key['article_id']; ?>" class="f1-m-3 cl2 hov-cl10 trans-03">
+											<?php echo $key['article_title']; ?>
 										</a>
 									</h5>
 
@@ -640,162 +646,11 @@ foreach($forthLastNews as $key){
 									</span>
 								</div>
 							</div>
+							
 						</div>
+						<?php } ?>
 
-						<div class="col-sm-6 p-r-25 p-r-15-sr991">
-							<!-- Item latest -->	
-							<div class="m-b-45">
-								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-02.jpg" alt="IMG">
-								</a>
-
-								<div class="p-t-16">
-									<h5 class="p-b-5">
-										<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-											Latest Articles 2
-										</a>
-									</h5>
-
-									<span class="cl8">
-										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											by John Alvarado
-										</a>
-
-										<span class="f1-s-3 m-rl-3">
-											-
-										</span>
-
-										<span class="f1-s-3">
-											Feb 16
-										</span>
-									</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-6 p-r-25 p-r-15-sr991">
-							<!-- Item latest -->	
-							<div class="m-b-45">
-								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-03.jpg" alt="IMG">
-								</a>
-
-								<div class="p-t-16">
-									<h5 class="p-b-5">
-										<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-											Latest Articles 3
-										</a>
-									</h5>
-
-									<span class="cl8">
-										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											by John Alvarado
-										</a>
-
-										<span class="f1-s-3 m-rl-3">
-											-
-										</span>
-
-										<span class="f1-s-3">
-											Feb 15
-										</span>
-									</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-6 p-r-25 p-r-15-sr991">
-							<!-- Item latest -->	
-							<div class="m-b-45">
-								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-04.jpg" alt="IMG">
-								</a>
-
-								<div class="p-t-16">
-									<h5 class="p-b-5">
-										<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-											Latest Articles 4
-										</a>
-									</h5>
-
-									<span class="cl8">
-										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											by John Alvarado
-										</a>
-
-										<span class="f1-s-3 m-rl-3">
-											-
-										</span>
-
-										<span class="f1-s-3">
-											Feb 13
-										</span>
-									</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-6 p-r-25 p-r-15-sr991">
-							<!-- Item latest -->	
-							<div class="m-b-45">
-								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-05.jpg" alt="IMG">
-								</a>
-
-								<div class="p-t-16">
-									<h5 class="p-b-5">
-										<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-											Latest Articles 5
-										</a>
-									</h5>
-
-									<span class="cl8">
-										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											by John Alvarado
-										</a>
-
-										<span class="f1-s-3 m-rl-3">
-											-
-										</span>
-
-										<span class="f1-s-3">
-											Feb 10
-										</span>
-									</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-6 p-r-25 p-r-15-sr991">
-							<!-- Item latest -->	
-							<div class="m-b-45">
-								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-06.jpg" alt="IMG">
-								</a>
-
-								<div class="p-t-16">
-									<h5 class="p-b-5">
-										<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-											Latest Articles 6
-										</a>
-									</h5>
-
-									<span class="cl8">
-										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											by John Alvarado
-										</a>
-
-										<span class="f1-s-3 m-rl-3">
-											-
-										</span>
-
-										<span class="f1-s-3">
-											Feb 09
-										</span>
-									</span>
-								</div>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 

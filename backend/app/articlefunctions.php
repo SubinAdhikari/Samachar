@@ -1,8 +1,9 @@
 <?php
 function insertArticle($conn, $data, $fileNameNew1){
-	$stmtinsert=$conn->prepare("INSERT INTO tblarticle (`article_id`,`article_details`,`article_featuredimage`,`is_active`,`top_article`) VALUES (:article_id, :article_details, :article_featuredimage, :is_active, :top_article)");
+	$stmtinsert=$conn->prepare("INSERT INTO tblarticle (`article_id`,`article_title`,`article_details`,`article_featuredimage`,`is_active`,`top_article`) VALUES (:article_id, :article_title, :article_details, :article_featuredimage, :is_active, :top_article)");
 
-	$stmtinsert->bindParam(':article_id', $data['article_id']);
+    $stmtinsert->bindParam(':article_id', $data['article_id']);
+    $stmtinsert->bindParam(':article_title', $data['article_title']);
     $stmtinsert->bindParam(':article_details', $data['article_details']);
     $stmtinsert->bindParam(':article_featuredimage', $fileNameNew1);
     $stmtinsert->bindParam(':is_active', $data['is_active']);

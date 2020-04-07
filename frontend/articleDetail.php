@@ -1,7 +1,7 @@
 <?php
 include '../backend/app/call.php';
-//$ref=$_GET['ref'];
-$ref = 2;
+$ref=$_GET['ref'];
+
 $result=selectArticleFromId($conn,$ref);
 //dump($result);
 ?>

@@ -461,7 +461,7 @@ foreach($forthLastNews as $key){
 				<div class="col-md-10 col-lg-4">
 					<div class="p-l-10 p-rl-0-sr991 p-b-20">
 						<!--  -->
-						<div>
+						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
 									Popular News
@@ -469,23 +469,48 @@ foreach($forthLastNews as $key){
 							</div>
 							<?php
 							$latestNewsDetails=GetLatestThreeNews($conn);
-							foreach ($latestNewsDetails as $latestNewsDetail ) {
-								$sn=1;
+							
+							
+								# code...
+							
 							?>
 							<ul class="p-t-35">
-								<li class="flex-wr-sb-s p-b-22">
-									<div class="size-a-8 flex-c-c borad-3 size-a-8 bg9 f1-m-4 cl0 m-b-6">
-										<?php echo $sn; $sn++ ?>
-									</div>
+								<?php foreach ($latestNewsDetails as $latestNewsDetail ) {
+									$imageName = $latestNewsDetail['news_featuredimage'];
+								?>
+								<li class="flex-wr-sb-s p-b-30">
+									<a href="#" class="size-w-10 wrap-pic-w hov1 trans-03">
 
-									<a href="#" class="size-w-3 f1-s-7 cl3 hov-cl10 trans-03">
-										<?php echo $latestNewsDetail['news_title']; ?>
+										<img src="../backend/newsFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
 									</a>
-								</li>
 
-								
+									<div class="size-w-11">
+										<h6 class="p-b-4">
+											<a href="blog-detail-02.html" class="f1-s-5 cl3 hov-cl10 trans-03">
+												<?php echo $latestNewsDetail['news_title']; ?>
+											</a>
+										</h6>
+
+										<span class="cl8 txt-center p-b-24">
+											<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+												<?php $categoryNames=getCategoryNameByCategoryId($conn,$latestNewsDetail['category_id']); 
+                                $categoryName = implode("", $categoryNames);  ?>
+												<?php echo $categoryName; ?>
+											</a>
+
+											<span class="f1-s-3 m-rl-3">
+												-
+											</span>
+
+											<span class="f1-s-3">
+												<?php echo $latestNewsDetail['created_at']; ?>
+											</span>
+										</span>
+									</div>
+								</li>
+								<?php
+							}?>
 							</ul>
-							<?php } ?>
 						</div>
 
 						<!--  -->

@@ -69,7 +69,8 @@
                   </a>
                   <ul class="sub">
                       <li><a class="" href="addArticle.php">Add Article</a></li>
-                      <li><a class="" href="manageArticle.php">Manage Article</a></li>                                           
+                      <li><a class="" href="manageArticle.php">Manage Article</a></li>
+                      <li><a class="" href="manageArticleComments.php">Manage Comments</a></li>                                           
                   </ul>
               </li>
               <li class="sub-menu">

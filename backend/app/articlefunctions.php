@@ -14,6 +14,30 @@ function insertArticle($conn, $data, $fileNameNew1){
 	}
 	return false;
 }
+
+function updateArticle($conn, $data, $ref, $fileNameNew1){
+    $stmtupdate=$conn->prepare("UPDATE tblarticle SET article_author=:article_author, article_title=:article_title, article_details=:article_details, article_featuredimage=:article_featuredimage, is_active=:is_active, top_article=:top_article WHERE article_id=:article_id");
+
+    $stmtupdate->bindParam(':article_author', $data['article_author']);
+    $stmtupdate->bindParam(':article_title', $data['article_title']);
+    $stmtupdate->bindParam(':article_details', $data['article_details']);
+    $stmtupdate->bindParam(':article_featuredimage', $fileNameNew1);
+    $stmtupdate->bindParam(':top_article', $data['top_article']);
+    $stmtupdate->bindParam(':is_active', $data['is_active']);
+    $stmtupdate->bindParam(':article_id', $ref);
+    if ($stmtupdate->execute()) {
+        return true;
+    }
+    return false;
+}
+function deleteArticle($conn, $articleId){
+    $stmtdelete=$conn->prepare("DELETE FROM tblarticle WHERE article_id=:article_id");
+    $stmtdelete->bindParam(':article_id', $articleId);
+    if ($stmtdelete->execute()) {
+        return true;
+    }
+    return false;
+}
 function selectArticleFromId($conn,$articleId){
     $stmtSelect = $conn->prepare("SELECT * FROM tblarticle WHERE article_id=:article_id");
     $stmtSelect->bindParam(':article_id',$articleId);
@@ -36,5 +60,11 @@ function UpdateArticleVisitPage($conn,$data,$ref){
         return true;
     }
     return false;
+}
+function getAllArticleDetails($conn){
+    $stmtSelect = $conn->prepare("SELECT * FROM tblarticle");
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
 }
 ?>

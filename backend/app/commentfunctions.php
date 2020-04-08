@@ -55,6 +55,10 @@ function deleteComment($conn, $commentId){
 	}
 	return false;
 }
+
+
+// Article Comment Functions
+
 function insertArticleComment($conn, $data, $articleId){
 	$stmtinsert=$conn->prepare("INSERT INTO tblarticlecomment (`article_id`,`name`,`email`,`comment`) VALUES (:article_id, :name, :email, :comment)");
 
@@ -69,10 +73,46 @@ function insertArticleComment($conn, $data, $articleId){
 	}
 	return false; 
 }
+
+function getAllArticleComments($conn){
+ 	$stmtSelect = $conn->prepare("SELECT * FROM tblarticlecomment");
+ 	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetchAll();
+}
+
 function getAllArticleCommentsByArticleId($conn, $articleId){
  	$stmtSelect = $conn->prepare("SELECT * FROM tblarticlecomment where article_id=:article_id");
  	$stmtSelect->bindParam(':article_id',$articleId);
  	$stmtSelect->execute();
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
  	return $stmtSelect->fetchAll();
+}
+
+function getArticleCommentById($conn, $commentId){
+ 	$stmtSelect = $conn->prepare("SELECT * FROM tblarticlecomment where comment_id=:comment_id");
+ 	$stmtSelect->bindParam(':comment_id',$commentId);
+ 	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetch();
+}
+
+function updateArticleComment($conn, $data){
+
+	$stmtupdate=$conn->prepare("UPDATE tblarticlecomment SET is_active=:is_active WHERE comment_id=:comment_id");
+	$stmtupdate->bindParam(':is_active', $data['is_active']);
+	$stmtupdate->bindParam(':comment_id', $data['comment_id']);
+	if ($stmtupdate->execute()) {
+		return true;
+	}
+	return false;
+}
+
+function deleteArticleComment($conn, $commentId){
+	$stmtdelete=$conn->prepare("DELETE FROM tblarticlecomment WHERE comment_id=:comment_id");
+	$stmtdelete->bindParam(':comment_id', $commentId);
+	if ($stmtdelete->execute()) {
+		return true;
+	}
+	return false;
 }

@@ -92,14 +92,14 @@
                             <div class="control-group">
                                 <label class="control-label">Catagory Name</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="category_name" />
+                                    <input type="text" class="span6 " required name="category_name" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Catagory Description</label>
                                 <div class="controls">
-                                <textarea name="category_descrption" class="span6"></textarea>
+                                <textarea name="category_descrption" required class="span6"></textarea>
                                     <!-- <input type="text" class="span6 " name="category_name" /> -->
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
@@ -107,7 +107,7 @@
                             <div class="control-group">
                                 <label class="control-label"> Status</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" required name="is_active" id="selCSI">
                                         <option value=""></option>
                                         <option value="active">Active</option>
                                         <option value="inactive">Inactive</option>

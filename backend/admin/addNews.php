@@ -153,21 +153,21 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label">Heading/Title</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="news_title" />
+                                    <input type="text" class="span6 " name="news_title" required />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Written By</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="news_writtenby" />
+                                    <input type="text" class="span6 " name="news_writtenby" required />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>   
                             <div class="control-group">
                                 <label class="control-label">News Catagory</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" onchange="fetchCategoryId(this.value)"  name="category_name" id="selCSI">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" onchange="fetchCategoryId(this.value)"  name="category_name" id="selCSI" required >
                                         <option value="">Select Category</option>
                                         <?php
                                         foreach($categoryName as $key){
@@ -184,7 +184,7 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label">Category Id</label>
                                 <div class="controls">
-                                    <select name="category_id" id="categoryid" class="span6">
+                                    <select name="category_id" id="categoryid" class="span6" required >
                                     </select>
                                     <!-- <input type="text"  class="span6 " name="category_id" id="categoryid"   /> -->
                                     <!-- <span class="help-inline">Some hint here</span> -->
@@ -193,14 +193,14 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label">News Sub-Catagory</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1"   name="category_name" id="subCategory" onchange="fetchSubCategoryId(this.value)">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1"   name="category_name" id="subCategory" onchange="fetchSubCategoryId(this.value)" required >
                                     </select>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Sub-Category Id</label>
                                 <div class="controls">
-                                    <select name="subcategory_id" id="subcategoryid" class="span6">
+                                    <select name="subcategory_id" id="subcategoryid" required  class="span6">
                                     </select>
                                     <!-- <input type="text"  class="span6 " name="category_id" id="categoryid"   /> -->
                                     <!-- <span class="help-inline">Some hint here</span> -->
@@ -209,34 +209,34 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label">News Details</label>
                                 <div class="controls">
-                                    <textarea class="span12 ckeditor" name="news_details" rows="6"></textarea>
+                                    <textarea class="span12 ckeditor" required  name="news_details" rows="6"></textarea>
                                  </div>                               
                             </div>    
                             
                             <div class="control-group">
                                 <label class="control-label">News Url</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="news_url" />
+                                    <input type="text" class="span6 " name="news_url" required />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">News Image</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" name="file1[]" multiple />                              
+                                    <input type="file" class="span6" name="file1[]" multiple required  />                              
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Featured Image</label>
                                 <div class="controls">
-                                    <input type="file" class="span6 " name="news_featuredimage" />
+                                    <input type="file" class="span6 " name="news_featuredimage" required  />
                                     
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"> Status</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" required id="selCSI">
                                         <option value="">Select</option>
                                         <option value="active">Active</option>
                                         <option value="inactive">Inactive</option>
@@ -246,7 +246,7 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label"> Top News</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="top_news" id="selCSI">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="top_news" required id="selCSI">
                                         <option value="">Select</option>
                                         <option value="yes">Yes</option>
                                         <option value="no">No</option>

@@ -98,33 +98,33 @@
                             <div class="control-group">
                                 <label class="control-label">Heading/Title</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="article_title" />
+                                    <input type="text" class="span6 " required name="article_title" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div> 
                             <div class="control-group">
                                 <label class="control-label">Auhor</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="article_author" />
+                                    <input type="text" class="span6 " required name="article_author" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>  
                             <div class="control-group">
                                 <label class="control-label">Article Details</label>
                                 <div class="controls">
-                                    <textarea class="span12 ckeditor" name="article_details" rows="6"></textarea>
+                                    <textarea class="span12 ckeditor" required name="article_details" rows="6"></textarea>
                                  </div>                               
                             </div>    
                             <div class="control-group">
                                 <label class="control-label">Article Image</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" name="article_featuredimage" />                              
+                                    <input type="file" class="span6" required name="article_featuredimage" />                              
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"> Status</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
+                                    <select required data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
                                         <option value="">Select</option>
                                         <option value="active">Active</option>
                                         <option value="inactive">Inactive</option>
@@ -134,7 +134,7 @@
                             <div class="control-group">
                                 <label class="control-label"> Top Article</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="top_article" id="selCSI">
+                                    <select required data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="top_article" id="selCSI">
                                         <option value="">Select</option>
                                         <option value="yes">Yes</option>
                                         <option value="no">No</option>

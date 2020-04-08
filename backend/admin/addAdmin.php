@@ -85,15 +85,17 @@
                             <div class="control-group">
                                 <label class="control-label">First Name</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="admin_fname" />
+                                    <input type="text" class="span6" id="admin_fname" name="admin_fname" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
+                                    <div class="fname-error error"></div>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Last Name</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="admin_lname" />
+                                    <input type="text" class="span6" id="admin_lname" name="admin_lname" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
+                                    <div class="lname-error error"></div>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -101,6 +103,7 @@
                                 <div class="controls">
                                     <input type="text" class="span6 " name="admin_username"/>
                                     <!-- <span class="help-inline">Some hint here</span> -->
+                                    <div class="username-error error"></div>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -113,8 +116,9 @@
                             <div class="control-group">
                                 <label class="control-label">Email</label>
                                 <div class="controls">
-                                    <input type="email" class="span6 " name="admin_email" />
+                                    <input type="email" class="span6 " name="admin_email" id="admin_email" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
+                                    <div class="email-error error"></div>
                                 </div>
                             </div>                           
                             <div class="control-group">
@@ -178,7 +182,7 @@
    <script type="text/javascript" src="assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
    <script src="assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-
+   
    <!-- ie8 fixes -->
    <!--[if lt IE 9]>
    <script src="js/excanvas.js"></script>
@@ -221,5 +225,97 @@ if(insertAdminUser($conn, $_POST)){
 }
 
 }
+
+?>
+<script type="text/javascript">
+$(document).ready(function(){
+	var admin_fname="";
+	var admin_lname="";
+	var admin_email="";
+
+	var name_reg = /^[a-z]+$/i;
+	var username_reg = /^[a-z]+[0-9a-zA-Z_.]*$/;
+	var email_reg = /^[a-z]+[0-9a-zA-Z_\.]*@[a-z_]+\.[a-z]+$/;
+	$('#admin_fname').focusout(function(){
+		var store = $("#admin_fname").val();
+		if (store.length=="") {
+			$(".fname-error").html("First Name is required!");
+			$("#admin_fname").addClass("border-red");
+			$("#admin_fname").removeClass("border-green");
+			admin_fname="";
+		}else if(name_reg.test(store)){
+			$(".fname-error").html("");
+			$("#admin_fname").addClass("border-green");
+			admin_fname = store;
+
+
+		}else{
+			$(".fname-error").html("Intergers, Spaces or Special Symbols are not allowed!");
+			$("#admin_fname").addClass("border-red");
+			$("#admin_fname").removeClass("border-green");
+			admin_fname="";
+		}
+
+	})
+	$('#admin_lname').focusout(function(){
+		var store = $("#admin_lname").val();
+		if (store.length=="") {
+			$(".lname-error").html("Last Name is required!");
+			$("#admin_lname").addClass("border-red");
+			$("#admin_lname").removeClass("border-green");
+			admin_lname="";
+		}else if(name_reg.test(store)){
+			$(".lname-error").html("");
+			$("#admin_lname").addClass("border-green");
+			admin_lname = store;
+		}else{
+			$(".lname-error").html("Intergers, Spaces or Special Symbols are not allowed!");
+			$("#admin_lname").addClass("border-red");
+			$("#admin_lname").removeClass("border-green");
+			admin_lname="";
+		}
+
+	})
+
+	// $('#admin_email').focusout(function(){
+	// 	var store = $.trim($("#admin_email").val());
+	// 	if (store.length=="") {
+	// 		$(".email-error").html("Email is required!");
+	// 		$("#admin_email").addClass("border-red");
+	// 		$("#admin_email").removeClass("border-green");
+	// 		admin_email="";
+	// 	}else if(email_reg.test(store)){
+	// 		console.log(store);
+	// 		$.ajax({
+	// 			type : 'POST',
+	// 			url : '../app/adminfunctions.php',
+	// 			dataType : 'JSON',
+	// 			data : {'check_email':store },
+	// 			success : function(feedback){
+	// 				if(feedback['error'] =='email_success' ){
+	// 					alert("Success");
+	// 				}else if(feedback['error'] =='email_fail' ){
+	// 					alert(feedback['message']);
+	// 				}
+
+	// 			}
+
+	// 		})
+	// 		$(".email-error").html("");
+	// 		$("#admin_email").addClass("border-green");
+	// 		admin_email = store;
+
+
+	// 	}else{
+	// 		$(".email-error").html("Invalid Email Format!");
+	// 		$("#admin_email").addClass("border-red");
+	// 		$("#admin_email").removeClass("border-green");
+	// 		admin_email="";
+	// 	}
+
+	// })
+})
+</script>
+<?php	
 
 ?>

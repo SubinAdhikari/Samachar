@@ -111,7 +111,7 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label"> Catagory Name</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" onchange="fetchId(this.value)"  id="selCSI">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" required  tabindex="-1" onchange="fetchId(this.value)"  id="selCSI">
                                         <option value="">Select Category</option>
                                         <?php
                                         foreach($categoryName as $key){
@@ -137,14 +137,14 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label">Sub-Category Name</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="subcategory_name" />
+                                    <input type="text" required  class="span6 " name="subcategory_name" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Sub-Category Description</label>
                                 <div class="controls">
-                                <textarea name="subcategory_descrption" class="span6"></textarea>
+                                <textarea name="subcategory_descrption" required class="span6"></textarea>
                                     <!-- <input type="text" class="span6 " name="category_name" /> -->
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
@@ -152,7 +152,7 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label"> Status</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" required tabindex="-1" name="is_active" id="selCSI">
                                         <option value=""></option>
                                         <option value="active">Active</option>
                                         <option value="inactive">Inactive</option>

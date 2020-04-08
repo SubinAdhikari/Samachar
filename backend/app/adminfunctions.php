@@ -54,3 +54,22 @@ function deleteAdminUser($conn, $adminId){
 	}
 	return false;
 }
+function checkEmail($conn,$adminEmail){
+ 	$stmtSelect = $conn->prepare("SELECT admin_email FROM tbladmin WHERE admin_email=:admin_email");
+ 	$stmtSelect->bindParam(':admin_email',$adminEmail);
+ 	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	$stmtSelect->fetchAll();
+ 	if ($stmtSelect->rowCount()==0) {
+ 		return 'email_success';
+ 	}else{
+ 		return 'email_fail';
+ 	}
+
+}
+if (isset($_POST['check_email'])) {
+			echo $_POST['check_email'];
+			$adminEmail = $_POST['check_email'];
+			$email_report = checkEmail($conn,$adminEmail);
+			echo json_encode(array('error' => $email_report));
+}

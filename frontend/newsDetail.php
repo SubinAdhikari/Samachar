@@ -397,7 +397,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 							
 							?>
 							<ul class="p-t-35">
-								<?php foreach ($latestNewsDetails as $latestNewsDetail ) {
+								<?php foreach ($latestNewsDetails as $latestNewsDetail ) { 
 									$imageName = $latestNewsDetail['news_featuredimage'];
 								?>
 								<li class="flex-wr-sb-s p-b-30">

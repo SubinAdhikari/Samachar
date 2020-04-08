@@ -317,7 +317,7 @@ foreach($forthLastNews as $key){
 									Popular News
 								</h3>
 							</div>
-							<?php
+							<?php 
 							$latestNewsDetails=GetLatestThreeNews($conn);
 							?>
 							<ul class="p-t-35">
@@ -325,20 +325,20 @@ foreach($forthLastNews as $key){
 									$imageName = $latestNewsDetail['news_featuredimage'];
 								?>
 								<li class="flex-wr-sb-s p-b-30">
-									<a href="#" class="size-w-10 wrap-pic-w hov1 trans-03">
+									<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
 
 										<img src="../backend/newsFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
 									</a>
 
 									<div class="size-w-11">
 										<h6 class="p-b-4">
-											<a href="blog-detail-02.html" class="f1-s-5 cl3 hov-cl10 trans-03">
+											<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
 												<?php echo $latestNewsDetail['news_title']; ?>
 											</a>
 										</h6>
 
 										<span class="cl8 txt-center p-b-24">
-											<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+											<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
 												<?php $categoryNames=getCategoryNameByCategoryId($conn,$latestNewsDetail['category_id']); 
                                 $categoryName = implode("", $categoryNames);  ?>
 												<?php echo $categoryName; ?>

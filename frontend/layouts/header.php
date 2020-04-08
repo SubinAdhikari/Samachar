@@ -122,7 +122,7 @@
 							<?php foreach($categoryList as $key){
 								 ?>
 							<li>
-								<a href="#"><?php echo $key['category_name'];?></a>
+								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>"><?php echo $key['category_name'];?></a>
 								<ul class="sub-menu">
 								<?php 
 									$subcategoryList=selectSubcategoryFromCategoryId($conn,$key['category_id']);

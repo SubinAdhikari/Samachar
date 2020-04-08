@@ -30,7 +30,18 @@
 	include '../backend/app/call.php';
 	$categoryList=selectAllCategory($conn);
 	// print_r($categoryList);
-	
+	$AdvertisementCategoryGold='gold';
+	$Advertisement_banner=selectAllAdvertisementOfGold($conn,$AdvertisementCategoryGold);
+	// print_r($Advertisement_banner);
+
+	$AdvertisementCategorySilver='silver';
+	$Advertisement_bannerSilver=selectAllAdvertisementOfSilver($conn,$AdvertisementCategorySilver);
+	// print_r($Advertisement_bannerSilver);
+
+	$AdvertisementCategoryBronze='bronze';
+	$Advertisement_bannerBronze=selectAllAdvertisementOfBronze($conn,$AdvertisementCategoryBronze);
+	// print_r($Advertisement_bannerBronze);
+
 	
 	?>
 	
@@ -86,20 +97,25 @@
 					</div>
 				</div>
 			</div>
-
+ 
 			<!-- Header Mobile --> 
 			
 			<!--  -->
 			<div class="wrap-logo container">
 				<!-- Logo desktop -->		
-				<div class="logo">
-					<a href="index.php"><img src="images/icons/samachar.png" alt="LOGO"></a>
+				<div class="logo" >
+					<a href="index.php"><img  src="images/icons/samachar.png" alt="LOGO"></a>
 				</div>	
 
 				<!-- Banner -->
-				<div class="banner-header">
-					<a href="https://themewagon.com/themes/free-bootstrap-4-html5-news-website-template-magnews2/"><img src="images/banner-01.jpg" alt="IMG"></a>
+				<?php
+				foreach($Advertisement_banner as $key){
+				?>
+				<div class="banner-header" style="border:1px black solid;">
+				
+					<a href="#"><img class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"  alt="GoldAdvertisement"></a>
 				</div>
+				<?php } ?>
 			</div>	
 			
 			<!--  -->

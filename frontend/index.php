@@ -357,14 +357,16 @@ foreach($forthLastNews as $key){
 								<?php
 							}?>
 							</ul>
-						</div>
+						</div> 
 
 						<!--  -->
-						<div class="flex-c-s p-t-8">
+						<?php foreach($Advertisement_bannerSilver as $key) {?>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
-								<img class="max-w-full" src="images/banner-02.jpg" alt="IMG">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
 							</a>
 						</div>
+						<?php }	?>
 						
 						<!--  -->
 						<div class="p-t-50">
@@ -431,13 +433,16 @@ foreach($forthLastNews as $key){
 	</section>
 
 	<!-- Banner -->
-	<div class="container">
+	<?php foreach($Advertisement_bannerBronze as $key){ ?>
+	<div class="container" style="border:1px black solid;">
 		<div class="flex-c-c">
-			<a href="#">
-				<img class="max-w-full" src="images/banner-01.jpg" alt="IMG">
+			<a href="#" >
+				<!-- <img class="max-w-full" src="images/banner-01.jpg" alt="IMG"> -->
+				<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"  alt="IMG"> 
 			</a>
 		</div>
 	</div>
+	<?php } ?>
 
 	<!-- Latest -->
 	<section class="bg0 p-t-60 p-b-35">

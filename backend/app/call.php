@@ -9,4 +9,5 @@ require 'newsfunctions.php';
 require 'frontendfunctions.php';
 require 'commentfunctions.php';
 require 'articlefunctions.php';
+require 'advertisementfunction.php';
 ?>

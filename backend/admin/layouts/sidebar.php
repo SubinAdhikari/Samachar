@@ -84,6 +84,20 @@
                      
                   </ul>
               </li>
+              <li class="sub-menu">
+                  <a href="javascript:;" class="">
+                      <i class="icon-th"></i>
+                      <span>Advertisment</span>
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="addAdvertisment.php?ref=<?php echo 'gold' ?>">Gold Advertisment</a></li>
+                      <li><a class="" href="addAdvertisment.php?ref=<?php echo 'silver' ?>">Silver Advertisment</a></li>
+                      <li><a class="" href="addAdvertisment.php?ref=<?php echo 'bronze' ?>">Bronze Advertisment</a></li>
+                      <li><a class="" href="manageAdvertisment.php">Manage Advertisment</a></li>
+                     
+                  </ul>
+              </li>
               <!-- <li class="sub-menu">
                   <a href="javascript:;" class="">
                       <i class="icon-fire"></i>

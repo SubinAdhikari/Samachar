@@ -51,7 +51,7 @@ function GetLatestThreeNews($conn){
     return $stmtSelect->fetchAll();
 }
 function getAllNewsByCategoryId($conn,$key){
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE category_id=:category_id");
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE category_id=:category_id ORDER BY news_id DESC");
     $stmtSelect->bindParam(':category_id',$key);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);

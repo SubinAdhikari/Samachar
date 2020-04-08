@@ -82,7 +82,7 @@ function SelectSubCategoryNameFromId($conn,$ref){
  	return $stmtSelect->fetch();
 }
 function getAllNewsBySubCategoryId($conn,$subcategory_id){
-	$stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE subcategory_id=:subcategory_id");
+	$stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE subcategory_id=:subcategory_id ORDER BY news_id DESC");
     $stmtSelect->bindParam(':subcategory_id',$subcategory_id);
  	$stmtSelect->execute();
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);

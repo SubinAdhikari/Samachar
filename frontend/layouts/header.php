@@ -41,17 +41,19 @@
 			<div class="topbar">
 				<div class="content-topbar container h-100">
 					<div class="left-topbar">
-<!-- 						<span class="left-topbar-item flex-wr-s-c">
+						<span class="left-topbar-item flex-wr-s-c">
 							<span>
-								New York, NY
+								<!-- New York, NY -->
+								<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?time_only=no&font_color=FFFFFF&aj_time=yes&font_size=14&line_brake=0&bikram_sambat=0&api=890040j065" width="308" height="22"></iframe>
+
 							</span>
 
-							<img class="m-b-1 m-rl-8" src="images/icons/icon-night.png" alt="IMG">
+							<!-- <img class="m-b-1 m-rl-8" src="images/icons/icon-night.png" alt="IMG"> -->
 
-							<span>
+							<!-- <span>
 								HI 58° LO 56°
-							</span>
-						</span> -->
+							</span> -->
+						</span>
 
 						<a href="about.php" class="left-topbar-item">
 							About
@@ -60,6 +62,7 @@
 						<a href="contact.php" class="left-topbar-item">
 							Contact
 						</a>
+
 
 						
 					</div>

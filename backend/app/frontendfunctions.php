@@ -7,7 +7,7 @@ function selectAllCategory($conn){
 }
 
 function selectSubcategoryFromCategoryId($conn,$key){
-	$stmtSelect = $conn->prepare("SELECT subcategory_name FROM tblsubcategory WHERE category_id=:category_id");
+	$stmtSelect = $conn->prepare("SELECT subcategory_name,subcategory_id FROM tblsubcategory WHERE category_id=:category_id");
     $stmtSelect->bindParam(':category_id',$key);
  	$stmtSelect->execute();
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC); 

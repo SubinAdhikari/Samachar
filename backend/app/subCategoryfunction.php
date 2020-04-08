@@ -74,4 +74,18 @@ function selectNameBYID($conn,$data){
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
  	return $stmtSelect->fetch();
 }
+function SelectSubCategoryNameFromId($conn,$ref){
+	$stmtSelect = $conn->prepare("SELECT subcategory_name FROM tblsubcategory WHERE subcategory_id=:subcategory_id");
+    $stmtSelect->bindParam(':subcategory_id',$ref);
+ 	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetch();
+}
+function getAllNewsBySubCategoryId($conn,$subcategory_id){
+	$stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE subcategory_id=:subcategory_id");
+    $stmtSelect->bindParam(':subcategory_id',$subcategory_id);
+ 	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetchAll();
+}
 ?> 

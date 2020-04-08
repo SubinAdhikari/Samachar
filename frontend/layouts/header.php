@@ -87,7 +87,7 @@
 				</div>
 			</div>
 
-			<!-- Header Mobile -->
+			<!-- Header Mobile --> 
 			
 			<!--  -->
 			<div class="wrap-logo container">
@@ -127,10 +127,10 @@
 								<?php 
 									$subcategoryList=selectSubcategoryFromCategoryId($conn,$key['category_id']);
 									foreach($subcategoryList as $key){
-										foreach($key as $value){
+										// foreach($key as $value){
 									?>
-									<li><a href="category-01.html"><?php echo $value; ?></a></li>
-										<?php } } ?>
+									<li><a href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id'] ?>"><?php echo $key['subcategory_name']; ?></a></li>
+										<?php }  ?>
 								</ul>
 							</li>
 										<?php }?>

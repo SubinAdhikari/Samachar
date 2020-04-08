@@ -141,11 +141,8 @@
 							<li>
 								<a href="#">Others</a>
 								<ul class="sub-menu">
-									<li><a href="category-01.html">Travel</a></li>
-									<li><a href="category-02.html">Fashion</a></li>
-									<li><a href="blog-grid.html">Life Style</a></li>
-									<li><a href="about.html">About Us</a></li>
-									<li><a href="contact.html">Contact Us</a></li>
+									<li><a href="about.php">About Us</a></li>
+									<li><a href="contact.php">Contact Us</a></li>
 								</ul>
 							</li>
 						</ul>

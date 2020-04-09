@@ -22,7 +22,7 @@ function selectAllAdvertisement($conn){
 }
 
 function selectAllAdvertisementOfGold($conn,$data){
-    $stmtSelect = $conn->prepare("SELECT advertisement_category,advertisement_image,status FROM tbladvertisement WHERE advertisement_category=:advertisement_category ");
+    $stmtSelect = $conn->prepare("SELECT advertisement_id,advertisement_category,advertisement_image,status,advertisement_expiry_date FROM tbladvertisement WHERE advertisement_category=:advertisement_category ");
     $stmtSelect->bindParam(':advertisement_category',$data);
  	$stmtSelect->execute();
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
@@ -30,7 +30,7 @@ function selectAllAdvertisementOfGold($conn,$data){
 }
 
 function selectAllAdvertisementOfSilver($conn,$data){
-    $stmtSelect = $conn->prepare("SELECT advertisement_category,advertisement_image,status FROM tbladvertisement WHERE advertisement_category=:advertisement_category ");
+    $stmtSelect = $conn->prepare("SELECT advertisement_id,advertisement_category,advertisement_image,status,advertisement_expiry_date FROM tbladvertisement WHERE advertisement_category=:advertisement_category ");
     $stmtSelect->bindParam(':advertisement_category',$data);
  	$stmtSelect->execute();
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
@@ -38,7 +38,7 @@ function selectAllAdvertisementOfSilver($conn,$data){
 }
 
 function selectAllAdvertisementOfBronze($conn,$data){
-    $stmtSelect = $conn->prepare("SELECT advertisement_category,advertisement_image,status FROM tbladvertisement WHERE advertisement_category=:advertisement_category ");
+    $stmtSelect = $conn->prepare("SELECT advertisement_id,advertisement_category,advertisement_image,status,advertisement_expiry_date FROM tbladvertisement WHERE advertisement_category=:advertisement_category ");
     $stmtSelect->bindParam(':advertisement_category',$data);
  	$stmtSelect->execute();
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);

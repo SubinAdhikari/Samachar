@@ -32,15 +32,39 @@
 	// print_r($categoryList);
 	$AdvertisementCategoryGold='gold';
 	$Advertisement_banner=selectAllAdvertisementOfGold($conn,$AdvertisementCategoryGold);
+		foreach($Advertisement_banner as $key){
+	 		$date_expiry = $key['advertisement_expiry_date'];
+	 		$date_today = date("Y-m-d");
+	 		if ($date_expiry==$date_today) {
+	 			$advertisement_id =  $key['advertisement_id'];
+	 			deleteAdvertisement($conn, $advertisement_id);
+	 		}
+		}
 	// print_r($Advertisement_banner);
 
 	$AdvertisementCategorySilver='silver';
 	$Advertisement_bannerSilver=selectAllAdvertisementOfSilver($conn,$AdvertisementCategorySilver);
 	// print_r($Advertisement_bannerSilver);
+	foreach($Advertisement_bannerSilver as $key){
+	 		$date_expiry = $key['advertisement_expiry_date'];
+	 		$date_today = date("Y-m-d");
+	 		if ($date_expiry==$date_today) {
+	 			$advertisement_id =  $key['advertisement_id'];
+	 			deleteAdvertisement($conn, $advertisement_id);
+	 		}
+		}
 
 	$AdvertisementCategoryBronze='bronze';
 	$Advertisement_bannerBronze=selectAllAdvertisementOfBronze($conn,$AdvertisementCategoryBronze);
 	// print_r($Advertisement_bannerBronze);
+	foreach($Advertisement_bannerBronze as $key){
+	 		$date_expiry = $key['advertisement_expiry_date'];
+	 		$date_today = date("Y-m-d");
+	 		if ($date_expiry==$date_today) {
+	 			$advertisement_id =  $key['advertisement_id'];
+	 			deleteAdvertisement($conn, $advertisement_id);
+	 		}
+		}
 
 	
 	?>
@@ -112,7 +136,7 @@
 				foreach($Advertisement_banner as $key){
 				?>
 				<div class="banner-header" style="border:1px black solid;">
-				
+					
 					<a href="#"><img class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"  alt="GoldAdvertisement"></a>
 				</div>
 				<?php } ?>

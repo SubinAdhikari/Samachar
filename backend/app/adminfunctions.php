@@ -1,4 +1,5 @@
 <?php
+//include '../app/call.php';
 function insertAdminUser($conn, $data){
 	$data['admin_password']=md5($data['admin_password']);
 	$stmtinsert=$conn->prepare("INSERT INTO tbladmin (`admin_fname`,`admin_lname`,`admin_username`,`admin_password`,`admin_email`,`admin_phone`,`is_active`) VALUES (:admin_fname, :admin_lname,:admin_username,:admin_password,:admin_email,:admin_phone ,:is_active)");
@@ -13,7 +14,10 @@ function insertAdminUser($conn, $data){
 	// $stmtinsert->bindParam(':created_date', $data['created_date']);
 	// $stmtinsert->bindParam(':updated_date', $data['updated_date']);
 	if ($stmtinsert->execute()) {
+		// showMsg('User Created Successfully');
+		// redirection('manageAdmin.php');
 		return true;
+
 	}
 	return false; 
 }
@@ -67,9 +71,18 @@ function checkEmail($conn,$adminEmail){
  	}
 
 }
-if (isset($_POST['check_email'])) {
-			echo $_POST['check_email'];
-			$adminEmail = $_POST['check_email'];
-			$email_report = checkEmail($conn,$adminEmail);
-			echo json_encode(array('error' => $email_report));
+
+function checkUserName($conn,$adminUsername){
+ 	$stmtSelect = $conn->prepare("SELECT admin_username FROM tbladmin WHERE admin_username=:admin_username");
+ 	$stmtSelect->bindParam(':admin_username',$adminUsername);
+ 	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	$stmtSelect->fetchAll();
+ 	if ($stmtSelect->rowCount()==0) {
+ 		return 'username_success';
+ 	}else{
+ 		return 'username_fail';
+ 	}
+
 }
+

@@ -9,6 +9,7 @@ $article_visit=$result['article_views'];
 
 $article_visit=(int)$article_visit + 1 ;
 UpdateArticleVisitPage($conn,$article_visit,$ref);
+
 ?>
 
 
@@ -18,6 +19,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 			<div class="f2-s-1 p-r-30 m-tb-6">
 				<a href="index.html" class="breadcrumb-item f1-s-3 cl9">
 					Home 
+
 				</a>
 
 				<a href="blog-list-01.html" class="breadcrumb-item f1-s-3 cl9">

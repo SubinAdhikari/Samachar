@@ -426,6 +426,13 @@ foreach($forthLastNews as $key){
 								</li>
 							</ul>
 						</div>
+						<?php foreach($Advertisement_bannerSilver as $key) {?>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
 					</div>
 				</div>
 			</div>

@@ -10,4 +10,5 @@ require 'frontendfunctions.php';
 require 'commentfunctions.php';
 require 'articlefunctions.php';
 require 'advertisementfunction.php';
+require 'searchFunction.php';
 ?>

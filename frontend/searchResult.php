@@ -1,161 +1,44 @@
 <?php
-include "layouts/header.php"
+include "layouts/header.php";
+if(isset($_POST['searchBtn'])){
+    $searchMsg=$_POST['search'];
+    // print_r($_POST);
+    $searchResult=RetriveAllNews($conn);
+    // print_r($searchResult);
+}
 ?>
 
+		
 	<!-- Headline -->
-	<div class="container">
-		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
-			<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
-				<span class="text-uppercase cl2 p-r-8">
-					Trending Now:
-				</span>
-
-				<span class="dis-inline-block cl6 slide100-txt pos-relative size-w-0" data-in="fadeInDown" data-out="fadeOutDown">
-					<span class="dis-inline-block slide100-txt-item animated visible-false">
-						Abhishek Karki
-					</span>
-					
-					<span class="dis-inline-block slide100-txt-item animated visible-false">
-						Subin Adhikari
-					</span>
-
-					<span class="dis-inline-block slide100-txt-item animated visible-false">
-						Shreedhar Bhandari
-					</span>
-				</span>
-			</div>
-			<form method="POST" action="searchResult.php">
-			<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
-				<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
-				<button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03" name="searchBtn">
-					<i class="zmdi zmdi-search"></i>
-				</button>
-			</div>
-			</form>
-		</div>
-	</div>
+	
 		
 	<!-- Feature post -->
-	<?php
-	$latestNewsDetails=GetLatestNews($conn);
-	// print_r($latestNewsDetails);
-	?>
 	<section class="bg0">
+	
 		<div class="container">
-		<?php foreach($latestNewsDetails as $key){ ?>
 			<div class="row m-rl--1">
-				<div class="col-md-6 p-rl-1 p-b-2">
-					<div class="bg-img1 size-a-3 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
-						<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="dis-block how1-child1 trans-03"></a>
+				<?php foreach($searchResult as $key){ 
+                    if(preg_match("/{$searchMsg}/i", $key['news_title'])) {
+                        // echo $key['news_id'];
+                        $selectNewsById=searchNewsByID($conn,$key['news_id']);
+                    foreach($selectNewsById as $key){
+                    ?>
 
-						<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-							<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-								National
-							</a> -->
+				<div class="col-sm-6 col-lg-4 p-rl-1 p-b-2">
+					<div class="bg-img1 size-a-12 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
 
-							<h3 class="how1-child2 m-t-14 m-b-10">
-								<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
+						<div class="flex-col-e-s s-full p-rl-25 p-tb-11">
+							
+
+							<h3 class="how1-child2 m-t-10">
+								<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
 									<?php echo $key['news_title']; ?>
 								</a>
 							</h3>
-
-							<!-- <span class="how1-child2">
-								<span class="f1-s-4 cl11">
-									Abhishek Karki
-								</span>
-
-								<span class="f1-s-3 cl11 m-rl-3">
-									-
-								</span>
-
-								<span class="f1-s-3 cl11">
-								<?php echo $key['created_at']; ?>
-								</span>
-							</span> -->
 						</div>
 					</div>
 				</div>
-<?php } ?>
-
-
-
-<?php 
-$secondLastNews=GetSecondLastNews($conn); 
-// print_r($secondLastNews);
-foreach($secondLastNews as $key){
-
-?>
-				<div class="col-md-6 p-rl-1">
-					<div class="row m-rl--1">
-						<div class="col-12 p-rl-1 p-b-2">
-							<div class="bg-img1 size-a-4 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
-								<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="dis-block how1-child1 trans-03"></a>
-
-								<div class="flex-col-e-s s-full p-rl-25 p-tb-24">
-									<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-										Entertainment
-									</a> -->
-
-									<h3 class="how1-child2 m-t-14">
-										<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="how-txt1 size-a-7 f1-l-2 cl0 hov-cl10 trans-03">
-											<?php echo $key['news_title']; ?>
-										</a>
-									</h3>
-								</div>
-							</div>
-						</div>
-						<?php } ?>
-
-
-
-<?php $thirdLastNews=GetThirdLastNews($conn);
-foreach($thirdLastNews as $key){
-// print_r($thirdLastNews);
-?>
-						<div class="col-sm-6 p-rl-1 p-b-2">
-							<div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
-								<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="dis-block how1-child1 trans-03"></a>
-
-								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-									<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-										Life Style
-									</a> -->
-
-									<h3 class="how1-child2 m-t-14">
-										<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
-											<?php echo $key['news_title']; ?>
-										</a>
-									</h3>
-								</div>
-							</div>
-						</div>
-						<?php } ?>
-						
-<?php 
-$forthLastNews=GetForthLastNews($conn);
-// print_r($forthLastNews);
-foreach($forthLastNews as $key){
-?>
-						<div class="col-sm-6 p-rl-1 p-b-2">
-							<div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
-								<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="dis-block how1-child1 trans-03"></a>
-
-								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-									<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-										Sport
-									</a> -->
-
-									<h3 class="how1-child2 m-t-14">
-										<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
-										<?php echo $key['news_title']; ?>
-										</a>
-									</h3>
-								</div>
-							</div>
-						</div>
-						<?php } ?>
-					</div>
-				</div>
+				<?php } } }?>
 			</div>
 		</div>
 	</section>
@@ -358,16 +241,14 @@ foreach($forthLastNews as $key){
 								<?php
 							}?>
 							</ul>
-						</div> 
+						</div>
 
 						<!--  -->
-						<?php foreach($Advertisement_bannerSilver as $key) {?>
-						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+						<div class="flex-c-s p-t-8">
 							<a href="#">
-								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+								<img class="max-w-full" src="images/banner-02.jpg" alt="IMG">
 							</a>
 						</div>
-						<?php }	?>
 						
 						<!--  -->
 						<div class="p-t-50">
@@ -427,13 +308,6 @@ foreach($forthLastNews as $key){
 								</li>
 							</ul>
 						</div>
-						<?php foreach($Advertisement_bannerSilver as $key) {?>
-						<div class="flex-c-s p-t-8" style="border:1px black solid;">
-							<a href="#">
-								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
-							</a>
-						</div>
-						<?php }	?>
 					</div>
 				</div>
 			</div>
@@ -441,16 +315,13 @@ foreach($forthLastNews as $key){
 	</section>
 
 	<!-- Banner -->
-	<?php foreach($Advertisement_bannerBronze as $key){ ?>
-	<div class="container" style="border:1px black solid;">
+	<div class="container m-b-15">
 		<div class="flex-c-c">
-			<a href="#" >
-				<!-- <img class="max-w-full" src="images/banner-01.jpg" alt="IMG"> -->
-				<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"  alt="IMG"> 
+			<a href="#">
+				<img class="max-w-full" src="images/banner-01.jpg" alt="IMG">
 			</a>
 		</div>
 	</div>
-	<?php } ?>
 
 	<!-- Latest -->
 	<section class="bg0 p-t-60 p-b-35">
@@ -578,22 +449,43 @@ foreach($forthLastNews as $key){
 							</div>
 
 							<div class="flex-wr-s-s m-rl--5">
-							<?php $result=getSubCategoriesDetails($conn);
-// print_r($result);
-foreach($result as $key){
-?>
-								<a href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id']; ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-									<?php echo $key['subcategory_name']; ?>
+								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+									Fashion
 								</a>
-								<?php } ?>
+
+								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+									Lifestyle
+								</a>
+
+								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+									Denim
+								</a>
+
+								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+									Streetstyle
+								</a>
+
+								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+									Crafts
+								</a>
+
+								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+									Magazine
+								</a>
+
+								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+									News
+								</a>
+
+								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+									Blogs
+								</a>
 							</div>	
-							
 						</div>
-						
 					</div>
 				</div>
 			</div>
-		</div> 
+		</div>
 	</section>
 
 	<!-- Footer -->

@@ -14,7 +14,7 @@ if (isset($_POST['check_username'])) {
 }
 
 if (isset($_GET['signup']) && $_GET['signup']=='true') {
-	showMsg('User Created Successfully');
+	// showMsg('User Created Successfully');
 	$insert =  insertAdminUser($conn, $_POST);
 	echo "string";
 	   

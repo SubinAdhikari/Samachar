@@ -209,7 +209,7 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label">News Details</label>
                                 <div class="controls">
-                                    <textarea class="span12 ckeditor" required  name="news_details" rows="6"></textarea>
+                                    <textarea class="span12 ckeditor"   name="news_details" rows="6"></textarea>
                                  </div>                               
                             </div>    
                             

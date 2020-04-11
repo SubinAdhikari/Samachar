@@ -112,7 +112,7 @@
                             <div class="control-group">
                                 <label class="control-label">Article Details</label>
                                 <div class="controls">
-                                    <textarea class="span12 ckeditor" required name="article_details" rows="6"></textarea>
+                                    <textarea class="span12 ckeditor"  name="article_details" rows="6"></textarea>
                                  </div>                               
                             </div>    
                             <div class="control-group">

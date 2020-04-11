@@ -45,7 +45,7 @@ if (!checkAdminLogin()) {
                <!--END SIDEBAR TOGGLE-->
                <!-- BEGIN LOGO -->
                <a class="brand" href="index.php">
-                   <img src="img/logo.png" alt="Metro Lab" />
+                   <!-- <img src="img/logo.png" alt="Metro Lab" /> -->
                </a>
                <!-- END LOGO -->
                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -66,13 +66,13 @@ if (!checkAdminLogin()) {
                        <!-- BEGIN USER LOGIN DROPDOWN -->
                        <li class="dropdown">
                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                               <img src="img/avatar1_small.jpg" alt="">
-                               <span class="username">Jhon Doe</span>
+                               <!-- <img src="img/avatar1_small.jpg" alt=""> -->
+                               <span class="username"><?php echo $_SESSION['admin'] ['fname'].' '.$_SESSION['admin'] ['lastname']; ?></span>
                                <b class="caret"></b>
                            </a>
                            <ul class="dropdown-menu extended logout">
                                <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
-                               <li><a href="#"><i class="icon-cog"></i> My Settings</a></li>
+                               <li><a href="manageAdmin.php"><i class="icon-cog"></i> My Settings</a></li>
                                <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
                            </ul>
                        </li>

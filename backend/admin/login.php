@@ -15,7 +15,6 @@
     if($stmtLogin->execute()){
         if($stmtLogin->rowcount()>0){
             $adminInfo= $stmtLogin->fetch();
-            
             $_SESSION['admin'] ['username']=$adminInfo['admin_username'];
             $_SESSION['admin'] ['status']=$adminInfo['is_active'];
             $_SESSION['admin'] ['fname']=$adminInfo['admin_fname'];

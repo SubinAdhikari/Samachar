@@ -45,17 +45,8 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8 p-b-30">
-					<div class="p-r-10 p-r-0-sr991">
-
-						Article Detail
-						
-						<div class="p-b-70">
-							<a href="#" class="f1-s-10 cl2 hov-cl10 trans-03 text-uppercase">
-								<?php 
-								echo $result['article_title']; 
-								?>
-							</a>
-
+					<div class="p-r-10 p-r-0-sr991">												
+						<div class="p-b-70">							
 							<h3 class="f1-l-3 cl2 p-b-16 p-t-33 respon2">
 								<?php echo $result['article_title']; ?>
 							</h3>
@@ -69,7 +60,10 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 									<span class="m-rl-3">-</span>
 
 									<span>
-										<?php echo $result['created_at']; ?>
+										<?php
+												$datetime = $result['created_at'];
+												$time_elapsed = timeAgo($datetime);
+										 echo $time_elapsed; ?>
 									</span>
 								</span>
 
@@ -88,7 +82,10 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								$imageName = $result['article_featuredimage'];
 								
 								?>
-								<img src="../backend/articleFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
+								<img src="../backend/articleFeaturedImage/<?php echo $imageName; ?>" 
+								height="400px"
+								width ="500px" 
+								alt="IMG">
 
 								
 							</div>
@@ -155,10 +152,10 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								</div>
 							</div>
 						</div>
-						<!-- Comment Section -->
+						<!-- Old Comment Section -->
 
 
-						<div>
+						<!-- <div>
 							<h4 class="f1-l-4 cl3 p-b-12">
 								Comments
 							</h4>	
@@ -200,7 +197,90 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 							</ul>
 								
 							
-						</div>
+						</div> -->
+						<!-- End of old comment Section -->
+
+						<!--New Article Comment  -->
+						<div class="row">
+						    <div class="col">
+						      <h4 class="f1-l-4 cl3 p-b-12">
+								Comments
+							</h4>
+						        <section class="comment-list">
+						          <!-- First Comment -->
+
+						          <article class="row">
+						          	<?php
+									$comments = getAllArticleCommentsByArticleId($conn, $ref);
+									foreach ($comments as $comment ) {
+										# code...
+										if ($comment['is_active']=='active') {
+											# code...
+										
+									
+							
+									?>
+						            <div class="col-md-2 col-sm-2 hidden-xs">
+						              <figure class="thumbnail">
+						                <img class="img-responsive" src="http://www.tangoflooring.ca/wp-content/uploads/2015/07/user-avatar-placeholder.png" />
+						                
+						              </figure>
+						            </div>
+						            <div class="col-md-10 col-sm-10">
+						              <div class="panel panel-default arrow left">
+						                <div class="panel-body">
+						                  <header class="text-left">
+						                    <div class="comment-user"><i class="fa fa-user"></i> <b><?php echo $comment['name'];?></b></div>
+						                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <?php 
+
+												$comdatetime = $comment['postingDate'];
+												$time_elapsed = timeAgo($comdatetime);
+												echo $time_elapsed;
+												?></time>
+						                  </header>
+						                  <div class="comment-post">
+						                    <p>
+						                      <?php echo $comment['comment'];?>
+						                    </p>
+						                  </div>
+						                  <!-- <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p> -->
+						                </div>
+						              </div>
+						            </div>
+						        <?php }} ?>
+						          </article>
+						          <!-- Second Comment Reply -->
+						          <!-- <article class="row">
+						            <div class="col-md-2 col-sm-2 col-md-offset-1 col-sm-offset-0 hidden-xs">
+						              <figure class="thumbnail">
+						                <img class="img-responsive" src="http://www.tangoflooring.ca/wp-content/uploads/2015/07/user-avatar-placeholder.png" />
+						                <figcaption class="text-center">username</figcaption>
+						              </figure>
+						            </div>
+						            <div class="col-md-9 col-sm-9">
+						              <div class="panel panel-default arrow left">
+						                <div class="panel-heading right">Reply</div>
+						                <div class="panel-body">
+						                  <header class="text-left">
+						                    <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
+						                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
+						                  </header>
+						                  <div class="comment-post">
+						                    <p>
+						                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						                    </p>
+						                  </div>
+						                  <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+						                </div>
+						              </div>
+						            </div>
+						          </article> -->
+						       
+						        </section>
+						    </div>
+						  </div>
+						<!--End of new Article Comment  -->
+
 						<!-- Leave a comment -->
 						<div>
 							<h4 class="f1-l-4 cl3 p-b-12">
@@ -497,6 +577,10 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="    bootstrap-css">
+	<link href="css/styleForComment.css" rel="stylesheet">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 </body>
 </html>
@@ -517,5 +601,70 @@ if(insertArticleComment($conn, $_POST, $ref)){
 }
 
 }
-
+function timeAgo($time_ago)
+{
+    $time_ago = strtotime($time_ago);
+    $cur_time   = time();
+    $time_elapsed   = $cur_time - $time_ago;
+    $seconds    = $time_elapsed ;
+    $minutes    = round($time_elapsed / 60 );
+    $hours      = round($time_elapsed / 3600);
+    $days       = round($time_elapsed / 86400 );
+    $weeks      = round($time_elapsed / 604800);
+    $months     = round($time_elapsed / 2600640 );
+    $years      = round($time_elapsed / 31207680 );
+    // Seconds
+    if($seconds <= 60){
+        return "Just Now";
+    }
+    //Minutes
+    else if($minutes <=60){
+        if($minutes==1){
+            return "one minute ago";
+        }
+        else{
+            return $minutes." minutes ago";
+        }
+    }
+    //Hours
+    else if($hours <=24){
+        if($hours==1){
+            return "an hour ago";
+        }else{
+            return $hours." hrs ago";
+        }
+    }
+    //Days
+    else if($days <= 7){
+        if($days==1){
+            return "yesterday";
+        }else{
+            return $days." days ago";
+        }
+    }
+    //Weeks
+    else if($weeks <= 4.3){
+        if($weeks==1){
+            return "a week ago";
+        }else{
+            return $weeks." weeks ago";
+        }
+    }
+    //Months
+    else if($months <=12){
+        if($months==1){
+            return "a month ago";
+        }else{
+            return $months." months ago";
+        }
+    }
+    //Years
+    else{
+        if($years==1){
+            return "one year ago";
+        }else{
+            return $years." years ago";
+        }
+    }
+}
 ?>

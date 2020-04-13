@@ -172,7 +172,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 						<!-- Old Comment Section -->
 
 
-						<!-- <div>
+						<div>
 							<h4 class="f1-l-4 cl3 p-b-12">
 								Comments
 							</h4>	
@@ -186,14 +186,21 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 										
 									
 							
-								?>
-								<li class="flex-wr-sb-s p-b-30">									
-									<div class="size-w-11">
+								?>								
+								<li class="flex-wr-sb-s p-b-30">	
+
+									<div class="size-w-11 row">
+										<div class="col-md-2 col-sm-2 hidden-xs">
+						              <figure class="thumbnail">
+						                <img class="img-responsive" src="http://www.tangoflooring.ca/wp-content/uploads/2015/07/user-avatar-placeholder.png" height="50px" width="50px" />						                
+						              </figure>
+						            </div>
+						            <div class="col-md-10 col-sm-10" style="border: 1px solid #aaa;padding: 10px;">
 										<h5 class="p-b-4">
 											
 												<b><?php echo $comment['name'];?></b>
 											
-										</h6>
+										</h5>
 
 										<span class="cl8 txt-center p-b-24">
 											
@@ -212,93 +219,15 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 											</span>
 										</span>
 									</div>
+									</div>
 								</li>
 							<?php }} ?>
 								
 							</ul>
 									
-						</div> -->
+						</div>
 						<!-- end of old comment section -->
-						<!-- New Comment Section -->
-						<div class="row">
-						    <div class="col">
-						      <h4 class="f1-l-4 cl3 p-b-12">
-								Comments
-							</h4>
-						        <section class="comment-list">
-						          <!-- First Comment -->
-
-						          <article class="row">
-						          	<?php
-									$comments = getAllCommentsByNewsId($conn, $ref);
-									foreach ($comments as $comment ) {
-										# code...
-										if ($comment['is_active']=='active') {
-											# code...
-										
-									
-							
-									?>
-						            <div class="col-md-2 col-sm-2 hidden-xs">
-						              <figure class="thumbnail">
-						                <img class="img-responsive" src="http://www.tangoflooring.ca/wp-content/uploads/2015/07/user-avatar-placeholder.png" />
-						                
-						              </figure>
-						            </div>
-						            <div class="col-md-10 col-sm-10">
-						              <div class="panel panel-default arrow left">
-						                <div class="panel-body">
-						                  <header class="text-left">
-						                    <div class="comment-user"><i class="fa fa-user"></i> <b><?php echo $comment['name'];?></b></div>
-						                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <?php 
-
-												$comdatetime = $comment['postingDate'];
-												$time_elapsed = timeAgo($comdatetime);
-												echo $time_elapsed;
-												?></time>
-						                  </header>
-						                  <div class="comment-post">
-						                    <p>
-						                      <?php echo $comment['comment'];?>
-						                    </p>
-						                  </div>
-						                  <!-- <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p> -->
-						                </div>
-						              </div>
-						            </div>
-						        <?php }} ?>
-						          </article>
-						          <!-- Second Comment Reply -->
-						          <!-- <article class="row">
-						            <div class="col-md-2 col-sm-2 col-md-offset-1 col-sm-offset-0 hidden-xs">
-						              <figure class="thumbnail">
-						                <img class="img-responsive" src="http://www.tangoflooring.ca/wp-content/uploads/2015/07/user-avatar-placeholder.png" />
-						                <figcaption class="text-center">username</figcaption>
-						              </figure>
-						            </div>
-						            <div class="col-md-9 col-sm-9">
-						              <div class="panel panel-default arrow left">
-						                <div class="panel-heading right">Reply</div>
-						                <div class="panel-body">
-						                  <header class="text-left">
-						                    <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
-						                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-						                  </header>
-						                  <div class="comment-post">
-						                    <p>
-						                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						                    </p>
-						                  </div>
-						                  <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
-						                </div>
-						              </div>
-						            </div>
-						          </article> -->
-						       
-						        </section>
-						    </div>
-						  </div>
-						<!-- End of new comment section -->
+						
 						<!-- Leave a comment -->
 						<div>
 							<h4 class="f1-l-4 cl3 p-b-12">
@@ -517,7 +446,11 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 											</span>
 
 											<span class="f1-s-3">
-												<?php echo $latestNewsDetail['created_at']; ?>
+												<?php  
+
+												$comdatetime = $latestNewsDetail['created_at'];
+												$time_elapsed = timeAgo($comdatetime);
+												echo $time_elapsed;?>
 											</span>
 										</span>
 									</div>
@@ -576,10 +509,9 @@ foreach($result as $key){
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="    bootstrap-css">
-	<link href="css/styleForComment.css" rel="stylesheet">
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	
+	
+	
 </body>
 </html>
 <?php

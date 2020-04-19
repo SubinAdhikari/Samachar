@@ -153,7 +153,7 @@
 
 						<ul class="main-menu">
 							<li class="main-menu-active">
-								<a href="index.php">Home</a>
+								<a href="index.php"><i class="fas fa-home"></i></a>
 							</li>
 
 							

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
 	<title>Samachar</title>
 	<meta charset="UTF-8">
@@ -185,7 +185,7 @@
 									<li><a href="contact.php">Contact Us</a></li>
 								</ul>
 							</li>
-							<a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3">ENGLISH</a>
+							<a href="../Frontend/index.php" target="_blank" class="moen ml-3">Nepali</a>
 						</ul>
 					</nav>
 				</div>

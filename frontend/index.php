@@ -47,27 +47,30 @@ include "layouts/header.php"
 	// print_r($bannerNews);
 	?>
 <?php foreach($bannerNews as $key){ ?>
+	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>">
 	<div class="container" style="background-color: GhostWhite;">
 				<div>
-				<h2 style="color:black;font-size:40px;"><strong><center><?php echo $key['news_title']; ?></center></strong></h2>
+				<h2 style="color:black;font-size:40px;"><strong><center>
+					<?php echo $key['news_title']; ?></center></strong></h2>
 				</div>
 				<div>
 				<span style="color:black;font-size:20px;"><strong><center><?php echo $key['news_writtenby']; ?></center></strong></span>
 				</div>
-				<figure> <img width="100%" height="581" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"  alt=""  > </figure> 
+				<figure> <img width="100%" height="581" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"> </figure> 
 				<p>
-				<strong>
-				विगत १६ वर्षदेखि शवको अन्त्येष्टी गर्ने काममा संलग्न जोर्डी फर्नान्डेजलाई अहिलेको जस्तो कहालीलाग्दो अवस्था देख्नुपर्ला भन्ने लागेकै थिएन । बार्सिलोना शहरमा रहेको उनको अन्त्येष्टी गृह अहिले विरक्तलाग्दो छ । अन्त्येष्टीका क्रममा शवलाई ‘शान्ति प्रदान गर्नु’ उनको मुख्य जिम्मेवारी हो । स्पष्ट भन्दा उनको काम अन्त्येष्टी
+				<strong style="color:black">
 				<?php
-				
-				// $string = strval($key['news_deails']);
-				// gettype($string);
-				// $string1 = substr($string,0,10);
-
-				//  echo $string1; ?>
+				$FullNews=$key['news_deails'];
+                $subStrNews= substr($FullNews,127,400);
+				echo $subStrNews;
+				echo ' Read more';
+                ?>
+              
+            
 				 </strong></p>
 				
 	</div>
+	</a>
 	<br>
 	<div class="container">
 					

@@ -185,7 +185,7 @@
 									<li><a href="contact.php">Contact Us</a></li>
 								</ul>
 							</li>
-							<a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3">ENGLISH</a>
+							<strong><a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3"><span style="color:maroon">ENGLISH</span></a></strong>
 						</ul>
 					</nav>
 				</div>

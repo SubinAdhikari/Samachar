@@ -390,14 +390,23 @@ a.left-topbar-item:hover {
   align-items: center;
 }
 
-.main-menu > li {
+/* .main-menu > li {
   height: 100%;
   position: relative;
+} */
+
+.main-menu > li {
+  /* position: absolute; */
+  height: 100%;
+  width: auto;
+  position: relative;
+  padding: 0px;
+  margin-right: -20px;
 }
 
 .main-menu > li > a {
   font-family: Roboto-Medium;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.5;
   color: #222;
   

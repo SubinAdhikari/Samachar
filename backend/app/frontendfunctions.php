@@ -19,6 +19,14 @@ function GetLatestNews($conn){
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
 }
+function GetLatestThreeBannerNews($conn){
+    $value='yes';
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews ORDER BY news_id DESC LIMIT 3 ");
+    $stmtSelect->bindParam(':is_bannerNews',$value);
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
+}   
 function GetSecondLastNews($conn){
     $stmtSelect = $conn->prepare("SELECT * FROM tblnews ORDER BY news_id DESC LIMIT 1,1 ");
     $stmtSelect->execute();

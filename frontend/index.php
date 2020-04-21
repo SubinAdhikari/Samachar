@@ -36,44 +36,50 @@ include "layouts/header.php"
 	</div>
 		 
 
-	<div class="container"  >
+	<div class="container">
 					
 					<a href="#"><img  class="container" src="../backend/advertisementImage/Nepal-Bank-New-Banne.gif"   alt=""></a><hr>
 					<a href="#"><img class="container" src="../backend/advertisementImage/Sajhapost-1225x100-1.gif"   alt=""></a><hr>
-				</div>
+	</div>
 
-<div class="container" style="background-color: GhostWhite;">
-				<div >
-				<h2 style="color:black;font-size:40px;"><strong><center>बार्सिलोना शहरमा शवगृहको दर्दनाक दृश्य<center><strong></h2>
-				<div >
-				<span style="color:black;font-size:20px;"><strong><center>हिमाल कोइराला<center><strong></span>
+	<?php
+	$bannerNews=GetLatestThreeBannerNews($conn);
+	// print_r($bannerNews);
+	?>
+<?php foreach($bannerNews as $key){ ?>
+	<div class="container" style="background-color: GhostWhite;">
+				<div>
+				<h2 style="color:black;font-size:40px;"><strong><center><?php echo $key['news_title']; ?></center></strong></h2>
 				</div>
-				<figure> <img width="100%" height="581" src="../backend/newsFeaturedImage/5e8b2bb7b53e11.69179662.jpg"  alt=""  > </figure> 
-				विगत १६ वर्षदेखि शवको अन्त्येष्टी गर्ने काममा संलग्न जोर्डी फर्नान्डेजलाई अहिलेको जस्तो कहालीलाग्दो अवस्था देख्नुपर्ला भन्ने लागेकै थिएन । बार्सिलोना शहरमा रहेको उनको अन्त्येष्टी गृह अहिले विरक्तलाग्दो छ । अन्त्येष्टीका क्रममा शवलाई ‘शान्ति प्रदान गर्नु’ उनको मुख्य जिम्मेवारी हो । स्पष्ट भन्दा उनको काम अन्त्येष्टी </p>
+				<div>
+				<span style="color:black;font-size:20px;"><strong><center><?php echo $key['news_writtenby']; ?></center></strong></span>
 				</div>
-</div><br>
-
-<div class="container"  >
-					
-					<a href="#"><img  class="container" src="../backend/advertisementImage/Cellpay860x902020-01-02.gif"   alt=""></a><hr>
+				<figure> <img width="100%" height="581" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"  alt=""  > </figure> 
+				<p>
+				<strong>
+				विगत १६ वर्षदेखि शवको अन्त्येष्टी गर्ने काममा संलग्न जोर्डी फर्नान्डेजलाई अहिलेको जस्तो कहालीलाग्दो अवस्था देख्नुपर्ला भन्ने लागेकै थिएन । बार्सिलोना शहरमा रहेको उनको अन्त्येष्टी गृह अहिले विरक्तलाग्दो छ । अन्त्येष्टीका क्रममा शवलाई ‘शान्ति प्रदान गर्नु’ उनको मुख्य जिम्मेवारी हो । स्पष्ट भन्दा उनको काम अन्त्येष्टी
+				<?php
 				
-				</div>
-				<div class="container" style="background-color: GhostWhite;">
-				<div >
-				<h2 style="color:black;font-size:40px;"><strong><center>बार्सिलोना शहरमा शवगृहको दर्दनाक दृश्य<center><strong></h2>
-				<div >
-				<span style="color:black;font-size:20px;"><strong><center>हिमाल कोइराला<center><strong></span>
-				</div>
-				<figure> <img width="100%" height="581" src="../backend/newsFeaturedImage/5e8b2bb7b53e11.69179662.jpg"  alt=""  > </figure> 
-				विगत १६ वर्षदेखि शवको अन्त्येष्टी गर्ने काममा संलग्न जोर्डी फर्नान्डेजलाई अहिलेको जस्तो कहालीलाग्दो अवस्था देख्नुपर्ला भन्ने लागेकै थिएन । बार्सिलोना शहरमा रहेको उनको अन्त्येष्टी गृह अहिले विरक्तलाग्दो छ । अन्त्येष्टीका क्रममा शवलाई ‘शान्ति प्रदान गर्नु’ उनको मुख्य जिम्मेवारी हो । स्पष्ट भन्दा उनको काम अन्त्येष्टी </p>
-				</div>
-</div><br>
+				// $string = strval($key['news_deails']);
+				// gettype($string);
+				// $string1 = substr($string,0,10);
 
-<div class="container"  >
+				//  echo $string1; ?>
+				 </strong></p>
+				
+	</div>
+	<br>
+	<div class="container">
 					
 					<a href="#"><img  class="container" src="../backend/advertisementImage/GO__1200-X-150-copy.jpg"   alt=""></a><hr>
 				
-				</div>
+	</div>
+	
+	<br>
+<?php }?>
+	
+
+<!-- 
 				<div class="container" style="background-color: GhostWhite;">
 				<div >
 				<h2 style="color:black;font-size:40px;"><strong><center>बार्सिलोना शहरमा शवगृहको दर्दनाक दृश्य<center><strong></h2>
@@ -83,7 +89,7 @@ include "layouts/header.php"
 				<figure> <img width="100%" height="581" src="../backend/newsFeaturedImage/5e8b2bb7b53e11.69179662.jpg"  alt=""  > </figure> 
 				विगत १६ वर्षदेखि शवको अन्त्येष्टी गर्ने काममा संलग्न जोर्डी फर्नान्डेजलाई अहिलेको जस्तो कहालीलाग्दो अवस्था देख्नुपर्ला भन्ने लागेकै थिएन । बार्सिलोना शहरमा रहेको उनको अन्त्येष्टी गृह अहिले विरक्तलाग्दो छ । अन्त्येष्टीका क्रममा शवलाई ‘शान्ति प्रदान गर्नु’ उनको मुख्य जिम्मेवारी हो । स्पष्ट भन्दा उनको काम अन्त्येष्टी </p>
 				</div>
-</div><br><br><hr><br><br>
+</div> --><br><br>
 
 	<!-- Feature post -->
 	<?php

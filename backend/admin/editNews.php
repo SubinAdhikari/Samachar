@@ -154,6 +154,21 @@ $result=selectNewsFromId($conn,$ref);
                                 </div>
                             </div>  
                             <div class="control-group">
+                                <label class="control-label">Banner News</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_bannerNews" id="selCSI">
+                                    <optgroup label="Select status">                        
+                                                    <option <?php if($result['is_bannerNews']=='yes')
+                                                     echo 'selected="selected"'; ?>
+                                                    value="yes">Yes</option>
+                                                    <option <?php if($result['is_bannerNews']=='no')
+                                                     echo 'selected="selected"'; ?>
+                                                    value="no">No</option>
+                                    </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
                                 <label class="control-label">News Details</label>
                                 <div class="controls">
                                     <textarea class="span12 ckeditor" name="news_deails" rows="6"><?php echo $result['news_deails']; ?></textarea>
@@ -294,7 +309,7 @@ if(isset($_POST['updateBtn'])){
       $fileNameNew = uniqid('',true).".".$fileActualExt;
       $fileNamesInString.=$fileNameNew.",";
       $path='../newsImage/'.$fileNameNew;
-      chmod('uploads/',0777);
+      // chmod('uploads/',0777);
       move_uploaded_file($tmp_name, $path);
     }
     $fileNamesInString = rtrim($fileNamesInString, ",");
@@ -306,7 +321,7 @@ if(isset($_POST['updateBtn'])){
     $fileActualExt1 = strtolower(end($fileExt1));
     $fileNameNew1 = uniqid('',true).".".$fileActualExt1;
     $path='../newsFeaturedImage/'.$fileNameNew1;
-    chmod('uploads/',0777);
+    // chmod('uploads/',0777);
     move_uploaded_file($tmp_name1, $path);
     if(updateNews($conn,$_POST,$ref,$fileNamesInString,$fileNameNew1)){
         showMsg('News Updated Successfully');

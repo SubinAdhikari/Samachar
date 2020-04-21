@@ -165,7 +165,7 @@ if(req.readyState==4 && req.status==200){
                                 </div>
                             </div>   
                             <div class="control-group">
-                                <label class="control-label">News Catagory</label>
+                                <label class="control-label">News Category</label>
                                 <div class="controls">
                                     <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" onchange="fetchCategoryId(this.value)"  name="category_name" id="selCSI" required >
                                         <option value="">Select Category</option>
@@ -207,6 +207,16 @@ if(req.readyState==4 && req.status==200){
                                 </div>
                             </div>
                             <div class="control-group">
+                                <label class="control-label"> Banner News</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_bannerNews" required id="selCSI">
+                                        <option value="">Select</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
                                 <label class="control-label">News Details</label>
                                 <div class="controls">
                                     <textarea class="span12 ckeditor"   name="news_details" rows="6"></textarea>
@@ -227,7 +237,7 @@ if(req.readyState==4 && req.status==200){
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label">Featured Image</label>
+                                <label class="control-label">Featured or Banner Image</label>
                                 <div class="controls">
                                     <input type="file" class="span6 " name="news_featuredimage" required  />
                                     

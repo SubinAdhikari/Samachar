@@ -95,10 +95,11 @@
                                 <th>Heading/Title</th>
                                 <th>Written By</th>
                                 <th>Category Name</th>
-                                <th>Sub-Category Name</th>                                
+                                <th>Sub-Category Name</th>
+                                <th>Banner News</th>                                  
                                 <th class="hidden-phone">News Url</th>
                                 <th class="hidden-phone">Image</th>
-                                <th class="hidden-phone">Featured Image</th>
+                                <th class="hidden-phone">Banner or Featured Image</th>
                                 <th class="hidden-phone">Status</th>
                                 <th class="hidden-phone">Top News</th>
                                 <th class="hidden-phone">Action</th>
@@ -126,7 +127,16 @@
                                 <td class="hidden-phone"><?php $subCategoryNames=getSubCategoryNameByCategoryId($conn,$news['subcategory_id']); 
                                 $subCategoryName = implode("", $subCategoryNames);  
                                 echo $subCategoryName; ?></td>
+                                
+                                <td class="center hidden-phone"><?php if($news['is_bannerNews']=='yes'): ?>
+                              <span class="label label-sm label-success">
+                                Yes</span>
+                              <?php else: ?>
+                                <span class="label label-sm label-danger">
+                                  No</span>
+                              <?php endif; ?></td>
                                 <td class="hidden-phone"><?php echo $news['news_url']; ?></td>
+                                
                                 <td><?php 
                                   $s=$news['news_image'];
                                   $arr = explode(",", $s);

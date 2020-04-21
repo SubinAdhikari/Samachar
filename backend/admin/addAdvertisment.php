@@ -1,13 +1,18 @@
 <?php include 'layouts/header.php'; 
-$Advertisment_category=$_GET['ref'];  
+// $specificAreasDb=getSpecificAreas($conn,'front_page');
+// foreach($specificAreasDb as $key => $value){
+//   echo $value['advertisement_specific_area'].'<br>';
+// }
+//   print_r($specificAreasDb);
+// $Advertisment_category=$_GET['ref'];  
 
-$AdvertisementResult=selectIfAdvertisementIsFull($conn,$Advertisment_category);
-if($AdvertisementResult){
-    echo '<script language="javascript">';
-    echo 'alert("Advertisement For This Category Is Full")';
-    echo '</script>';
-    redirection('index.php');
-} 
+// $AdvertisementResult=selectIfAdvertisementIsFull($conn,$Advertisment_category);
+// if($AdvertisementResult){
+//     echo '<script language="javascript">';
+//     echo 'alert("Advertisement For This Category Is Full")';
+//     echo '</script>';
+//     redirection('index.php');
+// } 
 
 
   
@@ -69,7 +74,7 @@ if($AdvertisementResult){
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Add Advertisment <?php echo '('.$Advertisment_category.')'; ?>
+                           Add Advertisment 
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -103,13 +108,33 @@ if($AdvertisementResult){
                         <div class="widget-body form">
                             <!-- BEGIN FORM-->
                             <form method="POST" accept-charset="utf-8" class="form-horizontal" enctype="multipart/form-data">
-                            <div class="control-group">
+                            <!-- <div class="control-group">
                                 <label class="control-label">Advertisment Category</label>
                                 <div class="controls">
                                     <input type="text" class="span6 " value="<?php echo $Advertisment_category; ?>" required name="advertisement_category" readonly/>
-                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                    
+                                </div>
+                            </div> -->
+                            <div class="control-group">
+                                <label class="control-label">Area</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="advertisement_area" onchange="fetchArea(this.value)"
+                                    required id="selCSI">
+                                        <option value="">Select</option>
+                                        <option value="front_page">Front Page</option>
+                                        <option value="category_page">Category Page</option>
+                                        <option value="news_detailpage">News Detail Page</option>     <option value="article_detailpage">Article Page</option>
+                                    </select>
                                 </div>
                             </div>
+                            <div class="control-group">
+                                <label class="control-label">Specific Area</label>
+                                <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1"   name="advertisement_specific_area" id="advertisement_specific_area" required>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="control-group">
                                 <label class="control-label">Advertisment Name</label>
                                 <div class="controls">
@@ -243,3 +268,44 @@ if(insertAdvertisement($conn, $_POST, $fileNameNew1)){
 }
 
 ?>
+<script type="text/javascript">
+  function fetchArea(areaName){ 
+      
+dataString = 'areaName='+areaName; 
+
+// var req=new XMLHttpRequest();
+// req.open("GET","SubCategoryIDRetrive.php?areaName="+areaName,true);
+// req.send();
+
+// req.onreadystatechange=function(){
+// if(req.readyState==4 && req.status==200){
+//     document.getElementById("categoryid").innerHTML=req.responseText;
+// }
+// }; 
+
+
+$.ajax({
+      type: 'post',
+      url: 'retrieveSpecificAreas.php',
+      data: dataString,
+      datatype : "json",
+      success: function (response) {
+        console.log(response);
+         var a = '<option value="">No Area Available</option>';        
+        if (response==0) {
+          $('#advertisement_specific_area').html(a);
+          $("#data").hide();
+          console.log(response);
+                     
+        }
+        else{
+          $("#data").show();
+          $('#advertisement_specific_area').html(response);
+       
+        }
+      }
+
+        
+    });       
+}
+</script>

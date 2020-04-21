@@ -28,12 +28,13 @@ function subCategoryIdFetchByName($conn,$subCategoryName){
  	return $stmtSelect->fetchAll();
 }
 function insertNews($conn, $data, $fileNameNew, $fileNameNew1){
-	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_writtenby`,`news_title`,`category_id`,`subcategory_id`,`news_deails`,`news_url`,`news_image`,`news_featuredimage`,`is_active`,`top_news`) VALUES (:news_writtenby, :news_title, :category_id, :subcategory_id,:news_details, :news_url, :news_image, :news_featuredimage, :is_active, :top_news)");
+	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_writtenby`,`news_title`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`news_image`,`news_featuredimage`,`is_active`,`top_news`) VALUES (:news_writtenby, :news_title, :category_id, :subcategory_id,:is_bannerNews,:news_details, :news_url, :news_image, :news_featuredimage, :is_active, :top_news)");
 
     $stmtinsert->bindParam(':news_writtenby', $data['news_writtenby']);
 	$stmtinsert->bindParam(':news_title', $data['news_title']);
     $stmtinsert->bindParam(':category_id', $data['category_id']);
     $stmtinsert->bindParam(':subcategory_id', $data['subcategory_id']);
+    $stmtinsert->bindParam(':is_bannerNews', $data['is_bannerNews']);
     $stmtinsert->bindParam(':news_details', $data['news_details']);
     $stmtinsert->bindParam(':news_url', $data['news_url']);
     $stmtinsert->bindParam(':news_image', $fileNameNew);
@@ -123,11 +124,12 @@ function selectNewsFromId($conn,$newsId){
     return $stmtSelect->fetch();
 }
 function updateNews($conn, $data, $ref,$fileNameNew,$fileNameNew1){
-    $stmtupdate=$conn->prepare("UPDATE tblnews SET news_writtenby=:news_writtenby, news_title=:news_title, news_deails=:news_deails ,news_url=:news_url, news_image=:news_image,
+    $stmtupdate=$conn->prepare("UPDATE tblnews SET news_writtenby=:news_writtenby, news_title=:news_title, is_bannerNews=:is_bannerNews, news_deails=:news_deails ,news_url=:news_url, news_image=:news_image,
         news_featuredimage=:news_featuredimage, is_active=:is_active,top_news=:top_news WHERE news_id=:news_id");
 
     $stmtupdate->bindParam(':news_writtenby', $data['news_writtenby']);
     $stmtupdate->bindParam(':news_title', $data['news_title']);
+    $stmtupdate->bindParam(':is_bannerNews', $data['is_bannerNews']);
     $stmtupdate->bindParam(':news_deails', $data['news_deails']);
     $stmtupdate->bindParam(':news_url', $data['news_url']);
     $stmtupdate->bindParam(':news_image', $fileNameNew);

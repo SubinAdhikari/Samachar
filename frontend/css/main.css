@@ -366,7 +366,8 @@ a.left-topbar-item:hover {
   -moz-transform: translateY(0%);
   -ms-transform: translateY(0%);
   -o-transform: translateY(0%);
-  transform: translateY(0%);
+  /* transform: translateY(0%); */
+  transform: translateX(-9%);
 }
 
 .menu-desktop {

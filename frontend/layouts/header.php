@@ -125,7 +125,7 @@
 			<!-- Header Mobile --> 
 			
 			<!--  -->
-			<div class="wrap-logo container">
+			<div class="wrap-logo ">
 				<!-- Logo desktop -->		
 				<div class="logo" >
 					<a href="index.php"><img  src="images/icons/samachar.png" alt="LOGO"></a>

@@ -249,7 +249,7 @@ foreach($forthLastNews as $key){
 	</section></center>
 
 	<!-- Post -->
-	<center><section class="bg0 p-t-70" style="width:95%">
+	<section class="bg0 p-t-70" style="width:95%;margin-left:35px">
 		<div >
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8">
@@ -534,7 +534,7 @@ foreach($forthLastNews as $key){
 				</div>
 			</div>
 		</div>
-	</section></center>
+	</section>
 
 	<!-- Banner -->
 	<?php $specificArea = 'first_bottom';
@@ -552,7 +552,7 @@ foreach($forthLastNews as $key){
 	<?php } ?>
 
 	<!-- Latest -->
-<center>	<section class="bg0 p-t-60 p-b-35" style="width:95%">
+<section class="bg0 p-t-60 p-b-35" style="width:95%;margin-left:35px">
 		<div>
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8 p-b-20">
@@ -693,7 +693,7 @@ foreach($result as $key){
 				</div>
 			</div>
 		</div> 
-	</section></center>
+	</section>
 
 	<!-- Footer -->
 	<?php

@@ -36,7 +36,7 @@ include "layouts/header.php"
 	</div>
 		 
 
-	<div class="container">
+	<div  style="width:95%">
 		<?php
 								$area = 'front_page';
 								$specificArea = 'first_top';
@@ -45,14 +45,14 @@ include "layouts/header.php"
 								foreach($advertisement1 as $key){
 							?>
 					
-					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+					<center><a href="#"><img   src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
 				<?php } 
 					$specificArea = 'second_top';
 					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 					
 					foreach($advertisement1 as $key){
 				?>
-					<a href="#"><img class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+					<center><a href="#"><img  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
 				<?php } ?>
 	</div>
 
@@ -67,7 +67,7 @@ include "layouts/header.php"
  // echo '<br>'.$specificAreaBannerArray[0];
 foreach($bannerNews as $key){ ?>
 	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>">
-	<div class="container" style="background-color: GhostWhite;">
+	<center>	<div  style="background-color: GhostWhite;width:95%">
 				<div>
 				<h2 style="color:black;font-size:40px;"><strong><center>
 					<?php echo $key['news_title']; ?></center></strong></h2>
@@ -89,10 +89,10 @@ foreach($bannerNews as $key){ ?>
 				 </strong></p>
 
 				
-	</div>
+	</div></center>
 	</a>
 	<br>
-	<div class="container">
+	<center><div style="width:95%">
 					
 					<?php 
 
@@ -102,10 +102,10 @@ foreach($bannerNews as $key){ ?>
 					
 					foreach($advertisement1 as $key){
 				?>
-					<a href="#"><img class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+					<a href="#"><img  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
 				<?php } ?>
 				
-	</div>
+	</div></center>
 	
 	<br>
 <?php }?>
@@ -128,8 +128,8 @@ foreach($bannerNews as $key){ ?>
 	$latestNewsDetails=GetLatestNews($conn);
 	// print_r($latestNewsDetails);
 	?>
-	<section class="bg0">
-		<div class="container">
+<center>	<section class="bg0" style="width:95%">
+		<div >
 		<?php foreach($latestNewsDetails as $key){ ?>
 			<div class="row m-rl--1">
 				<div class="col-md-6 p-rl-1 p-b-2">
@@ -246,11 +246,11 @@ foreach($forthLastNews as $key){
 				</div>
 			</div>
 		</div>
-	</section>
+	</section></center>
 
 	<!-- Post -->
-	<section class="bg0 p-t-70">
-		<div class="container">
+	<center><section class="bg0 p-t-70" style="width:95%">
+		<div >
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8">
 					<div class="p-b-20">
@@ -534,26 +534,26 @@ foreach($forthLastNews as $key){
 				</div>
 			</div>
 		</div>
-	</section>
+	</section></center>
 
 	<!-- Banner -->
 	<?php $specificArea = 'first_bottom';
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){ ?>
-	<div class="container" style="border:1px black solid;">
+	<center><div  style="border:1px black solid;width:95%">
 		<div class="flex-c-c">
 			<a href="#" >
 				<!-- <img class="max-w-full" src="images/banner-01.jpg" alt="IMG"> -->
 				<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"  alt="IMG"> 
 			</a>
 		</div>
-	</div>
+	</div></center>
 	<?php } ?>
 
 	<!-- Latest -->
-	<section class="bg0 p-t-60 p-b-35">
-		<div class="container">
+<center>	<section class="bg0 p-t-60 p-b-35" style="width:95%">
+		<div>
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8 p-b-20">
 					<div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
@@ -693,7 +693,7 @@ foreach($result as $key){
 				</div>
 			</div>
 		</div> 
-	</section>
+	</section></center>
 
 	<!-- Footer -->
 	<?php

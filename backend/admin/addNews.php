@@ -193,14 +193,14 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label">News Sub-Catagory</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1"   name="category_name" id="subCategory" onchange="fetchSubCategoryId(this.value)" required >
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1"   name="category_name" id="subCategory" onchange="fetchSubCategoryId(this.value)"  >
                                     </select>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Sub-Category Id</label>
                                 <div class="controls">
-                                    <select name="subcategory_id" id="subcategoryid" required  class="span6">
+                                    <select name="subcategory_id" id="subcategoryid"   class="span6">
                                     </select>
                                     <!-- <input type="text"  class="span6 " name="category_id" id="categoryid"   /> -->
                                     <!-- <span class="help-inline">Some hint here</span> -->

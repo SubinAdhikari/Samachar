@@ -14,7 +14,9 @@ function selectSubcategoryFromCategoryId($conn,$key){
  	return $stmtSelect->fetchAll();
 }
 function GetLatestNews($conn){
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews ORDER BY news_id DESC LIMIT 1 ");
+    $value='no';
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews ORDER BY news_id DESC LIMIT 1 ");
+    $stmtSelect->bindParam(':is_bannerNews',$value);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
@@ -28,19 +30,25 @@ function GetLatestThreeBannerNews($conn){
     return $stmtSelect->fetchAll();
 }   
 function GetSecondLastNews($conn){
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews ORDER BY news_id DESC LIMIT 1,1 ");
+    $value='no';
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews ORDER BY news_id DESC LIMIT 1,1 ");
+    $stmtSelect->bindParam(':is_bannerNews',$value);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
 }
 function GetThirdLastNews($conn){
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews ORDER BY news_id DESC LIMIT 2,1 ");
+    $value='no';
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews ORDER BY news_id DESC LIMIT 2,1 ");
+    $stmtSelect->bindParam(':is_bannerNews',$value);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
 }
 function GetForthLastNews($conn){
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews ORDER BY news_id DESC LIMIT 3,1 ");
+    $value='no';
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews ORDER BY news_id DESC LIMIT 3,1 ");
+    $stmtSelect->bindParam(':is_bannerNews',$value);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();

@@ -67,4 +67,12 @@ function deleteAdvertisement($conn, $advertisement_id){
     }
     return false;
 }
+function selectAllAdvertisementSpecificArea($conn,$area,$specificArea){
+    $stmtSelect = $conn->prepare("SELECT advertisement_id,advertisement_category,advertisement_image,status,advertisement_expiry_date FROM tbladvertisement WHERE advertisement_area=:advertisement_area AND advertisement_specific_area=:advertisement_specific_area");
+    $stmtSelect->bindParam(':advertisement_area',$area);
+    $stmtSelect->bindParam(':advertisement_specific_area',$specificArea);
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
+}
 ?>

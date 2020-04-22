@@ -37,16 +37,35 @@ include "layouts/header.php"
 		 
 
 	<div class="container">
+		<?php
+								$area = 'front_page';
+								$specificArea = 'first_top';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
 					
-					<a href="#"><img  class="container" src="../backend/advertisementImage/Nepal-Bank-New-Banne.gif"   alt=""></a><hr>
-					<a href="#"><img class="container" src="../backend/advertisementImage/Sajhapost-1225x100-1.gif"   alt=""></a><hr>
+					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'second_top';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					foreach($advertisement1 as $key){
+				?>
+					<a href="#"><img class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } ?>
 	</div>
 
 	<?php
 	$bannerNews=GetLatestThreeBannerNews($conn);
 	// print_r($bannerNews);
 	?>
-<?php foreach($bannerNews as $key){ ?>
+
+<?php 
+ $specificAreaBannerArray = ["first_banner","second_banner","third_banner"];
+ $specificAreaBannerArrayCount = 0;
+ // echo '<br>'.$specificAreaBannerArray[0];
+foreach($bannerNews as $key){ ?>
 	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>">
 	<div class="container" style="background-color: GhostWhite;">
 				<div>
@@ -68,13 +87,23 @@ include "layouts/header.php"
               
             
 				 </strong></p>
+
 				
 	</div>
 	</a>
 	<br>
 	<div class="container">
 					
-					<a href="#"><img  class="container" src="../backend/advertisementImage/GO__1200-X-150-copy.jpg"   alt=""></a><hr>
+					<?php 
+
+					$specificArea = $specificAreaBannerArray[$specificAreaBannerArrayCount];
+					$specificAreaBannerArrayCount++;
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					foreach($advertisement1 as $key){
+				?>
+					<a href="#"><img class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } ?>
 				
 	</div>
 	
@@ -420,7 +449,11 @@ foreach($forthLastNews as $key){
 						</div> 
 
 						<!--  -->
-						<?php foreach($Advertisement_bannerSilver as $key) {?>
+						<?php 
+						$specificArea = 'first_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -486,7 +519,11 @@ foreach($forthLastNews as $key){
 								</li>
 							</ul>
 						</div>
-						<?php foreach($Advertisement_bannerSilver as $key) {?>
+						<?php 
+						$specificArea = 'second_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -500,7 +537,10 @@ foreach($forthLastNews as $key){
 	</section>
 
 	<!-- Banner -->
-	<?php foreach($Advertisement_bannerBronze as $key){ ?>
+	<?php $specificArea = 'first_bottom';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){ ?>
 	<div class="container" style="border:1px black solid;">
 		<div class="flex-c-c">
 			<a href="#" >

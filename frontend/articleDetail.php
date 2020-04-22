@@ -76,6 +76,23 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 									<?php echo count($comments1); ?> Comment
 								</a>
 							</div>
+							<?php
+								$area = 'article_detailpage';
+								$specificArea = 'below_articleTitle';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+								<div class="f1-l-3 cl2 p-b-16 p-t-33 respon2" style="border:1px black solid;">
+						
+								<a href="#"><img class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+
+
+								 alt="Below Article Advertisement"></a>
+								</div>
+
+							  <?php } ?>
+							  <br>
 
 							<div class="wrap-pic-max-w p-b-30">
 								<?php 
@@ -89,10 +106,60 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 
 								
 							</div>
+							<?php
+								$area = 'article_detailpage';
+								$specificArea = 'below_articlePhoto';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+								<div class="f1-l-3 cl2 p-b-16 p-t-33 respon2" style="border:1px black solid;">
+						
+								<a href="#"><img class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+									
 
-							<p class="f1-s-11 cl6 p-b-25">
-								<?php echo $result['article_details']; ?>
-							</p>	
+								 alt="Below Article Advertisement"></a>
+								</div>
+
+							  <?php } ?>
+							  <br>
+							<p class="f1-s-11 cl6 p-b-25" style="font-size:18px;">
+								
+								<?php 
+								$area = 'article_detailpage';
+								$specificArea = 'below_articleFirstPara';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+
+								$string = $result['article_details'];
+
+								function Search($search, $string){ 
+								    $position = strpos($string, $search, 0);   
+								    if (is_numeric($position)){ 
+								        return  $position; 
+								    } 
+								    else{ 
+								        return "Not Found"; 
+								    } 
+								} 
+								$a="";  
+								// Driver Code 
+								$search = "\n"; 
+								$position = Search($search, $string);
+								foreach($advertisement1 as $key){
+								$image =$key['advertisement_image']; 
+								
+								
+								$a="<br><img  src='../backend/advertisementImage/$image'
+
+								 alt='Below Article Advertisement' width='690px'>";
+								}
+								//$string = 'very '; 
+
+								echo substr_replace( $string, $a."<hr>", $position , 0 );
+ 								?>
+							
+							</p>  
+								
 
 							<!-- <p class="f1-s-11 cl6 p-b-25">
 								Curabitur volutpat bibendum molestie. Vestibulum ornare gravida semper. Aliquam a dui suscipit, fringilla metus id, maximus leo. Vivamus sapien arcu, mollis eu pharetra vitae, condimentum in orci. Integer eu sodales dolor. Maecenas elementum arcu eu convallis rhoncus. Donec tortor sapien, euismod a faucibus eget, porttitor quis libero. 
@@ -105,7 +172,22 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 							<p class="f1-s-11 cl6 p-b-25">
 								Praesent vel mi bibendum, finibus leo ac, condimentum arcu. Pellentesque sem ex, tristique sit amet suscipit in, mattis imperdiet enim. Integer tempus justo nec velit fringilla, eget eleifend neque blandit. Sed tempor magna sed congue auctor. Mauris eu turpis eget tortor ultricies elementum. Phasellus vel placerat orci, a venenatis justo. Phasellus faucibus venenatis nisl vitae vestibulum. Praesent id nibh arcu. Vivamus sagittis accumsan felis, quis vulputate
 							</p> -->
+							<?php
+								$area = 'article_detailpage';
+								$specificArea = 'below_articleLastPara';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+								<div class="f1-l-3 cl2 p-b-16 p-t-33 respon2" style="border:1px black solid;">
+						
+								<a href="#"><img class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
 
+								 alt="Below News Advertisement"></a>
+								</div>
+
+							  <?php } ?>
+							  <br>
 							<!-- Tag -->
 							<div class="flex-s-s p-t-12 p-b-15">
 								<span class="f1-s-12 cl5 m-r-8">
@@ -152,6 +234,22 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								</div>
 							</div>
 						</div>
+						<?php
+								$area = 'article_detailpage';
+								$specificArea = 'above_articleComment';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+								<div class="f1-l-3 cl2 p-b-16 p-t-33 respon2" style="border:1px black solid;">
+						
+								<a href="#"><img class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+
+								 alt="Below News Advertisement"></a>
+								</div>
+
+							  <?php } ?>
+							  <br>
 						<!-- Old Comment Section -->
 
 

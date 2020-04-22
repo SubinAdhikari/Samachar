@@ -26,7 +26,25 @@ $category_id=$_GET['ref'];
 		</div>
 	<?php }?>
 	</div>
-		
+	<div class="container">
+		<?php
+								$area = 'category_page';
+								$specificArea = 'below_categoryTitleFirst';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_categoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					foreach($advertisement1 as $key){
+				?>
+					<a href="#"><img class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } ?>
+	</div>	
 	<!-- Feature post -->
 	<section class="bg0">
 		<?php
@@ -54,7 +72,26 @@ $category_id=$_GET['ref'];
 			</div>
 		</div>
 	</section>
-
+	<br>
+	<div class="container">
+		<?php
+								$area = 'category_page';
+								$specificArea = 'below_categoryNewsList';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_categoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					
+				?>
+					
+				
+	</div>
 	<!-- Post -->
 	<section class="bg0 p-t-70">
 		<div class="container">
@@ -204,6 +241,7 @@ $category_id=$_GET['ref'];
 					</div>
 				</div>
 
+
 				<div class="col-md-10 col-lg-4">
 					<div class="p-l-10 p-rl-0-sr991 p-b-20">
 						<!--  -->
@@ -256,11 +294,25 @@ $category_id=$_GET['ref'];
 						</div>
 
 						<!--  -->
-						<div class="flex-c-s p-t-8">
-							<a href="#">
-								<img class="max-w-full" src="images/banner-02.jpg" alt="IMG">
-							</a>
-						</div>
+						<div class="container">
+		<?php
+								$area = 'category_page';
+								$specificArea = 'below_categoryNewsFirstSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_categoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					
+				?>
+					
+				
+	</div>
 						
 						<!--  -->
 						<div class="p-t-50">
@@ -320,20 +372,57 @@ $category_id=$_GET['ref'];
 								</li>
 							</ul>
 						</div>
+						<div class="container">
+		<?php
+								$area = 'category_page';
+								$specificArea = 'below_categoryNewsSecondSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_categoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					
+				?>
+					
+				
+	</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
+	<div class="container">
+		<?php
+								$area = 'category_page';
+								$specificArea = 'above_categoryFooter';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_categoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					
+				?>
+					
+				
+	</div>
 	<!-- Banner -->
-	<div class="container m-b-15">
+	<!-- <div class="container m-b-15">
 		<div class="flex-c-c">
 			<a href="#">
 				<img class="max-w-full" src="images/banner-01.jpg" alt="IMG">
 			</a>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Latest -->
 	<section class="bg0 p-t-60 p-b-35">

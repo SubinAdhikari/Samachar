@@ -61,9 +61,10 @@ include "layouts/header.php"
 				<strong style="color:black">
 				<?php
 				$FullNews=$key['news_deails'];
-                $subStrNews= substr($FullNews,127,400);
-				echo $subStrNews;
-				echo ' Read more';
+				$removingTags=strip_tags($FullNews);
+                $subStrNews= substr($removingTags,0,400);
+				echo '<span style="color:grey">'.$subStrNews.'</span>';
+				echo '<span style="color:grey">.....<br> Read more</span>';
                 ?>
               
             

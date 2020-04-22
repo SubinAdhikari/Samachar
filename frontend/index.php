@@ -45,14 +45,14 @@ include "layouts/header.php"
 								foreach($advertisement1 as $key){
 							?>
 					
-					<center><a href="#"><img   src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
+					<center><a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
 				<?php } 
 					$specificArea = 'second_top';
 					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 					
 					foreach($advertisement1 as $key){
 				?>
-					<center><a href="#"><img  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
+					<center><a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
 				<?php } ?>
 	</div>
 
@@ -80,9 +80,10 @@ foreach($bannerNews as $key){ ?>
 				<strong style="color:black">
 				<?php
 				$FullNews=$key['news_deails'];
-                $subStrNews= substr($FullNews,127,400);
-				echo $subStrNews;
-				echo ' Read more';
+				$removingTags=strip_tags($FullNews);
+                $subStrNews= substr($removingTags,0,400);
+				echo '<span style="color:grey">'.$subStrNews.'</span>';
+				echo '<span style="color:grey">.....<br> Read more</span>';
                 ?>
               
             
@@ -102,7 +103,7 @@ foreach($bannerNews as $key){ ?>
 					
 					foreach($advertisement1 as $key){
 				?>
-					<a href="#"><img  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+					<a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
 				<?php } ?>
 				
 	</div></center>
@@ -542,10 +543,10 @@ foreach($forthLastNews as $key){
 								
 								foreach($advertisement1 as $key){ ?>
 	<center><div  style="border:1px black solid;width:95%">
-		<div class="flex-c-c">
+		<div style="width:100%">
 			<a href="#" >
 				<!-- <img class="max-w-full" src="images/banner-01.jpg" alt="IMG"> -->
-				<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"  alt="IMG"> 
+				<img  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" width="100%" alt="IMG"> 
 			</a>
 		</div>
 	</div></center>

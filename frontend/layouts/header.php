@@ -80,7 +80,7 @@
 							<span>
 								<!-- New York, NY -->
 								<!-- <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?time_only=no&font_color=FFFFFF&aj_time=yes&font_size=14&line_brake=0&bikram_sambat=0&api=890040j065" width="308" height="22"></iframe> -->
-									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=14&api=800144j563" width="165" height="22"></iframe>
+									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=20&api=800144j563" width="165" height="22"></iframe>
 							</span>
 
 							<!-- <img class="m-b-1 m-rl-8" src="images/icons/icon-night.png" alt="IMG"> -->
@@ -143,50 +143,44 @@
 			</div>	
 			
 			<!--  -->
-			<div class="wrap-main-nav">
-				<div class="main-nav">
+			
 					<!-- Menu desktop -->
-					<nav class="menu-desktop">
+					
 						<a class="logo-stick" href="index.html">
 							<img src="images/icons/samachar.png" alt="LOGO">
 						</a>
+					
 
-						<ul class="main-menu">
-							<li class="main-menu-active">
-								<a href="index.php"><i class="fas fa-home"></i></a>
-							</li>
-
-							
-
-
+						<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  								
+  								<a class="navbar-brand" href="index.php"><i style="padding-left:80px"; class="fas fa-home"></i></a>
+  						
+  						<div class="collapse navbar-collapse" id="navbarNavDropdown">
+    						<ul class="navbar-nav" style="padding-left:50px";>
 							<?php foreach($categoryList as $key){
 								 ?>
-							<li>
-								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>"><?php echo $key['category_name'];?></a>
-								<ul class="sub-menu">
+
+								 <li class="nav-item dropdown">
+        						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $key['category_id'];  ?>" style="font-size:20px; color:black"><?php echo $key['category_name'];?>
+        							</a>
+							<!-- <li>
+								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>"><?php echo $key['category_name'];?></a> -->
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<?php 
 									$subcategoryList=selectSubcategoryFromCategoryId($conn,$key['category_id']);
 									foreach($subcategoryList as $key){
 										// foreach($key as $value){
 									?>
-									<li><a href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id'] ?>"><?php echo $key['subcategory_name']; ?></a></li>
+									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id'] ?>"><?php echo $key['subcategory_name']; ?></a>
 										<?php }  ?>
-								</ul>
+										</div>
+
 							</li>
 										<?php }?>
 
-
-						
-
-							<li>
-								<a href="#">Others</a>
-								<ul class="sub-menu">
-									<li><a href="about.php">About Us</a></li>
-									<li><a href="contact.php">Contact Us</a></li>
-								</ul>
-							</li>
-							<strong><a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3"><span style="color:maroon">ENGLISH</span></a></strong>
+							
 						</ul>
+						<strong><a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3"><span style="color:blue">ENGLISH</span></a></strong>
 					</nav>
 				</div>
 			</div>	

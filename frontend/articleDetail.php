@@ -10,19 +10,7 @@ $article_visit=$result['article_views'];
 $article_visit=(int)$article_visit + 1 ;
 UpdateArticleVisitPage($conn,$article_visit,$ref);
 
-$advertisement_banner=selectAllAdvertisement($conn);
-// dump($advertisement_banner);
-$date_today = date("Y-m-d");
 
-
-	foreach($advertisement_banner as $key => $value){		
- 		$date_expiry = $value['advertisement_expiry_date'];
- 		$date_today = date("Y-m-d");
- 		if ($date_expiry==$date_today) {
- 			$advertisement_id =  $value['advertisement_id'];
- 			deleteAdvertisement($conn, $advertisement_id);
- 		}
-	}
 
 ?>
 

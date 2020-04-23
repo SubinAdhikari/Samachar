@@ -29,44 +29,20 @@
 	<?php
 	include '../backend/app/call.php';
 	$categoryList=selectAllCategory($conn);
-	// print_r($categoryList);
-	$AdvertisementCategoryGold='gold';
-	$Advertisement_banner=selectAllAdvertisementOfGold($conn,$AdvertisementCategoryGold);
-		foreach($Advertisement_banner as $key){
-	 		$date_expiry = $key['advertisement_expiry_date'];
-	 		$date_today = date("Y-m-d");
-	 		if ($date_expiry==$date_today) {
-	 			$advertisement_id =  $key['advertisement_id'];
-	 			deleteAdvertisement($conn, $advertisement_id);
-	 		}
-		}
-	// print_r($Advertisement_banner);
 
-	$AdvertisementCategorySilver='silver';
-	$Advertisement_bannerSilver=selectAllAdvertisementOfSilver($conn,$AdvertisementCategorySilver);
-	// print_r($Advertisement_bannerSilver);
-	foreach($Advertisement_bannerSilver as $key){
-	 		$date_expiry = $key['advertisement_expiry_date'];
-	 		$date_today = date("Y-m-d");
-	 		if ($date_expiry==$date_today) {
-	 			$advertisement_id =  $key['advertisement_id'];
-	 			deleteAdvertisement($conn, $advertisement_id);
-	 		}
-		}
 
-	$AdvertisementCategoryBronze='bronze';
-	$Advertisement_bannerBronze=selectAllAdvertisementOfBronze($conn,$AdvertisementCategoryBronze);
-	// print_r($Advertisement_bannerBronze);
-	foreach($Advertisement_bannerBronze as $key){
-	 		$date_expiry = $key['advertisement_expiry_date'];
-	 		$date_today = date("Y-m-d");
-	 		if ($date_expiry==$date_today) {
-	 			$advertisement_id =  $key['advertisement_id'];
-	 			deleteAdvertisement($conn, $advertisement_id);
-	 		}
-		}
+	$advertisement_banner=selectAllAdvertisement($conn);
+	 //dump($advertisement_banner);
 
-	
+
+	foreach($advertisement_banner as $key => $value){		
+ 		$date_expiry = $value['advertisement_expiry_date'];
+ 		$date_today = date("Y-m-d");
+ 		if ($date_expiry==$date_today) {
+ 			$advertisement_id =  $value['advertisement_id'];
+ 			deleteAdvertisement($conn, $advertisement_id);
+ 		}
+	}
 	?>
 	
 	<!-- Header -->
@@ -80,7 +56,7 @@
 							<span>
 								<!-- New York, NY -->
 								<!-- <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?time_only=no&font_color=FFFFFF&aj_time=yes&font_size=14&line_brake=0&bikram_sambat=0&api=890040j065" width="308" height="22"></iframe> -->
-									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=20&api=800144j563" width="165" height="22"></iframe>
+									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=15&api=800144j563" width="165" height="20"></iframe>
 							</span>
 
 							<!-- <img class="m-b-1 m-rl-8" src="images/icons/icon-night.png" alt="IMG"> -->
@@ -132,14 +108,7 @@
 				</div>	
 
 				<!-- Banner -->
-				<?php
-				foreach($Advertisement_banner as $key){
-				?>
-				<div class="banner-header" style="border:1px black solid;">
-					
-					<a href="#"><img class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"  alt="GoldAdvertisement"></a>
-				</div>
-				<?php } ?>
+				
 			</div>	
 			
 			<!--  -->

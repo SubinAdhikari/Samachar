@@ -187,8 +187,12 @@ $category_id=$_GET['ref'];
 														</span>
 
 														<span class="f1-s-3">
-														<?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
-															<?php echo $key['created_at']; ?>
+														<?php echo 'Written By: '. $key['news_writtenby']; ?><br/>
+															<?php
+																$datetime = $key['created_at'];
+																$time_elapsed = timeAgo($datetime);
+														 		echo $time_elapsed; 
+														 	?>
 														</span>
 													</span>
 												</div>
@@ -283,7 +287,12 @@ $category_id=$_GET['ref'];
 											</span>
 
 											<span class="f1-s-3">
-												<?php echo $latestNewsDetail['created_at']; ?>
+												<?php
+													$datetime = $latestNewsDetail['created_at'];
+													$time_elapsed = timeAgo($datetime);
+											 		echo $time_elapsed; 
+												?>
+												
 											</span>
 										</span>
 									</div>
@@ -466,7 +475,11 @@ $category_id=$_GET['ref'];
 										</span>
 
 										<span class="f1-s-3">
-											Feb 18
+											<?php
+												$datetime = $key['created_at'];
+												$time_elapsed = timeAgo($datetime);
+										 		echo $time_elapsed; 
+											?>
 										</span>
 									</span>
 								</div>

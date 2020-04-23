@@ -85,9 +85,9 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
-								<div class="f1-l-3 cl2 p-b-16 p-t-33 respon2" style="border:1px black solid;">
+								<div style="height:90px;width:100%;border:1px black solid">
 						
-								<a href="#"><img width="100%" height="100%" class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+								<a href="#"><img width="100%" height="100%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
 
 
 								 alt="Below Article Advertisement"></a>
@@ -115,9 +115,9 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
-								<div class="f1-l-3 cl2 p-b-16 p-t-33 respon2" style="border:1px black solid;">
+								<div style="height:90px;width:100%;border:1px black solid">
 						
-								<a href="#"><img width="100%" height="100%" class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+								<a href="#"><img width="100%" height="100%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
 									
 
 								 alt="Below Article Advertisement"></a>
@@ -181,9 +181,9 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
-								<div class="f1-l-3 cl2 p-b-16 p-t-33 respon2" style="border:1px black solid;">
+								<div style="height:90px;width:100%;border:1px black solid">
 						
-								<a href="#"><img class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
 
 								 alt="Below News Advertisement"></a>
 								</div>
@@ -243,9 +243,9 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
-								<div class="f1-l-3 cl2 p-b-16 p-t-33 respon2" style="border:1px black solid;">
+								<div style="height:90px;width:100%;border:1px black solid">
 						
-								<a href="#"><img class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
 
 								 alt="Below News Advertisement"></a>
 								</div>

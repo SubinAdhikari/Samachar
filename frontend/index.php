@@ -299,11 +299,11 @@ foreach($forthLastNews as $key){
 									
 									?>
 												  <div class="card">
-												  	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="size-w-1 wrap-pic-w hov1 trans-03"></a>
-												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" class="card-img-top" alt="...">
+												  	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"  class="card-img-top" alt="...">
+												</a>
 												    <div class="card-body">
-												    	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03"></a>
-												      <h5 class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></h5>
+												      <h5><a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
 												      <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
 															<?php $datetime = $key['created_at']; 
 															$time_elapsed = timeAgo($datetime);

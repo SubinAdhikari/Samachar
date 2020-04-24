@@ -137,15 +137,15 @@ $(document).ready(function(){
 			<!-- Header Mobile --> 
 			
 			<!--  -->
-			<div class="wrap-logo ">
+		<center>	<div class="wrap-logo " style="width:15%;height:150px">
 				<!-- Logo desktop -->		
-				<div class="logo" >
-					<a href="index.php"><img  src="images/icons/samachar.png" alt="LOGO"></a>
+				<div class="logo" style="width:100%;height:100%">
+					<a href="index.php"><img  src="images/icons/samachar.png"  alt="LOGO"></a>
 				</div>	
 
 				<!-- Banner -->
 				
-			</div>	
+			</div>	</center>
 			
 			<!--  -->
 			

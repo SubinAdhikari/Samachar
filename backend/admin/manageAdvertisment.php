@@ -93,7 +93,8 @@
                             <tr>
                                 <th style="width:8px;"><input type="hidden" class="group-checkable" data-set="#sample_1 .checkboxes" />S.N</th>
                                 <th>Advertisement Name</th>
-                                <th>Advertisement Category</th>                               
+                                <th>Advertisement Area</th>     
+                                <th>Advertisement Specific Area</th>                             
                                 <th class="hidden-phone">Advertisement Image</th>
                                 <th class="hidden-phone">Advertisement Expiry date</th>
                                 <th class="hidden-phone">Action</th>
@@ -111,7 +112,10 @@
                                 echo $value['advertisement_name']; ?></td>
 
                                 <td class="hidden-phone"><?php
-                                echo $value['advertisement_category']; ?></td>
+                                echo $value['advertisement_area']; ?></td>
+
+                                <td class="hidden-phone"><?php
+                                echo $value['advertisement_specific_area']; ?></td>
 
                                 <td><?php 
                                   $featuredImg=$value['advertisement_image'];
@@ -126,9 +130,9 @@
                                
 
                                 <td class="hidden-phone">
-                                <!-- <a href="#" class="btn btn-xs btn-info">
-                                  Edit
-                                </a> -->
+                                <a href="editAdvertisement.php?ref=<?php echo $value['advertisement_id'];?>" class="btn btn-xs btn-info">
+                                  Update Date
+                                </a>
                                 <a href="deleteadvertisement.php?ref=<?php echo $value['advertisement_id'];?>" onclick="return confirm('Really Deleting that Advertisement??');" class="btn btn-xs btn-danger">
                                   Delete
                                 </a></td> 

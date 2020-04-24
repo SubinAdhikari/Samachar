@@ -10,6 +10,26 @@ if(isset($_POST['searchBtn'])){
 
 		
 	<!-- Headline -->
+	<center><div style="width:95%">
+		<?php
+								$area = 'search_resultpage';
+								$specificArea = 'below_searchResultNavbarFirst';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_searchResultNavbarSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					foreach($advertisement1 as $key){
+				?>
+					<a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } ?> 
+	</div></center>	
+
 	
 		
 	<!-- Feature post -->
@@ -42,7 +62,28 @@ if(isset($_POST['searchBtn'])){
 			</div>
 		</div>
 	</section>
+	<!-- Advertisement -->
 
+	<center><div style="width:95%">
+		<hr>
+		<?php
+								
+								$specificArea = 'below_searchResultNewsList';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_categoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					
+				?>
+					
+				
+	</div></center>
 	<!-- Post -->
 	<section class="bg0 p-t-70" style="width:95%;margin-left:35px">
 		<div >
@@ -163,13 +204,27 @@ if(isset($_POST['searchBtn'])){
 							}?>
 							</ul>
 						</div>
-
-						<!--  -->
-						<div class="flex-c-s p-t-8">
-							<a href="#">
-								<img class="max-w-full" src="images/banner-02.jpg" alt="IMG">
-							</a>
-						</div>
+							<!-- Advertisement  -->
+						<div class="container">
+		<?php
+								
+								$specificArea = 'below_searchResultFirstSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_categoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					
+				?>
+					
+				
+				</div>
+						
 						
 						<!--  -->
 						<div class="p-t-50">
@@ -229,24 +284,56 @@ if(isset($_POST['searchBtn'])){
 								</li>
 							</ul>
 						</div>
+						<div class="container">
+						<?php
+								
+								$specificArea = 'below_searchResultSecondSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					
+					
+					
+				?>
+					
+				
+	</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Banner -->
-	<div class="container m-b-15">
-		<div class="flex-c-c">
-			<a href="#">
-				<img class="max-w-full" src="images/banner-01.jpg" alt="IMG">
-			</a>
-		</div>
-	</div>
+	<!-- Advertisement -->
+	<center><div style="width:95%">
+		<hr>
+		<?php
+								
+								$specificArea = 'above_searchResultFooter';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img  width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_categoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					
+				?>
+					
+				
+	</div></center>
+
 
 	<!-- Latest -->
-	<section class="bg0 p-t-60 p-b-35">
-		<div class="container">
+	<section class="bg0 p-t-60 p-b-35" style="width:95%;margin-left:35px">
+		<div >
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8 p-b-20">
 					<div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
@@ -286,7 +373,11 @@ if(isset($_POST['searchBtn'])){
 										</span>
 
 										<span class="f1-s-3">
-											Feb 18
+											<?php
+												$datetime = $key['created_at'];
+												$time_elapsed = timeAgo($datetime);
+										 		echo $time_elapsed; 
+											?>
 										</span>
 									</span>
 								</div>

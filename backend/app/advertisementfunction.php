@@ -21,30 +21,6 @@ function selectAllAdvertisement($conn){
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
  	return $stmtSelect->fetchAll();
 }
-
-function selectAllAdvertisementOfGold($conn,$data){
-    $stmtSelect = $conn->prepare("SELECT advertisement_id,advertisement_category,advertisement_image,status,advertisement_expiry_date FROM tbladvertisement WHERE advertisement_category=:advertisement_category ");
-    $stmtSelect->bindParam(':advertisement_category',$data);
- 	$stmtSelect->execute();
- 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
- 	return $stmtSelect->fetchAll();
-}
-
-function selectAllAdvertisementOfSilver($conn,$data){
-    $stmtSelect = $conn->prepare("SELECT advertisement_id,advertisement_category,advertisement_image,status,advertisement_expiry_date FROM tbladvertisement WHERE advertisement_category=:advertisement_category ");
-    $stmtSelect->bindParam(':advertisement_category',$data);
- 	$stmtSelect->execute();
- 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
- 	return $stmtSelect->fetchAll();
-}
-
-function selectAllAdvertisementOfBronze($conn,$data){
-    $stmtSelect = $conn->prepare("SELECT advertisement_id,advertisement_category,advertisement_image,status,advertisement_expiry_date FROM tbladvertisement WHERE advertisement_category=:advertisement_category ");
-    $stmtSelect->bindParam(':advertisement_category',$data);
- 	$stmtSelect->execute();
- 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
- 	return $stmtSelect->fetchAll();
-}
 function getSpecificAreas($conn,$areaName){
     $stmtSelect = $conn->prepare("SELECT * FROM tbladvertisement WHERE advertisement_area=:advertisement_area");
     $stmtSelect->bindParam(':advertisement_area',$areaName);
@@ -75,4 +51,23 @@ function selectAllAdvertisementSpecificArea($conn,$area,$specificArea){
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
 }
+function selectAdvertisementFromId($conn,$advertisementId){   
+    $stmtSelect= $conn->prepare("SELECT * FROM tbladvertisement WHERE advertisement_id=:advertisement_id");
+    $stmtSelect->bindParam(':advertisement_id',$advertisementId);
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetch();
+}
+function updateDateOfAdvertisement($conn, $data){
+
+    $stmtupdate=$conn->prepare("UPDATE tbladvertisement SET advertisement_expiry_date=:advertisement_expiry_date WHERE advertisement_id=:advertisement_id");
+
+    $stmtupdate->bindParam(':advertisement_expiry_date', $data['advertisement_expiry_date']);
+    $stmtupdate->bindParam(':advertisement_id', $data['advertisement_id']);
+    if ($stmtupdate->execute()) {
+        return true;
+    }
+    return false;
+}
+
 ?>

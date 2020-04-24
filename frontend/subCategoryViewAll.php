@@ -33,10 +33,30 @@ include "layouts/header.php";
 		?>
 	<div style="width:95%;margin-left:45px">
 		<h2 class="f1-l-1 cl2">
-			<?php echo $key?>
+			<?php echo $key; ?>
 		</h2>
 	</div>
 <?php }?>
+
+<center><div style="width:95%">
+		<?php
+								$area = 'subcategory_page';
+								$specificArea = 'below_subcategoryTitleFirst';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_subcategoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					foreach($advertisement1 as $key){
+				?>
+					<a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } ?>
+	</div></center>	
 			
 	<!-- Feature post -->
 	<?php
@@ -65,7 +85,25 @@ include "layouts/header.php";
 			</div>
 		</div>
 	</section>
-
+		<hr>
+	<center><div style="width:95%">
+		<?php
+								$specificArea = 'below_subcategoryNewsList';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_categoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					
+				?>
+					
+				
+	</div></center>
 	<!-- Post -->
 	<section class="bg0 p-t-70" style="width:95%;margin-left:35px">
 		<div>
@@ -197,7 +235,23 @@ include "layouts/header.php";
 
 						<!--  -->
 						<!-- ADVERTISMENT HERE -->
-						
+						<div class="container">
+						<?php
+								
+								$specificArea = 'below_subcategoryNewsFirstSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+					<?php } 
+					
+					
+				?>
+					
+				
+	</div>
 						<!--  -->
 						<div class="p-t-50">
 							<div class="how2 how2-cl4 flex-s-c">
@@ -257,12 +311,49 @@ include "layouts/header.php";
 							</ul>
 						</div>
 						<!-- ADVERTISMENT HERE -->
+						<div class="container">
+							<?php
+								$specificArea = 'below_subcategoryNewsSecondSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+					<?php } 
+					$specificArea = 'below_categoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					
+					?>
+					
+				
+	</div>
+			
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
+	<hr>
+<center><div style="width:95%">
+		<?php
+								$specificArea = 'subabove_categoryFooter';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+					
+					<a href="#"><img  width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } 
+					$specificArea = 'below_categoryTitleSecond';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					
+				?>
+					
+				
+	</div></center>
 	<!-- Footer -->
 	<?php
 	include 'layouts/footer.php';

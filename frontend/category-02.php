@@ -43,7 +43,7 @@ $category_id=$_GET['ref'];
 					foreach($advertisement1 as $key){
 				?>
 					<a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
-				<?php } ?>
+				<?php } ?> 
 	</div></center>	
 	<!-- Feature post -->
 	<center><section class="bg0">
@@ -72,10 +72,10 @@ $category_id=$_GET['ref'];
 			</div>
 		</div>
 	</section></center>
-	<br>
+	<hr>
 	<center><div style="width:95%">
 		<?php
-								$area = 'category_page';
+								
 								$specificArea = 'below_categoryNewsList';
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
@@ -219,10 +219,10 @@ $category_id=$_GET['ref'];
 							</ul>
 						</div>
 
-						<!--  -->
+						<!-- Advertisement  -->
 						<div class="container">
 		<?php
-								$area = 'category_page';
+								
 								$specificArea = 'below_categoryNewsFirstSide';
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
@@ -300,7 +300,7 @@ $category_id=$_GET['ref'];
 						</div>
 						<div class="container">
 		<?php
-								$area = 'category_page';
+								
 								$specificArea = 'below_categoryNewsSecondSide';
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
@@ -309,8 +309,7 @@ $category_id=$_GET['ref'];
 					
 					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
 				<?php } 
-					$specificArea = 'below_categoryTitleSecond';
-					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
 					
 					
 				?>
@@ -322,9 +321,10 @@ $category_id=$_GET['ref'];
 			</div>
 		</div>
 	</section>
+	<hr>
 	<center><div style="width:95%">
 		<?php
-								$area = 'category_page';
+								
 								$specificArea = 'above_categoryFooter';
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								

@@ -1,5 +1,9 @@
-<?php include 'layouts/header.php'; 
-  
+
+<?php 
+  include 'layouts/header.php'; 
+  $ref=$_GET['ref'];
+  $result=selectAdvertisementFromId($conn,$ref);
+  //dump($result);
 ?>
 
    <!-- END HEADER -->
@@ -92,55 +96,16 @@
                         <div class="widget-body form">
                             <!-- BEGIN FORM-->
                             <form method="POST" accept-charset="utf-8" class="form-horizontal" enctype="multipart/form-data">
-                            <!-- <div class="control-group">
-                                <label class="control-label">Advertisment Category</label>
-                                <div class="controls">
-                                    <input type="text" class="span6 " value="<?php echo $Advertisment_category; ?>" required name="advertisement_category" readonly/>
-                                    
-                                </div>
-                            </div> -->
-                            <div class="control-group">
-                                <label class="control-label">Area</label>
-                                <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="advertisement_area" onchange="fetchArea(this.value)"
-                                    required id="selCSI">
-                                        <option value="">Select</option>
-                                        <option value="front_page">Front Page</option>
-                                        <option value="category_page">Category Page</option>
-                                        <option value="subcategory_page">Sub-Category Page</option>
-                                        <option value="news_detailpage">News Detail Page</option>     <option value="article_detailpage">Article Page</option>
-                                        <option value="search_resultpage">Search Result Page</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Specific Area</label>
-                                <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1"   name="advertisement_specific_area" id="advertisement_specific_area" required>
-                                    </select>
-                                </div>
-                            </div>
-
                             <div class="control-group">
                                 <label class="control-label">Advertisment Name</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " required name="advertisement_name" />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                    <input type="text" readonly class="span6" required name="advertisement_name" value="<?php echo $result['advertisement_name']; ?>"/>                              
                                 </div>
-                            </div> 
-                            
-                               
+                            </div>                                         
                             <div class="control-group">
-                                <label class="control-label">Advertisment Image</label>
+                                <label class="control-label">Advertisment Expire Date</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" required name="advertisement_image" />                              
-                                </div>
-                            </div>
-                            
-                            <div class="control-group">
-                                <label class="control-label">Advertisment Expire Time</label>
-                                <div class="controls">
-                                    <input type="date" class="span6" required name="advertisement_expiry_date" />                              
+                                    <input type="date" class="span6" required name="advertisement_expiry_date" value="<?php echo $result['advertisement_expiry_date']; ?>"/>                              
                                 </div>
                             </div>
                             <div class="control-group">
@@ -149,9 +114,9 @@
                                 <input type="text" class="span6 " required name="status" value="active" readonly />                              
                                 </div>
                             </div>
-                                
+                                <input type="hidden" name="advertisement_id" value="<?php echo $result['advertisement_id']; ?>">
                              <div class="form-actions">
-                                <button class="btn btn-success" name="addAdvertisment" type="submit">Add Advertisment</button>
+                                <button class="btn btn-success" name="updateDate" type="submit">Update Expiry Date</button>
                             </div>   
                             </form>
                             <!-- END FORM-->
@@ -221,23 +186,9 @@
 <!-- END BODY -->
 </html>
 <?php
-if(isset($_POST['addAdvertisment'])){
+if(isset($_POST['updateDate'])){
 
-//   print_r($_POST);
-
-
-//dump($_POST);
-    // for featured image
-    $fileName1 = $_FILES['advertisement_image']['name'];
-    $tmp_name1=$_FILES['advertisement_image']['tmp_name'];
-    $fileExt1 = explode('.', $fileName1);
-    $fileActualExt1 = strtolower(end($fileExt1));
-    $fileNameNew1 = uniqid('',true).".".$fileActualExt1;
-    $path='../advertisementImage/'.$fileNameNew1;
-    //chmod('uploads/',0777);
-    move_uploaded_file($tmp_name1, $path);
-// print_r($_POST);
-if(insertAdvertisement($conn, $_POST, $fileNameNew1)){
+if(updateDateOfAdvertisement($conn, $_POST)){
     echo '<script language="javascript">';
     echo '</script>';
     showMsg('Advertisemenet Placed Successfully');
@@ -245,7 +196,7 @@ if(insertAdvertisement($conn, $_POST, $fileNameNew1)){
     
 }else{
     echo '<script language="javascript">';
-    echo 'alert("Failed to place Advertisement")';
+    echo 'alert("Failed to Edit Advertisement")';
     echo '</script>';
 }
 
@@ -254,34 +205,3 @@ if(insertAdvertisement($conn, $_POST, $fileNameNew1)){
 }
 
 ?>
-<script type="text/javascript">
-  function fetchArea(areaName){ 
-      
-dataString = 'areaName='+areaName; 
-
-
-$.ajax({
-      type: 'post',
-      url: 'retrieveSpecificAreas.php',
-      data: dataString,
-      datatype : "json",
-      success: function (response) {
-        console.log(response);
-         var a = '<option value="">No Area Available</option>';        
-        if (response==0) {
-          $('#advertisement_specific_area').html(a);
-          $("#data").hide();
-          console.log(response);
-                     
-        }
-        else{
-          $("#data").show();
-          $('#advertisement_specific_area').html(response);
-       
-        }
-      }
-
-        
-    });       
-}
-</script>

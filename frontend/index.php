@@ -251,7 +251,7 @@ foreach($forthLastNews as $key){
 
 	<!-- Post -->
 	<section class="bg0 p-t-70" style="width:95%;margin-left:35px">
-		<div >
+		<div>
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8">
 					<div class="p-b-20">
@@ -263,29 +263,12 @@ foreach($forthLastNews as $key){
 						<div class="tab01 p-b-20">
 							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
-								<h3 class="f1-m-2 cl19 tab01-title">
+								<h1 class="f1-m-2 cl19 tab01-title" style="font-size:30px; color:green">
 									<?php echo $key['category_name']; ?>
-								</h3>
+								</h1>
 
 								<!-- Nav tabs -->
 								<ul class="nav nav-tabs" role="tablist">
-									
-
-									<!-- <li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-2" role="tab">Province 2</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-3" role="tab">Province 3</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-4" role="tab">Province 4</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-5" role="tab">Province 5</a>
-									</li> -->
 									
 									<li class="nav-item-more dropdown dis-none">
 										<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
@@ -307,98 +290,28 @@ foreach($forthLastNews as $key){
 							</div>
 								
 							<!-- Tab panes -->
-							<?php
+							<div class="card-group">
+										<?php
 							
 									$getNews=getNewsByCategoryID($conn,$key['category_id']);
 									// print_r($getNews);
 									foreach($getNews as $key){
 									
 									?>
-							<div class="tab-content p-t-35">
-								<!-- - -->
-								<div class="tab-pane fade show active"  >
-									
-									<div class="row">
-										
-
-										<div class="col-sm-12 p-r-25 p-r-15-sr991">
-											<!-- Item post -->	
-											<div class="flex-wr-sb-s m-b-30">
-												<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" alt="IMG">
-												</a>
-
-												<div class="size-w-2">
-													<h5 class="p-b-5">
-														<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03">
-															<?php echo $key['news_title']; ?>
-															
-														</a>
-													</h5> 
-
-													<span class="cl8">
-														
-
-														<span class="f1-s-3 m-rl-3">
-															
-														</span>
-
-														<span class="f1-s-3">
-														<?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
-														<?php $datetime = $key['created_at']; 
-
-										
-										$time_elapsed = timeAgo($datetime);
-										echo $time_elapsed;
-										
-
-										?>
-															
-														</span>
-													</span>
-												</div>
-											</div>
-											
-											<!-- Item post -->
-											
-
-											<!-- Item post -->
-											<!-- <div class="flex-wr-sb-s m-b-30">
-												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-08.jpg" alt="IMG">
-												</a>
-
-												<div class="size-w-2">
-													<h5 class="p-b-5">
-														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Nepali 3
-														</a>
-													</h5>
-
-													<span class="cl8">
-														<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
-															Celebrity
-														</a>
-
-														<span class="f1-s-3 m-rl-3">
-															-
-														</span>
-
-														<span class="f1-s-3">
-															Feb 12
-														</span>
-													</span>
-												</div>
-											</div> -->
-
+												  <div class="card">
+												  	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="size-w-1 wrap-pic-w hov1 trans-03"></a>
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" class="card-img-top" alt="...">
+												    <div class="card-body">
+												    	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03"></a>
+												      <h5 class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></h5>
+												      <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
+															<?php $datetime = $key['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+												  </div>
+												  <?php } ?>
 										</div>
-									</div>
-								</div>
-
-								
-								
-							</div>
-									<?php } ?>
 										
 						</div>
 						<?php } ?>

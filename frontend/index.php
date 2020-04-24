@@ -75,7 +75,7 @@ foreach($bannerNews as $key){ ?>
 				<div>
 				<span style="color:black;font-size:20px;"><strong><center><?php echo $key['news_writtenby']; ?></center></strong></span>
 				</div>
-				<figure> <img width="100%" height="581" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"> </figure> 
+				<figure> <img width="100%" height="5%" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"> </figure> 
 				<p>
 				<strong style="color:black">
 				<?php
@@ -324,7 +324,7 @@ foreach($forthLastNews as $key){
 										<div class="col-sm-12 p-r-25 p-r-15-sr991">
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
-												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
+												<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="size-w-1 wrap-pic-w hov1 trans-03">
 													<img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" alt="IMG">
 												</a>
 

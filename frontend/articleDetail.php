@@ -144,7 +144,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								    } 
 								} 
 								$a="";  
-								// Driver Code 
+								// Driver Code  
 								$search = "\n"; 
 								$position = Search($search, $string);
 								foreach($advertisement1 as $key){
@@ -153,7 +153,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								
 								$a="<br><img  src='../backend/advertisementImage/$image'
 
-								 alt='Below Article Advertisement' width='690px'>";
+								 alt='Below Article Advertisement' width='100%'height='90px'>";
 								}
 								//$string = 'very '; 
 
@@ -539,7 +539,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 						</div>
 
 						<!-- Tag -->
-						<div>
+						<div class="p-b-55">
 							<div class="how2 how2-cl4 flex-s-c m-b-30">
 								<h3 class="f1-m-2 cl3 tab01-title">
 									Tags
@@ -547,38 +547,16 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 							</div>
 
 							<div class="flex-wr-s-s m-rl--5">
-								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-									Fashion
+							<?php $result=getSubCategoriesDetails($conn);
+// print_r($result);
+foreach($result as $key){
+?>
+								<a href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id']; ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+									<?php echo $key['subcategory_name']; ?>
 								</a>
-
-								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-									Lifestyle
-								</a>
-
-								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-									Denim
-								</a>
-
-								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-									Streetstyle
-								</a>
-
-								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-									Crafts
-								</a>
-
-								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-									Magazine
-								</a>
-
-								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-									News
-								</a>
-
-								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-									Blogs
-								</a>
+								<?php } ?>
 							</div>	
+							
 						</div>
 					</div>
 				</div>

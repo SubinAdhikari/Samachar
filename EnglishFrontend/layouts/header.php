@@ -23,50 +23,62 @@
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="css/custom.css">
+<!--===============================================================================================-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<style type="text/css">
+@media screen and (min-width: 768px){
+  .dropdown:hover .dropdown-menu, .btn-group:hover .dropdown-menu{
+        display: block;
+        
+    }
+    .dropdown-menu{
+        margin-top: 0;
+    }
+    .dropdown-toggle{
+        margin-bottom: 2px;
+    }
+    .navbar .dropdown-toggle, .nav-tabs .dropdown-toggle{
+        margin-bottom: 0;
+    }
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".dropdown, .btn-group").hover(function(){
+        var dropdownMenu = $(this).children(".dropdown-menu");
+        if(dropdownMenu.is(":visible")){
+            dropdownMenu.parent().toggleClass("open");
+        }
+    });
+});     
+</script>
+<!--===============================================================================================-->
 </head>
 <body class="animsition">
 
 	<?php
 	include '../backend/app/call.php';
 	$categoryList=selectAllCategory($conn);
-	// print_r($categoryList);
-	$AdvertisementCategoryGold='gold';
-	$Advertisement_banner=selectAllAdvertisementOfGold($conn,$AdvertisementCategoryGold);
-		foreach($Advertisement_banner as $key){
-	 		$date_expiry = $key['advertisement_expiry_date'];
-	 		$date_today = date("Y-m-d");
-	 		if ($date_expiry==$date_today) {
-	 			$advertisement_id =  $key['advertisement_id'];
-	 			deleteAdvertisement($conn, $advertisement_id);
-	 		}
-		}
-	// print_r($Advertisement_banner);
 
-	$AdvertisementCategorySilver='silver';
-	$Advertisement_bannerSilver=selectAllAdvertisementOfSilver($conn,$AdvertisementCategorySilver);
-	// print_r($Advertisement_bannerSilver);
-	foreach($Advertisement_bannerSilver as $key){
-	 		$date_expiry = $key['advertisement_expiry_date'];
-	 		$date_today = date("Y-m-d");
-	 		if ($date_expiry==$date_today) {
-	 			$advertisement_id =  $key['advertisement_id'];
-	 			deleteAdvertisement($conn, $advertisement_id);
-	 		}
-		}
 
-	$AdvertisementCategoryBronze='bronze';
-	$Advertisement_bannerBronze=selectAllAdvertisementOfBronze($conn,$AdvertisementCategoryBronze);
-	// print_r($Advertisement_bannerBronze);
-	foreach($Advertisement_bannerBronze as $key){
-	 		$date_expiry = $key['advertisement_expiry_date'];
-	 		$date_today = date("Y-m-d");
-	 		if ($date_expiry==$date_today) {
-	 			$advertisement_id =  $key['advertisement_id'];
-	 			deleteAdvertisement($conn, $advertisement_id);
-	 		}
-		}
+	$advertisement_banner=selectAllAdvertisement($conn);
+	 //dump($advertisement_banner);
 
-	
+
+	foreach($advertisement_banner as $key => $value){		
+ 		$date_expiry = $value['advertisement_expiry_date'];
+ 		$date_today = date("Y-m-d");
+ 		if ($date_expiry==$date_today) {
+ 			$advertisement_id =  $value['advertisement_id'];
+ 			deleteAdvertisement($conn, $advertisement_id);
+ 		}
+	}
 	?>
 	
 	<!-- Header -->
@@ -80,7 +92,7 @@
 							<span>
 								<!-- New York, NY -->
 								<!-- <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?time_only=no&font_color=FFFFFF&aj_time=yes&font_size=14&line_brake=0&bikram_sambat=0&api=890040j065" width="308" height="22"></iframe> -->
-									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=14&api=800144j563" width="165" height="22"></iframe>
+									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=15&api=800144j563" width="165" height="20"></iframe>
 							</span>
 
 							<!-- <img class="m-b-1 m-rl-8" src="images/icons/icon-night.png" alt="IMG"> -->
@@ -125,68 +137,55 @@
 			<!-- Header Mobile --> 
 			
 			<!--  -->
-			<div class="wrap-logo container">
+		<center>	<div class="wrap-logo " style="width:15%;height:150px">
 				<!-- Logo desktop -->		
-				<div class="logo" >
-					<a href="index.php"><img  src="images/icons/samachar.png" alt="LOGO"></a>
+				<div class="logo" style="width:100%;height:100%">
+					<a href="index.php"><img  src="images/icons/samachar.png"  alt="LOGO"></a>
 				</div>	
 
 				<!-- Banner -->
-				<?php
-				foreach($Advertisement_banner as $key){
-				?>
-				<div class="banner-header" style="border:1px black solid;">
-					
-					<a href="#"><img class="banner-header" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"  alt="GoldAdvertisement"></a>
-				</div>
-				<?php } ?>
-			</div>	
+				
+			</div>	</center>
 			
 			<!--  -->
-			<div class="wrap-main-nav">
-				<div class="main-nav">
+			
 					<!-- Menu desktop -->
-					<nav class="menu-desktop">
+					
 						<a class="logo-stick" href="index.html">
 							<img src="images/icons/samachar.png" alt="LOGO">
 						</a>
+					
 
-						<ul class="main-menu">
-							<li class="main-menu-active">
-								<a href="index.php"><i class="fas fa-home"></i></a>
-							</li>
-
-							
-
-
+						<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  								
+  								<a class="navbar-brand" href="index.php"><i style="padding-left:80px"; class="fas fa-home"></i></a>
+  						
+  						<div class="collapse navbar-collapse" id="navbarNavDropdown">
+    						<ul class="navbar-nav" style="padding-left:50px";>
 							<?php foreach($categoryList as $key){
 								 ?>
-							<li>
-								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>"><?php echo $key['category_name'];?></a>
-								<ul class="sub-menu">
+
+								 <li class="nav-item dropdown">
+        						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $key['category_id'];  ?>" style="font-size:20px; color:black"><?php echo $key['category_name'];?>
+        							</a>
+							<!-- <li>
+								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>"><?php echo $key['category_name'];?></a> -->
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<?php 
 									$subcategoryList=selectSubcategoryFromCategoryId($conn,$key['category_id']);
 									foreach($subcategoryList as $key){
 										// foreach($key as $value){
 									?>
-									<li><a href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id'] ?>"><?php echo $key['subcategory_name']; ?></a></li>
+									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id'] ?>" style="font-size:20px; color:black"><?php echo $key['subcategory_name']; ?></a>
 										<?php }  ?>
-								</ul>
+										</div>
+
 							</li>
 										<?php }?>
 
-
-						
-
-							<li>
-								<a href="#">Others</a>
-								<ul class="sub-menu">
-									<li><a href="about.php">About Us</a></li>
-									<li><a href="contact.php">Contact Us</a></li>
-								</ul>
-							</li>
-							<strong><a href="../Frontend/index.php" target="_blank" class="moen ml-3"><span style="color:maroon">NEPALI</span></a></strong>
+							
 						</ul>
+						<strong><a href="../Frontend/index.php" target="_blank" class="moen ml-3"><span style="color:blue">NEPALI</span></a></strong>
 					</nav>
 				</div>
 			</div>	

@@ -10,7 +10,7 @@ include "layouts/header.php";
     // print_r($subcategoryName);
 	foreach($subcategoryName as $key){
 		?>
-	<div class="container">
+<center>	<div style="width:95%">
 		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
 			<div class="f2-s-1 p-r-30 m-tb-6">
 				<a href="index.php" class="breadcrumb-item f1-s-3 cl9">
@@ -23,7 +23,7 @@ include "layouts/header.php";
 			</div>
 			<?php } ?>
 		</div>
-	</div>
+	</div></center>
 
 	<!-- Page heading -->
 	<?php 
@@ -31,7 +31,7 @@ include "layouts/header.php";
     // print_r($subcategoryName);
 	foreach($subcategoryName as $key){
 		?>
-	<div class="container p-t-4 p-b-40">
+	<div style="width:95%;margin-left:45px">
 		<h2 class="f1-l-1 cl2">
 			<?php echo $key?>
 		</h2>
@@ -43,7 +43,7 @@ include "layouts/header.php";
   $SubcategoryNews=getAllNewsBySubCategoryId($conn,$subcategory_id);
   ?>
 	<section class="bg0">
-		<div class="container">
+		<div style="width:95%;margin-left:35px">
 			
 			<div class="row m-rl--1">
 <?php foreach($SubcategoryNews as $key){ ?>
@@ -67,8 +67,8 @@ include "layouts/header.php";
 	</section>
 
 	<!-- Post -->
-	<section class="bg0 p-t-110 p-b-25">
-		<div class="container">
+	<section class="bg0 p-t-70" style="width:95%;margin-left:35px">
+		<div>
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8">
 					<div class="p-b-20">
@@ -80,29 +80,12 @@ include "layouts/header.php";
 						<div class="tab01 p-b-20">
 							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
-								<h3 class="f1-m-2 cl19 tab01-title">
+								<h1 class="f1-m-2 cl19 tab01-title" style="font-size:30px; color:green">
 									<?php echo $key['category_name']; ?>
-								</h3>
+								</h1>
 
 								<!-- Nav tabs -->
 								<ul class="nav nav-tabs" role="tablist">
-									
-
-									<!-- <li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-2" role="tab">Province 2</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-3" role="tab">Province 3</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-4" role="tab">Province 4</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-5" role="tab">Province 5</a>
-									</li> -->
 									
 									<li class="nav-item-more dropdown dis-none">
 										<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
@@ -124,106 +107,156 @@ include "layouts/header.php";
 							</div>
 								
 							<!-- Tab panes -->
-							<?php
+							<div class="card-group">
+										<?php
 							
 									$getNews=getNewsByCategoryID($conn,$key['category_id']);
 									// print_r($getNews);
 									foreach($getNews as $key){
 									
 									?>
-							<div class="tab-content p-t-35">
-								<!-- - -->
-								<div class="tab-pane fade show active"  >
-									
-									<div class="row">
-										
-
-										<div class="col-sm-12 p-r-25 p-r-15-sr991">
-											<!-- Item post -->	
-											<div class="flex-wr-sb-s m-b-30">
-												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" alt="IMG">
+												  <div class="card">
+												  	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"  class="card-img-top" alt="...">
 												</a>
-
-												<div class="size-w-2">
-													<h5 class="p-b-5">
-														<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03">
-															<?php echo $key['news_title']; ?>
-															
-														</a>
-													</h5> 
-
-													<span class="cl8">
-														
-
-														<span class="f1-s-3 m-rl-3">
-															
-														</span>
-
-														<span class="f1-s-3">
-														<?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
-															<?php echo $key['created_at']; ?>
-														</span>
-													</span>
-												</div>
-											</div>
-											
-											<!-- Item post -->
-											
-
-											<!-- Item post -->
-											<!-- <div class="flex-wr-sb-s m-b-30">
-												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-08.jpg" alt="IMG">
-												</a>
-
-												<div class="size-w-2">
-													<h5 class="p-b-5">
-														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Nepali 3
-														</a>
-													</h5>
-
-													<span class="cl8">
-														<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
-															Celebrity
-														</a>
-
-														<span class="f1-s-3 m-rl-3">
-															-
-														</span>
-
-														<span class="f1-s-3">
-															Feb 12
-														</span>
-													</span>
-												</div>
-											</div> -->
-
+												    <div class="card-body">
+												      <h5><a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												      <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
+															<?php $datetime = $key['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+												  </div>
+												  <?php } ?>
 										</div>
-									</div>
-								</div>
-
-								
-								
-							</div>
-									<?php } ?>
 										
 						</div>
 						<?php } ?>
 						
 					</div>
 				</div>
-<!--  -->
 
-				<div class="col-md-10 col-lg-4 p-b-80">
-					<div class="p-l-10 p-rl-0-sr991">
-						<!-- Banner -->
-						<div class="flex-c-s">
-							<a href="#">
-								<img class="max-w-full" src="images/banner-02.jpg" alt="IMG">
-							</a>
+				<div class="col-md-10 col-lg-4">
+					<div class="p-l-10 p-rl-0-sr991 p-b-20">
+						<!--  -->
+						<div class="p-b-30">
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Popular News
+								</h3>
+							</div>
+							<?php 
+							$latestNewsDetails=GetLatestThreeNews($conn);
+							?>
+							<ul class="p-t-35">
+								<?php foreach ($latestNewsDetails as $latestNewsDetail ) {
+									$imageName = $latestNewsDetail['news_featuredimage'];
+								?>
+								<li class="flex-wr-sb-s p-b-30">
+									<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
+
+										<img src="../backend/newsFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
+									</a>
+
+									<div class="size-w-11">
+										<h6 class="p-b-4">
+											<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
+												<?php echo $latestNewsDetail['news_title']; ?>
+											</a>
+										</h6>
+
+										<span class="cl8 txt-center p-b-24">
+											<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
+												<?php $categoryNames=getCategoryNameByCategoryId($conn,$latestNewsDetail['category_id']); 
+                                $categoryName = implode("", $categoryNames);  ?>
+												<?php echo $categoryName; ?>
+											</a>
+
+											<span class="f1-s-3 m-rl-3">
+												-
+											</span>
+
+											<span class="f1-s-3">
+												<?php $datetime = $latestNewsDetail['created_at']; 
+
+										
+												$time_elapsed = timeAgo($datetime);
+												echo $time_elapsed;
+												
+
+												?>
+												
+											</span>
+										</span>
+									</div>
+								</li>
+								<?php
+							}?>
+							</ul>
+						</div> 
+
+						<!--  -->
+						<!-- ADVERTISMENT HERE -->
+						
+						<!--  -->
+						<div class="p-t-50">
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Stay Connected
+								</h3>
+							</div>
+
+							<ul class="p-t-35">
+								<li class="flex-wr-sb-c p-b-20">
+									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-facebook fs-16 cl0 hov-cl0">
+										<span class="fab fa-facebook-f"></span>
+									</a>
+
+									<div class="size-w-3 flex-wr-sb-c">
+										<span class="f1-s-8 cl3 p-r-20">
+											6879 Fans
+										</span>
+
+										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
+											Like
+										</a>
+									</div>
+								</li>
+
+								<li class="flex-wr-sb-c p-b-20">
+									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-twitter fs-16 cl0 hov-cl0">
+										<span class="fab fa-twitter"></span>
+									</a>
+
+									<div class="size-w-3 flex-wr-sb-c">
+										<span class="f1-s-8 cl3 p-r-20">
+											568 Followers
+										</span>
+
+										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
+											Follow
+										</a>
+									</div>
+								</li>
+
+								<li class="flex-wr-sb-c p-b-20">
+									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-youtube fs-16 cl0 hov-cl0">
+										<span class="fab fa-youtube"></span>
+									</a>
+
+									<div class="size-w-3 flex-wr-sb-c">
+										<span class="f1-s-8 cl3 p-r-20">
+											5039 Subscribers
+										</span>
+
+										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
+											Subscribe
+										</a>
+									</div>
+								</li>
+							</ul>
 						</div>
+						<!-- ADVERTISMENT HERE -->
 					</div>
 				</div>
 			</div>

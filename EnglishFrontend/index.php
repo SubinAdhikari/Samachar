@@ -36,19 +36,38 @@ include "layouts/header.php"
 	</div>
 		 
 
-	<div class="container">
+	<div  style="width:95%">
+		<?php
+								$area = 'front_page';
+								$specificArea = 'first_top';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
 					
-					<a href="#"><img  class="container" src="../backend/advertisementImage/Nepal-Bank-New-Banne.gif"   alt=""></a><hr>
-					<a href="#"><img class="container" src="../backend/advertisementImage/Sajhapost-1225x100-1.gif"   alt=""></a><hr>
+					<center><a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
+				<?php } 
+					$specificArea = 'second_top';
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					foreach($advertisement1 as $key){
+				?>
+					<center><a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
+				<?php } ?>
 	</div>
 
 	<?php
 	$bannerNews=GetLatestThreeBannerNews($conn);
 	// print_r($bannerNews);
 	?>
-<?php foreach($bannerNews as $key){ ?>
+
+<?php 
+ $specificAreaBannerArray = ["first_banner","second_banner","third_banner"];
+ $specificAreaBannerArrayCount = 0;
+ // echo '<br>'.$specificAreaBannerArray[0];
+foreach($bannerNews as $key){ ?>
 	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>">
-	<div class="container" style="background-color: GhostWhite;">
+	<center>	<div  style="background-color: GhostWhite;width:95%">
 				<div>
 				<h2 style="color:black;font-size:40px;"><strong><center>
 					<?php echo $key['news_title']; ?></center></strong></h2>
@@ -56,7 +75,7 @@ include "layouts/header.php"
 				<div>
 				<span style="color:black;font-size:20px;"><strong><center><?php echo $key['news_writtenby']; ?></center></strong></span>
 				</div>
-				<figure> <img width="100%" height="581" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"> </figure> 
+				<figure> <img width="100%" height="5%" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"> </figure> 
 				<p>
 				<strong style="color:black">
 				<?php
@@ -69,15 +88,25 @@ include "layouts/header.php"
               
             
 				 </strong></p>
+
 				
-	</div>
+	</div></center>
 	</a>
 	<br>
-	<div class="container">
+	<center><div style="width:95%">
 					
-					<a href="#"><img  class="container" src="../backend/advertisementImage/GO__1200-X-150-copy.jpg"   alt=""></a><hr>
+					<?php 
+
+					$specificArea = $specificAreaBannerArray[$specificAreaBannerArrayCount];
+					$specificAreaBannerArrayCount++;
+					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+					
+					foreach($advertisement1 as $key){
+				?>
+					<a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+				<?php } ?>
 				
-	</div>
+	</div></center>
 	
 	<br>
 <?php }?>
@@ -100,8 +129,8 @@ include "layouts/header.php"
 	$latestNewsDetails=GetLatestNews($conn);
 	// print_r($latestNewsDetails);
 	?>
-	<section class="bg0">
-		<div class="container">
+<center>	<section class="bg0" style="width:95%">
+		<div >
 		<?php foreach($latestNewsDetails as $key){ ?>
 			<div class="row m-rl--1">
 				<div class="col-md-6 p-rl-1 p-b-2">
@@ -218,11 +247,11 @@ foreach($forthLastNews as $key){
 				</div>
 			</div>
 		</div>
-	</section>
+	</section></center>
 
 	<!-- Post -->
-	<section class="bg0 p-t-70">
-		<div class="container">
+	<section class="bg0 p-t-70" style="width:95%;margin-left:35px">
+		<div>
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8">
 					<div class="p-b-20">
@@ -234,29 +263,12 @@ foreach($forthLastNews as $key){
 						<div class="tab01 p-b-20">
 							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
-								<h3 class="f1-m-2 cl19 tab01-title">
+								<h1 class="f1-m-2 cl19 tab01-title" style="font-size:30px; color:green">
 									<?php echo $key['category_name']; ?>
-								</h3>
+								</h1>
 
 								<!-- Nav tabs -->
 								<ul class="nav nav-tabs" role="tablist">
-									
-
-									<!-- <li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-2" role="tab">Province 2</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-3" role="tab">Province 3</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-4" role="tab">Province 4</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-5" role="tab">Province 5</a>
-									</li> -->
 									
 									<li class="nav-item-more dropdown dis-none">
 										<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
@@ -278,90 +290,28 @@ foreach($forthLastNews as $key){
 							</div>
 								
 							<!-- Tab panes -->
-							<?php
+							<div class="card-group">
+										<?php
 							
 									$getNews=getNewsByCategoryID($conn,$key['category_id']);
 									// print_r($getNews);
 									foreach($getNews as $key){
 									
 									?>
-							<div class="tab-content p-t-35">
-								<!-- - -->
-								<div class="tab-pane fade show active"  >
-									
-									<div class="row">
-										
-
-										<div class="col-sm-12 p-r-25 p-r-15-sr991">
-											<!-- Item post -->	
-											<div class="flex-wr-sb-s m-b-30">
-												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" alt="IMG">
+												  <div class="card">
+												  	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"  class="card-img-top" alt="...">
 												</a>
-
-												<div class="size-w-2">
-													<h5 class="p-b-5">
-														<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03">
-															<?php echo $key['news_title']; ?>
-															
-														</a>
-													</h5> 
-
-													<span class="cl8">
-														
-
-														<span class="f1-s-3 m-rl-3">
-															
-														</span>
-
-														<span class="f1-s-3">
-														<?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
-															<?php echo $key['created_at']; ?>
-														</span>
-													</span>
-												</div>
-											</div>
-											
-											<!-- Item post -->
-											
-
-											<!-- Item post -->
-											<!-- <div class="flex-wr-sb-s m-b-30">
-												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-08.jpg" alt="IMG">
-												</a>
-
-												<div class="size-w-2">
-													<h5 class="p-b-5">
-														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Nepali 3
-														</a>
-													</h5>
-
-													<span class="cl8">
-														<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
-															Celebrity
-														</a>
-
-														<span class="f1-s-3 m-rl-3">
-															-
-														</span>
-
-														<span class="f1-s-3">
-															Feb 12
-														</span>
-													</span>
-												</div>
-											</div> -->
-
+												    <div class="card-body">
+												      <h5><a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												      <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
+															<?php $datetime = $key['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+												  </div>
+												  <?php } ?>
 										</div>
-									</div>
-								</div>
-
-								
-								
-							</div>
-									<?php } ?>
 										
 						</div>
 						<?php } ?>
@@ -410,7 +360,15 @@ foreach($forthLastNews as $key){
 											</span>
 
 											<span class="f1-s-3">
-												<?php echo $latestNewsDetail['created_at']; ?>
+												<?php $datetime = $latestNewsDetail['created_at']; 
+
+										
+												$time_elapsed = timeAgo($datetime);
+												echo $time_elapsed;
+												
+
+												?>
+												
 											</span>
 										</span>
 									</div>
@@ -421,7 +379,11 @@ foreach($forthLastNews as $key){
 						</div> 
 
 						<!--  -->
-						<?php foreach($Advertisement_bannerSilver as $key) {?>
+						<?php 
+						$specificArea = 'first_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -487,7 +449,11 @@ foreach($forthLastNews as $key){
 								</li>
 							</ul>
 						</div>
-						<?php foreach($Advertisement_bannerSilver as $key) {?>
+						<?php 
+						$specificArea = 'second_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -501,20 +467,23 @@ foreach($forthLastNews as $key){
 	</section>
 
 	<!-- Banner -->
-	<?php foreach($Advertisement_bannerBronze as $key){ ?>
-	<div class="container" style="border:1px black solid;">
-		<div class="flex-c-c">
+	<?php $specificArea = 'first_bottom';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){ ?>
+	<center><div  style="border:1px black solid;width:95%">
+		<div style="width:100%">
 			<a href="#" >
 				<!-- <img class="max-w-full" src="images/banner-01.jpg" alt="IMG"> -->
-				<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"  alt="IMG"> 
+				<img  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" width="100%" alt="IMG"> 
 			</a>
 		</div>
-	</div>
+	</div></center>
 	<?php } ?>
 
 	<!-- Latest -->
-	<section class="bg0 p-t-60 p-b-35">
-		<div class="container">
+<section class="bg0 p-t-60 p-b-35" style="width:95%;margin-left:35px">
+		<div>
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8 p-b-20">
 					<div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
@@ -554,7 +523,11 @@ foreach($forthLastNews as $key){
 										</span>
 
 										<span class="f1-s-3">
-											Feb 18
+											<?php
+												$datetime = $key['created_at'];
+												$time_elapsed = timeAgo($datetime);
+										 echo $time_elapsed; ?>
+											
 										</span>
 									</span>
 								</div>
@@ -693,3 +666,71 @@ foreach($result as $key){
 
 </body>
 </html>
+<?php
+// function timeAgo($time_ago)
+// {
+//     $time_ago = strtotime($time_ago);
+//     $cur_time   = time();
+//     $time_elapsed   = $cur_time - $time_ago;
+//     $seconds    = $time_elapsed ;
+//     $minutes    = round($time_elapsed / 60 );
+//     $hours      = round($time_elapsed / 3600);
+//     $days       = round($time_elapsed / 86400 );
+//     $weeks      = round($time_elapsed / 604800);
+//     $months     = round($time_elapsed / 2600640 );
+//     $years      = round($time_elapsed / 31207680 );
+//     // Seconds
+//     if($seconds <= 60){
+//         return "Just Now";
+//     }
+//     //Minutes
+//     else if($minutes <=60){
+//         if($minutes==1){
+//             return "one minute ago";
+//         }
+//         else{
+//             return $minutes." minutes ago";
+//         }
+//     }
+//     //Hours
+//     else if($hours <=24){
+//         if($hours==1){
+//             return "an hour ago";
+//         }else{
+//             return $hours." hrs ago";
+//         }
+//     }
+//     //Days
+//     else if($days <= 7){
+//         if($days==1){
+//             return "yesterday";
+//         }else{
+//             return $days." days ago";
+//         }
+//     }
+//     //Weeks
+//     else if($weeks <= 4.3){
+//         if($weeks==1){
+//             return "a week ago";
+//         }else{
+//             return $weeks." weeks ago";
+//         }
+//     }
+//     //Months
+//     else if($months <=12){
+//         if($months==1){
+//             return "a month ago";
+//         }else{
+//             return $months." months ago";
+//         }
+//     }
+//     //Years
+//     else{
+//         if($years==1){
+//             return "one year ago";
+//         }else{
+//             return $years." years ago";
+//         }
+//     }
+// }
+?>

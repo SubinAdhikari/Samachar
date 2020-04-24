@@ -21,7 +21,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 
 
 	<!-- Breadcrumb -->
-	<div class="container">
+	<center><div style="width:95%">
 		<div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
 			<div class="f2-s-1 p-r-30 m-tb-6">
 				<a href="index.html" class="breadcrumb-item f1-s-3 cl9">
@@ -44,11 +44,11 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 				</button>
 			</div>
 		</div>
-	</div>
+	</div></center>
 
 	<!-- Content -->
-	<section class="bg0 p-b-140 p-t-10">
-		<div class="container">
+	<section class="bg0 p-b-140 p-t-10" style="width:95%;margin-left:35px">
+		<div>
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8 p-b-30">
 					<div class="p-r-10 p-r-0-sr991">
@@ -96,33 +96,104 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 								</a>
 							</div>
 
+							<?php
+								$area = 'news_detailpage';
+								$specificArea = 'below_newsTitle';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+								<div style="height:90px;width:100%;border:1px black solid">
+						
+								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+
+								 alt="Below News Advertisement"></a>
+								</div>
+
+							  <?php } ?>
+							  <br>
+
 							<div class="wrap-pic-max-w p-b-30">
 								<?php 
 								$imageNames = $result['news_image'];
 								$arr = explode(",", $imageNames);
                                     foreach ($arr as $value) {
 								?>
-								<img src="../backend/newsImage/<?php echo $value; ?>" height="300px" width="330px" alt="IMG">
+								<img  src="../backend/newsImage/<?php echo $value; ?>" height="300px" width="330px" alt="IMG">
 
 								<?php }?>
 							</div>
 
-							<p class="f1-s-11 cl6 p-b-25">
-								<?php echo $result['news_deails']; ?>
+							<?php
+								$area = 'news_detailpage';
+								$specificArea = 'below_newsPhoto';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+								<div style="height:90px;width:100%;border:1px black solid">
+						
+								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+
+								 alt="Below News Advertisement"></a>
+								</div>
+
+							  <?php } ?>
+							  <br>
+
+							<p class="f1-s-11 cl6 p-b-25" style="font-size:18px;">
+								
+								<?php 
+								$area = 'news_detailpage';
+								$specificArea = 'below_newsFirstPara';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+
+								$string = $result['news_deails'];
+
+								function Search($search, $string){ 
+								    $position = strpos($string, $search, 0);   
+								    if (is_numeric($position)){ 
+								        return  $position; 
+								    } 
+								    else{ 
+								        return "Not Found"; 
+								    } 
+								} 
+								  
+								// Driver Code 
+								$search = "\n"; 
+								$position = Search($search, $string);
+								foreach($advertisement1 as $key){
+								$image =$key['advertisement_image']; 
+								
+								
+								$a="<br><img  src='../backend/advertisementImage/$image'
+
+								 alt='Below News Advertisement' width='100%'height='90px' >";
+								}
+								//$string = 'very '; 
+
+								echo substr_replace( $string, $a."<hr>", $position , 0);
+ 								?>
+							
 							</p>	
+							
+							<?php
+								$area = 'news_detailpage';
+								$specificArea = 'below_newsLastPara';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+								<div style="height:90px;width:100%;border:1px black solid">
+						
+								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
 
-							<!-- <p class="f1-s-11 cl6 p-b-25">
-								Curabitur volutpat bibendum molestie. Vestibulum ornare gravida semper. Aliquam a dui suscipit, fringilla metus id, maximus leo. Vivamus sapien arcu, mollis eu pharetra vitae, condimentum in orci. Integer eu sodales dolor. Maecenas elementum arcu eu convallis rhoncus. Donec tortor sapien, euismod a faucibus eget, porttitor quis libero. 
-							</p>
+								 alt="Below News Advertisement"></a>
+								</div>
 
-							<p class="f1-s-11 cl6 p-b-25">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet est vel orci luctus sollicitudin. Duis eleifend vestibulum justo, varius semper lacus condimentum dictum. Donec pulvinar a magna ut malesuada. In posuere felis diam, vel sodales metus accumsan in. Duis viverra dui eu pharetra pellentesque. Donec a eros leo. Quisque sed ligula vitae lorem efficitur faucibus. Praesent sit amet imperdiet ante. Nulla id tellus auctor, dictum libero a, malesuada nisi. Nulla in porta nibh, id vestibulum ipsum. Praesent dapibus tempus erat quis aliquet. Donec ac purus id sapien condimentum feugiat.
-							</p>
-
-							<p class="f1-s-11 cl6 p-b-25">
-								Praesent vel mi bibendum, finibus leo ac, condimentum arcu. Pellentesque sem ex, tristique sit amet suscipit in, mattis imperdiet enim. Integer tempus justo nec velit fringilla, eget eleifend neque blandit. Sed tempor magna sed congue auctor. Mauris eu turpis eget tortor ultricies elementum. Phasellus vel placerat orci, a venenatis justo. Phasellus faucibus venenatis nisl vitae vestibulum. Praesent id nibh arcu. Vivamus sagittis accumsan felis, quis vulputate
-							</p> -->
-
+							  <?php } ?>
+							  <br>
 							<!-- Tag -->
 							<div class="flex-s-s p-t-12 p-b-15">
 								<span class="f1-s-12 cl5 m-r-8">
@@ -169,6 +240,22 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 								</div>
 							</div>
 						</div>
+						<?php
+								$area = 'news_detailpage';
+								$specificArea = 'above_newsComment';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+								<div style="height:90px;width:100%;border:1px black solid">
+						
+								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+
+								 alt="Below News Advertisement"></a>
+								</div>
+
+							  <?php } ?>
+							  <br>
 						<!-- Old Comment Section -->
 
 
@@ -530,73 +617,6 @@ if(insertComment($conn, $_POST, $ref)){
     
 }
 
-}
-
-function timeAgo($time_ago)
-{
-    $time_ago = strtotime($time_ago);
-    $cur_time   = time();
-    $time_elapsed   = $cur_time - $time_ago;
-    $seconds    = $time_elapsed ;
-    $minutes    = round($time_elapsed / 60 );
-    $hours      = round($time_elapsed / 3600);
-    $days       = round($time_elapsed / 86400 );
-    $weeks      = round($time_elapsed / 604800);
-    $months     = round($time_elapsed / 2600640 );
-    $years      = round($time_elapsed / 31207680 );
-    // Seconds
-    if($seconds <= 60){
-        return "Just Now";
-    }
-    //Minutes
-    else if($minutes <=60){
-        if($minutes==1){
-            return "one minute ago";
-        }
-        else{
-            return $minutes." minutes ago";
-        }
-    }
-    //Hours
-    else if($hours <=24){
-        if($hours==1){
-            return "an hour ago";
-        }else{
-            return $hours." hrs ago";
-        }
-    }
-    //Days
-    else if($days <= 7){
-        if($days==1){
-            return "yesterday";
-        }else{
-            return $days." days ago";
-        }
-    }
-    //Weeks
-    else if($weeks <= 4.3){
-        if($weeks==1){
-            return "a week ago";
-        }else{
-            return $weeks." weeks ago";
-        }
-    }
-    //Months
-    else if($months <=12){
-        if($months==1){
-            return "a month ago";
-        }else{
-            return $months." months ago";
-        }
-    }
-    //Years
-    else{
-        if($years==1){
-            return "one year ago";
-        }else{
-            return $years." years ago";
-        }
-    }
 }
 
 

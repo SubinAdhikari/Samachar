@@ -16,7 +16,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 
 
 	<!-- Breadcrumb -->
-	<div class="container">
+	<center><div style="width:95%">
 		<div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
 			<div class="f2-s-1 p-r-30 m-tb-6">
 				<a href="index.html" class="breadcrumb-item f1-s-3 cl9">
@@ -40,11 +40,11 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 				</button>
 			</div>
 		</div>
-	</div>
+	</div></center>
 
 	<!-- Content -->
-	<section class="bg0 p-b-140 p-t-10">
-		<div class="container">
+	<section class="bg0 p-b-140 p-t-10" style="width:95%;margin-left:35px">
+		<div >
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8 p-b-30">
 					<div class="p-r-10 p-r-0-sr991">												

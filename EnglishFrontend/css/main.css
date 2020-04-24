@@ -366,7 +366,8 @@ a.left-topbar-item:hover {
   -moz-transform: translateY(0%);
   -ms-transform: translateY(0%);
   -o-transform: translateY(0%);
-  transform: translateY(0%);
+  /* transform: translateY(0%); */
+  transform: translateX(-9%);
 }
 
 .menu-desktop {
@@ -401,11 +402,12 @@ a.left-topbar-item:hover {
   width: auto;
   position: relative;
   padding: 0px;
-  margin-right: -20px;
+  margin-right: -5px;
 }
 
 .main-menu > li > a {
   font-family: Roboto-Medium;
+  /* font-size: 16px; */
   font-size: 13px;
   line-height: 1.5;
   color: #222;

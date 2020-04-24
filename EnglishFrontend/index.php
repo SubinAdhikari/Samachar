@@ -287,7 +287,7 @@ foreach($forthLastNews as $key){
 									View all
 									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
 								</a>
-							</div>
+							</div><br>
 								
 							<!-- Tab panes -->
 							<div class="card-group">
@@ -295,12 +295,12 @@ foreach($forthLastNews as $key){
 							
 									$getNews=getNewsByCategoryID($conn,$key['category_id']);
 									// print_r($getNews);
-									foreach($getNews as $key){
+									foreach($getNews as $key){ 
 									
 									?>
-												  <div class="card">
+												  <div class="card" style="margin:3px;border-radius:20px">
 												  	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
-												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"  class="card-img-top" alt="...">
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
 												    <div class="card-body">
 												      <h5><a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>

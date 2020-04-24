@@ -166,7 +166,7 @@ $(document).ready(function(){
 								 ?>
 
 								 <li class="nav-item dropdown">
-        						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $key['category_id'];  ?>" style="font-size:20px; color:black"><?php echo $key['category_name'];?>
+        						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $key['category_id'];  ?>" style="font-size:13px; color:black"><?php echo $key['category_name'];?>
         							</a>
 							<!-- <li>
 								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>"><?php echo $key['category_name'];?></a> -->
@@ -176,7 +176,7 @@ $(document).ready(function(){
 									foreach($subcategoryList as $key){
 										// foreach($key as $value){
 									?>
-									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id'] ?>" style="font-size:20px; color:black"><?php echo $key['subcategory_name']; ?></a>
+									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id'] ?>" style="font-size:13px; color:black"><?php echo $key['subcategory_name']; ?></a>
 										<?php }  ?>
 										</div>
 

@@ -66,7 +66,7 @@ $(document).ready(function(){
 	include '../backend/app/call.php';
 	$categoryList=selectAllCategory($conn);
 
-
+	$advertisementImageBelowFirstParaName='';
 	$advertisement_banner=selectAllAdvertisement($conn);
 	 //dump($advertisement_banner);
 

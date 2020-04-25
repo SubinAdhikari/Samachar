@@ -143,7 +143,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								        return "Not Found"; 
 								    } 
 								} 
-								$a="";  
+								 
 								// Driver Code  
 								$search = "\n"; 
 								$position = Search($search, $string);
@@ -151,13 +151,13 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								$image =$key['advertisement_image']; 
 								
 								
-								$a="<br><img  src='../backend/advertisementImage/$image'
+								$advertisementImageBelowFirstParaName="<br><img  src='../backend/advertisementImage/$image'
 
 								 alt='Below Article Advertisement' width='100%'height='90px'>";
 								}
 								//$string = 'very '; 
 
-								echo substr_replace( $string, $a."<hr>", $position , 0 );
+								echo substr_replace( $string, $advertisementImageBelowFirstParaName."<hr>", $position , 0 );
  								?>
 							
 							</p>  

@@ -144,6 +144,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 							<p class="f1-s-11 cl6 p-b-25" style="font-size:18px;">
 								
 								<?php 
+								
 								$area = 'news_detailpage';
 								$specificArea = 'below_newsFirstPara';
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
@@ -167,13 +168,13 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 								$image =$key['advertisement_image']; 
 								
 								
-								$a="<br><img  src='../backend/advertisementImage/$image'
+								$advertisementImageBelowFirstParaName="<br><img  src='../backend/advertisementImage/$image'
 
 								 alt='Below News Advertisement' width='100%'height='90px' >";
 								}
 								//$string = 'very '; 
 
-								echo substr_replace( $string, $a."<hr>", $position , 0);
+								echo substr_replace( $string, $advertisementImageBelowFirstParaName."<hr>", $position , 0);
  								?>
 							
 							</p>	

@@ -92,7 +92,7 @@ $(document).ready(function(){
 							<span>
 								<!-- New York, NY -->
 								<!-- <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?time_only=no&font_color=FFFFFF&aj_time=yes&font_size=14&line_brake=0&bikram_sambat=0&api=890040j065" width="308" height="22"></iframe> -->
-									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=15&api=800144j563" width="165" height="20"></iframe>
+									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=17&api=800144j563&" width="165" height="20"></iframe>
 							</span>
 
 							<!-- <img class="m-b-1 m-rl-8" src="images/icons/icon-night.png" alt="IMG"> -->
@@ -102,12 +102,12 @@ $(document).ready(function(){
 							</span> -->
 						</span>
 
-						<a href="about.php" class="left-topbar-item">
-							About
+						<a href="about.php" class="left-topbar-item" style="color:white;font-size:17px;font-weight: bold;">
+						हाम्रो बारेमा
 						</a>
 
-						<a href="contact.php" class="left-topbar-item">
-							Contact
+						<a href="contact.php" class="left-topbar-item" style="color:white;font-size:17px;font-weight: bold;">
+						सम्पर्क
 						</a>
 
 
@@ -137,7 +137,7 @@ $(document).ready(function(){
 			<!-- Header Mobile --> 
 			
 			<!--  -->
-			<div class="wrap-logo " style="width:15%;height:150px;">
+			<div class="wrap-logo " style="width:15%;height:150px;margin-left:80px">
 				<!-- Logo desktop -->		
 				<div class="logo" style="width:100%;height:100%">
 					<a href="index.php"><img  src="images/icons/samachar.png"  alt="LOGO"></a>
@@ -156,9 +156,9 @@ $(document).ready(function(){
 						</a>
 					
 
-						<nav class="navbar navbar-expand-lg navbar-light bg-light">
+						<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#027ab5!important;">
   								
-  								<a class="navbar-brand" href="index.php"><i style="padding-left:80px"; class="fas fa-home"></i></a>
+  								<a class="navbar-brand" href="index.php"><i style="padding-left:80px;color:white"; class="fas fa-home"></i></a>
   						
   						<div class="collapse navbar-collapse" id="navbarNavDropdown">
     						<ul class="navbar-nav" style="padding-left:50px";>
@@ -166,9 +166,9 @@ $(document).ready(function(){
 								 ?>
 
 								 <li class="nav-item dropdown">
-        						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $key['category_id'];  ?>" style="font-size:20px; color:black"><?php echo $key['category_name'];?>
+        						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $key['category_id'];  ?>" style="font-size:17px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['category_name'];?>
         							</a>
-							<!-- <li>
+							<!-- <li> 
 								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>"><?php echo $key['category_name'];?></a> -->
 								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<?php 
@@ -176,7 +176,7 @@ $(document).ready(function(){
 									foreach($subcategoryList as $key){
 										// foreach($key as $value){
 									?>
-									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id'] ?>" style="font-size:20px; color:black"><?php echo $key['subcategory_name']; ?></a>
+									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id'] ?>" style="font-size:20px; color:black;font-weight: bold;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['subcategory_name']; ?></a>
 										<?php }  ?>
 										</div>
 
@@ -185,7 +185,7 @@ $(document).ready(function(){
 
 							
 						</ul>
-						<strong><a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3"><span style="color:blue">ENGLISH</span></a></strong>
+						<strong><a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3"><span style="color:#dc3545!important;font-weight:bold">ENGLISH</span></a></strong>
 					</nav>
 				</div>
 			</div>	

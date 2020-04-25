@@ -67,15 +67,15 @@ include "layouts/header.php"
  // echo '<br>'.$specificAreaBannerArray[0];
 foreach($bannerNews as $key){ ?>
 	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>">
-	<center>	<div  style="background-color: GhostWhite;width:95%">
+	<center>	<div  style="background-color: rgba(0,0,0,.06);width:95%;border-bottom:2px #027ab5 solid;border-top:2px #027ab5 solid;border-radius:20px;padding-top:15px">
 				<div>
-				<h2 style="color:black;font-size:40px;"><strong><center>
+				<h2 style="color:#027ab5;font-size:40px;"><strong><center>
 					<?php echo $key['news_title']; ?></center></strong></h2>
 				</div>
 				<div>
 				<span style="color:black;font-size:20px;"><strong><center><?php echo $key['news_writtenby']; ?></center></strong></span>
 				</div>
-				<figure> <img width="100%" height="5%" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>"> </figure> 
+				<figure> <img width="100%" height="5%" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-bottom:5px #027ab5 solid;"> </figure> 
 				<p>
 				<strong style="color:black">
 				<?php
@@ -83,7 +83,7 @@ foreach($bannerNews as $key){ ?>
 				$removingTags=strip_tags($FullNews);
                 $subStrNews= substr($removingTags,0,400);
 				echo '<span style="color:grey">'.$subStrNews.'</span>';
-				echo '<span style="color:grey">.....<br> Read more</span>';
+				echo '<span style="color:grey">.....<br> Read more</span><br><br>';
                 ?>
               
             
@@ -125,6 +125,7 @@ foreach($bannerNews as $key){ ?>
 </div> --><br><br>
 
 	<!-- Feature post -->
+	<center><div style="background-color:#027ab5;color: white;border-radius: 15px;width:200px;height:50px;font-size:20px;text-align:center;padding-top:11px"><strong>ताजा समाचारहरू</strong></div><br></center>
 	<?php
 	$latestNewsDetails=GetLatestNews($conn);
 	// print_r($latestNewsDetails);
@@ -263,7 +264,7 @@ foreach($forthLastNews as $key){
 						<div class="tab01 p-b-20">
 							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
-								<h1 class="f1-m-2 cl19 tab01-title" style="font-size:30px; color:green">
+								<h1 class="f1-m-2 cl19 tab01-title" style="font-size:30px; color:#027ab5!important;">
 									<?php echo $key['category_name']; ?>
 								</h1>
 
@@ -475,7 +476,7 @@ foreach($forthLastNews as $key){
 		<div style="width:100%">
 			<a href="#" >
 				<!-- <img class="max-w-full" src="images/banner-01.jpg" alt="IMG"> -->
-				<img  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" width="100%" alt="IMG"> 
+				<img  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" width="95%" alt="IMG"> 
 			</a>
 		</div>
 	</div></center>

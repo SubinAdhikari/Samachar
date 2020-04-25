@@ -1,7 +1,7 @@
 <?php include 'layouts/header.php';
-
+$categoryName=retriveCategories($conn);
 $ref=$_GET['ref'];
-$result=selectArticleFromId($conn,$ref);
+$result=selectNewsFromId($conn,$ref);
 // print_r($result['category_id']);
 // print_r($categoryNameAndID);
 ?>
@@ -50,7 +50,7 @@ $result=selectArticleFromId($conn,$ref);
                    <!-- END THEME CUSTOMIZER-->
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                    <h3 class="page-title">
-                     Edit Article
+                     Edit News Image
                    </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -58,11 +58,11 @@ $result=selectArticleFromId($conn,$ref);
                            <span class="divider">/</span>
                        </li>
                        <li>
-                           <a href="#">Article</a>
+                           <a href="#">News</a>
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Edit Article
+                           Edit News Image
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -87,7 +87,7 @@ $result=selectArticleFromId($conn,$ref);
                     <!-- BEGIN  widget-->
                     <div class="widget yellow">
                         <div class="widget-title">
-                            <h4><i class="icon-reorder"></i> Edit Article</h4>
+                            <h4><i class="icon-reorder"></i> Add News</h4>
                         <span class="tools">
                            <a href="javascript:;" class="icon-chevron-down"></a>
                            <a href="javascript:;" class="icon-remove"></a>
@@ -100,68 +100,26 @@ $result=selectArticleFromId($conn,$ref);
                             <div class="control-group">
                                 <label class="control-label">Heading/Title</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="article_title" value="<?php echo $result['article_title'];?>"/>
+                                    <input type="text" readonly class="span6 " name="news_title" value="<?php echo $result['news_title'];?>"/>
                                     <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">News Featured or Banner Image<br>(Select One)</label>
+                                <div class="controls">
+                                    <input type="file" class="span6" required name="news_featuredimageup"  />                              
                                 </div>
                             </div>  
-
                             <div class="control-group">
-                                <label class="control-label">Author</label>
+                                <label class="control-label">News Image <br>(Select Multiple)</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="article_author" value="<?php echo $result['article_author'];?>"/>
-                                    <!-- <span class="help-inline">Some hint here</span> -->
-                                </div>
-                            </div> 
-                                                          
-                            <div class="control-group">
-                                <label class="control-label">Article Detail</label>
-                                <div class="controls">
-                                    <textarea class="span12 ckeditor" name="article_details" rows="6"><?php echo $result['article_details']; ?></textarea>
-                                 </div>                               
-                            </div>     
-                                                
-                            <div class="control-group">
-                                <label class="control-label"> Status</label>
-                                <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
-                                    <optgroup label="Select status">                        
-                                                    <option <?php if($result['is_active']=='active')
-                                                     echo 'selected="selected"'; ?>
-                                                    value="active">Active</option>
-                                                    <option <?php if($result['is_active']=='inactive')
-                                                     echo 'selected="selected"'; ?>
-                                                    value="inactive">Inactive</option>
-                                    </optgroup>
-                                    </select>
+                                    <input type="file" class="span6" required name="file1up[]" multiple />                              
                                 </div>
                             </div>
 
-                            <div class="control-group">
-                                <label class="control-label"> Top Article</label>
-                                <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="top_article" id="selCSI">
-                                    <optgroup label="Select status">                        
-                                                    <option <?php if($result['top_article']=='yes')
-                                                     echo 'selected="selected"'; ?>
-                                                    value="yes">Yes</option>
-                                                    <option <?php if($result['top_article']=='no')
-                                                     echo 'selected="selected"'; ?>
-                                                    value="no">No</option>
-                                    </optgroup>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                <label class="control-label">Article Views</label>
-                                <div class="controls">
-                                    <input readonly type="text" class="span6 " name="article_views" value="<?php echo $result['article_views'];?>"/>
-                                    <!-- <span class="help-inline">Some hint here</span> -->
-                                </div>
-                            </div>
-                        
+                                
                             <div class="form-actions">
-                                <button type="submit" class="btn btn-success" name="updateBtn">Update</button>
+                                <button type="submit" class="btn btn-success" name="updateBtn">Update Images</button>
                                 <button type="button" class="btn">Cancel</button>
                             </div>
                             </form>
@@ -233,13 +191,34 @@ $result=selectArticleFromId($conn,$ref);
 </html>
 <?php
 if(isset($_POST['updateBtn'])){
+    $fileNamesInString='';
+    $countfiles = count($_FILES['file1up']['name']);
+    for($i=0;$i<$countfiles;$i++){
+      $fileName = $_FILES['file1up']['name'][$i];
+      $tmp_name=$_FILES['file1up']['tmp_name'][$i];
+      $fileExt = explode('.', $fileName);
+      $fileActualExt = strtolower(end($fileExt));
+      $fileNameNew = uniqid('',true).".".$fileActualExt;
+      $fileNamesInString.=$fileNameNew.",";
+      $path='../newsImage/'.$fileNameNew;
+      move_uploaded_file($tmp_name, $path);
+    }
+    $fileNamesInString = rtrim($fileNamesInString, ",");
 
-    if(updateArticle($conn,$_POST,$ref)){
-        showMsg('Article Updated Successfully');
-        redirection('manageArticle.php');
+    // for featured image
+    $fileName1 = $_FILES['news_featuredimageup']['name'];
+    $tmp_name1=$_FILES['news_featuredimageup']['tmp_name'];
+    $fileExt1 = explode('.', $fileName1);
+    $fileActualExt1 = strtolower(end($fileExt1));
+    $fileNameNew1 = uniqid('',true).".".$fileActualExt1;
+    $path='../newsFeaturedImage/'.$fileNameNew1;
+    move_uploaded_file($tmp_name1, $path);
+    if(updateNewsImages($conn,$ref,$fileNamesInString,$fileNameNew1)){
+        showMsg('Image Changed Successfully');
+        redirection('manageNews.php');
     }else{
         echo '<script language="javascript">';
-        echo 'alert("Failed to Update Article ")';
+        echo 'alert("Failed to Change Image ")';
         echo '</script>';
     }
 

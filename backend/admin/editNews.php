@@ -62,7 +62,7 @@ $result=selectNewsFromId($conn,$ref);
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Add News
+                           Edit News
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -87,7 +87,7 @@ $result=selectNewsFromId($conn,$ref);
                     <!-- BEGIN  widget-->
                     <div class="widget yellow">
                         <div class="widget-title">
-                            <h4><i class="icon-reorder"></i> Add News</h4>
+                            <h4><i class="icon-reorder"></i> Edit News</h4>
                         <span class="tools">
                            <a href="javascript:;" class="icon-chevron-down"></a>
                            <a href="javascript:;" class="icon-remove"></a>
@@ -180,21 +180,7 @@ $result=selectNewsFromId($conn,$ref);
                                     <input type="text" class="span6 " name="news_url" value="<?php echo $result['news_url'];?>"/>
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">News Image</label>
-                                <div class="controls">
-                                    <input type="file" class="span6" name="file1up[]" multiple />                              
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                <label class="control-label">News Featured Image</label>
-                                <div class="controls">
-                                    <input type="file" class="span6" name="news_featuredimageup"  />                              
-                                </div>
-                            </div>    
-                                                
+                            </div>                                                  
                             <div class="control-group">
                                 <label class="control-label"> Status</label>
                                 <div class="controls">
@@ -299,31 +285,7 @@ $result=selectNewsFromId($conn,$ref);
 </html>
 <?php
 if(isset($_POST['updateBtn'])){
-    $fileNamesInString='';
-    $countfiles = count($_FILES['file1up']['name']);
-    for($i=0;$i<$countfiles;$i++){
-      $fileName = $_FILES['file1up']['name'][$i];
-      $tmp_name=$_FILES['file1up']['tmp_name'][$i];
-      $fileExt = explode('.', $fileName);
-      $fileActualExt = strtolower(end($fileExt));
-      $fileNameNew = uniqid('',true).".".$fileActualExt;
-      $fileNamesInString.=$fileNameNew.",";
-      $path='../newsImage/'.$fileNameNew;
-      // chmod('uploads/',0777);
-      move_uploaded_file($tmp_name, $path);
-    }
-    $fileNamesInString = rtrim($fileNamesInString, ",");
-
-    // for featured image
-    $fileName1 = $_FILES['news_featuredimageup']['name'];
-    $tmp_name1=$_FILES['news_featuredimageup']['tmp_name'];
-    $fileExt1 = explode('.', $fileName1);
-    $fileActualExt1 = strtolower(end($fileExt1));
-    $fileNameNew1 = uniqid('',true).".".$fileActualExt1;
-    $path='../newsFeaturedImage/'.$fileNameNew1;
-    // chmod('uploads/',0777);
-    move_uploaded_file($tmp_name1, $path);
-    if(updateNews($conn,$_POST,$ref,$fileNamesInString,$fileNameNew1)){
+    if(updateNews($conn,$_POST,$ref)){
         showMsg('News Updated Successfully');
         redirection('manageNews.php');
     }else{

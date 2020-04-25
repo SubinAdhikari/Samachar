@@ -297,15 +297,62 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								foreach($advertisement1 as $key){
 							?>
 					
-					<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
-				<?php } 
+							<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+						<?php } ?>
+						</div>
+						<br>
+						<div class="container">
+						<?php
+								
+								$specificArea = 'below_searchResultThirdSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
 					
+							<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+						<?php } ?>
+						</div>
+						<br>
+						<div class="container">
+						<?php
+								
+								$specificArea = 'below_searchResultFourthSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
 					
+							<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+						<?php } ?>
+						</div>
+						<br>
+						<div class="container">
+						<?php
+								
+								$specificArea = 'below_searchResultFifthSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
 					
-				?>
+							<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+						<?php } ?>
+						</div>
+						<br>
+						<div class="container">
+						<?php
+								
+								$specificArea = 'below_searchResultSixthSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
 					
-				
-	</div>
+							<a href="#"><img  class="container" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+						<?php } ?>
+						</div>
+						<br>
 					</div>
 				</div>
 			</div>

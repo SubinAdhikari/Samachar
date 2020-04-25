@@ -62,7 +62,7 @@ $result=selectArticleFromId($conn,$ref);
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Edit Article
+                           Edit Article Image
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -100,65 +100,17 @@ $result=selectArticleFromId($conn,$ref);
                             <div class="control-group">
                                 <label class="control-label">Heading/Title</label>
                                 <div class="controls">
-                                    <input type="text" class="span6 " name="article_title" value="<?php echo $result['article_title'];?>"/>
+                                    <input type="text" class="span6" readonly name="article_title" value="<?php echo $result['article_title'];?>"/>
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
-                            </div>  
-
-                            <div class="control-group">
-                                <label class="control-label">Author</label>
-                                <div class="controls">
-                                    <input type="text" class="span6 " name="article_author" value="<?php echo $result['article_author'];?>"/>
-                                    <!-- <span class="help-inline">Some hint here</span> -->
-                                </div>
-                            </div> 
-                                                          
-                            <div class="control-group">
-                                <label class="control-label">Article Detail</label>
-                                <div class="controls">
-                                    <textarea class="span12 ckeditor" name="article_details" rows="6"><?php echo $result['article_details']; ?></textarea>
-                                 </div>                               
                             </div>     
-                                                
-                            <div class="control-group">
-                                <label class="control-label"> Status</label>
-                                <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
-                                    <optgroup label="Select status">                        
-                                                    <option <?php if($result['is_active']=='active')
-                                                     echo 'selected="selected"'; ?>
-                                                    value="active">Active</option>
-                                                    <option <?php if($result['is_active']=='inactive')
-                                                     echo 'selected="selected"'; ?>
-                                                    value="inactive">Inactive</option>
-                                    </optgroup>
-                                    </select>
-                                </div>
-                            </div>
 
                             <div class="control-group">
-                                <label class="control-label"> Top Article</label>
+                                <label class="control-label">Article Featured Image<br> (Select One)</label>
                                 <div class="controls">
-                                    <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="top_article" id="selCSI">
-                                    <optgroup label="Select status">                        
-                                                    <option <?php if($result['top_article']=='yes')
-                                                     echo 'selected="selected"'; ?>
-                                                    value="yes">Yes</option>
-                                                    <option <?php if($result['top_article']=='no')
-                                                     echo 'selected="selected"'; ?>
-                                                    value="no">No</option>
-                                    </optgroup>
-                                    </select>
+                                    <input type="file" class="span6" required name="article_featuredimage"  />                              
                                 </div>
-                            </div>
-
-                            <div class="control-group">
-                                <label class="control-label">Article Views</label>
-                                <div class="controls">
-                                    <input readonly type="text" class="span6 " name="article_views" value="<?php echo $result['article_views'];?>"/>
-                                    <!-- <span class="help-inline">Some hint here</span> -->
-                                </div>
-                            </div>
+                            </div>    
                         
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-success" name="updateBtn">Update</button>
@@ -233,9 +185,18 @@ $result=selectArticleFromId($conn,$ref);
 </html>
 <?php
 if(isset($_POST['updateBtn'])){
+    // for featured image
+    $fileName1 = $_FILES['article_featuredimage']['name'];
+    $tmp_name1=$_FILES['article_featuredimage']['tmp_name'];
+    $fileExt1 = explode('.', $fileName1);
+    $fileActualExt1 = strtolower(end($fileExt1));
+    $fileNameNew1 = uniqid('',true).".".$fileActualExt1;
+    $path='../articleFeaturedImage/'.$fileNameNew1;
+    chmod('uploads/',0777);
+    move_uploaded_file($tmp_name1, $path);
 
-    if(updateArticle($conn,$_POST,$ref)){
-        showMsg('Article Updated Successfully');
+    if(updateArticleImage($conn,$ref,$fileNameNew1)){
+        showMsg('Article Image Changed Successfully');
         redirection('manageArticle.php');
     }else{
         echo '<script language="javascript">';

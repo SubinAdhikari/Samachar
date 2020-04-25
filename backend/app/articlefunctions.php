@@ -15,15 +15,24 @@ function insertArticle($conn, $data, $fileNameNew1){
 	return false;
 }
 
-function updateArticle($conn, $data, $ref, $fileNameNew1){
-    $stmtupdate=$conn->prepare("UPDATE tblarticle SET article_author=:article_author, article_title=:article_title, article_details=:article_details, article_featuredimage=:article_featuredimage, is_active=:is_active, top_article=:top_article WHERE article_id=:article_id");
+function updateArticle($conn, $data, $ref){
+    $stmtupdate=$conn->prepare("UPDATE tblarticle SET article_author=:article_author, article_title=:article_title, article_details=:article_details, is_active=:is_active, top_article=:top_article WHERE article_id=:article_id");
 
     $stmtupdate->bindParam(':article_author', $data['article_author']);
     $stmtupdate->bindParam(':article_title', $data['article_title']);
     $stmtupdate->bindParam(':article_details', $data['article_details']);
-    $stmtupdate->bindParam(':article_featuredimage', $fileNameNew1);
     $stmtupdate->bindParam(':top_article', $data['top_article']);
     $stmtupdate->bindParam(':is_active', $data['is_active']);
+    $stmtupdate->bindParam(':article_id', $ref);
+    if ($stmtupdate->execute()) {
+        return true;
+    }
+    return false;
+}
+
+function updateArticleImage($conn, $ref, $fileNameNew1){
+    $stmtupdate=$conn->prepare("UPDATE tblarticle SET article_featuredimage=:article_featuredimage WHERE article_id=:article_id");
+    $stmtupdate->bindParam(':article_featuredimage', $fileNameNew1);
     $stmtupdate->bindParam(':article_id', $ref);
     if ($stmtupdate->execute()) {
         return true;
@@ -47,6 +56,14 @@ function selectArticleFromId($conn,$articleId){
 }
 function GetLatestThreeArticles($conn){
     $stmtSelect = $conn->prepare("SELECT * FROM tblarticle ORDER BY article_views DESC LIMIT 3 ");
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
+}
+function GetArticlesOfSameWriter($conn, $name){
+    $stmtSelect = $conn->prepare("SELECT * FROM tblarticle WHERE article_author=:article_author
+        ORDER BY article_id DESC LIMIT 3");
+    $stmtSelect->bindParam(':article_author', $name);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();

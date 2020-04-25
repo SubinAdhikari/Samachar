@@ -123,19 +123,27 @@ function selectNewsFromId($conn,$newsId){
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetch();
 }
-function updateNews($conn, $data, $ref,$fileNameNew,$fileNameNew1){
-    $stmtupdate=$conn->prepare("UPDATE tblnews SET news_writtenby=:news_writtenby, news_title=:news_title, is_bannerNews=:is_bannerNews, news_deails=:news_deails ,news_url=:news_url, news_image=:news_image,
-        news_featuredimage=:news_featuredimage, is_active=:is_active,top_news=:top_news WHERE news_id=:news_id");
+function updateNews($conn, $data, $ref){
+    $stmtupdate=$conn->prepare("UPDATE tblnews SET news_writtenby=:news_writtenby, news_title=:news_title, is_bannerNews=:is_bannerNews, news_deails=:news_deails ,news_url=:news_url, is_active=:is_active,top_news=:top_news WHERE news_id=:news_id");
 
     $stmtupdate->bindParam(':news_writtenby', $data['news_writtenby']);
     $stmtupdate->bindParam(':news_title', $data['news_title']);
     $stmtupdate->bindParam(':is_bannerNews', $data['is_bannerNews']);
     $stmtupdate->bindParam(':news_deails', $data['news_deails']);
     $stmtupdate->bindParam(':news_url', $data['news_url']);
-    $stmtupdate->bindParam(':news_image', $fileNameNew);
-    $stmtupdate->bindParam(':news_featuredimage', $fileNameNew1);
     $stmtupdate->bindParam(':top_news', $data['top_news']);
     $stmtupdate->bindParam(':is_active', $data['is_active']);
+    $stmtupdate->bindParam(':news_id', $ref);
+    if ($stmtupdate->execute()) {
+        return true;
+    }
+    return false;
+}
+function updateNewsImages($conn, $ref,$fileNameNew,$fileNameNew1){
+    $stmtupdate=$conn->prepare("UPDATE tblnews SET news_image=:news_image,
+        news_featuredimage=:news_featuredimage WHERE news_id=:news_id");
+    $stmtupdate->bindParam(':news_image', $fileNameNew);
+    $stmtupdate->bindParam(':news_featuredimage', $fileNameNew1);
     $stmtupdate->bindParam(':news_id', $ref);
     if ($stmtupdate->execute()) {
         return true;

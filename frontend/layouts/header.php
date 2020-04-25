@@ -90,16 +90,8 @@ $(document).ready(function(){
 					<div class="left-topbar">
 						<span class="left-topbar-item flex-wr-s-c">
 							<span>
-								<!-- New York, NY -->
-								<!-- <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?time_only=no&font_color=FFFFFF&aj_time=yes&font_size=14&line_brake=0&bikram_sambat=0&api=890040j065" width="308" height="22"></iframe> -->
 									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=17&api=800144j563&" width="165" height="20"></iframe>
 							</span>
-
-							<!-- <img class="m-b-1 m-rl-8" src="images/icons/icon-night.png" alt="IMG"> -->
-
-							<!-- <span>
-								HI 58° LO 56°
-							</span> -->
 						</span>
 
 						<a href="about.php" class="left-topbar-item" style="color:white;font-size:17px;font-weight: bold;">

@@ -54,11 +54,11 @@
                            <span class="divider">/</span>
                        </li>
                        <li>
-                           <a href="#">User</a>
+                           <a href="#">News</a>
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Manage Subcategory
+                           Manage (Banner) News 
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -80,7 +80,7 @@
                 <div class="widget red">
                 <?php if (isset(($_SESSION['msg'])))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
                     <div class="widget-title">
-                        <h4><i class="icon-reorder"></i> Users' Information</h4>
+                        <h4><i class="icon-reorder"></i> News' Information</h4>
                         
                             <span class="tools">
                                 <a href="javascript:;" class="icon-chevron-down"></a>
@@ -169,8 +169,13 @@
                                   No</span>
                               <?php endif; ?></td>
                                 <td class="hidden-phone"><a href="editNews.php?ref=<?php echo $news['news_id'];?>" class="btn btn-xs btn-info">
-                                  Edit
+                                  Edit News
                                 </a>
+                                <hr>
+                                <a href="editNewsImages.php?ref=<?php echo $news['news_id'];?>" class="btn btn-xs btn-info">
+                                  Change News Images
+                                </a>
+                                <hr>
                                 <a href="deleteNews.php?ref=<?php echo $news['news_id'];?>" onclick="return confirm('Really Deleting that News??');" class="btn btn-xs btn-danger">
                                   Delete
                                 </a></td> 

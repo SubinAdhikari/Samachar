@@ -143,6 +143,9 @@
                                 <td class="hidden-phone"><a href="editArticle.php?ref=<?php echo $article['article_id'];?>" class="btn btn-xs btn-info">
                                   Edit
                                 </a>
+                                <a href="editArticleImage.php?ref=<?php echo $article['article_id'];?>" class="btn btn-xs btn-info">
+                                  Change Image
+                                </a><hr>
                                 <a href="deletearticle.php?ref=<?php echo $article['article_id'];?>" onclick="return confirm('Really Deleting that News??');" class="btn btn-xs btn-danger">
                                   Delete
                                 </a></td> 

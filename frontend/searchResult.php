@@ -42,6 +42,7 @@ if(isset($_POST['searchBtn'])){
                         // echo $key['news_id'];
                         $selectNewsById=searchNewsByID($conn,$key['news_id']);
                     foreach($selectNewsById as $key){
+						$encryptedURL=encryptionFunction($key['news_id']);
                     ?>
 
 				<div class="col-sm-6 col-lg-4 p-rl-1 p-b-2">
@@ -51,7 +52,7 @@ if(isset($_POST['searchBtn'])){
 							
 
 							<h3 class="how1-child2 m-t-10">
-								<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
 									<?php echo $key['news_title']; ?>
 								</a>
 							</h3>
@@ -98,7 +99,7 @@ if(isset($_POST['searchBtn'])){
 						<div class="tab01 p-b-20">
 							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
-								<h1 class="f1-m-2 cl19 tab01-title" style="font-size:30px; color:green">
+								<h1 class="f1-m-2 cl19 tab01-title" style="font-size:30px; color:#027ab5!important;">
 									<?php echo $key['category_name']; ?>
 								</h1>
 
@@ -116,9 +117,11 @@ if(isset($_POST['searchBtn'])){
 									</li>
 								</ul>
 								
-
+								<?php
+$encryptedURL=encryptionFunction($key['category_id']); 
+?>
 								<!--  -->
-								<a href="category-02.php?ref=<?php echo $key['category_id']; ?>" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
+								<a href="category-02.php?ref=<?php echo $encryptedURL; ?>" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
 									View all
 									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
 								</a>
@@ -131,14 +134,14 @@ if(isset($_POST['searchBtn'])){
 									$getNews=getNewsByCategoryID($conn,$key['category_id']);
 									// print_r($getNews);
 									foreach($getNews as $key){
-									
+										$encryptedURL=encryptionFunction($key['news_id']);
 									?>
 												  <div class="card" style="margin:3px;border-radius:20px">
-												  	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
 												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
 												    <div class="card-body">
-												      <h5><a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
 												      <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
 															<?php $datetime = $key['created_at']; 
 															$time_elapsed = timeAgo($datetime);
@@ -169,22 +172,23 @@ if(isset($_POST['searchBtn'])){
 							<ul class="p-t-35">
 								<?php foreach ($latestNewsDetails as $latestNewsDetail ) {
 									$imageName = $latestNewsDetail['news_featuredimage'];
+									$encryptedURL=encryptionFunction($latestNewsDetail['news_id']);
 								?>
 								<li class="flex-wr-sb-s p-b-30">
-									<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
+									<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
 
 										<img src="../backend/newsFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
 									</a>
 
 									<div class="size-w-11">
 										<h6 class="p-b-4">
-											<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
+											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
 												<?php echo $latestNewsDetail['news_title']; ?>
 											</a>
 										</h6>
 
 										<span class="cl8 txt-center p-b-24">
-											<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
+											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
 												<?php $categoryNames=getCategoryNameByCategoryId($conn,$latestNewsDetail['category_id']); 
                                 $categoryName = implode("", $categoryNames);  ?>
 												<?php echo $categoryName; ?>
@@ -347,18 +351,19 @@ if(isset($_POST['searchBtn'])){
 							$LatestSixArticle=selectLatestArticle($conn);
 							// print_r($LatestSixArticle);
 							foreach($LatestSixArticle as $key){
+								$encryptedURL=encryptionFunction($key['article_id']);
 							?>
 						<div class="col-sm-6 p-r-25 p-r-15-sr991">
 							<!-- Item latest -->
 								
 							<div class="m-b-45">
-								<a href="articleDetail.php?ref=<?php echo $key['article_id']; ?>" class="wrap-pic-w hov1 trans-03">
+								<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="wrap-pic-w hov1 trans-03">
 									<img src="../backend/articleFeaturedImage/<?php echo $key['article_featuredimage']; ?>" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
 									<h5 class="p-b-5">
-										<a href="articleDetail.php?ref=<?php echo $key['article_id']; ?>" class="f1-m-3 cl2 hov-cl10 trans-03">
+										<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-m-3 cl2 hov-cl10 trans-03">
 											<?php echo $key['article_title']; ?>
 										</a>
 									</h5>
@@ -464,8 +469,9 @@ if(isset($_POST['searchBtn'])){
 							<?php $result=getSubCategoriesDetails($conn);
 // print_r($result);
 foreach($result as $key){
+	$encryptedURL=encryptionFunction($key['subcategory_id']);
 ?>
-								<a href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id']; ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+								<a href="subCategoryViewAll.php?ref=<?php echo $encryptedURL; ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
 									<?php echo $key['subcategory_name']; ?>
 								</a>
 								<?php } ?>

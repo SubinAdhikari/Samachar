@@ -98,10 +98,11 @@
 						</div>
 						<?php
                           foreach($result as $key){ 
+							$encryptedURL=encryptionFunction($key['category_id']);
                           	?>
 						<ul class="m-t--12">
 							<li class="how-bor1 p-rl-5 p-tb-10">
-								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
+								<a href="category-02.php?ref=<?php echo $encryptedURL;  ?>" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
 									<?php echo $key['category_name']; ?>
 								</a>
 							</li>

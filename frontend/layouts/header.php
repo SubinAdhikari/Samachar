@@ -164,9 +164,11 @@ $(document).ready(function(){
     						<ul class="navbar-nav" style="padding-left:50px";>
 							<?php foreach($categoryList as $key){
 								 ?>
-
+								<?php
+$encryptedURL=encryptionFunction($key['category_id']); 
+?>
 								 <li class="nav-item dropdown">
-        						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $key['category_id'];  ?>" style="font-size:17px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['category_name'];?>
+        						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:17px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['category_name'];?>
         							</a>
 							<!-- <li> 
 								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>"><?php echo $key['category_name'];?></a> -->
@@ -175,8 +177,9 @@ $(document).ready(function(){
 									$subcategoryList=selectSubcategoryFromCategoryId($conn,$key['category_id']);
 									foreach($subcategoryList as $key){
 										// foreach($key as $value){
+											$encryptedURL=encryptionFunction($key['subcategory_id']); 
 									?>
-									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id'] ?>" style="font-size:20px; color:black;font-weight: bold;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['subcategory_name']; ?></a>
+									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $encryptedURL ?>" style="font-size:20px; color:black;font-weight: bold;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['subcategory_name']; ?></a>
 										<?php }  ?>
 										</div>
 

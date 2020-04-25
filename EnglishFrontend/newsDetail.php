@@ -1,8 +1,9 @@
 <?php
 include 'layouts/header.php';
 $ref=$_GET['ref'];
+$decryptURL=decryptionFunction($ref);
 
-$result=selectNewsFromId($conn,$ref);
+$result=selectNewsFromId($conn,$decryptURL);
 
 //  print_r($result);
 // $user_ip=$_SERVER['REMOTE_ADDR'];
@@ -144,6 +145,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 							<p class="f1-s-11 cl6 p-b-25" style="font-size:18px;">
 								
 								<?php 
+								
 								$area = 'news_detailpage';
 								$specificArea = 'below_newsFirstPara';
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
@@ -167,13 +169,13 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 								$image =$key['advertisement_image']; 
 								
 								
-								$a="<br><img  src='../backend/advertisementImage/$image'
+								$advertisementImageBelowFirstParaName="<br><img  src='../backend/advertisementImage/$image'
 
 								 alt='Below News Advertisement' width='100%'height='90px' >";
 								}
 								//$string = 'very '; 
 
-								echo substr_replace( $string, $a."<hr>", $position , 0);
+								echo substr_replace( $string, $advertisementImageBelowFirstParaName."<hr>", $position , 0);
  								?>
 							
 							</p>	
@@ -507,22 +509,23 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 							<ul class="p-t-35">
 								<?php foreach ($latestNewsDetails as $latestNewsDetail ) { 
 									$imageName = $latestNewsDetail['news_featuredimage'];
+									$encryptedURL=encryptionFunction($latestNewsDetail['news_id']);
 								?>
 								<li class="flex-wr-sb-s p-b-30">
-									<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
+									<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
 
 										<img src="../backend/newsFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
 									</a>
 
 									<div class="size-w-11">
 										<h6 class="p-b-4">
-											<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
+											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
 												<?php echo $latestNewsDetail['news_title']; ?>
 											</a>
 										</h6>
 
 										<span class="cl8 txt-center p-b-24">
-											<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
+											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
 												<?php $categoryNames=getCategoryNameByCategoryId($conn,$latestNewsDetail['category_id']); 
                                 $categoryName = implode("", $categoryNames);  ?>
 												<?php echo $categoryName; ?>
@@ -559,8 +562,9 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 							<?php $result=getSubCategoriesDetails($conn);
 // print_r($result);
 foreach($result as $key){
+	$encryptedURL=encryptionFunction($key['subcategory_id']);
 ?>
-								<a href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id']; ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+								<a href="subCategoryViewAll.php?ref=<?php echo $encryptedURL; ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
 									<?php echo $key['subcategory_name']; ?>
 								</a>
 								<?php } ?>

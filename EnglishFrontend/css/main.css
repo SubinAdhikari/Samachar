@@ -125,7 +125,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   height: 35px;
   bottom: -40px;
   right: 40px;
-  background-color: #17b978;
+  background-color: #027ab5;
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -165,8 +165,11 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 /*==================================================================
 [ Top-bar ]*/
-.topbar {
+/* .topbar {
   background-color: #212F3D;
+} */
+.topbar {
+  background-color: #dc3545;
 }
 
 .content-topbar {
@@ -244,8 +247,11 @@ a.left-topbar-item:hover {
   -webkit-transition: all 0.3s;
 }
 
-.right-topbar a:hover {
+/* .right-topbar a:hover {
   color: #17b978;
+} */
+.right-topbar a:hover {
+  color: #027ab5;
 }
 
 /*------------------------------------------------------------------
@@ -1747,8 +1753,11 @@ a.breadcrumb-item:hover {
 .hov-cl0:hover {color: #fff;}
 .hov-bg0:hover {background-color: #fff;}
 
-.hov-cl10:hover {color: #17b978;}
+/* .hov-cl10:hover {color: #17b978;}
 .hov-bg10:hover {background-color: #17b978;}
+ */
+.hov-cl10:hover {color: #027ab5;}
+.hov-bg10:hover {background-color: #027ab5;}
 
 /*---------------------------------------------*/
 .hov-img0 {
@@ -1881,4 +1890,35 @@ a.breadcrumb-item:hover {
 
 @media (max-width: 480px) {
   
+}
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), not all, not all, not all {
+  .wrap-logo{
+    display: block !important;
+    height:35% !important;
+    margin-left: 10px !important;
+  }
+  .logo{
+    display: block !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+  /* .logo-stick {
+      display: block !important;
+      line-height: 0;
+      margin-right: 15px;
+  }
+  .logo-stick img {
+    max-width: 115px;
+    max-height: 30px;
+  } */
+  .topbar{
+    display: block !important;
+  }
+  .collapse{
+    display: block !important;
+  }
+   
+
 }

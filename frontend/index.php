@@ -66,7 +66,10 @@ include "layouts/header.php"
  $specificAreaBannerArrayCount = 0;
  // echo '<br>'.$specificAreaBannerArray[0];
 foreach($bannerNews as $key){ ?>
-	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>">
+<?php
+$encryptedURL=encryptionFunction($key['news_id']); 
+?>
+	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>">
 	<center>	<div  style="background-color: rgba(0,0,0,.06);width:95%;border-bottom:2px #027ab5 solid;border-top:2px #027ab5 solid;border-radius:20px;padding-top:15px">
 				<div>
 				<h2 style="color:#027ab5;font-size:40px;"><strong><center>
@@ -132,11 +135,13 @@ foreach($bannerNews as $key){ ?>
 	?>
 <center>	<section class="bg0" style="width:95%">
 		<div >
-		<?php foreach($latestNewsDetails as $key){ ?>
+		<?php foreach($latestNewsDetails as $key){
+			$encryptedURL=encryptionFunction($key['news_id']); 
+			?>
 			<div class="row m-rl--1">
 				<div class="col-md-6 p-rl-1 p-b-2">
 					<div class="bg-img1 size-a-3 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
-						<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="dis-block how1-child1 trans-03"></a>
+						<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="dis-block how1-child1 trans-03"></a>
 
 						<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
 							<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -144,7 +149,7 @@ foreach($bannerNews as $key){ ?>
 							</a> -->
 
 							<h3 class="how1-child2 m-t-14 m-b-10">
-								<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
+								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
 									<?php echo $key['news_title']; ?>
 								</a>
 							</h3>
@@ -173,13 +178,13 @@ foreach($bannerNews as $key){ ?>
 $secondLastNews=GetSecondLastNews($conn); 
 // print_r($secondLastNews);
 foreach($secondLastNews as $key){
-
+	$encryptedURL=encryptionFunction($key['news_id']); 
 ?>
 				<div class="col-md-6 p-rl-1">
 					<div class="row m-rl--1">
 						<div class="col-12 p-rl-1 p-b-2">
 							<div class="bg-img1 size-a-4 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
-								<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="dis-block how1-child1 trans-03"></a>
+								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="dis-block how1-child1 trans-03"></a>
 
 								<div class="flex-col-e-s s-full p-rl-25 p-tb-24">
 									<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -187,7 +192,7 @@ foreach($secondLastNews as $key){
 									</a> -->
 
 									<h3 class="how1-child2 m-t-14">
-										<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="how-txt1 size-a-7 f1-l-2 cl0 hov-cl10 trans-03">
+										<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-a-7 f1-l-2 cl0 hov-cl10 trans-03">
 											<?php echo $key['news_title']; ?>
 										</a>
 									</h3>
@@ -201,10 +206,11 @@ foreach($secondLastNews as $key){
 <?php $thirdLastNews=GetThirdLastNews($conn);
 foreach($thirdLastNews as $key){
 // print_r($thirdLastNews);
+$encryptedURL=encryptionFunction($key['news_id']); 
 ?>
 						<div class="col-sm-6 p-rl-1 p-b-2">
 							<div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
-								<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="dis-block how1-child1 trans-03"></a>
+								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="dis-block how1-child1 trans-03"></a>
 
 								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
 									<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -212,7 +218,7 @@ foreach($thirdLastNews as $key){
 									</a> -->
 
 									<h3 class="how1-child2 m-t-14">
-										<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+										<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
 											<?php echo $key['news_title']; ?>
 										</a>
 									</h3>
@@ -225,10 +231,11 @@ foreach($thirdLastNews as $key){
 $forthLastNews=GetForthLastNews($conn);
 // print_r($forthLastNews);
 foreach($forthLastNews as $key){
+	$encryptedURL=encryptionFunction($key['news_id']); 
 ?>
 						<div class="col-sm-6 p-rl-1 p-b-2">
 							<div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
-								<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="dis-block how1-child1 trans-03"></a>
+								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="dis-block how1-child1 trans-03"></a>
 
 								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
 									<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -236,7 +243,7 @@ foreach($forthLastNews as $key){
 									</a> -->
 
 									<h3 class="how1-child2 m-t-14">
-										<a href="newsDetail.php?ref=<?php echo $key['news_id']; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+										<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
 										<?php echo $key['news_title']; ?>
 										</a>
 									</h3>
@@ -281,10 +288,12 @@ foreach($forthLastNews as $key){
 										</ul>
 									</li>
 								</ul>
-								
+								<?php 
+$encryptedURL=encryptionFunction($key['category_id']); 
+?>
 
 								<!--  -->
-								<a href="category-02.php?ref=<?php echo $key['category_id']; ?>" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
+								<a href="category-02.php?ref=<?php echo $encryptedURL; ?>" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
 									View all
 									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
 								</a>
@@ -297,14 +306,14 @@ foreach($forthLastNews as $key){
 									$getNews=getNewsByCategoryID($conn,$key['category_id']);
 									// print_r($getNews);
 									foreach($getNews as $key){
-									
+										$encryptedURL=encryptionFunction($key['news_id']);
 									?>
 												  <div class="card" style="margin:3px;border-radius:20px">
-												  	<a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
 												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
 												    <div class="card-body">
-												      <h5><a href="newsDetail.php?ref=<?php echo $key['news_id'];?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
 												      <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
 															<?php $datetime = $key['created_at']; 
 															$time_elapsed = timeAgo($datetime);
@@ -335,22 +344,23 @@ foreach($forthLastNews as $key){
 							<ul class="p-t-35">
 								<?php foreach ($latestNewsDetails as $latestNewsDetail ) {
 									$imageName = $latestNewsDetail['news_featuredimage'];
+									$encryptedURL=encryptionFunction($latestNewsDetail['news_id']);
 								?>
 								<li class="flex-wr-sb-s p-b-30">
-									<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
+									<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
 
 										<img src="../backend/newsFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
 									</a>
 
 									<div class="size-w-11">
 										<h6 class="p-b-4">
-											<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
+											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
 												<?php echo $latestNewsDetail['news_title']; ?>
 											</a>
 										</h6>
 
 										<span class="cl8 txt-center p-b-24">
-											<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
+											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
 												<?php $categoryNames=getCategoryNameByCategoryId($conn,$latestNewsDetail['category_id']); 
                                 $categoryName = implode("", $categoryNames);  ?>
 												<?php echo $categoryName; ?>
@@ -498,18 +508,19 @@ foreach($forthLastNews as $key){
 							$LatestSixArticle=selectLatestArticle($conn);
 							// print_r($LatestSixArticle);
 							foreach($LatestSixArticle as $key){
+								$encryptedURL=encryptionFunction($key['article_id']);
 							?>
 						<div class="col-sm-6 p-r-25 p-r-15-sr991">
 							<!-- Item latest -->
 								
 							<div class="m-b-45">
-								<a href="articleDetail.php?ref=<?php echo $key['article_id']; ?>" class="wrap-pic-w hov1 trans-03">
+								<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="wrap-pic-w hov1 trans-03">
 									<img src="../backend/articleFeaturedImage/<?php echo $key['article_featuredimage']; ?>" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
 									<h5 class="p-b-5">
-										<a href="articleDetail.php?ref=<?php echo $key['article_id']; ?>" class="f1-m-3 cl2 hov-cl10 trans-03">
+										<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-m-3 cl2 hov-cl10 trans-03">
 											<?php echo $key['article_title']; ?>
 										</a>
 									</h5>
@@ -615,8 +626,9 @@ foreach($forthLastNews as $key){
 							<?php $result=getSubCategoriesDetails($conn);
 // print_r($result);
 foreach($result as $key){
+	$encryptedURL=encryptionFunction($key['subcategory_id']);
 ?>
-								<a href="subCategoryViewAll.php?ref=<?php echo $key['subcategory_id']; ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+								<a href="subCategoryViewAll.php?ref=<?php echo $encryptedURL; ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
 									<?php echo $key['subcategory_name']; ?>
 								</a>
 								<?php } ?>

@@ -53,7 +53,9 @@ function deleteTrending($conn, $trendingId){
     return false;
 }
 function GetTrendingTopics($conn){
-    $stmtSelect = $conn->prepare("SELECT * FROM tbltrending ORDER BY trending_rank LIMIT 10");
+    $value="active";
+    $stmtSelect = $conn->prepare("SELECT * FROM tbltrending WHERE is_active=:is_active ORDER BY trending_rank LIMIT 10");
+    $stmtSelect->bindParam(':is_active',$value);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();

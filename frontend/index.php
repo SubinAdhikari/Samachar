@@ -35,15 +35,15 @@ include "layouts/header.php"
 			</form>
 		</div>
 		<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px; ">TRENDING NOW : </span></li></strong>
-    <?php 					$trendings=GetTrendingTopics($conn);
-                            //dump($adminUsers);
-                            foreach ($trendings as $key => $trending){ ?>
-    <a href="searchResult.php?ref=<?php echo $trending['trending_topic'];?>"><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;">#<?php echo $trending['trending_topic']; ?> </span></li></a>
-	<?php }  ?>
-  </ol>
-</nav>
+			  <ol class="breadcrumb">
+			    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px; ">TRENDING NOW : </span></li></strong>
+			    <?php 					$trendings=GetTrendingTopics($conn);
+			                            //dump($adminUsers);
+			                            foreach ($trendings as $key => $trending){ ?>
+			    <a href="searchResult.php?ref=<?php echo $trending['trending_topic'];?>"><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:24px;">#<?php echo $trending['trending_topic']; ?> </span></li></a>
+				<?php }  ?>
+			  </ol>
+		</nav>
 	</div>
 		 
 

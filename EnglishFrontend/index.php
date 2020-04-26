@@ -396,7 +396,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<?php }	?>
 						<br>
 
-						<div style="height:900px;overflow:hidden;border:1px #027ab5 solid;border-radius:20px">
+						<div style="height:900px;overflow:hidden;border:3px #027ab5 solid;border-radius:20px">
 						<a class="twitter-timeline" href="https://twitter.com/sajhapost?ref_src=twsrc%5Etfw">Tweets by sajhapost</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 						</div>			
 

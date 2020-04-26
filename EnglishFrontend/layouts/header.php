@@ -102,7 +102,7 @@ $(document).ready(function(){
 							</span> -->
 						</span>
 
-						<a href="about.php" class="left-topbar-item" style="color:white;font-size:17px;font-weight: bold;">
+						<a href="about.php" class="left-topbar-item" style="color:white;font-size:17px;font-weight: bold;margin-left:-20px!important">
 						हाम्रो बारेमा
 						</a>
 
@@ -188,7 +188,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 
 							
 						</ul>
-						<strong><a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3"><span style="color:#dc3545!important;font-weight:bold">ENGLISH</span></a></strong>
+						<strong><a href="../Frontend/index.php" target="_blank" class="moen ml-3"><span style="color:#dc3545!important;font-weight:bold">Nepali</span></a></strong>
 					</nav>
 				</div>
 			</div>	

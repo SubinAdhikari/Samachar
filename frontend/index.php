@@ -34,15 +34,15 @@ include "layouts/header.php"
 			</div>
 			</form>
 		</div>
-		<nav aria-label="breadcrumb">
-			  <ol class="breadcrumb">
-			    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px; ">TRENDING NOW : </span></li></strong>
+		<nav aria-label="breadcrumb" >
+			  <ol class="breadcrumb" style="margin-left:-120px;width:115%">
+			    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;padding-left:100px ">TRENDING NOW : </span></li></strong>
 			    <?php 					$trendings=GetTrendingTopics($conn);
 			                            //dump($adminUsers);
 			                            foreach ($trendings as $key => $trending){ ?>
 			    <a href="searchResult.php?ref=<?php echo $trending['trending_topic'];?>"><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:24px;">#<?php echo $trending['trending_topic']; ?> </span></li></a>
 				<?php }  ?>
-			  </ol>
+			  </ol> 
 		</nav>
 	</div>
 		 

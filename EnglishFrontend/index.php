@@ -29,10 +29,20 @@ include "layouts/header.php"
 				<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
 				<button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03" name="searchBtn">
 					<i class="zmdi zmdi-search"></i>
-				</button>
+				</button> 
 			</div>
 			</form>
 		</div>
+		<nav aria-label="breadcrumb" >
+			  <ol class="breadcrumb" style="margin-left:-120px;width:115%">
+			    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;padding-left:100px ">TRENDING NOW : </span></li></strong>
+			    <?php 					$trendings=GetTrendingTopics($conn);
+			                            //dump($adminUsers);
+			                            foreach ($trendings as $key => $trending){ ?>
+			    <a href="searchResult.php?ref=<?php echo $trending['trending_topic'];?>"><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:24px;">#<?php echo $trending['trending_topic']; ?> </span></li></a>
+				<?php }  ?>
+			  </ol> 
+		</nav>
 	</div>
 		 
 

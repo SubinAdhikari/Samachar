@@ -99,7 +99,7 @@ $(document).ready(function(){
 							</span>
 						</span>
 
-						<a href="about.php" class="left-topbar-item" style="color:white;font-size:17px;font-weight: bold;">
+						<a href="about.php" class="left-topbar-item" style="color:white;font-size:17px;font-weight: bold;margin-left:-20px!important">
 						हाम्रो बारेमा
 						</a>
 

@@ -647,7 +647,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								
 							<div class="m-b-45">
 								<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="wrap-pic-w hov1 trans-03">
-									<img src="../backend/articleFeaturedImage/<?php echo $key['article_featuredimage']; ?>" alt="IMG">
+									<img src="../backend/articleFeaturedImage/<?php echo $key['article_featuredimage']; ?>" class="card-img-top" alt="IMG">
 								</a>
 
 								<div class="p-t-16">

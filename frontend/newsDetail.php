@@ -57,7 +57,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 						<?php $categoryNames=getCategoryNameByCategoryId($conn,$result['category_id']); 
                                 $categoryName = implode("", $categoryNames);  ?>
 						<div class="p-b-70">
-							<a href="#" class="f1-s-10 cl2 hov-cl10 trans-03 text-uppercase">
+							<a href="#" class="f1-l-3 cl2 hov-cl10 trans-03 text-uppercase">
 								<?php 
 
 								echo $categoryName; ?>

@@ -44,7 +44,7 @@ include "layouts/header.php"
 								
 								foreach($advertisement1 as $key){
 							?>
-					
+					<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 					<center><a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
 				<?php } 
 					$specificArea = 'second_top';
@@ -52,6 +52,7 @@ include "layouts/header.php"
 					
 					foreach($advertisement1 as $key){
 				?>
+				<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 					<center><a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
 				<?php } ?>
 	</div>
@@ -106,6 +107,7 @@ $encryptedURL=encryptionFunction($key['news_id']);
 					
 					foreach($advertisement1 as $key){
 				?>
+											<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 					<a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
 				<?php } ?>
 				
@@ -385,6 +387,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+								<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -397,6 +400,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -466,6 +470,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -478,6 +483,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -490,6 +496,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -502,6 +509,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -515,6 +523,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -527,6 +536,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -539,6 +549,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -551,6 +562,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -563,6 +575,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -575,6 +588,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -594,6 +608,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){ ?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 	<center><div  style="border:1px black solid;width:95%">
 		<div style="width:100%">
 			<a href="#" >

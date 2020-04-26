@@ -9,7 +9,7 @@ $result=selectArticleFromId($conn,$decryptID);
 $article_visit=$result['article_views'];
 
 $article_visit=(int)$article_visit + 1 ;
-UpdateArticleVisitPage($conn,$article_visit,$ref);
+UpdateArticleVisitPage($conn,$article_visit,$decryptID);
 
 
 
@@ -75,7 +75,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								</span>
 
 								<a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">
-									<?php $comments1 = getAllArticleCommentsByArticleId($conn, $ref); ?>
+									<?php $comments1 = getAllArticleCommentsByArticleId($conn, $decryptID); ?>
 									<?php echo count($comments1); ?> Comment
 								</a>
 							</div>
@@ -86,6 +86,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
+														<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 								<div style="height:90px;width:100%;border:1px black solid">
 						
 								<a href="#"><img width="100%" height="100%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
@@ -116,6 +117,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
+														<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 								<div style="height:90px;width:100%;border:1px black solid">
 						
 								<a href="#"><img width="100%" height="100%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
@@ -170,6 +172,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
+														<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 								<div style="height:90px;width:100%;border:1px black solid">
 						
 								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
@@ -232,6 +235,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
+														<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 								<div style="height:90px;width:100%;border:1px black solid">
 						
 								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
@@ -250,7 +254,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 							</h4>	
 							<ul class="p-t-35">
 								<?php
-									$comments = getAllArticleCommentsByArticleId($conn, $ref);
+									$comments = getAllArticleCommentsByArticleId($conn, $decryptID);
 
 									foreach ($comments as $comment ) {
 										# code...
@@ -332,6 +336,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -403,6 +408,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -471,6 +477,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -484,6 +491,7 @@ UpdateArticleVisitPage($conn,$article_visit,$ref);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -519,6 +527,7 @@ foreach($result as $key){
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -532,6 +541,7 @@ foreach($result as $key){
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -545,6 +555,7 @@ foreach($result as $key){
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
@@ -590,7 +601,7 @@ if(isset($_POST['submitBtn'])){
 if (!empty($_POST['name'])) {
 		# code...
 	
-if(insertArticleComment($conn, $_POST, $ref)){
+if(insertArticleComment($conn, $_POST, $decryptID)){
 
     redirection("articleDetail.php?ref=$ref");
     

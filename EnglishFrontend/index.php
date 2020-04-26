@@ -44,7 +44,7 @@ include "layouts/header.php"
 								
 								foreach($advertisement1 as $key){
 							?>
-					
+					<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 					<center><a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
 				<?php } 
 					$specificArea = 'second_top';
@@ -52,6 +52,7 @@ include "layouts/header.php"
 					
 					foreach($advertisement1 as $key){
 				?>
+				<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 					<center><a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
 				<?php } ?>
 	</div>
@@ -106,6 +107,7 @@ $encryptedURL=encryptionFunction($key['news_id']);
 					
 					foreach($advertisement1 as $key){
 				?>
+											<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 					<a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
 				<?php } ?>
 				
@@ -115,17 +117,7 @@ $encryptedURL=encryptionFunction($key['news_id']);
 <?php }?>
 	
 
-<!-- 
-				<div class="container" style="background-color: GhostWhite;">
-				<div >
-				<h2 style="color:black;font-size:40px;"><strong><center>बार्सिलोना शहरमा शवगृहको दर्दनाक दृश्य<center><strong></h2>
-				<div >
-				<span style="color:black;font-size:20px;"><strong><center>हिमाल कोइराला<center><strong></span>
-				</div>
-				<figure> <img width="100%" height="581" src="../backend/newsFeaturedImage/5e8b2bb7b53e11.69179662.jpg"  alt=""  > </figure> 
-				विगत १६ वर्षदेखि शवको अन्त्येष्टी गर्ने काममा संलग्न जोर्डी फर्नान्डेजलाई अहिलेको जस्तो कहालीलाग्दो अवस्था देख्नुपर्ला भन्ने लागेकै थिएन । बार्सिलोना शहरमा रहेको उनको अन्त्येष्टी गृह अहिले विरक्तलाग्दो छ । अन्त्येष्टीका क्रममा शवलाई ‘शान्ति प्रदान गर्नु’ उनको मुख्य जिम्मेवारी हो । स्पष्ट भन्दा उनको काम अन्त्येष्टी </p>
-				</div>
-</div> --><br><br>
+<br><br>
 
 	<!-- Feature post -->
 	<center><div style="background-color:#027ab5;color: white;border-radius: 15px;width:200px;height:50px;font-size:20px;text-align:center;padding-top:11px"><strong>ताजा समाचारहरू</strong></div><br></center>
@@ -389,19 +381,32 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							</ul>
 						</div> 
 
-						<!--  -->
+						<!-- Fisrt Side Advertisement -->
 						<?php 
 						$specificArea = 'first_side';
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+								<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
 							</a>
 						</div>
 						<?php }	?>
-						
+						<br>
+						<?php 
+						$specificArea = 'second_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
 						<!--  -->
 						<div class="p-t-50">
 							<div class="how2 how2-cl4 flex-s-c">
@@ -461,16 +466,137 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							</ul>
 						</div>
 						<?php 
-						$specificArea = 'second_side';
+						$specificArea = 'third_side';
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
 								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
 							</a>
 						</div>
 						<?php }	?>
+						<br>
+						<?php 
+						$specificArea = 'fourth_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
+						<?php 
+						$specificArea = 'fifth_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
+						<?php 
+						$specificArea = 'sixth_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
+
+						<?php 
+						$specificArea = 'seventh_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
+						<?php 
+						$specificArea = 'eighth_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
+						<?php 
+						$specificArea = 'nineth_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
+						<?php 
+						$specificArea = 'tenth_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
+						<?php 
+						$specificArea = 'eleventh_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
+						<?php 
+						$specificArea = 'twelveth_side';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+
+
 					</div>
 				</div>
 			</div>
@@ -482,6 +608,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
 								
 								foreach($advertisement1 as $key){ ?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 	<center><div  style="border:1px black solid;width:95%">
 		<div style="width:100%">
 			<a href="#" >

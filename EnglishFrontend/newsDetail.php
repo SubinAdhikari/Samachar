@@ -16,7 +16,7 @@ $news_visit=$result['news_visit'];
 
 
 $news_visit=(int)$news_visit + 1 ;
-UpdateNewsVisitPage($conn,$news_visit,$ref);
+UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 
 ?>
 
@@ -92,7 +92,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 								</span>
 
 								<a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">
-									<?php $comments1 = getAllCommentsByNewsId($conn, $ref); ?>
+									<?php $comments1 = getAllCommentsByNewsId($conn, $decryptURL); ?>
 									<?php echo count($comments1); ?> Comment
 								</a>
 							</div>
@@ -104,6 +104,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
+														<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 								<div style="height:90px;width:100%;border:1px black solid">
 						
 								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
@@ -132,6 +133,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
+														<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 								<div style="height:90px;width:100%;border:1px black solid">
 						
 								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
@@ -187,6 +189,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
+														<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 								<div style="height:90px;width:100%;border:1px black solid">
 						
 								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
@@ -196,7 +199,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 
 							  <?php } ?>
 							  <br>
-							<!-- Tag -->
+							<!-- Tag --> 
 							<div class="flex-s-s p-t-12 p-b-15">
 								<span class="f1-s-12 cl5 m-r-8">
 									Tags:
@@ -249,6 +252,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 								
 								foreach($advertisement1 as $key){
 							?>
+														<center><span style="color:grey;font-size:9px">Advertisment</span></center>
 								<div style="height:90px;width:100%;border:1px black solid">
 						
 								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
@@ -267,7 +271,7 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 							</h4>	
 							<ul class="p-t-35">
 								<?php
-									$comments = getAllCommentsByNewsId($conn, $ref);
+									$comments = getAllCommentsByNewsId($conn, $decryptURL);
 									foreach ($comments as $comment ) {
 										# code...
 										if ($comment['is_active']=='active') {
@@ -344,153 +348,36 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 				<!-- Sidebar -->
 				<div class="col-md-10 col-lg-4 p-b-30">
 					<div class="p-l-10 p-rl-0-sr991 p-t-70">						
-						<!-- Category -->
-						<div class="p-b-60">
-							<div class="how2 how2-cl4 flex-s-c">
-								<h3 class="f1-m-2 cl3 tab01-title">
-									Category
-								</h3>
-							</div>
-
-							<ul class="p-t-35">
-								<li class="how-bor3 p-rl-4">
-									<a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
-										Fashion
-									</a>
-								</li>
-
-								<li class="how-bor3 p-rl-4">
-									<a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
-										Beauty
-									</a>
-								</li>
-
-								<li class="how-bor3 p-rl-4">
-									<a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
-										Street Style
-									</a>
-								</li>
-
-								<li class="how-bor3 p-rl-4">
-									<a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
-										Life Style
-									</a>
-								</li>
-
-								<li class="how-bor3 p-rl-4">
-									<a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
-										DIY & Crafts
-									</a>
-								</li>
-							</ul>
+						
+						<!-- Side Advertisement -->
+						<?php 
+						
+						$specificArea = 'below_newsFirstSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
 						</div>
-
-						<!-- Archive -->
-						<div class="p-b-37">
-							<div class="how2 how2-cl4 flex-s-c">
-								<h3 class="f1-m-2 cl3 tab01-title">
-									Archive
-								</h3>
-							</div>
-
-							<ul class="p-t-32">
-								<li class="p-rl-4 p-b-19">
-									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-										<span>
-											July 2018
-										</span>
-
-										<span>
-											(9)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-rl-4 p-b-19">
-									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-										<span>
-											June 2018
-										</span>
-
-										<span>
-											(39)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-rl-4 p-b-19">
-									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-										<span>
-											May 2018
-										</span>
-
-										<span>
-											(29)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-rl-4 p-b-19">
-									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-										<span>
-											April  2018
-										</span>
-
-										<span>
-											(35)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-rl-4 p-b-19">
-									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-										<span>
-											March 2018
-										</span>
-
-										<span>
-											(22)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-rl-4 p-b-19">
-									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-										<span>
-											February 2018
-										</span>
-
-										<span>
-											(32)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-rl-4 p-b-19">
-									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-										<span>
-											January 2018
-										</span>
-
-										<span>
-											(21)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-rl-4 p-b-19">
-									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-										<span>
-											December 2017
-										</span>
-
-										<span>
-											(26)
-										</span>
-									</a>
-								</li>
-							</ul>
+						<?php }	?>
+						<br>
+						<?php 
+						
+						$specificArea = 'below_newsSecondSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
 						</div>
+						<?php }	?>
+						<br>
 
 						<!-- Popular Posts -->
 						<div class="p-b-30">
@@ -549,6 +436,34 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 							}?>
 							</ul>
 						</div>
+						<?php 
+
+						$specificArea = 'below_newsThirdSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
+						<?php 
+
+						$specificArea = 'below_newsFourthSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
 
 						<!-- Tag -->
 						<div class="p-b-55">
@@ -560,17 +475,58 @@ UpdateNewsVisitPage($conn,$news_visit,$ref);
 
 							<div class="flex-wr-s-s m-rl--5">
 							<?php $result=getSubCategoriesDetails($conn);
-// print_r($result);
-foreach($result as $key){
-	$encryptedURL=encryptionFunction($key['subcategory_id']);
-?>
+							foreach($result as $key){
+								$encryptedURL=encryptionFunction($key['subcategory_id']);
+							?>
 								<a href="subCategoryViewAll.php?ref=<?php echo $encryptedURL; ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
 									<?php echo $key['subcategory_name']; ?>
 								</a>
 								<?php } ?>
-							</div>	
-							
+							</div>								
 						</div>
+						<!-- Side Advertisement -->
+						<?php 
+
+						$specificArea = 'below_newsFifthSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
+						<?php 
+
+						$specificArea = 'below_newsSixthSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
+						<?php 
+
+						$specificArea = 'below_newsSeventhSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php }	?>
+						<br>
 					</div>
 				</div>
 			</div>
@@ -611,7 +567,7 @@ if(isset($_POST['submitBtn'])){
 if (!empty($_POST['name'])) {
 		# code...
 	
-if(insertComment($conn, $_POST, $ref)){
+if(insertComment($conn, $_POST, $decryptURL)){
 
     redirection("newsDetail.php?ref=$ref");
     

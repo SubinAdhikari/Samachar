@@ -3,7 +3,7 @@ include "layouts/header.php"
 ?>
 
 	<!-- Headline -->
-	<div class="container">
+	<div class="container" >
 		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
 			<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
 				<span class="text-uppercase cl2 p-r-8">
@@ -24,6 +24,7 @@ include "layouts/header.php"
 					</span>
 				</span>
 			</div>
+
 			<form method="POST" action="searchResult.php">
 			<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
 				<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
@@ -33,6 +34,16 @@ include "layouts/header.php"
 			</div>
 			</form>
 		</div>
+		<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px; ">TRENDING NOW : </span></li></strong>
+    <?php 					$trendings=GetTrendingTopics($conn);
+                            //dump($adminUsers);
+                            foreach ($trendings as $key => $trending){ ?>
+    <a href="searchResult.php?ref=<?php echo $trending['trending_topic'];?>"><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;">#<?php echo $trending['trending_topic']; ?> </span></li></a>
+	<?php }  ?>
+  </ol>
+</nav>
 	</div>
 		 
 

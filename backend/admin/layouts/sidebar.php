@@ -25,6 +25,17 @@
               </li>
               <li class="sub-menu">
                   <a href="javascript:;" class="">
+                      <i class="icon-th"></i>
+                      <span>Trending</span>
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="addTrending.php">Add Trending Topics</a></li>
+                      <li><a class="" href="manageTrending.php">Manage Trending Topics </a></li>
+                  </ul>
+              </li>
+              <li class="sub-menu">
+                  <a href="javascript:;" class="">
                       <i class="icon-cogs"></i>
                       <span>Catagory</span>
                       <span class="arrow"></span>

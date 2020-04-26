@@ -5,6 +5,11 @@ if(isset($_POST['searchBtn'])){
     // print_r($_POST);
     $searchResult=RetriveAllNews($conn);
     // print_r($searchResult);
+}else{
+	$ref=$_GET['ref'];
+	$searchMsg=$ref;
+	$searchResult=RetriveAllNews($conn);
+
 }
 ?>
 

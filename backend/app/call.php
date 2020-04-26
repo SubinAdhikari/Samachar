@@ -12,4 +12,5 @@ require 'articlefunctions.php';
 require 'advertisementfunction.php';
 require 'searchFunction.php';
 require 'encryptAndDecryptFunction.php';
+require 'trendingfunctions.php';
 ?>

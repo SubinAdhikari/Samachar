@@ -47,6 +47,11 @@
         margin-bottom: 0;
     }
 }
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
 </style>
 <script type="text/javascript">
 $(document).ready(function(){

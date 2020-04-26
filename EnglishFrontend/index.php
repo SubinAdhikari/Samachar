@@ -395,6 +395,11 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						</div>
 						<?php }	?>
 						<br>
+
+						<div style="height:900px;overflow:hidden;border:1px #027ab5 solid;border-radius:20px">
+						<a class="twitter-timeline" href="https://twitter.com/sajhapost?ref_src=twsrc%5Etfw">Tweets by sajhapost</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						</div>			
+
 						<?php 
 						$specificArea = 'second_side';
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;

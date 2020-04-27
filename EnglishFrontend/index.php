@@ -3,10 +3,10 @@ include "layouts/header.php"
 ?>
 
 	<!-- Headline -->
-	<div class="container">
-		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+	<div class="container" >
+		<!-- <div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
 			<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
-			<span class="text-uppercase cl2 p-r-8" style="margin-left:-22px;font-weight:bold;font-size:15px;color:black">
+				<span class="text-uppercase cl2 p-r-8" style="margin-left:-22px;font-weight:bold;font-size:15px;color:black">
 					Breaking News :
 				</span>
 
@@ -24,23 +24,32 @@ include "layouts/header.php"
 					</span>
 				</span>
 			</div>
+
 			<form method="POST" action="searchResult.php">
 			<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
 				<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
 				<button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03" name="searchBtn">
 					<i class="zmdi zmdi-search"></i>
-				</button> 
+				</button>
 			</div>
 			</form>
-		</div>
+		</div> -->
 		<nav aria-label="breadcrumb" >
-			  <ol class="breadcrumb" style="margin-left:-120px;width:115%">
-			    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;padding-left:100px ">TRENDING NOW : </span></li></strong>
+			  <ol class="breadcrumb" style="margin-left:-120px;width:115%;height: 45px">
+			    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;padding-left:0px;margin-top:5px ">TRENDING NOW : </span></li></strong>
 			    <?php 					$trendings=GetTrendingTopics($conn);
 			                            //dump($adminUsers);
 			                            foreach ($trendings as $key => $trending){ ?>
-			    <a href="searchResult.php?ref=<?php echo $trending['trending_topic'];?>"><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:24px;">#<?php echo $trending['trending_topic']; ?> </span></li></a>
+			    <a href="searchResult.php?ref=<?php echo $trending['trending_topic'];?>"><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;margin-top:5px">#<?php echo $trending['trending_topic']; ?> </span></li></a>
 				<?php }  ?>
+				<form method="POST" action="searchResult.php">
+			<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6" style="width:140px!important;height:30px!important;margin-top:-3px">
+				<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
+				<button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03" name="searchBtn">
+					<i class="zmdi zmdi-search"></i>
+				</button>
+			</div>
+			</form>
 			  </ol> 
 		</nav>
 	</div>
@@ -55,7 +64,7 @@ include "layouts/header.php"
 								foreach($advertisement1 as $key){
 							?>
 					<center><span style="color:grey;font-size:9px">Advertisment</span></center>
-					<center><a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
+					<center><a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a></center>
 				<?php } 
 					$specificArea = 'second_top';
 					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
@@ -63,7 +72,7 @@ include "layouts/header.php"
 					foreach($advertisement1 as $key){
 				?>
 				<center><span style="color:grey;font-size:9px">Advertisment</span></center>
-					<center><a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a><hr></center>
+					<center><a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt="" ></a></center>
 				<?php } ?>
 	</div>
 
@@ -657,7 +666,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								
 							<div class="m-b-45">
 								<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="wrap-pic-w hov1 trans-03">
-									<img src="../backend/articleFeaturedImage/<?php echo $key['article_featuredimage']; ?>" alt="IMG">
+									<img src="../backend/articleFeaturedImage/<?php echo $key['article_featuredimage']; ?>" class="card-img-top" alt="IMG">
 								</a>
 
 								<div class="p-t-16">

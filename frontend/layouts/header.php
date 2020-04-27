@@ -106,7 +106,10 @@ $(document).ready(function(){
 						<a href="contact.php" class="left-topbar-item" style="color:white;font-size:17px;font-weight: bold;">
 						सम्पर्क
 						</a>
-
+						<a href="converter.php" class="left-topbar-item" style="color:white;font-size:17px;font-weight: bold;">
+						प्रीति - युनिकोड
+						</a>
+						
 
 						
 					</div>

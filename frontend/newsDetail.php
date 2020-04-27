@@ -97,6 +97,20 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 								</a>
 							</div>
 
+						<?php	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+						// echo $actual_link;
+						?>
+
+
+							<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+
+<div class="fb-share-button" data-href="<?php $actual_link; ?>" data-layout="box_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
+
+
+
+
 							<?php
 								$area = 'news_detailpage';
 								$specificArea = 'below_newsTitle';
@@ -200,7 +214,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 							  <?php } ?>
 							  <br>
 							<!-- Tag --> 
-							<div class="flex-s-s p-t-12 p-b-15">
+							<!-- <div class="flex-s-s p-t-12 p-b-15">
 								<span class="f1-s-12 cl5 m-r-8">
 									Tags:
 								</span>
@@ -214,7 +228,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 										Crafts
 									</a>
 								</div>
-							</div>
+							</div> -->
 
 							<!-- Share -->
 							<div class="flex-s-s">
@@ -223,17 +237,12 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 								</span>
 								
 								<div class="flex-wr-s-s size-w-0">
-									<a href="#" class="dis-block f1-s-13 cl0 bg-facebook borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
-										<i class="fab fa-facebook-f m-r-7"></i>
-										Facebook
-									</a>
-
-									<a href="#" class="dis-block f1-s-13 cl0 bg-twitter borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
-										<i class="fab fa-twitter m-r-7"></i>
-										Twitter
-									</a>
-
-									<a href="#" class="dis-block f1-s-13 cl0 bg-google borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
+								<div class="fb-share-button" data-href="<?php $actual_link; ?>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+									
+									<div style="margin-left:5px">
+								<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>	
+									</div>
+									<!-- <a href="#" class="dis-block f1-s-13 cl0 bg-google borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
 										<i class="fab fa-google-plus-g m-r-7"></i>
 										Google+
 									</a>
@@ -241,7 +250,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 									<a href="#" class="dis-block f1-s-13 cl0 bg-pinterest borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
 										<i class="fab fa-pinterest-p m-r-7"></i>
 										Pinterest
-									</a>
+									</a> -->
 								</div>
 							</div>
 						</div>

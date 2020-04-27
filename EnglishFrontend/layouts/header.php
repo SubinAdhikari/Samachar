@@ -47,6 +47,11 @@
         margin-bottom: 0;
     }
 }
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -59,6 +64,8 @@ $(document).ready(function(){
 });     
 </script>
 <!--===============================================================================================-->
+<!-- FONT AWSOME ICON CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="animsition">
 
@@ -80,6 +87,7 @@ $(document).ready(function(){
  		}
 	}
 	?>
+
 	
 	<!-- Header -->
 	<header>
@@ -90,45 +98,44 @@ $(document).ready(function(){
 					<div class="left-topbar">
 						<span class="left-topbar-item flex-wr-s-c">
 							<span>
-								<!-- New York, NY -->
-								<!-- <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?time_only=no&font_color=FFFFFF&aj_time=yes&font_size=14&line_brake=0&bikram_sambat=0&api=890040j065" width="308" height="22"></iframe> -->
 									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=17&api=800144j563&" width="165" height="20"></iframe>
 							</span>
-
-							<!-- <img class="m-b-1 m-rl-8" src="images/icons/icon-night.png" alt="IMG"> -->
-
-							<!-- <span>
-								HI 58° LO 56°
-							</span> -->
 						</span>
 
-						<a href="about.php" class="left-topbar-item" style="color:white;font-size:17px;font-weight: bold;margin-left:-20px!important">
+						<a href="about.php" class="left-topbar-item" style="color:white;font-size:15px;font-weight: bold;margin-left:-20px!important">
 						हाम्रो बारेमा
 						</a>
 
-						<a href="contact.php" class="left-topbar-item" style="color:white;font-size:17px;font-weight: bold;">
+						<a href="contact.php" class="left-topbar-item" style="color:white;font-size:15px;font-weight: bold;">
 						सम्पर्क
 						</a>
-
+						<a href="converter.php" class="left-topbar-item" style="color:white;font-size:15px;font-weight: bold;">
+						प्रीति - युनिकोड
+						</a>
+						
 
 						
 					</div>
 
 					<div class="right-topbar">
 						<a href="#">
-							<i class="fab fa-facebook"></i>
+							<i class="fa fa-facebook-square" style="font-size:24px"></i>
 						</a>
 
 						<a href="#">
-							<i class="fab fa-twitter-square"></i>
+							<i class="fa fa-twitter-square" style="font-size:24px"></i>
 						</a>
 
 						<a href="#">
-							<i class="fab fa-google-plus-square"></i>
+							<i class="fa fa-google-plus-square" style="font-size:24px"></i>
 						</a>
 
 						<a href="#">
-							<i class="fab fa-youtube-square"></i>
+							<i class="fa fa-instagram" style="font-size:24px"></i>
+						</a>
+
+						<a href="#">
+							<i class="fa fa-youtube-play" style="font-size:24px"></i>
 						</a>
 					</div>
 				</div>
@@ -137,38 +144,222 @@ $(document).ready(function(){
 			<!-- Header Mobile --> 
 			
 			<!--  -->
-			<div class="wrap-logo " style="width:15%;height:150px;margin-left:80px">
-				<!-- Logo desktop -->		
+			<!-- <div class="wrap-logo " style="width:10%;height:120px;margin-left:80px">
+						
 				<div class="logo" style="width:100%;height:100%">
 					<a href="index.php"><img  src="images/icons/samachar.png"  alt="LOGO"></a>
 				</div>	
 
-				<!-- Banner -->
 				
-			</div>	
+				
+			</div>	 -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- MENU FOR MOBILE DEVICE -->
+
+
+
+
+
+
+
+
+
+
+			<div class="wrap-header-mobile">
+				<!-- Logo moblie -->		
+				<div class="logo-mobile">
+				<a href="index.php"><img src="images/icons/samachar.png" alt="LOGO"></a>
+				</div>
+
+				<!-- Button show menu -->
+				<div class="btn-show-menu-mobile hamburger hamburger--squeeze m-r--8">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</div>
+			</div>
+
+			<!-- Menu Mobile -->
+			<div class="menu-mobile">
+				<ul class="topbar-mobile">
+					<li class="left-topbar">
+					<span class="left-topbar-item flex-wr-s-c">
+							<span>
+									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=17&api=800144j563&" width="165" height="20"></iframe>
+							</span>
+						</span>
+
+						<a href="about.php" class="left-topbar-item" style="color:white;font-size:15px;font-weight: bold;margin-left:-20px!important">
+						हाम्रो बारेमा
+						</a>
+
+						<a href="contact.php" class="left-topbar-item" style="color:white;font-size:15px;font-weight: bold;">
+						सम्पर्क
+						</a>
+						<a href="converter.php" class="left-topbar-item" style="color:white;font-size:15px;font-weight: bold;">
+						प्रीति - युनिकोड
+						</a>
+					</li>
+
+					<!-- <li class="left-topbar">
+						<a href="#" class="left-topbar-item">
+							About
+						</a>
+
+						<a href="#" class="left-topbar-item">
+							Contact
+						</a>
+
+						<a href="#" class="left-topbar-item">
+							Sing up
+						</a>
+
+						<a href="#" class="left-topbar-item">
+							Log in
+						</a>
+					</li> -->
+
+					<li class="right-topbar">
+					<a href="#">
+							<i class="fa fa-facebook-square" style="font-size:24px"></i>
+						</a>
+
+						<a href="#">
+							<i class="fa fa-twitter-square" style="font-size:24px"></i>
+						</a>
+
+						<a href="#">
+							<i class="fa fa-google-plus-square" style="font-size:24px"></i>
+						</a>
+
+						<a href="#">
+							<i class="fa fa-instagram" style="font-size:24px"></i>
+						</a>
+
+						<a href="#">
+							<i class="fa fa-youtube-play" style="font-size:24px"></i>
+						</a>
+					</li>
+				</ul>
+
+
+
+
+
+
+
+
+				<ul class="main-menu-m" style="background-color:#027ab5!important;">
+				<?php foreach($categoryList as $key){
+								 ?>
+								<?php
+$encryptedURL=encryptionFunction($key['category_id']); 
+?>
+					<li style="background-color:#027ab5!important;">
+						<a href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:17px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif;"><?php echo $key['category_name'];?></a>
+						
+						<ul class="sub-menu-m">
+						<?php 
+									$subcategoryList=selectSubcategoryFromCategoryId($conn,$key['category_id']);
+									foreach($subcategoryList as $key){
+										// foreach($key as $value){
+											$encryptedURL=encryptionFunction($key['subcategory_id']); 
+									?>
+							<li><a href="subCategoryViewAll.php?ref=<?php echo $encryptedURL ?>" style="font-size:17px; color:black;font-weight: bold;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['subcategory_name']; ?></a></li>
+							<?php }  ?>
+						</ul>
+
+						<span class="arrow-main-menu-m">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+						</span>
+					</li>
+											
+					<?php }?>
+					<li style="background-color:#027ab5!important;">
+					<a href="../Frontend/index.php" target="_blank" ><span style="color:black!important;font-weight:bold">Nepali</span></a></strong>
+					</li>
+				</ul>
+
+
+
+
+
+
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- MENU FOR MOBILE DEVICE END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			
 			<!--  -->
+			<div class="wrap-logo container">
+				<!-- Logo desktop -->		
+				<div class="logo" style="width:10%;height:120px">
+					<a href="index.php"><img style="width:100%;height:100%" src="images/icons/samachar.png"  alt="LOGO" style="width:100%;height:100%;border:1px black solid"></a>
+				</div>	
+
+				<!-- Banner -->
+				<div class="banner-header">
+					<a href="#"><img src="images/banner-01.jpg" alt="IMG" style="border:1px black solid"></a>
+				</div>
+			</div>
 			
 					<!-- Menu desktop -->
 					
 						<a class="logo-stick" href="index.html">
 							<img src="images/icons/samachar.png" alt="LOGO">
 						</a>
-					
+					 
 
-						<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#027ab5!important;">
+						<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#027ab5!important;height: 45px;">
   								
-  								<a class="navbar-brand" href="index.php"><i style="padding-left:80px;color:white"; class="fas fa-home"></i></a>
+  								<a class="navbar-brand" href="index.php"><i style="padding-left:20px;color:white"; class="fas fa-home"></i></a>
   						
   						<div class="collapse navbar-collapse" id="navbarNavDropdown">
-    						<ul class="navbar-nav" style="padding-left:50px";>
+    						<ul class="navbar-nav" style="padding-left:10px";>
 							<?php foreach($categoryList as $key){
 								 ?>
 								<?php
 $encryptedURL=encryptionFunction($key['category_id']); 
 ?>
 								 <li class="nav-item dropdown">
-        						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:13px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['category_name'];?>
+        						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:14px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['category_name'];?>
         							</a>
 							<!-- <li> 
 								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>"><?php echo $key['category_name'];?></a> -->
@@ -188,7 +379,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 
 							
 						</ul>
-						<strong><a href="../Frontend/index.php" target="_blank" class="moen ml-3"><span style="color:#dc3545!important;font-weight:bold">Nepali</span></a></strong>
+						<strong><a href="../Frontend/index.php" target="_blank" class="moen ml-3"><span style="color:white!important;font-weight:bold">Nepali</span></a></strong>
 					</nav>
 				</div>
 			</div>	

@@ -15,9 +15,7 @@
 							<p class="f1-s-1 cl11 p-b-16">
 								Registration No: 1424/56789<br>
 								MountTech Solutions<br>
-								Subin Adhikari<br>
-									   Shreedhar Bhandari<br>
-									   Abhishek Karki
+								
 							</p>
 
 							<p class="f1-s-1 cl11 p-b-16">
@@ -44,24 +42,7 @@
 						</div>
 					</div>
 
-					<div class="col-sm-6 col-lg-4 p-b-20">
-						<div class="size-h-3 flex-s-c">
-							<h5 class="f1-m-7 cl0">
-								Exchange Rates
-							</h5>
-						</div>
-
-						
-				<div id="erscrt2">
 					
-				<iframe src="https://www.ashesh.com.np/forex/widget2.php?api=792047j282" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%; height:383px; border-radius:5px;" allowtransparency="true">
-</iframe><br><span style="text-align:left">© <a href="https://www.ashesh.com.np/forex/" title="Forex Nepal for Nepalese Rupee" target="_top" style="text-decoration:none;">Forex Nepal</a></span>
-						
-           		</div>
-<!-- Simple Currency Rates Table END -->
-<!-- Simple Currency Rates Table END -->
-					</div>
-
 					<div class="col-sm-6 col-lg-4 p-b-20">
 						<?php $result=getAllCategories($conn);
 						?>
@@ -70,20 +51,23 @@
 								Category
 							</h5>
 						</div>
+						<div class="flex-wr-s-s m-rl--5">
 						<?php
                           foreach($result as $key){ 
 							$encryptedURL=encryptionFunction($key['category_id']);
                           	?>
-						<ul class="m-t--12">
-							<li class="how-bor1 p-rl-5 p-tb-10">
-								<a href="category-02.php?ref=<?php echo $encryptedURL;  ?>" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
+						
+							
+								<a href="category-02.php?ref=<?php echo $encryptedURL;  ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5" style="color:white;">
 									<?php echo $key['category_name']; ?>
 								</a>
-							</li>
-						</ul>
+							
+						
 					<?php } ?>
 					</div>
+					
 				</div>
+			</div>
 			</div>
 		</div>
 

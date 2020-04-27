@@ -60,10 +60,12 @@ function GetLatestThreeArticles($conn){
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
 }
-function GetArticlesOfSameWriter($conn, $name){
-    $stmtSelect = $conn->prepare("SELECT * FROM tblarticle WHERE article_author=:article_author
+function GetArticlesOfSameWriter($conn, $name, $articleId){
+    $stmtSelect = $conn->prepare("SELECT * FROM tblarticle WHERE article_author=:article_author AND
+    article_id<>:article_id 
         ORDER BY article_id DESC LIMIT 3");
     $stmtSelect->bindParam(':article_author', $name);
+    $stmtSelect->bindParam(':article_id', $articleId);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();

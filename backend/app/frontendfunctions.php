@@ -66,6 +66,17 @@ function GetLatestThreeNews($conn){
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
 }
+function GetWritingsByAuthor($conn, $writtenBy, $newsId){
+    //category id of bichar
+    $category_id='4';
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_writtenby=:news_writtenby AND category_id=:category_id AND news_id<>:news_id ORDER BY news_visit DESC LIMIT 5");
+    $stmtSelect->bindParam(':news_writtenby',$writtenBy);
+    $stmtSelect->bindParam(':category_id',$category_id);
+    $stmtSelect->bindParam(':news_id',$newsId);
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
+}
 function getAllNewsByCategoryId($conn,$key){
     $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE category_id=:category_id ORDER BY news_id DESC");
     $stmtSelect->bindParam(':category_id',$key);

@@ -399,6 +399,16 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							}?>
 							</ul>
 						</div> 
+				<div class="p-b-30">
+					<div id="erscrt2">
+					
+				<iframe src="https://www.ashesh.com.np/forex/widget2.php?api=792047j282" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%; height:400px; border-radius:5px;" allowtransparency="true">
+					</iframe><br><span style="text-align:left">© <a href="https://www.ashesh.com.np/forex/" title="Forex Nepal for Nepalese Rupee" target="_top" style="text-decoration:none;">Forex Nepal</a></span>
+						
+           			</div>
+<!-- Simple Currency Rates Table END -->
+<!-- Simple Currency Rates Table END -->
+				</div>
 
 						<!-- Fisrt Side Advertisement -->
 						<?php 
@@ -619,6 +629,9 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							</a>
 						</div>
 						<?php }	?>
+						<br>
+					
+						</div> 
 
 
 					</div>
@@ -786,6 +799,7 @@ foreach($result as $key){
 							</div>	
 							
 						</div>
+
 						
 					</div>
 				</div>

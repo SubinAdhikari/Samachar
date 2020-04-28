@@ -335,9 +335,26 @@ $encryptedURL=encryptionFunction($key['category_id']);
 				</div>	
 
 				<!-- Banner -->
-				<div class="banner-header">
+				<!-- <div class="banner-header">
 					<a href="#"><img src="images/banner-01.jpg" alt="IMG" style="border:1px black solid"></a>
-				</div>
+				</div> -->
+				<?php
+								$area = 'header';
+								$specificArea = 'header';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){
+							?>
+										<center><span style="color:grey;font-size:9px;margin-left: 30px;">Advertisment</span></center>				
+
+								<div style="height:90px;width:100%;border:1px black solid;margin-left: 20px;">
+								
+								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+
+								 alt="Below News Advertisement"></a>
+								</div>
+
+							  <?php } ?>
 			</div>
 			
 					<!-- Menu desktop -->

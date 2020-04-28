@@ -105,6 +105,7 @@
                                     <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="advertisement_area" onchange="fetchArea(this.value)"
                                     required id="selCSI">
                                         <option value="">Select</option>
+                                        <option value="header">All Pages on Header</option>
                                         <option value="front_page">Front Page</option>
                                         <option value="category_page">Category Page</option>
                                         <option value="subcategory_page">Sub-Category Page</option>

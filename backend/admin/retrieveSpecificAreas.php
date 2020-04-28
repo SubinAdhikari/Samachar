@@ -6,7 +6,9 @@ include '../app/call.php';
 $area = $_POST['areaName'];
 $optionText='<option value="">Select Subcategory</option>';
 $specificAreas = array();
-if ($area == 'front_page') {
+if ($area == 'header') {
+    array_push($specificAreas,'header');        
+}elseif ($area == 'front_page') {
 	array_push($specificAreas,'first_top','second_top','first_banner','second_banner','third_banner','first_side','second_side','third_side','fourth_side','fifth_side','sixth_side','seventh_side','eighth_side','nineth_side','tenth_side','eleventh_side','twelveth_side','first_bottom');        
 }elseif ($area == 'category_page') {
     array_push($specificAreas,'below_categoryTitleFirst','below_categoryTitleSecond','below_categoryNewsFirstSide','below_categoryNewsSecondSide','below_categoryNewsThirdSide','below_categoryNewsFourthSide','below_categoryNewsFifthSide','below_categoryNewsSixthSide','below_categoryNewsList','above_categoryFooter');

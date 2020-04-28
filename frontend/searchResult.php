@@ -40,8 +40,30 @@ if(isset($_POST['searchBtn'])){
 		
 	<!-- Feature post -->
 	<section style="width:95%;margin-left:35px">
+		<div class="card-group">
+ 										 <?php foreach($searchResult as $key){ 
+                    					if(preg_match("/{$searchMsg}/i", $key['news_title'])) {
+                        // echo $key['news_id'];
+                        					$selectNewsById=searchNewsByID($conn,$key['news_id']);
+                    						foreach($selectNewsById as $key){
+											$encryptedURL=encryptionFunction($key['news_id']);
+                    ?>
+												  <div class="card" style="margin:3px;border-radius:20px">
+												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
+												</a>
+												    <div class="card-body">
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
+															<?php $datetime = $key['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+												  </div>
+												  <?php } } } ?>
+										</div>
 	
-		<div >
+		<!-- <div >
 			<div class="row m-rl--1">
 				<?php foreach($searchResult as $key){ 
                     if(preg_match("/{$searchMsg}/i", $key['news_title'])) {
@@ -67,7 +89,7 @@ if(isset($_POST['searchBtn'])){
 				</div>
 				<?php } } }?>
 			</div>
-		</div>
+		</div> -->
 	</section>
 	<!-- Advertisement -->
 

@@ -61,34 +61,30 @@ include "layouts/header.php";
 	</div></center>	
 			
 	<!-- Feature post -->
-	<?php
-  $SubcategoryNews=getAllNewsBySubCategoryId($conn,$decryptID);
+
+		<div class="card-group">
+										<?php
+  											$SubcategoryNews=getAllNewsBySubCategoryId($conn,$decryptID);
   
-  ?>
-	<section class="bg0">
-		<div style="width:95%;margin-left:35px">
-			
-			<div class="row m-rl--1">
-<?php foreach($SubcategoryNews as $key){ 
-	$encryptedURL=encryptionFunction($key['news_id']);
-	?>
-				<div class="col-sm-6 col-md-3 p-rl-1 p-b-2">
-					<div class="bg-img1 size-a-14 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
-
-						<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-
-							<h3 class="how1-child2 m-t-14">
-								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
-									<?php echo $key['news_title']; ?>
-								</a>
-							</h3>
-						</div>
-					</div>
-				</div>
-			<?php }?>
-
-			</div>
-		</div>
+									// print_r($getNews);
+												 foreach($SubcategoryNews as $key){ 
+											$encryptedURL=encryptionFunction($key['news_id']);
+									?>
+												  <div class="card" style="margin:3px;border-radius:20px">
+												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
+												</a>
+												    <div class="card-body">
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
+															<?php $datetime = $key['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+												  </div>
+												  <?php } ?>
+										</div>
+	
 	</section>
 		<hr>
 	<center><div style="width:95%">

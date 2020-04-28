@@ -31,6 +31,12 @@
 <!--===============================================================================================-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+<!-- TOGGLE BUTTON  -->
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 <style type="text/css">
 @media screen and (min-width: 768px){
   .dropdown:hover .dropdown-menu, .btn-group:hover .dropdown-menu{
@@ -289,6 +295,12 @@ $encryptedURL=encryptionFunction($key['category_id']);
 					<li style="background-color:#027ab5!important;">
 					<a href="../EnglishFrontend/index.php" target="_blank" ><span style="color:black!important;font-weight:bold">ENGLISH</span></a></strong>
 					</li>
+					<li style="background-color:#027ab5!important;">
+					<button class="blackThem" style="color:white!important;font-weight:bold;margin-left:15px"><input type="checkbox" checked data-toggle="toggle" data-on="Dark" data-off="Dark" data-onstyle="secondary" data-offstyle="secondary"></button>
+					</li>
+					<li style="background-color:#027ab5!important;">
+					<button class="whiteThem" style="color:white!important;font-weight:bold;margin-left:15px;display:none"> <input type="checkbox" checked data-toggle="toggle" data-on="Light" data-off="Dark" data-onstyle="secondary" data-offstyle="secondary"></button>
+					</li>
 				</ul>
 
 
@@ -327,17 +339,25 @@ $encryptedURL=encryptionFunction($key['category_id']);
 
 
 			
-			<!--  -->
-			<div class="wrap-logo container">
+			
+			
+
+
+
+
+
+
+
+
+
+			<div class="wrap-logo" style="margin-left:50px">
 				<!-- Logo desktop -->		
-				<div class="logo" style="width:10%;height:120px">
-					<a href="index.php"><img style="width:100%;height:100%" src="images/icons/samachar.png"  alt="LOGO" style="width:100%;height:100%;border:1px black solid"></a>
+				<div class="logo">
+				<a href="index.php"><img style="width:100%;height:100%" src="images/icons/samachar.png"  alt="LOGO"></a>
 				</div>	
 
 				<!-- Banner -->
-				<!-- <div class="banner-header">
-					<a href="#"><img src="images/banner-01.jpg" alt="IMG" style="border:1px black solid"></a>
-				</div> -->
+				<div class="banner-header" style="margin-right:50px">
 				<?php
 								$area = 'header';
 								$specificArea = 'header';
@@ -345,18 +365,19 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								
 								foreach($advertisement1 as $key){
 							?>
-										<center><span style="color:grey;font-size:9px;margin-left: 30px;">Advertisment</span></center>				
+										<!-- <center><span style="color:grey;font-size:9px;margin-left: 30px;">Advertisment</span></center>				 -->
 
-								<div style="height:90px;width:100%;border:1px black solid;margin-left: 20px;">
 								
 								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
 
 								 alt="Below News Advertisement"></a>
-								</div>
 
-							  <?php } ?>
-			</div>
-			
+							  <?php } ?>				
+				 </div>
+			</div>	
+
+
+
 					<!-- Menu desktop -->
 					
 						<a class="logo-stick" href="index.html">
@@ -397,8 +418,60 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							
 						</ul>
 						<strong><a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3"><span style="color:white!important;font-weight:bold">ENGLISH</span></a></strong>
+						<button class="blackThem" style="color:white!important;font-weight:bold;margin-left:15px"><input type="checkbox" checked data-toggle="toggle" data-on="Dark" data-off="Dark" data-onstyle="primary" data-offstyle="primary"></button>
+						<button class="whiteThem" style="color:white!important;font-weight:bold;margin-left:15px;display:none"> <input type="checkbox" checked data-toggle="toggle" data-on="Light" data-off="Dark" data-onstyle="primary" data-offstyle="primary"></button>
+
 					</nav>
 				</div>
 			</div>	
 		</div>
+
+		<script> 
+            // $('#GFG_UP').text("Click on button to change the background color"); 
+            $('.blackThem').on('click', function() { 
+                $('html').css('background', 'black');
+				$('body').css('background', 'black'); 
+				$('section').css('background', 'black'); 
+				$('breadcrumb').css('background', 'black');
+				$('.breadcrumb').css('background', 'black');
+				// News Details bredcrum class
+				$('.headline').css('background', 'black');
+				$('blockquote').css('background','grey');
+				
+				
+				$('input').css('background', 'black');
+				$('.card-body').css('background', 'black');
+				// $('nav').css('background', 'black');
+				$('.dropdown-menu').css('background', 'black');
+
+				$('.sub-menu-m').css('background', 'black');
+				
+				
+				$('echo').css('color', 'white');
+				$('span').css('color', 'white'); 
+				$('a').css('color', '#d1d1cf');
+				$('.f1-s-11 cl6 p-b-25').css('color', 'white');
+				$('p').css('color', 'white');
+				$('.cl2').css('color', 'white');
+			    
+				
+				
+				
+				
+				
+
+				$('.blackThem').hide(); 
+				$('.whiteThem').show(); 
+            }); 
+
+			$('.whiteThem').on('click', function() { 
+				
+				location.reload();				
+				$('.whiteThem').hide();
+				$('.blackThem').show();  
+            });  
+        </script>  
+
+
+
 	</header>

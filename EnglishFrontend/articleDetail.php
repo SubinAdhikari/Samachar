@@ -74,10 +74,10 @@ UpdateArticleVisitPage($conn,$article_visit,$decryptID);
 									 <?php echo $article_visit; ?> Views
 								</span>
 
-								<a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">
+								<!-- <a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">
 									<?php $comments1 = getAllArticleCommentsByArticleId($conn, $decryptID); ?>
 									<?php echo count($comments1); ?> Comment
-								</a>
+								</a> -->
 							</div>
 
 							<?php	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -255,7 +255,7 @@ UpdateArticleVisitPage($conn,$article_visit,$decryptID);
 						<!-- Old Comment Section -->
 
 
-						<div>
+						<!-- <div>
 							<h4 class="f1-l-4 cl3 p-b-12">
 								Comments
 							</h4>	
@@ -305,12 +305,12 @@ UpdateArticleVisitPage($conn,$article_visit,$decryptID);
 							</ul>
 								
 							
-						</div>
+						</div> -->
 						<!-- End of old comment Section -->
 
 
 						<!-- Leave a comment -->
-						<div>
+						<!-- <div>
 							<h4 class="f1-l-4 cl3 p-b-12">
 								Leave a Comment
 							</h4>
@@ -329,40 +329,39 @@ UpdateArticleVisitPage($conn,$article_visit,$decryptID);
 								
 								<input  class="size-a-17 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-10" type="submit" name="submitBtn" value="Post Comment"/>									 								
 							</form>
-						</div>
+						</div> -->
+
+<!-- FB COMMENT FROM HERE -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+
+<?php	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+						// echo $actual_link;
+						?>
+
+<div class="fb-comments" data-href="<?php echo $actual_link; ?>" data-numposts="5" data-width=""></div>
+<!-- FB COMMENT ENDS HERE -->
+
+
+
+
 					</div>
 				</div>
 				
 				<!-- Sidebar -->
 				<div class="col-md-10 col-lg-4 p-b-30">
-					<div class="p-l-10 p-rl-0-sr991 p-t-70">						
-						<!-- First Side Advertisement -->
-						<?php 
-						
-						$specificArea = 'below_articleFirstSide';
-								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
-								
-								foreach($advertisement1 as $key){?>
-															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
-						<div class="flex-c-s p-t-8" style="border:1px black solid;">
-							<a href="#">
-								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
-							</a>
-						</div>
-						<?php }	?>
-						<br>
-
+					<div class="p-l-10 p-rl-0-sr991 p-t-70">
 						<!-- Article of Same Writer -->
 
 						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Writer's other Article
+									 Other Articles of<?php echo '<b><h3>'.$result['article_author'].'</h3></b>'; ?>
 								</h3>
 							</div>
 							<?php
 
-							$latestArticleDetails=GetArticlesOfSameWriter($conn,$result['article_author']);
+							$latestArticleDetails=GetArticlesOfSameWriter($conn,$result['article_author'],$result['article_id']);
 							//dump($latestArticleDetails);
 							
 								# code...
@@ -407,7 +406,24 @@ UpdateArticleVisitPage($conn,$article_visit,$decryptID);
 								<?php
 							}?>
 							</ul>
+						</div>						
+						<!-- First Side Advertisement -->
+						<?php 
+						
+						$specificArea = 'below_articleFirstSide';
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
+								
+								foreach($advertisement1 as $key){?>
+															<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" alt="IMG">
+							</a>
 						</div>
+						<?php }	?>
+						<br>
+
+						
 
 						<?php 
 						

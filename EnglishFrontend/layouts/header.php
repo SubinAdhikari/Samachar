@@ -359,7 +359,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 $encryptedURL=encryptionFunction($key['category_id']); 
 ?>
 								 <li class="nav-item dropdown">
-        						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:14px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['category_name'];?>
+        						<a class="nav-link dropdown-toggle" href="category-02.php?ref=<?php echo $encryptedURL; ?>" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="font-size:14px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['category_name'];?>
         							</a>
 							<!-- <li> 
 								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>"><?php echo $key['category_name'];?></a> -->

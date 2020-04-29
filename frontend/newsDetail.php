@@ -139,7 +139,9 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 									<div class="size-w-11" style="border-bottom:1px grey solid;width:100% !important">
 										<h6 class="p-b-4">
 											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-5 cl3 hov-cl10 trans-03" style="font-size:20px">
-												<?php echo $otherWriting['news_title']; ?>
+											<ul>
+											     <li style="list-style-type: square;margin-left:20px"><?php echo $otherWriting['news_title']; ?></li>
+											</ul>
 											</a>
 										</h6>
 

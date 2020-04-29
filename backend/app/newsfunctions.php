@@ -48,12 +48,13 @@ function insertNews($conn, $data, $fileNameNew, $fileNameNew1){
 	return false;
 }
 function insertNewsIntoTrash($conn, $data, $newsId){
-	$stmtinsert=$conn->prepare("INSERT INTO tblnewstrash (`news_id`,`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`news_deails`,`news_url`,`is_active`,`top_news`) VALUES (:news_id, :news_title, :news_writtenby, :category_id, :subcategory_id,:news_deails, :news_url, :is_active, :top_news)");
+	$stmtinsert=$conn->prepare("INSERT INTO tblnewstrash (`news_id`,`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`is_active`,`top_news`) VALUES (:news_id, :news_title, :news_writtenby, :category_id, :subcategory_id, :is_bannerNews, :news_deails, :news_url, :is_active, :top_news)");
     $stmtinsert->bindParam(':news_id', $data['news_id']);
 	$stmtinsert->bindParam(':news_title', $data['news_title']);
     $stmtinsert->bindParam(':news_writtenby', $data['news_writtenby']);
     $stmtinsert->bindParam(':category_id', $data['category_id']);
     $stmtinsert->bindParam(':subcategory_id', $data['subcategory_id']);
+    $stmtinsert->bindParam(':is_bannerNews', $data['is_bannerNews']);
     $stmtinsert->bindParam(':news_deails', $data['news_deails']);
     $stmtinsert->bindParam(':news_url', $data['news_url']);
     $stmtinsert->bindParam(':is_active', $data['is_active']);
@@ -73,11 +74,12 @@ function getDeletedNewsByID($conn,$ref){
 }
 
 function restoreDeletedNews($conn, $data){
-	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`news_deails`,`news_url`,`is_active`,`top_news`) VALUES (:news_title, :news_writtenby, :category_id, :subcategory_id,:news_deails, :news_url, :is_active, :top_news)");
+	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`is_active`,`top_news`) VALUES (:news_title, :news_writtenby, :category_id, :subcategory_id,:is_bannerNews,:news_deails, :news_url, :is_active, :top_news)");
 	$stmtinsert->bindParam(':news_title', $data['news_title']);
     $stmtinsert->bindParam(':news_writtenby', $data['news_writtenby']);
     $stmtinsert->bindParam(':category_id', $data['category_id']);
     $stmtinsert->bindParam(':subcategory_id', $data['subcategory_id']);
+    $stmtinsert->bindParam(':is_bannerNews', $data['is_bannerNews']);
     $stmtinsert->bindParam(':news_deails', $data['news_deails']);
     $stmtinsert->bindParam(':news_url', $data['news_url']);
     $stmtinsert->bindParam(':is_active', $data['is_active']);

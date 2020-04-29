@@ -26,6 +26,17 @@
               <li class="sub-menu">
                   <a href="javascript:;" class="">
                       <i class="icon-th"></i>
+                      <span>Support</span>
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="donaters.php">Supporters/Donaters</a></li>
+                      <li><a class="" href="donation.php">Support/Donation</a></li>
+                  </ul>
+              </li>
+              <li class="sub-menu">
+                  <a href="javascript:;" class="">
+                      <i class="icon-th"></i>
                       <span>Trending</span>
                       <span class="arrow"></span>
                   </a>
@@ -67,9 +78,7 @@
                   <ul class="sub">
                       <li><a class="" href="addNews.php">Add News</a></li>
                       <li><a class="" href="manageNews.php">Manage News</a></li>
-                      <li><a class="" href="manageComments.php">Manage Comments</a></li>
-
-                     
+                      <li><a class="" href="manageComments.php">Manage Comments</a></li>           
                   </ul>
               </li>
               <li class="sub-menu">
@@ -102,9 +111,6 @@
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">
-                      <!-- <li><a class="" href="addAdvertisment.php?ref=<?php echo 'gold' ?>">Gold Advertisment</a></li>
-                      <li><a class="" href="addAdvertisment.php?ref=<?php echo 'silver' ?>">Silver Advertisment</a></li>
-                      <li><a class="" href="addAdvertisment.php?ref=<?php echo 'bronze' ?>">Bronze Advertisment</a></li> -->
                       <li><a class="" href="addAdvertisment.php?>">Add Advertisment</a></li>
 
                       <li><a class="" href="manageAdvertisment.php">Manage Advertisment</a></li>

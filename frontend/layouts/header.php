@@ -374,9 +374,9 @@ $encryptedURL=encryptionFunction($key['category_id']);
 
 							  <?php } ?>				
 				 </div>
-				 <div style="margin-right:50px">
+				 <!-- <div style="margin-right:50px">
 				 	<a class="btn btn-primary btn-lg" href="support/supportOurNewsPortal.php" role="button">BECOME <br> A<br>SUPPORTER </a>
-				 </div>
+				 </div> -->
 			</div>	
 
 

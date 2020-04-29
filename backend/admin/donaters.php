@@ -1,5 +1,8 @@
 <?php
   include 'layouts/header.php';
+  require_once('../../frontend/support/config/db.php');
+  require_once('../../frontend/support/lib/pdo_db.php');
+  require_once('../../frontend/support/models/Customer.php');
 ?>
    <!-- END HEADER -->
    <!-- BEGIN CONTAINER -->
@@ -54,11 +57,11 @@
                            <span class="divider">/</span>
                        </li>
                        <li>
-                           <a href="#">User</a>
+                           <a href="#">Donaters</a>
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Manage Subcategory
+                           View Donaters
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -80,7 +83,7 @@
                 <div class="widget red">
                 <?php if (isset(($_SESSION['msg'])))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
                     <div class="widget-title">
-                        <h4><i class="icon-reorder"></i> Users' Information</h4>
+                        <h4><i class="icon-reorder"></i> Donaters' Information</h4>
                         
                             <span class="tools">
                                 <a href="javascript:;" class="icon-chevron-down"></a>
@@ -92,66 +95,29 @@
                             <thead>
                             <tr>
                                 <th style="width:8px;"><input type="hidden" class="group-checkable" data-set="#sample_1 .checkboxes" />S.N</th>
-                                <th>Heading/Title</th>
-                                <th>Category Name</th>
-                                <th>Sub-Category Name</th>                                
-                                <th class="hidden-phone">News Url</th>
-                                <th class="hidden-phone">Status</th>
-                                <th class="hidden-phone">Banner News</th>
-                                <th class="hidden-phone">Top News</th>
-                                <th class="hidden-phone">Action</th>
+                                <th class="hidden-phone">Donater ID</th>
+                                <th>Full Name</th>                                
+                                <th class="hidden-phone">Email</th>
+                                <th class="hidden-phone">Date</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php $allNews=getAllTrashNewsDetails($conn);
-                            //dump($allNews);
-                            foreach ($allNews as $key => $news):
-                                
+                            <?php 
+                            //dump($adminUsers);
+                            // Instantiate Customer
+                            $donater = new Customer();
+
+                            // Get Customer
+                            $key=0;
+                            $donaters = $donater->getDonaters();
+                            foreach($donaters as $d): 
                             ?>
                             <tr class="odd gradeX">
                                 <td><input type="hidden" class="checkboxes" value="1" /><?php echo ++$key; ?></td>
-                                <td class="hidden-phone"><?php
-                                echo $news['news_title']; ?></td>
-
-                                <td class="hidden-phone"><?php
-                                echo $news['news_writtenby']; ?></td>
-
-                                <td class="hidden-phone"><?php
-                                $categoryNames=getCategoryNameByCategoryId($conn,$news['category_id']); 
-                                $categoryName = implode("", $categoryNames);  
-                                echo $categoryName; ?></td>
-
-                                <td class="hidden-phone"><?php $subCategoryNames=getSubCategoryNameByCategoryId($conn,$news['subcategory_id']); 
-                                $subCategoryName = implode("", $subCategoryNames);  
-                                echo $subCategoryName; ?></td>
-                                <td class="hidden-phone"><?php echo $news['news_url']; ?></td>
-                                <td class="center hidden-phone"><?php if($news['is_active']=='active'): ?>
-                              <span class="label label-sm label-success">
-                                Active</span>
-                              <?php else: ?>
-                                <span class="label label-sm label-danger">
-                                  Inactive</span>
-                              <?php endif; ?></td>
-                              <td class="center hidden-phone"><?php if($news['is_bannerNews']=='yes'): ?>
-                              <span class="label label-sm label-success">
-                                Yes</span>
-                              <?php else: ?>
-                                <span class="label label-sm label-danger">
-                                  No</span>
-                              <?php endif; ?></td>
-                               <td class="center hidden-phone"><?php if($news['top_news']=='yes'): ?>
-                              <span class="label label-sm label-success">
-                                Yes</span>
-                              <?php else: ?>
-                                <span class="label label-sm label-danger">
-                                  No</span>
-                              <?php endif; ?></td>
-                                <td class="hidden-phone"><a href="restoreDeletedNews.php?ref=<?php echo $news['trash_id'];?>" class="btn btn-xs btn-info">
-                                  Restore
-                                </a>
-                                <a href="deleteTrashNews.php?ref=<?php echo $news['trash_id'];?>" onclick="return confirm('Really Deleting that News??');" class="btn btn-xs btn-danger">
-                                  Delete
-                                </a></td> 
+                                <td><?php echo $d->id; ?></td>
+                                <td><?php echo $d->first_name; ?> <?php echo $d->last_name; ?></td>
+                                <td><?php echo $d->email; ?></td>
+                                <td><?php echo $d->created_at; ?></td>
                             </tr>
                             <?php endforeach; ?>
                             </tbody>

@@ -108,14 +108,14 @@ $(document).ready(function(){
 							</span>
 						</span>
 
-						<a href="about.php" class="left-topbar-item" style="color:white;font-size:15px;font-weight: bold;margin-left:-20px!important">
+						<a href="about.php" class="left-topbar-item" style="color:white;font-size:15px;margin-left:-20px!important">
 						हाम्रो बारेमा
 						</a>
 
-						<a href="contact.php" class="left-topbar-item" style="color:white;font-size:15px;font-weight: bold;">
+						<a href="contact.php" class="left-topbar-item" style="color:white;font-size:15px">
 						सम्पर्क
 						</a>
-						<a href="converter.php" class="left-topbar-item" style="color:white;font-size:15px;font-weight: bold;">
+						<a href="converter.php" class="left-topbar-item" style="color:white;font-size:15px">
 						प्रीति - युनिकोड
 						</a>
 						
@@ -185,7 +185,7 @@ $(document).ready(function(){
 			<div class="wrap-header-mobile">
 				<!-- Logo moblie -->		
 				<div class="logo-mobile">
-				<a href="index.php"><img src="images/icons/samachar.png" alt="LOGO"></a>
+				<a href="index.php"><img src="images/icons/lokpath.png" alt="LOGO"></a>
 				</div>
 
 				<!-- Button show menu -->
@@ -266,13 +266,14 @@ $(document).ready(function(){
 
 
 
-				<ul class="main-menu-m" style="background-color:#027ab5!important;">
+				<ul class="main-menu-m" style="background-color:#222222!important;">
 				<?php foreach($categoryList as $key){
 								 ?>
 								<?php
 $encryptedURL=encryptionFunction($key['category_id']); 
 ?>
-					<li style="background-color:#027ab5!important;">
+					<!-- <li style="background-color:#027ab5!important;"> -->
+					<li style="background-color:#222222!important;">
 						<a href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:17px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif;"><?php echo $key['category_name'];?></a>
 						
 						<ul class="sub-menu-m">
@@ -292,13 +293,13 @@ $encryptedURL=encryptionFunction($key['category_id']);
 					</li>
 											
 					<?php }?>
-					<li style="background-color:#027ab5!important;">
-					<a href="../EnglishFrontend/index.php" target="_blank" ><span style="color:black!important;font-weight:bold">ENGLISH</span></a></strong>
+					<li style="background-color:#222222!important;">
+					<a href="../EnglishFrontend/index.php" target="_blank" ><span style="color:white!important;font-weight:bold">ENGLISH</span></a></strong>
 					</li>
-					<li style="background-color:#027ab5!important;">
+					<li style="background-color:#222222!important;">
 					<button class="blackThem" style="color:white!important;font-weight:bold;margin-left:15px"><input type="checkbox" checked data-toggle="toggle" data-on="Dark" data-off="Dark" data-onstyle="secondary" data-offstyle="secondary"></button>
 					</li>
-					<li style="background-color:#027ab5!important;">
+					<li style="background-color:#222222!important;">
 					<button class="whiteThem" style="color:white!important;font-weight:bold;margin-left:15px;display:none"> <input type="checkbox" checked data-toggle="toggle" data-on="Light" data-off="Dark" data-onstyle="secondary" data-offstyle="secondary"></button>
 					</li>
 				</ul>
@@ -353,7 +354,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 			<div class="wrap-logo" style="margin-left:50px">
 				<!-- Logo desktop -->		
 				<div class="logo">
-				<a href="index.php"><img style="width:100%;height:100%" src="images/icons/samachar.png"  alt="LOGO"></a>
+				<a href="index.php"><img style="width:100%;height:100%" src="images/icons/lokpath.png"  alt="LOGO"></a>
 				</div>	
 
 				<!-- Banner -->
@@ -388,8 +389,9 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						</a>
 					 
 
-						<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#027ab5!important;height: 45px;">
-  								
+						<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#027ab5!important;height: 45px;"> -->
+						<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#222222!important;height: 45px;">
+							
   								<a class="navbar-brand" href="index.php"><i style="padding-left:80px;color:white"; class="fas fa-home"></i></a>
   						
   						<div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -400,7 +402,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 $encryptedURL=encryptionFunction($key['category_id']);  
 ?>
 								 <li class="nav-item dropdown">
-        						<a class="nav-link dropdown-toggle" href="category-02.php?ref=<?php echo $encryptedURL; ?>" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:17px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['category_name'];?>
+        						<a class="nav-link dropdown-toggle" href="category-02.php?ref=<?php echo $encryptedURL; ?>" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:17px; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['category_name'];?>
         							</a>
 							<!-- <li> 
 								<a href="category-02.php?ref=<?php echo $key['category_id'];  ?>"><?php echo $key['category_name'];?></a> -->
@@ -411,7 +413,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 										// foreach($key as $value){
 											$encryptedURL=encryptionFunction($key['subcategory_id']); 
 									?>
-									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $encryptedURL ?>" style="font-size:20px; color:black;font-weight: bold;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['subcategory_name']; ?></a>
+									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $encryptedURL ?>" style="font-size:20px; color:black;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['subcategory_name']; ?></a>
 										<?php }  ?>
 										</div>
 
@@ -421,8 +423,8 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							
 						</ul>
 						<strong><a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3"><span style="color:white!important;font-weight:bold">ENGLISH</span></a></strong>
-						<button class="blackThem" style="color:white!important;font-weight:bold;margin-left:15px"><input type="checkbox" checked data-toggle="toggle" data-on="Dark" data-off="Dark" data-onstyle="primary" data-offstyle="primary"></button>
-						<button class="whiteThem" style="color:white!important;font-weight:bold;margin-left:15px;display:none"> <input type="checkbox" checked data-toggle="toggle" data-on="Light" data-off="Dark" data-onstyle="primary" data-offstyle="primary"></button>
+						<button class="blackThem" style="color:white!important;font-weight:bold;margin-left:15px"><input type="checkbox" checked data-toggle="toggle" data-on="Dark Mode" data-off="Dark Mode" data-onstyle="secondary" data-offstyle="secondary"></button>
+						<button class="whiteThem" style="color:white!important;font-weight:bold;margin-left:15px;display:none"> <input type="checkbox" checked data-toggle="toggle" data-on="Light" data-off="Dark Mode" data-onstyle="secondary" data-offstyle="secondary"></button>
 
 					</nav>
 				</div>
@@ -457,12 +459,6 @@ $encryptedURL=encryptionFunction($key['category_id']);
 				$('p').css('color', 'white');
 				$('.cl2').css('color', 'white');
 			    
-				
-				
-				
-				
-				
-
 				$('.blackThem').hide(); 
 				$('.whiteThem').show(); 
             }); 

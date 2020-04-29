@@ -105,7 +105,75 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 													<div id="fb-root"></div>
 						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 
-						<div class="fb-share-button" data-href="<?php $actual_link; ?>" data-layout="box_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+						<div class="fb-share-button" data-href="<?php $actual_link; ?>" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
+
+
+						<?php
+							//$categoryName=getCategoryById($conn,$result['category_id']);
+							//print_r($categoryName);
+							if ($result['category_id']=='4') {
+								# code...
+							
+							$otherWritings=GetWritingsByAuthor($conn,$result['news_writtenby'],$result['news_id']);
+						?>		
+						<div class="p-b-30" style="margin-top:15px !important">
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+								<span style="font-size:20px">लेखकबाट थप </span>
+								<!-- <?php echo $result['news_writtenby']; ?> -->
+								</h3>
+							</div>
+							
+							<ul class="p-t-35">
+								<?php foreach ($otherWritings as $otherWriting ) { 
+									$imageName = $otherWriting['news_featuredimage'];
+									$encryptedURL=encryptionFunction($otherWriting['news_id']);
+								?>
+								<li class="flex-wr-sb-s p-b-30">
+									<!-- <a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
+
+										<img src="../backend/newsFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
+									</a> -->
+
+									<div class="size-w-11" style="border-bottom:1px grey solid;width:100% !important">
+										<h6 class="p-b-4">
+											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-5 cl3 hov-cl10 trans-03" style="font-size:20px">
+												<?php echo $otherWriting['news_title']; ?>
+											</a>
+										</h6>
+
+										<!-- <span class="cl8 txt-center p-b-24">
+											
+												<?php echo $otherWriting['news_writtenby']; ?>
+											
+
+											<span class="f1-s-3 m-rl-3">
+												-
+											</span>
+
+											<span class="f1-s-3">
+												<?php  
+
+												$comdatetime = $otherWriting['created_at'];
+												$time_elapsed = timeAgo($comdatetime);
+												echo $time_elapsed;?>
+											</span>
+										</span> -->
+									</div>
+								</li>
+								<?php
+							}?>
+							</ul>
+						</div>
+						<?php } ?>
+
+
+
+
+
+
+
 
 
 
@@ -376,63 +444,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 				<div class="col-md-10 col-lg-4 p-b-30">
 					<div class="p-l-10 p-rl-0-sr991 p-t-70">
 
-						<?php
-							//$categoryName=getCategoryById($conn,$result['category_id']);
-							//print_r($categoryName);
-							if ($result['category_id']=='4') {
-								# code...
-							
-							$otherWritings=GetWritingsByAuthor($conn,$result['news_writtenby'],$result['news_id']);
-						?>		
-						<div class="p-b-30">
-							<div class="how2 how2-cl4 flex-s-c">
-								<h3 class="f1-m-2 cl3 tab01-title">
-									Other Writings of <?php echo $result['news_writtenby']; ?>
-								</h3>
-							</div>
-							
-							<ul class="p-t-35">
-								<?php foreach ($otherWritings as $otherWriting ) { 
-									$imageName = $otherWriting['news_featuredimage'];
-									$encryptedURL=encryptionFunction($otherWriting['news_id']);
-								?>
-								<li class="flex-wr-sb-s p-b-30">
-									<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
-
-										<img src="../backend/newsFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
-									</a>
-
-									<div class="size-w-11">
-										<h6 class="p-b-4">
-											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
-												<?php echo $otherWriting['news_title']; ?>
-											</a>
-										</h6>
-
-										<span class="cl8 txt-center p-b-24">
-											
-												<?php echo $otherWriting['news_writtenby']; ?>
-											
-
-											<span class="f1-s-3 m-rl-3">
-												-
-											</span>
-
-											<span class="f1-s-3">
-												<?php  
-
-												$comdatetime = $otherWriting['created_at'];
-												$time_elapsed = timeAgo($comdatetime);
-												echo $time_elapsed;?>
-											</span>
-										</span>
-									</div>
-								</li>
-								<?php
-							}?>
-							</ul>
-						</div>
-						<?php } ?>						
+												
 						
 						<!-- Side Advertisement -->
 						<?php 

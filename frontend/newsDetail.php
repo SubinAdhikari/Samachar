@@ -110,6 +110,13 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 
 
 
+						
+
+
+
+
+
+
 						<?php
 							//$categoryName=getCategoryById($conn,$result['category_id']);
 							//print_r($categoryName);
@@ -117,14 +124,21 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 								# code...
 							
 							$otherWritings=GetWritingsByAuthor($conn,$result['news_writtenby'],$result['news_id']);
-						?>		
+						?>	
+
 						<div class="p-b-30" style="margin-top:15px !important">
-							<div class="how2 how2-cl4 flex-s-c">
+							<div class="how2 how2-cl4 flex-s-c" style="width:100%">
 								<h3 class="f1-m-2 cl3 tab01-title">
 								<span style="font-size:20px">लेखकबाट थप </span>
 								<!-- <?php echo $result['news_writtenby']; ?> -->
 								</h3>
 							</div>
+							<!--Author Image  -->
+
+							<center><img src="images/icons/auther.png" class="rounded-circle" style="width:100px" alt="Cinque Terre">
+							<h2>Subin Adhikari</h2>
+							<h2>Occupation</h2>
+							</center>
 							
 							<ul class="p-t-35">
 								<?php foreach ($otherWritings as $otherWriting ) { 
@@ -182,6 +196,10 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 
 
 
+
+
+
+
 							<?php
 								$area = 'news_detailpage';
 								$specificArea = 'below_newsTitle';
@@ -207,7 +225,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
                                     foreach ($arr as $value) {
 								?>
 								<!-- <img  src="../backend/newsImage/<?php echo $value; ?>" height="300px" width="330px" alt="IMG"> -->
-								<img  src="../backend/newsImage/<?php echo $value; ?>" height="300px" width="100%" alt="IMG">
+								<img  src="../backend/newsImage/<?php echo $value; ?>" height="100%" width="100%" alt="IMG">
 
 								<?php }?>
 							</div>
@@ -439,6 +457,37 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 
 
 
+<center><section class="bg0">
+	<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+								अन्य समाचार
+								</h3>
+							</div>
+				<div class="card-group">
+										<?php
+ 										 $category=getAllNewsByCategoryId($conn,$categoryID);
+									// print_r($getNews);
+												 foreach($category as $key){ 
+											$encryptedURL=encryptionFunction($key['news_id']);
+									?>
+												  <div class="card" style="margin:3px;border-radius:20px">
+												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
+												</a>
+												    <div class="card-body">
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
+															<?php $datetime = $key['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+												  </div>
+												  <?php } ?>
+										</div>
+										
+	</section></center>
+
+
 
 
 					</div>
@@ -635,35 +684,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 	</section>
 
 
-	<center><section class="bg0">
-	<div class="how2 how2-cl4 flex-s-c">
-								<h3 class="f1-m-2 cl3 tab01-title">
-								अन्य समाचार
-								</h3>
-							</div>
-				<div class="card-group">
-										<?php
- 										 $category=getAllNewsByCategoryId($conn,$categoryID);
-									// print_r($getNews);
-												 foreach($category as $key){ 
-											$encryptedURL=encryptionFunction($key['news_id']);
-									?>
-												  <div class="card" style="margin:3px;border-radius:20px">
-												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
-												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
-												</a>
-												    <div class="card-body">
-												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
-												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
-															<?php $datetime = $key['created_at']; 
-															$time_elapsed = timeAgo($datetime);
-															echo $time_elapsed;?></small></p>
-												    </div>
-												  </div>
-												  <?php } ?>
-										</div>
-										
-	</section></center>
+	
 
 	<!-- Footer -->
 	<?php 

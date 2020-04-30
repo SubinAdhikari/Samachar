@@ -6,7 +6,7 @@ $decryptID=decryptionFunction($category_id);
 
 		
 	<!-- Headline -->
-	<?php 
+	<!-- <?php 
 	$categoryName=getCategoryDetailByCategoryID($conn,$decryptID);
 	foreach($categoryName as $key){
 		?>
@@ -26,7 +26,7 @@ $decryptID=decryptionFunction($category_id);
 			</div>
 		</div>
 	<?php }?>
-	</div></center>
+	</div></center> -->
 	<center><div style="width:95%">
 		<?php
 								$area = 'category_page';
@@ -36,7 +36,7 @@ $decryptID=decryptionFunction($category_id);
 								foreach($advertisement1 as $key){
 							?>
 												<center><span style="color:grey;font-size:9px">Advertisment</span></center>
-					<a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+					<a href="#"><img width="95%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a>
 				<?php } 
 					$specificArea = 'below_categoryTitleSecond';
 					$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
@@ -48,14 +48,16 @@ $decryptID=decryptionFunction($category_id);
 				<?php } ?> 
 	</div></center>	
 	<!-- Feature post -->
-	<center><section class="bg0">
+	<section class="bg0 p-t-70" style="width:95%;margin-left:35px">
 		<?php 
 	$categoryName=getCategoryDetailByCategoryID($conn,$decryptID);
 	foreach($categoryName as $key){
 		?>
+		<div class="how2 how2-cl4 flex-s-c">
 		<h3 class="f1-m-2 cl3 tab01-title" style="font-size:20px">
-					<?php echo '<strong>'.$key['category_name'].'</strong>';?>		
+					<?php echo '<span><strong>'.$key['category_name'].'को सबै समाचार </strong><span>';?>		
 				</h3>
+							</div>
 			<?php }?>
 				<div class="card-group">
 										<?php
@@ -79,7 +81,7 @@ $decryptID=decryptionFunction($category_id);
 												  <?php } ?>
 										</div>
 										
-	</section></center>
+	</section>
 	<hr>
 	<center><div style="width:95%">
 		<?php
@@ -178,7 +180,7 @@ $decryptID=decryptionFunction($category_id);
 						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Popular News
+									<span>Popular News<span>
 								</h3>
 							</div>
 							<?php 
@@ -254,7 +256,7 @@ $decryptID=decryptionFunction($category_id);
 						<div class="p-t-50">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Stay Connected
+									<span>Stay Connected</span>
 								</h3>
 							</div>
 

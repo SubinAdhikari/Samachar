@@ -6,7 +6,7 @@ include "layouts/header.php";
 
 
 	<!-- Breadcrumb -->
-	<?php 
+	<!-- <?php 
     $subcategoryName=SelectSubCategoryNameFromId($conn,$decryptID);
     // print_r($subcategoryName);
 	foreach($subcategoryName as $key){
@@ -24,10 +24,10 @@ include "layouts/header.php";
 			</div>
 			<?php } ?>
 		</div>
-	</div></center>
+	</div></center> -->
 
 	<!-- Page heading -->
-	<?php 
+	<!-- <?php 
 	$subcategoryName=SelectSubCategoryNameFromId($conn,$decryptID);
     // print_r($subcategoryName);
 	foreach($subcategoryName as $key){
@@ -37,7 +37,7 @@ include "layouts/header.php";
 			<?php echo $key; ?>
 		</h2>
 	</div>
-<?php }?>
+<?php }?> -->
 
 <center><div style="width:95%">
 		<?php
@@ -56,12 +56,24 @@ include "layouts/header.php";
 					foreach($advertisement1 as $key){
 				?>
 											<center><span style="color:grey;font-size:9px">Advertisment</span></center>
-					<a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+					<a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a>
 				<?php } ?>
 	</div></center>	
 			
 	<!-- Feature post -->
 
+	<section class="bg0 p-t-70" style="width:95%;margin-left:35px">
+	<?php 
+	$subcategoryName=SelectSubCategoryNameFromId($conn,$decryptID);
+    // print_r($subcategoryName);
+	foreach($subcategoryName as $key){
+		?>
+	<div class="how2 how2-cl4 flex-s-c">
+		<h3 class="f1-m-2 cl3 tab01-title" style="font-size:20px">
+			<?php echo '<span><strong>'.$key.'को सबै समाचार </strong><span>'; ?>
+		</h2>
+	</div>
+<?php }?>
 		<div class="card-group">
 										<?php
   											$SubcategoryNews=getAllNewsBySubCategoryId($conn,$decryptID);
@@ -83,7 +95,7 @@ include "layouts/header.php";
 												    </div>
 												  </div>
 												  <?php } ?>
-										</div>
+										</div></section>
 	
 	</section>
 		<hr>
@@ -201,7 +213,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Popular News
+									<span>Popular News<span>
 								</h3>
 							</div>
 							<?php 
@@ -274,7 +286,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-t-50">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Stay Connected
+									<span>Stay Connected<span>
 								</h3>
 							</div>
 

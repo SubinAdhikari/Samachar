@@ -533,7 +533,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Popular News
+									<span>Popular News</span>
 								</h3>
 							</div>
 							<?php
@@ -619,7 +619,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 						<div class="p-b-55">
 							<div class="how2 how2-cl4 flex-s-c m-b-30">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Tags
+									<span>Tags</span>
 								</h3>
 							</div>
 

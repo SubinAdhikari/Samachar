@@ -346,7 +346,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Popular News
+									<span>Popular News</span>
 								</h3>
 							</div>
 							<?php 
@@ -445,7 +445,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-t-50">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Stay Connected
+									<span>Stay Connected<span>
 								</h3>
 							</div>
 
@@ -663,7 +663,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 				<div class="col-md-10 col-lg-8 p-b-20">
 					<div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
 						<h3 class="f1-m-2 cl3 tab01-title">
-							Latest Articles
+							<span>Latest Articles</span>
 						</h3>
 					</div>
 
@@ -782,7 +782,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-b-55">
 							<div class="how2 how2-cl4 flex-s-c m-b-30">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Tags
+									<span>Tags</span>
 								</h3>
 							</div>
 

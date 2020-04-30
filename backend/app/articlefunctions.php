@@ -31,6 +31,13 @@ function updateArticle($conn, $data, $ref){
 }
 
 function updateArticleImage($conn, $ref, $fileNameNew1){
+    $article = selectArticleFromId($conn,$ref);
+    if (!unlink('../articleFeaturedImage/'.$article['article_featuredimage'])) {  
+        echo ("$file_pointer cannot be deleted due to an error");  
+    }  
+    else {  
+        echo ("$file_pointer has been deleted");  
+    } 
     $stmtupdate=$conn->prepare("UPDATE tblarticle SET article_featuredimage=:article_featuredimage WHERE article_id=:article_id");
     $stmtupdate->bindParam(':article_featuredimage', $fileNameNew1);
     $stmtupdate->bindParam(':article_id', $ref);
@@ -40,6 +47,13 @@ function updateArticleImage($conn, $ref, $fileNameNew1){
     return false;
 }
 function deleteArticle($conn, $articleId){
+    $article = selectArticleFromId($conn,$articleId);
+    if (!unlink('../articleFeaturedImage/'.$article['article_featuredimage'])) {  
+        echo ("$file_pointer cannot be deleted due to an error");  
+    }  
+    else {  
+        echo ("$file_pointer has been deleted");  
+    } 
     $stmtdelete=$conn->prepare("DELETE FROM tblarticle WHERE article_id=:article_id");
     $stmtdelete->bindParam(':article_id', $articleId);
     if ($stmtdelete->execute()) {

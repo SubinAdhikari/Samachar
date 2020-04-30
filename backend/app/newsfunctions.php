@@ -142,6 +142,24 @@ function updateNews($conn, $data, $ref){
     return false;
 }
 function updateNewsImages($conn, $ref,$fileNameNew,$fileNameNew1){
+    $news = selectNewsFromId($conn,$ref);
+    dump($news); 
+      $s=$news['news_image'];
+      $arr = explode(",", $s);
+        foreach ($arr as $value) {
+            if (!unlink('../newsImage/'.$value)) {  
+                echo ("$file_pointer cannot be deleted due to an error");  
+            }  
+            else {  
+                echo ("$file_pointer has been deleted");  
+            }      
+       } 
+    if (!unlink('../newsFeaturedImage/'.$news['news_featuredimage'])) {  
+        echo ("$file_pointer cannot be deleted due to an error");  
+    }  
+    else {  
+        echo ("$file_pointer has been deleted");  
+    }
     $stmtupdate=$conn->prepare("UPDATE tblnews SET news_image=:news_image,
         news_featuredimage=:news_featuredimage WHERE news_id=:news_id");
     $stmtupdate->bindParam(':news_image', $fileNameNew);
@@ -153,6 +171,24 @@ function updateNewsImages($conn, $ref,$fileNameNew,$fileNameNew1){
     return false;
 }
 function deleteNews($conn, $newsId){
+    $news = selectNewsFromId($conn,$newsId);
+    dump($news); 
+      $s=$news['news_image'];
+      $arr = explode(",", $s);
+        foreach ($arr as $value) {
+            if (!unlink('../newsImage/'.$value)) {  
+                echo ("$file_pointer cannot be deleted due to an error");  
+            }  
+            else {  
+                echo ("$file_pointer has been deleted");  
+            }      
+       } 
+    if (!unlink('../newsFeaturedImage/'.$news['news_featuredimage'])) {  
+        echo ("$file_pointer cannot be deleted due to an error");  
+    }  
+    else {  
+        echo ("$file_pointer has been deleted");  
+    }
     $stmtdelete=$conn->prepare("DELETE FROM tblnews WHERE news_id=:news_id");
     $stmtdelete->bindParam(':news_id', $newsId);
     if ($stmtdelete->execute()) {

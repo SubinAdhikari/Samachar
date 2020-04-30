@@ -1,4 +1,7 @@
-<?php include 'layouts/header.php'; ?>
+<?php include 'layouts/header.php'; 
+
+?>
+
    <!-- END HEADER -->
    <!-- BEGIN CONTAINER -->
    <div id="container" class="row-fluid">

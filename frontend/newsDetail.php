@@ -470,7 +470,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 												 foreach($category as $key){ 
 											$encryptedURL=encryptionFunction($key['news_id']);
 									?>
-												  <div class="card" style="margin:3px;border-radius:20px">
+												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
 												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
 												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>

@@ -125,23 +125,23 @@ $(document).ready(function(){
 
 					<div class="right-topbar">
 						<a href="#">
-							<i class="fa fa-facebook-square" style="font-size:24px"></i>
+							<i class="fa fa-facebook-square" id="grow" style="font-size:24px"></i>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-twitter-square" style="font-size:24px"></i>
+							<i class="fa fa-twitter-square" id="grow" style="font-size:24px"></i>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-google-plus-square" style="font-size:24px"></i>
+							<i class="fa fa-google-plus-square" id="grow" style="font-size:24px"></i>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-instagram" style="font-size:24px"></i>
+							<i class="fa fa-instagram" id="grow" style="font-size:24px"></i>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-youtube-play" style="font-size:24px"></i>
+							<i class="fa fa-youtube-play" id="grow" style="font-size:24px"></i>
 						</a>
 					</div>
 				</div>

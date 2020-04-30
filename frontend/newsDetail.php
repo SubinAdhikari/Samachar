@@ -22,7 +22,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 
 
 	<!-- Breadcrumb -->
-	<center><div style="width:95%">
+	<!-- <center><div style="width:95%">
 		<div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
 			<div class="f2-s-1 p-r-30 m-tb-6">
 				<a href="index.html" class="breadcrumb-item f1-s-3 cl9">
@@ -45,7 +45,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 				</button>
 			</div>
 		</div>
-	</div></center>
+	</div></center> -->
 
 	<!-- Content -->
 	<section class="bg0 p-b-140 p-t-10" style="width:95%;margin-left:35px">
@@ -57,11 +57,11 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 						<?php $categoryNames=getCategoryNameByCategoryId($conn,$result['category_id']); 
                                 $categoryName = implode("", $categoryNames);  ?>
 						<div class="p-b-70">
-							<a href="#" class="f1-l-3 cl2 hov-cl10 trans-03 text-uppercase">
+							<!-- <a href="#" class="f1-l-3 cl2 hov-cl10 trans-03 text-uppercase">
 								<?php 
 
 								echo $categoryName; ?>
-							</a>
+							</a> -->
 
 							<h3 class="f1-l-3 cl2 p-b-16 p-t-33 respon2">
 								<?php echo $result['news_title']; ?>
@@ -205,7 +205,8 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 								$arr = explode(",", $imageNames);
                                     foreach ($arr as $value) {
 								?>
-								<img  src="../backend/newsImage/<?php echo $value; ?>" height="300px" width="330px" alt="IMG">
+								<!-- <img  src="../backend/newsImage/<?php echo $value; ?>" height="300px" width="330px" alt="IMG"> -->
+								<img  src="../backend/newsImage/<?php echo $value; ?>" height="300px" width="100%" alt="IMG">
 
 								<?php }?>
 							</div>

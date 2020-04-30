@@ -434,20 +434,20 @@ $encryptedURL=encryptionFunction($key['category_id']);
 		<script> 
             // $('#GFG_UP').text("Click on button to change the background color"); 
             $('.blackThem').on('click', function() { 
-                $('html').css('background', 'black');
-				$('body').css('background', 'black'); 
-				$('section').css('background', 'black'); 
-				$('breadcrumb').css('background', 'black');
-				$('.breadcrumb').css('background', 'black');
+                $('html').css('background', '#2d2e2d');
+				$('body').css('background', '#2d2e2d'); 
+				$('section').css('background', '#2d2e2d'); 
+				$('breadcrumb').css('background', '#2d2e2d');
+				$('.breadcrumb').css('background', '#2d2e2d');
 				// News Details bredcrum class
-				$('.headline').css('background', 'black');
+				$('.headline').css('background', '#2d2e2d');
 				$('blockquote').css('background','grey');
 				
 				
-				$('input').css('background', 'black');
-				$('.card-body').css('background', 'black');
+				$('input').css('background', '#2d2e2d');
+				$('.card-body').css('background', '#2d2e2d');
 				// $('nav').css('background', 'black');
-				$('.dropdown-menu').css('background', 'black');
+				$('.dropdown-menu').css('background', '#2d2e2d');
 
 				$('.sub-menu-m').css('background', 'black');
 				

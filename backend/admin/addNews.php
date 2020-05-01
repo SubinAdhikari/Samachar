@@ -397,7 +397,7 @@ if(isset($_POST['addNews'])){
     $fileExt2 = explode('.', $fileName2);
     $fileActualExt2 = strtolower(end($fileExt2));
     $fileNameNew2 = uniqid('',true).".".$fileActualExt2;
-    $path='../newsWriterImage/'.$fileNameNew1;
+    $path='../newsWriterImage/'.$fileNameNew2;
     chmod('../newsWriterImage/',0777);
     move_uploaded_file($tmp_name2, $path);    
 // print_r($_POST);

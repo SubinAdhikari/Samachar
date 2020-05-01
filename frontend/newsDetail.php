@@ -134,9 +134,9 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 								</h3>
 							</div>
 							<!--Author Image  -->
-
-							<center><img src="images/icons/auther.png" class="rounded-circle" style="width:100px" alt="Cinque Terre">
-							<h2>Subin Adhikari</h2>
+							
+							<center><img src="../backend/newsWriterImage/<?php echo $result['news_writerImage']; ?>" class="rounded-circle" style="width:100px" alt="Cinque Terre">
+							<h2><?php echo $result['news_writtenby']; ?></h2>
 							<h2>Occupation</h2>
 							</center>
 							

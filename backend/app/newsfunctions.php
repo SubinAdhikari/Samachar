@@ -27,10 +27,11 @@ function subCategoryIdFetchByName($conn,$subCategoryName){
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
  	return $stmtSelect->fetchAll();
 }
-function insertNews($conn, $data, $fileNameNew, $fileNameNew1){
-	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_writtenby`,`news_title`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`news_image`,`news_featuredimage`,`is_active`,`top_news`) VALUES (:news_writtenby, :news_title, :category_id, :subcategory_id,:is_bannerNews,:news_details, :news_url, :news_image, :news_featuredimage, :is_active, :top_news)");
+function insertNews($conn, $data, $fileNameNew, $fileNameNew1, $fileNameNew2){
+	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_writtenby`,`news_writerImage`,`news_title`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`news_image`,`news_featuredimage`,`is_active`,`top_news`) VALUES (:news_writtenby, :news_writerImage, :news_title, :category_id, :subcategory_id,:is_bannerNews,:news_details, :news_url, :news_image, :news_featuredimage, :is_active, :top_news)");
 
     $stmtinsert->bindParam(':news_writtenby', $data['news_writtenby']);
+    $stmtinsert->bindParam(':news_writerImage', $fileNameNew2);
 	$stmtinsert->bindParam(':news_title', $data['news_title']);
     $stmtinsert->bindParam(':category_id', $data['category_id']);
     $stmtinsert->bindParam(':subcategory_id', $data['subcategory_id']);
@@ -48,7 +49,7 @@ function insertNews($conn, $data, $fileNameNew, $fileNameNew1){
 	return false;
 }
 function insertNewsIntoTrash($conn, $data, $newsId){
-	$stmtinsert=$conn->prepare("INSERT INTO tblnewstrash (`news_id`,`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`is_active`,`top_news`) VALUES (:news_id, :news_title, :news_writtenby, :category_id, :subcategory_id, :is_bannerNews, :news_deails, :news_url, :is_active, :top_news)");
+	$stmtinsert=$conn->prepare("INSERT INTO tblnewstrash (`news_id`,`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`news_image`,`news_featuredimage`,`is_active`,`top_news`) VALUES (:news_id, :news_title, :news_writtenby, :category_id, :subcategory_id, :is_bannerNews, :news_deails, :news_url, :news_image, :news_featuredimage, :is_active, :top_news)");
     $stmtinsert->bindParam(':news_id', $data['news_id']);
 	$stmtinsert->bindParam(':news_title', $data['news_title']);
     $stmtinsert->bindParam(':news_writtenby', $data['news_writtenby']);
@@ -57,6 +58,8 @@ function insertNewsIntoTrash($conn, $data, $newsId){
     $stmtinsert->bindParam(':is_bannerNews', $data['is_bannerNews']);
     $stmtinsert->bindParam(':news_deails', $data['news_deails']);
     $stmtinsert->bindParam(':news_url', $data['news_url']);
+    $stmtinsert->bindParam(':news_image', $data['news_image']);
+    $stmtinsert->bindParam(':news_featuredimage', $data['news_featuredimage']);
     $stmtinsert->bindParam(':is_active', $data['is_active']);
     $stmtinsert->bindParam(':top_news', $data['top_news']);
     
@@ -74,7 +77,7 @@ function getDeletedNewsByID($conn,$ref){
 }
 
 function restoreDeletedNews($conn, $data){
-	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`is_active`,`top_news`) VALUES (:news_title, :news_writtenby, :category_id, :subcategory_id,:is_bannerNews,:news_deails, :news_url, :is_active, :top_news)");
+	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`news_image`,`news_featuredimage`,`is_active`,`top_news`) VALUES (:news_title, :news_writtenby, :category_id, :subcategory_id,:is_bannerNews,:news_deails, :news_url, :news_image, :news_featuredimage, :is_active, :top_news)");
 	$stmtinsert->bindParam(':news_title', $data['news_title']);
     $stmtinsert->bindParam(':news_writtenby', $data['news_writtenby']);
     $stmtinsert->bindParam(':category_id', $data['category_id']);
@@ -82,6 +85,8 @@ function restoreDeletedNews($conn, $data){
     $stmtinsert->bindParam(':is_bannerNews', $data['is_bannerNews']);
     $stmtinsert->bindParam(':news_deails', $data['news_deails']);
     $stmtinsert->bindParam(':news_url', $data['news_url']);
+    $stmtinsert->bindParam(':news_image', $data['news_image']);
+    $stmtinsert->bindParam(':news_featuredimage', $data['news_featuredimage']);
     $stmtinsert->bindParam(':is_active', $data['is_active']);
     $stmtinsert->bindParam(':top_news', $data['top_news']);
     
@@ -143,7 +148,7 @@ function updateNews($conn, $data, $ref){
 }
 function updateNewsImages($conn, $ref,$fileNameNew,$fileNameNew1){
     $news = selectNewsFromId($conn,$ref);
-    dump($news); 
+    
       $s=$news['news_image'];
       $arr = explode(",", $s);
         foreach ($arr as $value) {
@@ -170,9 +175,35 @@ function updateNewsImages($conn, $ref,$fileNameNew,$fileNameNew1){
     }
     return false;
 }
+function updateWriterImage($conn, $ref, $fileNameNew1){
+    $news = selectNewsFromId($conn,$ref);
+    
+    if (!unlink('../newsWriterImage/'.$news['news_writerImage'])) {  
+        echo ("$file_pointer cannot be deleted due to an error");  
+    }  
+    else {  
+        echo ("$file_pointer has been deleted");  
+    }
+    $stmtupdate=$conn->prepare("UPDATE tblnews SET news_writerImage=:news_writerImage WHERE news_id=:news_id");
+    $stmtupdate->bindParam(':news_writerImage', $fileNameNew1);
+    $stmtupdate->bindParam(':news_id', $ref);
+    if ($stmtupdate->execute()) {
+        return true;
+    }
+    return false;
+}
 function deleteNews($conn, $newsId){
+    
+    $stmtdelete=$conn->prepare("DELETE FROM tblnews WHERE news_id=:news_id");
+    $stmtdelete->bindParam(':news_id', $newsId);
+    if ($stmtdelete->execute()) {
+        return true;
+    }
+    return false;
+}
+function deleteTrashNewsFromTrash($conn, $newsId){
     $news = selectNewsFromId($conn,$newsId);
-    dump($news); 
+     
       $s=$news['news_image'];
       $arr = explode(",", $s);
         foreach ($arr as $value) {
@@ -189,14 +220,6 @@ function deleteNews($conn, $newsId){
     else {  
         echo ("$file_pointer has been deleted");  
     }
-    $stmtdelete=$conn->prepare("DELETE FROM tblnews WHERE news_id=:news_id");
-    $stmtdelete->bindParam(':news_id', $newsId);
-    if ($stmtdelete->execute()) {
-        return true;
-    }
-    return false;
-}
-function deleteTrashNewsFromTrash($conn, $newsId){
     $stmtdelete=$conn->prepare("DELETE FROM tblnewstrash WHERE trash_id=:trash_id");
     $stmtdelete->bindParam(':trash_id', $newsId);
     if ($stmtdelete->execute()) {

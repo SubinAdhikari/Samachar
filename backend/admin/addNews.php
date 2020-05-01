@@ -5,7 +5,10 @@
   
 ?>
 <script>
+  $('.writerPP').hide();
+  
     function fetchCategoryId(categoryName){ 
+      
       
 dataString = 'categoryName='+categoryName; 
 
@@ -16,6 +19,23 @@ req.send();
 req.onreadystatechange=function(){
 if(req.readyState==4 && req.status==200){
     document.getElementById("categoryid").innerHTML=req.responseText;
+    simpleValue =  req.responseText;
+    varLen =simpleValue.substr(-10);
+    specificLen = varLen.charAt(0);
+    console.log(specificLen);
+    $('.writerPP').hide();
+    if (specificLen=='4') {
+       $('.writerPP').show();
+     // $('.newsPP').append("");
+                            
+                                    
+                                
+    }
+    
+    
+    
+    
+    
 }
 }; 
 
@@ -26,16 +46,16 @@ $.ajax({
       data: dataString,
       datatype : "json",
       success: function (response) {
-        console.log(response);
+        //console.log(response);
          var a = '<option value="">No Sub-Catagory Available</option>';        
         if (response==0) {
           $('#subCategory').html(a);
           $("#data").hide();
-          console.log(response);
+          //console.log(response);
                      
         }
         else{
-          console.log(response);
+          //console.log(response);
           $("#data").show();
           $('#subCategory').html(response);
        
@@ -156,14 +176,7 @@ if(req.readyState==4 && req.status==200){
                                     <input type="text" class="span6 " name="news_title" required />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Written By</label>
-                                <div class="controls">
-                                    <input type="text" class="span6 " name="news_writtenby" required />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
-                                </div>
-                            </div>   
+                            </div>  
                             <div class="control-group">
                                 <label class="control-label">News Category</label>
                                 <div class="controls">
@@ -190,6 +203,9 @@ if(req.readyState==4 && req.status==200){
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
+                            <div class="newsPP">
+                                
+                            </div>
                             <div class="control-group">
                                 <label class="control-label">News Sub-Catagory</label>
                                 <div class="controls">
@@ -204,6 +220,20 @@ if(req.readyState==4 && req.status==200){
                                     </select>
                                     <!-- <input type="text"  class="span6 " name="category_id" id="categoryid"   /> -->
                                     <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Written By</label>
+                                <div class="controls">
+                                    <input type="text" class="span6 " name="news_writtenby" required />
+                                    <!-- <span class="help-inline">Some hint here</span> -->
+                                </div>
+                            </div> 
+                            <div class="control-group writerPP">
+                                <label class="control-label">Writer Photo</label>
+                                <div class="controls">
+                                    <input type="file" class="span6 " name="news_writerImage"/>
+                                    
                                 </div>
                             </div>
                             <div class="control-group">
@@ -346,7 +376,7 @@ if(isset($_POST['addNews'])){
       $fileNameNew = uniqid('',true).".".$fileActualExt;
       $fileNamesInString.=$fileNameNew.","; 
       $path='../newsImage/'.$fileNameNew;
-      chmod('uploads/',0777);
+  //    chmod('uploads/',0777);
       move_uploaded_file($tmp_name, $path);
     }
     $fileNamesInString = rtrim($fileNamesInString, ",");
@@ -358,10 +388,20 @@ if(isset($_POST['addNews'])){
     $fileActualExt1 = strtolower(end($fileExt1));
     $fileNameNew1 = uniqid('',true).".".$fileActualExt1;
     $path='../newsFeaturedImage/'.$fileNameNew1;
-    chmod('uploads/',0777);
+   // chmod('uploads/',0777);
     move_uploaded_file($tmp_name1, $path);
+
+    
+    $fileName2 = $_FILES['news_writerImage']['name'];
+    $tmp_name2=$_FILES['news_writerImage']['tmp_name'];
+    $fileExt2 = explode('.', $fileName2);
+    $fileActualExt2 = strtolower(end($fileExt2));
+    $fileNameNew2 = uniqid('',true).".".$fileActualExt2;
+    $path='../newsWriterImage/'.$fileNameNew1;
+    chmod('../newsWriterImage/',0777);
+    move_uploaded_file($tmp_name2, $path);    
 // print_r($_POST);
-if(insertNews($conn, $_POST, $fileNamesInString, $fileNameNew1)){
+if(insertNews($conn, $_POST, $fileNamesInString, $fileNameNew1, $fileNameNew2)){
     echo '<script language="javascript">';
     echo '</script>';
     showMsg('News Created Successfully');

@@ -146,7 +146,7 @@
                                    ?>
                                      <img src="../newsImage/<?php echo $value; ?>" alt="News Image" width="200px"/><hr/>
                                    <?php } ?>
-                                </td>
+                                </td> 
                                 <td><?php 
                                   $featuredImg=$news['news_featuredimage'];
                                 
@@ -171,6 +171,12 @@
                                 <td class="hidden-phone"><a href="editNews.php?ref=<?php echo $news['news_id'];?>" class="btn btn-xs btn-info">
                                   Edit News
                                 </a>
+                                <?php if($news['category_id']=='4'){?>
+                                  <hr>
+                                <a href="editWriterImage.php?ref=<?php echo $news['news_id'];?>" class="btn btn-xs btn-info">
+                                  Change Writer Image
+                                </a>
+                                <?php } ?>
                                 <hr>
                                 <a href="editNewsImages.php?ref=<?php echo $news['news_id'];?>" class="btn btn-xs btn-info">
                                   Change News Images

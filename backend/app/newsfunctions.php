@@ -235,6 +235,15 @@ function deleteTrashNewsFromTrash($conn, $newsId){
     }
     return false;
 }
+function deleteTrashNewsFromTrashNotPhoto($conn, $newsId){
+    
+    $stmtdelete=$conn->prepare("DELETE FROM tblnewstrash WHERE trash_id=:trash_id");
+    $stmtdelete->bindParam(':trash_id', $newsId);
+    if ($stmtdelete->execute()) {
+        return true;
+    }
+    return false;
+}
 
 function UpdateNewsVisitPage($conn,$data,$ref){
     $stmtupdate=$conn->prepare("UPDATE tblnews SET news_visit=:news_visit  WHERE news_id=:news_id");

@@ -4,7 +4,7 @@ $ref=$_GET['ref'];
 $data=getDeletedNewsByID($conn,$ref);
 // print_r($data);
 if(restoreDeletedNews($conn,$data)){
-    deleteTrashNewsFromTrash($conn,$ref);
+    deleteTrashNewsFromTrashNotPhoto($conn,$ref);
     redirection('manageNews.php');
 }
 ?>

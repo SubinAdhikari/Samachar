@@ -55,7 +55,7 @@ $decryptID=decryptionFunction($category_id);
 		?>
 		<div class="how2 how2-cl4 flex-s-c">
 		<h3 class="f1-m-2 cl3 tab01-title" style="font-size:20px">
-					<?php echo '<span><strong>'.$key['category_name'].'को सबै समाचार </strong><span>';?>		
+					<?php echo '<span><strong>'.$key['category_name'].'</strong><span>';?>		
 				</h3>
 							</div>
 			<?php }?>

@@ -279,6 +279,21 @@ foreach($forthLastNews as $key){
 						foreach($getallcategory as $key){
 						?>
 						<!-- National -->
+
+
+
+<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
+<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/staticAdvertisment.gif" alt="IMG">
+							</a>
+						</div>
+						<br>
+<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME END -->
+
+
+
 						<div class="tab01 p-b-20">
 							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
@@ -656,7 +671,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 	</div></center>
 	<?php } ?>
 
-	<!-- Latest -->
+	<!-- Latest Article-->
 <section class="bg0 p-t-60 p-b-35" style="width:95%;margin-left:35px">
 		<div>
 			<div class="row justify-content-center">

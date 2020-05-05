@@ -70,7 +70,7 @@ include "layouts/header.php";
 		?>
 	<div class="how2 how2-cl4 flex-s-c">
 		<h3 class="f1-m-2 cl3 tab01-title" style="font-size:20px">
-			<?php echo '<span><strong>'.$key.'को सबै समाचार </strong><span>'; ?>
+			<?php echo '<span><strong>'.$key.'</strong><span>'; ?>
 		</h2>
 	</div>
 <?php }?>

@@ -275,20 +275,28 @@ foreach($forthLastNews as $key){
 				<div class="col-md-10 col-lg-8">
 					<div class="p-b-20">
 						<?php 
+						 $specificCategoryArray = ['above_category1st','above_category2nd','above_category3rd','above_category4th','above_category5th','above_category6th','above_category7th','above_category8th','above_category9th','above_category10th','above_category11th'];
+ 						$specificCategoryArrayCount = 0;
 						$getallcategory=selectAllCategory($conn);
 						foreach($getallcategory as $key){
 						?>
 						<!-- National -->
 
-
-
 <!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
+<?php 
+						$areaPurposeOfCategory ='front_page';
+						$specificArea = $specificCategoryArray[$specificCategoryArrayCount];
+						$specificCategoryArrayCount++;
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$areaPurposeOfCategory,$specificArea) ;
+								
+								foreach($advertisement1 as $key1){?>
 <center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">
-								<img class="max-w-full" src="../backend/advertisementImage/staticAdvertisment.gif" alt="IMG">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key1['advertisement_image']; ?>" alt="IMG">
 							</a>
 						</div>
+						<?php  }	?>
 						<br>
 <!-- ADVERTESMENT ABOVE ALL CATEGORY NAME END -->
 
@@ -676,59 +684,9 @@ $encryptedURL=encryptionFunction($key['category_id']);
 		<div>
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8 p-b-20">
-					<div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
-						<h3 class="f1-m-2 cl3 tab01-title">
-							<span>Latest Articles</span>
-						</h3>
-					</div>
+					
 
-					<div class="row p-t-35">
-					<?php 
-							$LatestSixArticle=selectLatestArticle($conn);
-							// print_r($LatestSixArticle);
-							foreach($LatestSixArticle as $key){
-								$encryptedURL=encryptionFunction($key['article_id']);
-							?>
-						<div class="col-sm-6 p-r-25 p-r-15-sr991" id="grow">
-							<!-- Item latest -->
-								
-							<div class="m-b-45">
-								<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="wrap-pic-w hov1 trans-03">
-									<img src="../backend/articleFeaturedImage/<?php echo $key['article_featuredimage']; ?>" class="card-img-top" alt="IMG">
-								</a>
-
-								<div class="p-t-16">
-									<h5 class="p-b-5">
-										<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-m-3 cl2 hov-cl10 trans-03">
-											<?php echo $key['article_title']; ?>
-										</a>
-									</h5>
-
-									<span class="cl8">
-										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											<?php echo $key['article_author']; ?>
-										</a>
-
-										<span class="f1-s-3 m-rl-3">
-											-
-										</span>
-
-										<span class="f1-s-3">
-											<?php
-												$datetime = $key['created_at'];
-												$time_elapsed = timeAgo($datetime);
-										 echo $time_elapsed; ?>
-											
-										</span>
-									</span>
-								</div>
-							</div>
-							
-						</div>
-						<?php } ?>
-
-						
-					</div>
+					<!-- previously latest article -->
 				</div>
 
 				<div class="col-md-10 col-lg-4">

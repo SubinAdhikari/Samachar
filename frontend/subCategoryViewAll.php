@@ -124,10 +124,29 @@ include "layouts/header.php";
 				<div class="col-md-10 col-lg-8">
 					<div class="p-b-20">
 						<?php 
+						$specificCategoryArray = ['above_category1st','above_category2nd','above_category3rd','above_category4th','above_category5th','above_category6th','above_category7th','above_category8th','above_category9th','above_category10th','above_category11th'];
+ 						$specificCategoryArrayCount = 0;
 						$getallcategory=selectAllCategory($conn);
 						foreach($getallcategory as $key){
 						?>
 						<!-- National -->
+						<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
+<?php 
+						$areaPurposeOfCategory ='front_page';
+						$specificArea = $specificCategoryArray[$specificCategoryArrayCount];
+						$specificCategoryArrayCount++;
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$areaPurposeOfCategory,$specificArea) ;
+								
+								foreach($advertisement1 as $key1){?>
+<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key1['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php  }	?>
+						<br>
+<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME END -->						
 						<div class="tab01 p-b-20">
 							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->

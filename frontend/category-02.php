@@ -123,7 +123,9 @@ $decryptID=decryptionFunction($category_id);
 <?php 
 						$areaPurposeOfCategory ='front_page';
 						$specificArea = $key['category_name'];
-						
+						if (strcasecmp($specificArea, 'कूटनीति')=='-192') {
+							$specificArea = 'कूटनीति';
+						}
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$areaPurposeOfCategory,$specificArea) ;
 								
 								foreach($advertisement1 as $key1){?>

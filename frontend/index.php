@@ -284,11 +284,20 @@ foreach($forthLastNews as $key){
 <!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
 <?php 
 						$areaPurposeOfCategory ='front_page';
+						
 						$specificArea = $key['category_name'];
+						if (strcasecmp($specificArea, 'कूटनीति')=='-192') {
+							$specificArea = 'कूटनीति';
+						}
+						
+						
 						
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$areaPurposeOfCategory,$specificArea) ;
+
 								
-								foreach($advertisement1 as $key1){?>
+								foreach($advertisement1 as $key1){
+									
+									?>
 <center><span style="color:grey;font-size:9px">Advertisment</span></center>
 						<div class="flex-c-s p-t-8" style="border:1px black solid;">
 							<a href="#">

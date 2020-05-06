@@ -125,8 +125,7 @@ if(isset($_POST['searchBtn'])){
 			<div class="col-md-10 col-lg-8">
 					<div class="p-b-20">
 						<?php 
-						$specificCategoryArray = ['above_category1st','above_category2nd','above_category3rd','above_category4th','above_category5th','above_category6th','above_category7th','above_category8th','above_category9th','above_category10th','above_category11th'];
- 						$specificCategoryArrayCount = 0;
+						
 						$getallcategory=selectAllCategory($conn);
 						foreach($getallcategory as $key){
 						?>
@@ -134,8 +133,8 @@ if(isset($_POST['searchBtn'])){
 						<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
 <?php 
 						$areaPurposeOfCategory ='front_page';
-						$specificArea = $specificCategoryArray[$specificCategoryArrayCount];
-						$specificCategoryArrayCount++;
+						$specificArea = $key['category_name'];
+						
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$areaPurposeOfCategory,$specificArea) ;
 								
 								foreach($advertisement1 as $key1){?>

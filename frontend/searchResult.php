@@ -148,7 +148,7 @@ if(isset($_POST['searchBtn'])){
 						<?php  }	?>
 						<br>
 <!-- ADVERTESMENT ABOVE ALL CATEGORY NAME END -->							
-						<div class="tab01 p-b-20">
+<div class="tab01 p-b-20">
 							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
 								<h1 class="f1-m-2 cl19 tab01-title" style="font-size:30px; color:#027ab5!important;">
@@ -168,17 +168,17 @@ if(isset($_POST['searchBtn'])){
 										</ul>
 									</li>
 								</ul>
-								
-								<?php
+								<?php 
 $encryptedURL=encryptionFunction($key['category_id']); 
 ?>
+
 								<!--  -->
 								<a href="category-02.php?ref=<?php echo $encryptedURL; ?>" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
 									View all
 									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
 								</a>
 							</div>
-								
+								<br>
 							<!-- Tab panes -->
 							<div class="card-group">
 										<?php
@@ -188,7 +188,6 @@ $encryptedURL=encryptionFunction($key['category_id']);
 									foreach($getNews as $key){
 										$encryptedURL=encryptionFunction($key['news_id']);
 									?>
-									<div class="col-sm-3">
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
 												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
 												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
@@ -201,13 +200,11 @@ $encryptedURL=encryptionFunction($key['category_id']);
 															echo $time_elapsed;?></small></p>
 												    </div>
 												  </div>
-												  </div>
 												  <?php } ?>
 										</div>
 										
 						</div>
-						<?php } ?>
-						
+						<?php } ?>					
 					</div>
 				</div>
 

@@ -53,17 +53,62 @@ $decryptID=decryptionFunction($category_id);
 	$categoryName=getCategoryDetailByCategoryID($conn,$decryptID);
 	foreach($categoryName as $key){
 		?>
-		<div class="how2 how2-cl4 flex-s-c">
-		<h3 class="f1-m-2 cl3 tab01-title" style="font-size:20px">
+		<!-- <div class="how2 how2-cl4 flex-s-c"> -->
+		<center><h3 class="f1-m-2 cl3 tab01-title" style="font-size:35px">
 					<?php echo '<span><strong>'.$key['category_name'].'</strong><span>';?>		
-				</h3>
+				</h3></center>
 							</div>
 			<?php }?>
-				<div class="card-group">
+
+
+
+
+
+			<?php 
+	$subcategoryName=selectSubcategoryFromCategoryId($conn,$decryptID);
+	foreach($subcategoryName as $key){
+		?>
+		<div class="how2 how2-cl4 flex-s-c">
+		<h3 class="f1-m-2 cl3 tab01-title" style="font-size:20px">
+					<?php echo '<span><strong>'.$key['subcategory_name'].'</strong><span>';?>		
+				</h3>
+							</div>
+							<div class="card-group">
+				
+							<?php 
+  											$SubcategoryNews=getAllNewsBySubCategoryId($conn,$key['subcategory_id']);
+  
+									// print_r($getNews);
+												 foreach($SubcategoryNews as $key){ 
+											$encryptedURL=encryptionFunction($key['news_id']);
+									?>
+												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
+												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
+												</a>
+												    <div class="card-body">
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
+															<?php $datetime = $key['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+												  </div>
+												  <?php } ?>
+												  
+										</div>
+			<?php }?>
+			<!-- </div> -->
+
+
+
+
+
+				<!-- <div class="card-group">
 				
 										<?php
  										 $category=getAllNewsByCategoryId($conn,$decryptID);
-									// print_r($getNews);
+									
 												 foreach($category as $key){ 
 											$encryptedURL=encryptionFunction($key['news_id']);
 									?>
@@ -83,7 +128,7 @@ $decryptID=decryptionFunction($category_id);
 												  </div>
 												  <?php } ?>
 												  
-										</div>
+										</div> -->
 										
 	</section>
 	<hr>

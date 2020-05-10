@@ -6,7 +6,7 @@ include "layouts/header.php";
 
 
 	<!-- Breadcrumb -->
-	<?php 
+	<!-- <?php 
     $subcategoryName=SelectSubCategoryNameFromId($conn,$decryptID);
     // print_r($subcategoryName);
 	foreach($subcategoryName as $key){
@@ -24,10 +24,10 @@ include "layouts/header.php";
 			</div>
 			<?php } ?>
 		</div>
-	</div></center>
+	</div></center> -->
 
 	<!-- Page heading -->
-	<?php 
+	<!-- <?php 
 	$subcategoryName=SelectSubCategoryNameFromId($conn,$decryptID);
     // print_r($subcategoryName);
 	foreach($subcategoryName as $key){
@@ -37,7 +37,7 @@ include "layouts/header.php";
 			<?php echo $key; ?>
 		</h2>
 	</div>
-<?php }?>
+<?php }?> -->
 
 <center><div style="width:95%">
 		<?php
@@ -56,39 +56,47 @@ include "layouts/header.php";
 					foreach($advertisement1 as $key){
 				?>
 											<center><span style="color:grey;font-size:9px">Advertisment</span></center>
-					<a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a><hr>
+					<a href="#"><img width="95%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>"   alt=""></a>
 				<?php } ?>
 	</div></center>	
 			
 	<!-- Feature post -->
-	<?php
-  $SubcategoryNews=getAllNewsBySubCategoryId($conn,$decryptID);
+
+	<section class="bg0 p-t-70" style="width:95%;margin-left:35px">
+	<?php 
+	$subcategoryName=SelectSubCategoryNameFromId($conn,$decryptID);
+    // print_r($subcategoryName);
+	foreach($subcategoryName as $key){
+		?>
+	<div class="how2 how2-cl4 flex-s-c">
+		<h3 class="f1-m-2 cl3 tab01-title" style="font-size:20px">
+			<?php echo '<span><strong>'.$key.'</strong><span>'; ?>
+		</h2>
+	</div>
+<?php }?>
+		<div class="card-group">
+										<?php 
+  											$SubcategoryNews=getAllNewsBySubCategoryId($conn,$decryptID);
   
-  ?>
-	<section class="bg0">
-		<div style="width:95%;margin-left:35px">
-			
-			<div class="row m-rl--1">
-<?php foreach($SubcategoryNews as $key){ 
-	$encryptedURL=encryptionFunction($key['news_id']);
-	?>
-				<div class="col-sm-6 col-md-3 p-rl-1 p-b-2">
-					<div class="bg-img1 size-a-14 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
-
-						<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-
-							<h3 class="how1-child2 m-t-14">
-								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
-									<?php echo $key['news_title']; ?>
-								</a>
-							</h3>
-						</div>
-					</div>
-				</div>
-			<?php }?>
-
-			</div>
-		</div>
+									// print_r($getNews);
+												 foreach($SubcategoryNews as $key){ 
+											$encryptedURL=encryptionFunction($key['news_id']);
+									?>
+												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
+												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
+												</a>
+												    <div class="card-body">
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
+															<?php $datetime = $key['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+												  </div>
+												  <?php } ?>
+										</div></section>
+	
 	</section>
 		<hr>
 	<center><div style="width:95%">
@@ -116,11 +124,31 @@ include "layouts/header.php";
 				<div class="col-md-10 col-lg-8">
 					<div class="p-b-20">
 						<?php 
+						
 						$getallcategory=selectAllCategory($conn);
 						foreach($getallcategory as $key){
 						?>
 						<!-- National -->
-						<div class="tab01 p-b-20">
+						<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
+<?php 
+						$areaPurposeOfCategory ='front_page';
+						$specificArea = $key['category_name'];
+						if (strcasecmp($specificArea, 'कूटनीति')=='-192') {
+							$specificArea = 'कूटनीति';
+						}
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$areaPurposeOfCategory,$specificArea) ;
+								
+								foreach($advertisement1 as $key1){?>
+<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key1['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php  }	?>
+						<br>
+<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME END -->						
+<div class="tab01 p-b-20">
 							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
 								<h1 class="f1-m-2 cl19 tab01-title" style="font-size:30px; color:#027ab5!important;">
@@ -140,9 +168,9 @@ include "layouts/header.php";
 										</ul>
 									</li>
 								</ul>
-								<?php
+								<?php 
 $encryptedURL=encryptionFunction($key['category_id']); 
-?>				
+?>
 
 								<!--  -->
 								<a href="category-02.php?ref=<?php echo $encryptedURL; ?>" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
@@ -150,7 +178,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
 								</a>
 							</div>
-								
+								<br>
 							<!-- Tab panes -->
 							<div class="card-group">
 										<?php
@@ -160,7 +188,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 									foreach($getNews as $key){
 										$encryptedURL=encryptionFunction($key['news_id']);
 									?>
-												  <div class="card" style="margin:3px;border-radius:20px">
+												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
 												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
 												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
@@ -205,7 +233,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Popular News
+									<span>Popular News<span>
 								</h3>
 							</div>
 							<?php 
@@ -278,7 +306,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-t-50">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Stay Connected
+									<span>Stay Connected<span>
 								</h3>
 							</div>
 

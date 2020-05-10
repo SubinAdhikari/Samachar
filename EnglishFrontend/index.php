@@ -36,20 +36,20 @@ include "layouts/header.php"
 		</div> -->
 		<nav aria-label="breadcrumb" >
 			  <ol class="breadcrumb" style="margin-left:-120px;width:115%;height: 45px">
-			    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;padding-left:0px;margin-top:5px ">TRENDING NOW : </span></li></strong>
+			    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;padding-left:100px;margin-top:5px ">TRENDING NOW : </span></li></strong>
 			    <?php 					$trendings=GetTrendingTopics($conn);
 			                            //dump($adminUsers);
 			                            foreach ($trendings as $key => $trending){ ?>
-			    <a href="searchResult.php?ref=<?php echo $trending['trending_topic'];?>"><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;margin-top:5px">#<?php echo $trending['trending_topic']; ?> </span></li></a>
+			    <a href="searchResult.php?ref=<?php echo $trending['trending_topic'];?>"><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:24px;margin-top:5px">#<?php echo $trending['trending_topic']; ?> </span></li></a>
 				<?php }  ?>
-				<form method="POST" action="searchResult.php">
-			<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6" style="width:140px!important;height:30px!important;margin-top:-3px">
+				<!-- <form method="POST" action="searchResult.php">
+			<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6" style="width:120px!important;height:30px!important;margin-top:-3px">
 				<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
 				<button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03" name="searchBtn">
 					<i class="zmdi zmdi-search"></i>
 				</button>
 			</div>
-			</form>
+			</form> -->
 			  </ol> 
 		</nav>
 	</div>
@@ -275,10 +275,41 @@ foreach($forthLastNews as $key){
 				<div class="col-md-10 col-lg-8">
 					<div class="p-b-20">
 						<?php 
+ 						
 						$getallcategory=selectAllCategory($conn);
 						foreach($getallcategory as $key){
 						?>
 						<!-- National -->
+
+<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
+<?php 
+						$areaPurposeOfCategory ='front_page';
+						
+						$specificArea = $key['category_name'];
+						if (strcasecmp($specificArea, 'कूटनीति')=='-192') {
+							$specificArea = 'कूटनीति';
+						}
+						
+						
+						
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$areaPurposeOfCategory,$specificArea) ;
+
+								
+								foreach($advertisement1 as $key1){
+									
+									?>
+<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key1['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php  }	?>
+						<br>
+<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME END -->
+
+
+
 						<div class="tab01 p-b-20">
 							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
@@ -319,7 +350,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 									foreach($getNews as $key){
 										$encryptedURL=encryptionFunction($key['news_id']);
 									?>
-												  <div class="card" style="margin:3px;border-radius:20px">
+												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
 												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
 												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
@@ -346,7 +377,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Popular News
+									<span>Popular News</span>
 								</h3>
 							</div>
 							<?php 
@@ -399,6 +430,16 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							}?>
 							</ul>
 						</div> 
+				<div class="p-b-30">
+					<div id="erscrt2">
+					
+				<iframe src="https://www.ashesh.com.np/forex/widget2.php?api=792047j282" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%; height:400px; border-radius:5px;" allowtransparency="true">
+					</iframe><br><span style="text-align:left">© <a href="https://www.ashesh.com.np/forex/" title="Forex Nepal for Nepalese Rupee" target="_top" style="text-decoration:none;">Forex Nepal</a></span>
+						
+           			</div>
+<!-- Simple Currency Rates Table END -->
+<!-- Simple Currency Rates Table END -->
+				</div>
 
 						<!-- Fisrt Side Advertisement -->
 						<?php 
@@ -435,7 +476,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-t-50">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Stay Connected
+									<span>Stay Connected<span>
 								</h3>
 							</div>
 
@@ -619,6 +660,9 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							</a>
 						</div>
 						<?php }	?>
+						<br>
+					
+						</div> 
 
 
 					</div>
@@ -643,64 +687,14 @@ $encryptedURL=encryptionFunction($key['category_id']);
 	</div></center>
 	<?php } ?>
 
-	<!-- Latest -->
+	<!-- Latest Article-->
 <section class="bg0 p-t-60 p-b-35" style="width:95%;margin-left:35px">
 		<div>
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8 p-b-20">
-					<div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
-						<h3 class="f1-m-2 cl3 tab01-title">
-							Latest Articles
-						</h3>
-					</div>
+					
 
-					<div class="row p-t-35">
-					<?php 
-							$LatestSixArticle=selectLatestArticle($conn);
-							// print_r($LatestSixArticle);
-							foreach($LatestSixArticle as $key){
-								$encryptedURL=encryptionFunction($key['article_id']);
-							?>
-						<div class="col-sm-6 p-r-25 p-r-15-sr991">
-							<!-- Item latest -->
-								
-							<div class="m-b-45">
-								<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="wrap-pic-w hov1 trans-03">
-									<img src="../backend/articleFeaturedImage/<?php echo $key['article_featuredimage']; ?>" class="card-img-top" alt="IMG">
-								</a>
-
-								<div class="p-t-16">
-									<h5 class="p-b-5">
-										<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-m-3 cl2 hov-cl10 trans-03">
-											<?php echo $key['article_title']; ?>
-										</a>
-									</h5>
-
-									<span class="cl8">
-										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											<?php echo $key['article_author']; ?>
-										</a>
-
-										<span class="f1-s-3 m-rl-3">
-											-
-										</span>
-
-										<span class="f1-s-3">
-											<?php
-												$datetime = $key['created_at'];
-												$time_elapsed = timeAgo($datetime);
-										 echo $time_elapsed; ?>
-											
-										</span>
-									</span>
-								</div>
-							</div>
-							
-						</div>
-						<?php } ?>
-
-						
-					</div>
+					<!-- previously latest article -->
 				</div>
 
 				<div class="col-md-10 col-lg-4">
@@ -769,7 +763,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-b-55">
 							<div class="how2 how2-cl4 flex-s-c m-b-30">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Tags
+									<span>Tags</span>
 								</h3>
 							</div>
 
@@ -786,6 +780,7 @@ foreach($result as $key){
 							</div>	
 							
 						</div>
+
 						
 					</div>
 				</div>
@@ -830,71 +825,3 @@ foreach($result as $key){
 
 </body>
 </html>
-<?php
-// function timeAgo($time_ago)
-// {
-//     $time_ago = strtotime($time_ago);
-//     $cur_time   = time();
-//     $time_elapsed   = $cur_time - $time_ago;
-//     $seconds    = $time_elapsed ;
-//     $minutes    = round($time_elapsed / 60 );
-//     $hours      = round($time_elapsed / 3600);
-//     $days       = round($time_elapsed / 86400 );
-//     $weeks      = round($time_elapsed / 604800);
-//     $months     = round($time_elapsed / 2600640 );
-//     $years      = round($time_elapsed / 31207680 );
-//     // Seconds
-//     if($seconds <= 60){
-//         return "Just Now";
-//     }
-//     //Minutes
-//     else if($minutes <=60){
-//         if($minutes==1){
-//             return "one minute ago";
-//         }
-//         else{
-//             return $minutes." minutes ago";
-//         }
-//     }
-//     //Hours
-//     else if($hours <=24){
-//         if($hours==1){
-//             return "an hour ago";
-//         }else{
-//             return $hours." hrs ago";
-//         }
-//     }
-//     //Days
-//     else if($days <= 7){
-//         if($days==1){
-//             return "yesterday";
-//         }else{
-//             return $days." days ago";
-//         }
-//     }
-//     //Weeks
-//     else if($weeks <= 4.3){
-//         if($weeks==1){
-//             return "a week ago";
-//         }else{
-//             return $weeks." weeks ago";
-//         }
-//     }
-//     //Months
-//     else if($months <=12){
-//         if($months==1){
-//             return "a month ago";
-//         }else{
-//             return $months." months ago";
-//         }
-//     }
-//     //Years
-//     else{
-//         if($years==1){
-//             return "one year ago";
-//         }else{
-//             return $years." years ago";
-//         }
-//     }
-// }
-?>

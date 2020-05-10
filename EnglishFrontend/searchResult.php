@@ -5,6 +5,11 @@ if(isset($_POST['searchBtn'])){
     // print_r($_POST);
     $searchResult=RetriveAllNews($conn);
     // print_r($searchResult);
+}else{
+	$ref=$_GET['ref'];
+	$searchMsg=$ref;
+	$searchResult=RetriveAllNews($conn);
+
 }
 ?>
 
@@ -35,8 +40,35 @@ if(isset($_POST['searchBtn'])){
 		
 	<!-- Feature post -->
 	<section style="width:95%;margin-left:35px">
+	<div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
+						<h3 class="f1-m-2 cl3 tab01-title">
+							<span>Search Result</span>
+						</h3>
+					</div>
+		<div class="card-group">
+ 										 <?php foreach($searchResult as $key){ 
+                    					if(preg_match("/{$searchMsg}/i", $key['news_title'])) {
+                        // echo $key['news_id'];
+                        					$selectNewsById=searchNewsByID($conn,$key['news_id']);
+                    						foreach($selectNewsById as $key){
+											$encryptedURL=encryptionFunction($key['news_id']);
+                    ?>
+												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
+												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
+												</a>
+												    <div class="card-body">
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
+															<?php $datetime = $key['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+												  </div>
+												  <?php } } } ?>
+										</div>
 	
-		<div >
+		<!-- <div >
 			<div class="row m-rl--1">
 				<?php foreach($searchResult as $key){ 
                     if(preg_match("/{$searchMsg}/i", $key['news_title'])) {
@@ -62,7 +94,7 @@ if(isset($_POST['searchBtn'])){
 				</div>
 				<?php } } }?>
 			</div>
-		</div>
+		</div> -->
 	</section>
 	<!-- Advertisement -->
 
@@ -93,11 +125,32 @@ if(isset($_POST['searchBtn'])){
 			<div class="col-md-10 col-lg-8">
 					<div class="p-b-20">
 						<?php 
+						
 						$getallcategory=selectAllCategory($conn);
 						foreach($getallcategory as $key){
 						?>
 						<!-- National -->
-						<div class="tab01 p-b-20">
+						<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
+<?php 
+						$areaPurposeOfCategory ='front_page';
+						$specificArea = $key['category_name'];
+						if (strcasecmp($specificArea, 'कूटनीति')=='-192') {
+							$specificArea = 'कूटनीति';
+						}
+						
+								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$areaPurposeOfCategory,$specificArea) ;
+								
+								foreach($advertisement1 as $key1){?>
+<center><span style="color:grey;font-size:9px">Advertisment</span></center>
+						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+							<a href="#">
+								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key1['advertisement_image']; ?>" alt="IMG">
+							</a>
+						</div>
+						<?php  }	?>
+						<br>
+<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME END -->							
+<div class="tab01 p-b-20">
 							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
 								<h1 class="f1-m-2 cl19 tab01-title" style="font-size:30px; color:#027ab5!important;">
@@ -117,17 +170,17 @@ if(isset($_POST['searchBtn'])){
 										</ul>
 									</li>
 								</ul>
-								
-								<?php
+								<?php 
 $encryptedURL=encryptionFunction($key['category_id']); 
 ?>
+
 								<!--  -->
 								<a href="category-02.php?ref=<?php echo $encryptedURL; ?>" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
 									View all
 									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
 								</a>
 							</div>
-								
+								<br>
 							<!-- Tab panes -->
 							<div class="card-group">
 										<?php
@@ -137,7 +190,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 									foreach($getNews as $key){
 										$encryptedURL=encryptionFunction($key['news_id']);
 									?>
-												  <div class="card" style="margin:3px;border-radius:20px">
+												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
 												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
 												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
@@ -153,8 +206,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 										</div>
 										
 						</div>
-						<?php } ?>
-						
+						<?php } ?>					
 					</div>
 				</div>
 
@@ -164,7 +216,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Popular News
+									<span>Popular News</span>
 								</h3>
 							</div>
 							<?php 
@@ -235,7 +287,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<div class="p-t-50">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Stay Connected
+									<span>Stay Connected</span>
 								</h3>
 							</div>
 
@@ -388,59 +440,9 @@ $encryptedURL=encryptionFunction($key['category_id']);
 		<div >
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8 p-b-20">
-					<div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
-						<h3 class="f1-m-2 cl3 tab01-title">
-							Latest Articles
-						</h3>
-					</div>
+					<!-- Previously latest article -->
 
-					<div class="row p-t-35">
-					<?php 
-							$LatestSixArticle=selectLatestArticle($conn);
-							// print_r($LatestSixArticle);
-							foreach($LatestSixArticle as $key){
-								$encryptedURL=encryptionFunction($key['article_id']);
-							?>
-						<div class="col-sm-6 p-r-25 p-r-15-sr991">
-							<!-- Item latest -->
-								
-							<div class="m-b-45">
-								<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="wrap-pic-w hov1 trans-03">
-									<img src="../backend/articleFeaturedImage/<?php echo $key['article_featuredimage']; ?>" alt="IMG">
-								</a>
-
-								<div class="p-t-16">
-									<h5 class="p-b-5">
-										<a href="articleDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-m-3 cl2 hov-cl10 trans-03">
-											<?php echo $key['article_title']; ?>
-										</a>
-									</h5>
-
-									<span class="cl8">
-										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											<?php echo $key['article_author']; ?>
-										</a>
-
-										<span class="f1-s-3 m-rl-3">
-											-
-										</span>
-
-										<span class="f1-s-3">
-											<?php
-												$datetime = $key['created_at'];
-												$time_elapsed = timeAgo($datetime);
-										 		echo $time_elapsed; 
-											?>
-										</span>
-									</span>
-								</div>
-							</div>
-							
-						</div>
-						<?php } ?>
-
-						
-					</div>
+					
 				</div>
 
 				<div class="col-md-10 col-lg-4">

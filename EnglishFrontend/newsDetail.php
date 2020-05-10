@@ -4,7 +4,8 @@ $ref=$_GET['ref'];
 $decryptURL=decryptionFunction($ref);
 
 $result=selectNewsFromId($conn,$decryptURL);
-
+$categoryID=$result['category_id'];
+// echo $categoryID;
 //  print_r($result);
 // $user_ip=$_SERVER['REMOTE_ADDR'];
 
@@ -22,7 +23,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 
 
 	<!-- Breadcrumb -->
-	<center><div style="width:95%">
+	<!-- <center><div style="width:95%">
 		<div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
 			<div class="f2-s-1 p-r-30 m-tb-6">
 				<a href="index.html" class="breadcrumb-item f1-s-3 cl9">
@@ -45,7 +46,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 				</button>
 			</div>
 		</div>
-	</div></center>
+	</div></center> -->
 
 	<!-- Content -->
 	<section class="bg0 p-b-140 p-t-10" style="width:95%;margin-left:35px">
@@ -57,11 +58,11 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 						<?php $categoryNames=getCategoryNameByCategoryId($conn,$result['category_id']); 
                                 $categoryName = implode("", $categoryNames);  ?>
 						<div class="p-b-70">
-							<a href="#" class="f1-l-3 cl2 hov-cl10 trans-03 text-uppercase">
+							<!-- <a href="#" class="f1-l-3 cl2 hov-cl10 trans-03 text-uppercase">
 								<?php 
 
 								echo $categoryName; ?>
-							</a>
+							</a> -->
 
 							<h3 class="f1-l-3 cl2 p-b-16 p-t-33 respon2">
 								<?php echo $result['news_title']; ?>
@@ -105,7 +106,95 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 													<div id="fb-root"></div>
 						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 
-						<div class="fb-share-button" data-href="<?php $actual_link; ?>" data-layout="box_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+						<div class="fb-share-button" data-href="<?php $actual_link; ?>" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
+
+
+						
+
+
+
+
+
+
+						<?php
+							//$categoryName=getCategoryById($conn,$result['category_id']);
+							//print_r($categoryName);
+							if ($result['category_id']=='4') {
+								# code...
+							
+							$otherWritings=GetWritingsByAuthor($conn,$result['news_writtenby'],$result['news_id']);
+						?>	
+
+						<div class="p-b-30" style="margin-top:15px !important">
+							<div class="how2 how2-cl4 flex-s-c" style="width:100%">
+								<h3 class="f1-m-2 cl3 tab01-title">
+								<span style="font-size:20px">लेखकबाट थप </span>
+								<!-- <?php echo $result['news_writtenby']; ?> -->
+								</h3>
+							</div>
+							<!--Author Image  -->
+							
+							<center><img src="../backend/newsWriterImage/<?php echo $result['news_writerImage']; ?>" class="rounded-circle" style="width:100px" alt="Cinque Terre">
+							<h2><?php echo $result['news_writtenby']; ?></h2>
+							<h2>Occupation</h2>
+							</center>
+							
+							<ul class="p-t-35">
+								<?php foreach ($otherWritings as $otherWriting ) { 
+									$imageName = $otherWriting['news_featuredimage'];
+									$encryptedURL=encryptionFunction($otherWriting['news_id']);
+								?>
+								<li class="flex-wr-sb-s p-b-30">
+									<!-- <a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
+
+										<img src="../backend/newsFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
+									</a> -->
+
+									<div class="size-w-11" style="border-bottom:1px grey solid;width:100% !important">
+										<h6 class="p-b-4">
+											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-5 cl3 hov-cl10 trans-03" style="font-size:20px">
+											<ul>
+											     <li style="list-style-type: square;margin-left:20px"><?php echo $otherWriting['news_title']; ?></li>
+											</ul>
+											</a>
+										</h6>
+
+										<!-- <span class="cl8 txt-center p-b-24">
+											
+												<?php echo $otherWriting['news_writtenby']; ?>
+											
+
+											<span class="f1-s-3 m-rl-3">
+												-
+											</span>
+
+											<span class="f1-s-3">
+												<?php  
+
+												$comdatetime = $otherWriting['created_at'];
+												$time_elapsed = timeAgo($comdatetime);
+												echo $time_elapsed;?>
+											</span>
+										</span> -->
+									</div>
+								</li>
+								<?php
+							}?>
+							</ul>
+						</div>
+						<?php } ?>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -135,7 +224,8 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 								$arr = explode(",", $imageNames);
                                     foreach ($arr as $value) {
 								?>
-								<img  src="../backend/newsImage/<?php echo $value; ?>" height="300px" width="330px" alt="IMG">
+								<!-- <img  src="../backend/newsImage/<?php echo $value; ?>" height="300px" width="330px" alt="IMG"> -->
+								<img  src="../backend/newsImage/<?php echo $value; ?>" height="100%" width="100%" alt="IMG">
 
 								<?php }?>
 							</div>
@@ -367,6 +457,39 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 
 
 
+<center><section class="bg0">
+	<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+								<span>अन्य समाचार<span>
+								</h3>
+							</div>
+				<div class="card-group">
+										<?php
+ 										 $category=getAllNewsByCategoryId($conn,$categoryID);
+									// print_r($getNews);
+												 foreach($category as $key){ 
+											$encryptedURL=encryptionFunction($key['news_id']);
+									?>
+									<div class="col-sm-4">
+												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
+												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
+												</a>
+												    <div class="card-body">
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
+															<?php $datetime = $key['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+												  </div>
+												  </div>
+												  <?php } ?>
+										</div>
+										
+	</section></center>
+
+
 
 
 					</div>
@@ -376,63 +499,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 				<div class="col-md-10 col-lg-4 p-b-30">
 					<div class="p-l-10 p-rl-0-sr991 p-t-70">
 
-						<?php
-							//$categoryName=getCategoryById($conn,$result['category_id']);
-							//print_r($categoryName);
-							if ($result['category_id']=='4') {
-								# code...
-							
-							$otherWritings=GetWritingsByAuthor($conn,$result['news_writtenby'],$result['news_id']);
-						?>		
-						<div class="p-b-30">
-							<div class="how2 how2-cl4 flex-s-c">
-								<h3 class="f1-m-2 cl3 tab01-title">
-									Other Writings of <?php echo $result['news_writtenby']; ?>
-								</h3>
-							</div>
-							
-							<ul class="p-t-35">
-								<?php foreach ($otherWritings as $otherWriting ) { 
-									$imageName = $otherWriting['news_featuredimage'];
-									$encryptedURL=encryptionFunction($otherWriting['news_id']);
-								?>
-								<li class="flex-wr-sb-s p-b-30">
-									<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="size-w-10 wrap-pic-w hov1 trans-03">
-
-										<img src="../backend/newsFeaturedImage/<?php echo $imageName; ?>" alt="IMG">
-									</a>
-
-									<div class="size-w-11">
-										<h6 class="p-b-4">
-											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
-												<?php echo $otherWriting['news_title']; ?>
-											</a>
-										</h6>
-
-										<span class="cl8 txt-center p-b-24">
-											
-												<?php echo $otherWriting['news_writtenby']; ?>
-											
-
-											<span class="f1-s-3 m-rl-3">
-												-
-											</span>
-
-											<span class="f1-s-3">
-												<?php  
-
-												$comdatetime = $otherWriting['created_at'];
-												$time_elapsed = timeAgo($comdatetime);
-												echo $time_elapsed;?>
-											</span>
-										</span>
-									</div>
-								</li>
-								<?php
-							}?>
-							</ul>
-						</div>
-						<?php } ?>						
+												
 						
 						<!-- Side Advertisement -->
 						<?php 
@@ -468,7 +535,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 						<div class="p-b-30">
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Popular News
+									<span>Popular News</span>
 								</h3>
 							</div>
 							<?php
@@ -554,7 +621,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 						<div class="p-b-55">
 							<div class="how2 how2-cl4 flex-s-c m-b-30">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Tags
+									<span>Tags</span>
 								</h3>
 							</div>
 
@@ -617,6 +684,9 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 			</div>
 		</div>
 	</section>
+
+
+	
 
 	<!-- Footer -->
 	<?php 

@@ -103,13 +103,26 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 						?>
 
 
-													<div id="fb-root"></div>
+													<!-- <div id="fb-root"></div>
 						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 
-						<div class="fb-share-button" data-href="<?php $actual_link; ?>" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+						<div class="fb-share-button" data-href="<?php $actual_link; ?>" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> -->
 
 
+<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_40 a2a_default_style">
+<!-- <a class="a2a_dd" href="https://www.addtoany.com/share"></a> -->
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_whatsapp"></a>
+<a class="a2a_button_facebook_messenger"></a>
+<!-- <a class="a2a_button_viber"></a> -->
+<!-- <a class="a2a_button_google_gmail"></a> -->
+<a class="a2a_dd a2a_counter" href="https://www.addtoany.com/share"></a>
 
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
 						
 
 
@@ -321,7 +334,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 							</div> -->
 
 							<!-- Share -->
-							<div class="flex-s-s">
+							<!-- <div class="flex-s-s">
 								<span class="f1-s-12 cl5 p-t-1 m-r-15">
 									Share:
 								</span>
@@ -332,17 +345,8 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 									<div style="margin-left:5px">
 								<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>	
 									</div>
-									<!-- <a href="#" class="dis-block f1-s-13 cl0 bg-google borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
-										<i class="fab fa-google-plus-g m-r-7"></i>
-										Google+
-									</a>
-
-									<a href="#" class="dis-block f1-s-13 cl0 bg-pinterest borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
-										<i class="fab fa-pinterest-p m-r-7"></i>
-										Pinterest
-									</a> -->
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<?php
 								$area = 'news_detailpage';

@@ -508,29 +508,52 @@ $decryptID=decryptionFunction($category_id);
 						<div class="p-b-55">
 							<div class="how2 how2-cl4 flex-s-c m-b-35">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Featured Video
-								</h3>
+									<?php
+								$newsVideo = getAVideoNews($conn);
+								//dump($newsVideo);
+								foreach ($newsVideo as $key => $value) {
+									$videoName=$value['news_video'];
+									$encryptedURL=encryptionFunction($value['news_id']);
+									$encryptedSubCatUrl=encryptionFunction($value['subcategory_id']);
+									
+								
+								?>
+									Featured Video 
+								</h3><a href="subCategoryViewAll.php?ref=<?php echo $encryptedSubCatUrl; ?>"><span style="padding-left: 85px;color:grey; ">View More Videos</span></a>
 							</div>
 
 							<div>
+								
+
 								<div class="wrap-pic-w pos-relative">
-									<img src="images/video-01.jpg" alt="IMG">
+									<!-- <img src="images/video-01.jpg" alt="IMG">
 
 									<button class="s-full ab-t-l flex-c-c fs-32 cl0 hov-cl10 trans-03" data-toggle="modal" data-target="#modal-video-01">
 										<span class="fab fa-youtube"></span>
-									</button>
+									</button> -->
+									
+                                      <video width="398" height="250" controls>
+                                      <source src="../backend/newsVideos/<?php echo $videoName; ?>" type="video/mp4">
+                                      <!-- <source src="movie.ogg" type="video/ogg"> -->
+                                    Your browser does not support the video tag.
+                                    </video>
 								</div>
 
 								<div class="p-tb-16 p-rl-25 bg3">
 									<h5 class="p-b-5">
-										<a href="#" class="f1-m-3 cl0 hov-cl10 trans-03">
-											Featured Video Here
+										
+											<?php echo $value['news_title']; ?>
+										
+									</h5>
+									<h5 class="p-b-5">
+										<a href="videoNewsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-m-3 cl0 hov-cl10 trans-03">
+											See Detail About Video 
 										</a>
 									</h5>
 
 									<span class="cl15">
 										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											by John Alvarado
+											by <?php echo $value['news_writtenby']; ?>
 										</a>
 
 										<span class="f1-s-3 m-rl-3">
@@ -538,10 +561,13 @@ $decryptID=decryptionFunction($category_id);
 										</span>
 
 										<span class="f1-s-3">
-											Feb 18
+											<?php $datetime = $value['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?>
 										</span>
 									</span>
 								</div>
+							<?php } ?>
 							</div>	
 						</div>
 							

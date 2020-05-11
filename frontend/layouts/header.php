@@ -401,7 +401,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								<?php
 $encryptedURL=encryptionFunction($key['category_id']);  
 ?>
-								 <li class="nav-item dropdown">
+								 <li class="nav-item dropdown" onclick="location.href='category-02.php?ref=<?php echo $encryptedURL;  ?>';">
         						<a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:17px; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif">
 								<?php echo $key['category_name'];?>
         							</a>

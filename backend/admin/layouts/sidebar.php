@@ -78,19 +78,8 @@
                   <ul class="sub">
                       <li><a class="" href="addNews.php">Add News</a></li>
                       <li><a class="" href="manageNews.php">Manage News</a></li>
-                      <li><a class="" href="manageComments.php">Manage Comments</a></li>           
-                  </ul>
-              </li>
-              <li class="sub-menu">
-                  <a href="javascript:;" class="">
-                      <i class="icon-th"></i>
-                      <span>Article</span>
-                      <span class="arrow"></span>
-                  </a>
-                  <ul class="sub">
-                      <li><a class="" href="addArticle.php">Add Article</a></li>
-                      <li><a class="" href="manageArticle.php">Manage Article</a></li>
-                      <li><a class="" href="manageArticleComments.php">Manage Comments</a></li>                                           
+                      <li><a class="" href="addVideoNews.php">Add Video News</a></li>
+                      <li><a class="" href="manageVideoNews.php">Manage Video News</a></li>                            
                   </ul>
               </li>
               <li class="sub-menu">

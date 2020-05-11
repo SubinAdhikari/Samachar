@@ -473,14 +473,37 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 									// print_r($getNews);
 												 foreach($category as $key){ 
 											$encryptedURL=encryptionFunction($key['news_id']);
+											$Subdetail = SelectSubCategoryDetailsFromId($conn,$key['subcategory_id']);
 									?>
 									<div class="col-sm-4">
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
-												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												  	<?php if($key['subcategory_id']=='42'){
+												  		$videoName =$key['news_video'];
+													
+												?>
+												  	<a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												  		<video width="auto" height="250" controls class="card-img-top">
+                                      <source src="../backend/newsVideos/<?php echo $videoName; ?>" type="video/mp4">
+                                      <!-- <source src="movie.ogg" type="video/ogg"> -->
+                                    Your browser does not support the video tag.
+                                    </video>
+												    <!-- <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="..."> -->
+												</a>
+												    <div class="card-body">
+												      <h5><a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a>
+												      	</h5>
+												      	<?php }else{
+
+
+												      		?>
+												      		<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+
 												    <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
 												    <div class="card-body">
-												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a>
+
+												      <?php	} ?></h5>
 												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
 															<?php $datetime = $key['created_at']; 
 															$time_elapsed = timeAgo($datetime);

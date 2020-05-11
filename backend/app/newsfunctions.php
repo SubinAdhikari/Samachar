@@ -48,6 +48,60 @@ function insertNews($conn, $data, $fileNameNew, $fileNameNew1, $fileNameNew2){
 	}
 	return false;
 }
+function insertNewsWithVideo($conn, $data, $fileNameNew1,$videoName){
+    $num1=13;
+    $num2=42;
+    $stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_writtenby`,`news_title`,`category_id`,`subcategory_id`,`news_deails`,`news_video`,`news_featuredimage`,`is_active`,`top_news`) VALUES (:news_writtenby, :news_title, :category_id, :subcategory_id,:news_deails, :news_video,:news_featuredimage, :is_active, :top_news)");
+
+    $stmtinsert->bindParam(':news_writtenby', $data['news_writtenby']);
+    $stmtinsert->bindParam(':news_title', $data['news_title']);
+    $stmtinsert->bindParam(':category_id', $num1);
+    $stmtinsert->bindParam(':subcategory_id', $num2);
+    $stmtinsert->bindParam(':news_deails', $data['news_deails']);
+    $stmtinsert->bindParam(':news_video', $videoName);
+    $stmtinsert->bindParam(':news_featuredimage', $fileNameNew1);
+    $stmtinsert->bindParam(':is_active', $data['is_active']);
+    $stmtinsert->bindParam(':top_news', $data['top_news']);
+    
+    if ($stmtinsert->execute()) {
+        return true;
+    }
+    return false;
+}
+function updateVideoNews($conn, $data, $ref){
+    $stmtupdate=$conn->prepare("UPDATE tblnews SET news_writtenby=:news_writtenby, news_title=:news_title,  news_deails=:news_deails , is_active=:is_active,top_news=:top_news WHERE news_id=:news_id");
+
+    $stmtupdate->bindParam(':news_writtenby', $data['news_writtenby']);
+    $stmtupdate->bindParam(':news_title', $data['news_title']);
+    $stmtupdate->bindParam(':news_deails', $data['news_deails']);
+    $stmtupdate->bindParam(':top_news', $data['top_news']);
+    $stmtupdate->bindParam(':is_active', $data['is_active']);
+    $stmtupdate->bindParam(':news_id', $ref);
+    if ($stmtupdate->execute()) {
+        return true;
+    }
+    return false;
+}
+function updateVideo($conn, $data, $ref,$videoName){
+    $news = selectNewsFromId($conn,$ref);
+    // $file='../videoImage';
+    // chmod($file, 0777);
+    // $file1= '../newsVideos';
+    // chmod($file1, 0777);
+    if (!unlink('../newsVideos/'.$news['news_video'])) {  
+        echo ("file_pointer cannot be deleted due to an error");  
+    }  
+    else {  
+        echo ("file_pointer has been deleted");  
+    }
+    $stmtupdate=$conn->prepare("UPDATE tblnews SET news_video=:news_video WHERE news_id=:news_id");
+    $stmtupdate->bindParam(':news_video', $videoName);
+    $stmtupdate->bindParam(':news_id', $ref);
+    if ($stmtupdate->execute()) {
+        return true;
+    }
+    return false;
+}
 function insertNewsIntoTrash($conn, $data, $newsId){
 	$stmtinsert=$conn->prepare("INSERT INTO tblnewstrash (`news_id`,`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`news_image`,`news_featuredimage`,`is_active`,`top_news`,`news_writerImage`) VALUES (:news_id, :news_title, :news_writtenby, :category_id, :subcategory_id, :is_bannerNews, :news_deails, :news_url, :news_image, :news_featuredimage, :is_active, :top_news,:news_writerImage)");
     $stmtinsert->bindParam(':news_id', $data['news_id']);
@@ -99,7 +153,25 @@ function restoreDeletedNews($conn, $data){
 }
 
 function getAllNewsDetails($conn){
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews");
+    $value='';
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video=:news_video");
+    $stmtSelect->bindParam(':news_video',$value);
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
+}
+function getAllVideoNewsDetails($conn){
+    $value='';
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video<>:news_video"); 
+    $stmtSelect->bindParam(':news_video',$value);   
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
+}
+function getAVideoNews($conn){
+    $value='';
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video<>:news_video ORDER BY news_id DESC LIMIT 1"); 
+    $stmtSelect->bindParam(':news_video',$value);   
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
@@ -116,7 +188,6 @@ function getCategoryNameByCategoryId($conn,$categoryId){
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetch();
-
 }
 function getSubCategoryNameByCategoryId($conn,$subCategoryId){   
     $stmtSelect= $conn->prepare("SELECT subcategory_name FROM tblsubcategory WHERE subcategory_id=:subcategory_id");
@@ -203,6 +274,8 @@ function deleteNews($conn, $newsId){
     }
     return false;
 }
+
+
 function deleteTrashNewsFromTrash($conn, $newsId){
     $news = selectNewsFromId($conn,$newsId);
      

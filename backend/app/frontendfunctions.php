@@ -14,9 +14,11 @@ function selectSubcategoryFromCategoryId($conn,$key){
  	return $stmtSelect->fetchAll();
 }
 function GetLatestNews($conn){
+    $empty='';
     $value='no';
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews ORDER BY news_id DESC LIMIT 1 ");
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews AND news_video=:news_video ORDER BY news_id DESC LIMIT 1 ");
     $stmtSelect->bindParam(':is_bannerNews',$value);
+    $stmtSelect->bindParam(':news_video',$empty);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
@@ -30,38 +32,48 @@ function GetLatestThreeBannerNews($conn){
     return $stmtSelect->fetchAll();
 }   
 function GetSecondLastNews($conn){
+    $empty='';
     $value='no';
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews ORDER BY news_id DESC LIMIT 1,1 ");
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews AND news_video=:news_video ORDER BY news_id DESC LIMIT 1,1 ");
     $stmtSelect->bindParam(':is_bannerNews',$value);
+    $stmtSelect->bindParam(':news_video',$empty);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
 }
 function GetThirdLastNews($conn){
+    $empty='';
     $value='no';
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews ORDER BY news_id DESC LIMIT 2,1 ");
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews AND news_video=:news_video ORDER BY news_id DESC LIMIT 2,1 ");
     $stmtSelect->bindParam(':is_bannerNews',$value);
+    $stmtSelect->bindParam(':news_video',$empty);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
 }
 function GetForthLastNews($conn){
+    $empty='';
     $value='no';
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews ORDER BY news_id DESC LIMIT 3,1 ");
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE is_bannerNews=:is_bannerNews AND news_video=:news_video  ORDER BY news_id DESC LIMIT 3,1 ");
     $stmtSelect->bindParam(':is_bannerNews',$value);
+    $stmtSelect->bindParam(':news_video',$empty);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
 }
 function getNewsByCategoryID($conn,$key){
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE category_id=:category_id ORDER BY news_id DESC LIMIT 3");
+    $value = 42;
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE category_id=:category_id AND subcategory_id<>:subcategory_id ORDER BY news_id DESC LIMIT 3");
     $stmtSelect->bindParam(':category_id',$key);
+    $stmtSelect->bindParam(':subcategory_id',$value);
  	$stmtSelect->execute();
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
  	return $stmtSelect->fetchAll();
 }
 function GetLatestThreeNews($conn){
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews ORDER BY news_visit DESC LIMIT 5");
+    $empty='';
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video=:news_video ORDER BY news_visit DESC LIMIT 5");
+    $stmtSelect->bindParam(':news_video',$empty);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();

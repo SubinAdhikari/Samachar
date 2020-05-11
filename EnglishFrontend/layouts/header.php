@@ -403,7 +403,13 @@ $encryptedURL=encryptionFunction($key['category_id']);
 ?>
 								 <li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="category-02.php?ref=<?php echo $encryptedURL; ?>" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:12px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php
-								 if($key['category_name']=='वातावरण') { echo 'Atmospher';}
+								//echo strcmp($key['category_name'], 'कानुन');
+								 if($key['category_name']=='वातावरण') { echo 'Environment';}
+								 else if(strcasecmp($key['category_name'], 'बिचार')=='1') { 
+								 	echo 'Opinion';
+								}else if(strcasecmp($key['category_name'], 'कानुन')=='0') { 
+								 	echo 'Law';
+								}
 								else{echo $key['category_name'];}?>
         							</a>
 							<!-- <li> 

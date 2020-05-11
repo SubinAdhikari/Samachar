@@ -104,7 +104,9 @@ $(document).ready(function(){
 					<div class="left-topbar">
 						<span class="left-topbar-item flex-wr-s-c">
 							<span>
-									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=17&api=800144j563&" width="165" height="20"></iframe>
+									<!-- <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=17&api=800144j563&" width="165" height="20"></iframe> -->
+										<iframe src="http://free.timeanddate.com/clock/i7a2ixxb/n117/tlnp/fcfff/tc222/pc222/ftb/pd2/tt0/tw0/th2/ts1" frameborder="0" width="198" height="18"></iframe>
+
 							</span>
 						</span>
 

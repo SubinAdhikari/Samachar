@@ -98,7 +98,7 @@ $encryptedURL=encryptionFunction($key['news_id']);
 				<div>
 				<span style="color:black;font-size:20px;"><strong><center><?php echo $key['news_writtenby']; ?></center></strong></span>
 				</div>
-				<figure> <img width="100%" height="5%" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-bottom:5px #027ab5 solid;"> </figure> 
+				<figure> <img width="90%" height="500px" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-bottom:5px #027ab5 solid;"> </figure> 
 				<p>
 				<strong style="color:black">
 				<?php

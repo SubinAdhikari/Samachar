@@ -53,6 +53,7 @@ if(isset($_POST['searchBtn'])){
                     						foreach($selectNewsById as $key){
 											$encryptedURL=encryptionFunction($key['news_id']);
                     ?>
+									<div class="col-sm-3">
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
 												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
 												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
@@ -64,6 +65,7 @@ if(isset($_POST['searchBtn'])){
 															$time_elapsed = timeAgo($datetime);
 															echo $time_elapsed;?></small></p>
 												    </div>
+													</div>
 												  </div>
 												  <?php } } } ?>
 										</div>

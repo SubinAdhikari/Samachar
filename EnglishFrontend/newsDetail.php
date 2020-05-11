@@ -208,9 +208,9 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 								foreach($advertisement1 as $key){
 							?>
 														<center><span style="color:grey;font-size:9px">Advertisment</span></center>
-								<div style="height:90px;width:100%;border:1px black solid">
+								<div style="width:100%;border:1px black solid">
 						
-								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+								<a href="#"><img width="100%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
 
 								 alt="Below News Advertisement"></a>
 								</div>
@@ -238,9 +238,9 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 								foreach($advertisement1 as $key){
 							?>
 														<center><span style="color:grey;font-size:9px">Advertisment</span></center>
-								<div style="height:90px;width:100%;border:1px black solid">
+								<div style="width:100%;border:1px black solid">
 						
-								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+								<a href="#"><img width="100%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
 
 								 alt="Below News Advertisement"></a>
 								</div>
@@ -294,9 +294,9 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 								foreach($advertisement1 as $key){
 							?>
 														<center><span style="color:grey;font-size:9px">Advertisment</span></center>
-								<div style="height:90px;width:100%;border:1px black solid">
+								<div style="width:100%;border:1px black solid">
 						
-								<a href="#"><img width="100%" height="100%" src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
+								<a href="#"><img width="100%"  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" 
 
 								 alt="Below News Advertisement"></a>
 								</div>
@@ -473,7 +473,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 									<div class="col-sm-4">
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
 												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
-												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
+												    <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
 												    <div class="card-body">
 												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>

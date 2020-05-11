@@ -82,9 +82,10 @@ include "layouts/header.php";
 												 foreach($SubcategoryNews as $key){ 
 											$encryptedURL=encryptionFunction($key['news_id']);
 									?>
+																		<div class="col-sm-3">
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
 												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
-												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
+												    <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
 												    <div class="card-body">
 												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
@@ -94,6 +95,7 @@ include "layouts/header.php";
 															echo $time_elapsed;?></small></p>
 												    </div>
 												  </div>
+												 </div>
 												  <?php } ?>
 										</div></section>
 	
@@ -140,9 +142,9 @@ include "layouts/header.php";
 								
 								foreach($advertisement1 as $key1){?>
 <center><span style="color:grey;font-size:9px">Advertisment</span></center>
-						<div class="flex-c-s p-t-8" style="border:1px black solid;">
+						<div  style="border:1px black solid;width:95%">
 							<a href="#">
-								<img class="max-w-full" src="../backend/advertisementImage/<?php echo $key1['advertisement_image']; ?>" alt="IMG">
+								<img width="100%" src="../backend/advertisementImage/<?php echo $key1['advertisement_image']; ?>" alt="IMG">
 							</a>
 						</div>
 						<?php  }	?>
@@ -190,7 +192,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 									?>
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
 												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
-												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
+												    <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
 												    <div class="card-body">
 												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>

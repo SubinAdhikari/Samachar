@@ -1929,6 +1929,10 @@ a.breadcrumb-item:hover {
 .navbar{
   display: none !important;
 }
+#cardImage,#bannerImage{
+  height: 3% !important;
+  width: 100% !important;
+}
 }
 
 /* Grow A card CSS */

@@ -95,7 +95,7 @@ include "layouts/header.php";
 													
 												?>
 												  	<a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
-												  		<video width="auto" height="250" controls class="card-img-top">
+												  		<video width="auto" height="250" poster="../backend/videoImage/<?php echo $key['news_featuredimage'] ?>" controls class="card-img-top">
                                       <source src="../backend/newsVideos/<?php echo $videoName; ?>" type="video/mp4">
                                       <!-- <source src="movie.ogg" type="video/ogg"> -->
                                     Your browser does not support the video tag.

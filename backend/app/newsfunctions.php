@@ -168,9 +168,17 @@ function getAllVideoNewsDetails($conn){
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
 }
+function getVideoNewsSubCategoryId($conn){
+    $value='';
+    $stmtSelect = $conn->prepare("SELECT subcategory_id FROM tblnews WHERE news_video<>:news_video"); 
+    $stmtSelect->bindParam(':news_video',$value);   
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetch();
+}
 function getAVideoNews($conn){
     $value='';
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video<>:news_video ORDER BY news_id DESC LIMIT 1"); 
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video<>:news_video ORDER BY news_id DESC LIMIT 4"); 
     $stmtSelect->bindParam(':news_video',$value);   
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);

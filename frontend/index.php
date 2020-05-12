@@ -695,96 +695,100 @@ $encryptedURL=encryptionFunction($key['category_id']);
 				<div class="col-md-10 col-lg-8 p-b-20">
 					
 
+
+
+
+
+
+
+
+
+
+
+
+
+				<section style="width:95%">
+	<div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
+						<h3 class="f1-m-2 cl3 tab01-title">
+							<span>Video News</span>
+						</h3>
+						<?php
+						$subcategoryId=getVideoNewsSubCategoryId($conn);
+						foreach($subcategoryId as $key){
+							// echo $key;
+							$encryptedSubcategoryURL=encryptionFunction($key);
+						?>
+						<a href="subCategoryViewAll.php?ref=<?php echo $encryptedSubcategoryURL ?>"  class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
+									View all
+									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
+								</a>
+								<?php } ?>
+					</div>
+		<div class="card-group">
+		
+		<?php
+								$newsVideo = getAVideoNews($conn);
+								// dump($newsVideo);
+								foreach ($newsVideo as $key => $value) {
+									$videoName=$value['news_video'];
+									$encryptedURL=encryptionFunction($value['news_id']);
+									//  echo $value['news_featuredimage'];
+								$encryptedSubcategoryURL=encryptionFunction($value['subcategory_id']);
+								?>
+ 										 
+									<div class="col-sm-6">
+												  <div class="card" style="margin:3px;border-radius:20px">
+												  	<a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <!-- <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="..."> -->
+													<video width="100%" height="100%" poster="../backend/videoImage/<?php echo $value['news_featuredimage'] ?>" controls>
+                                      <source src="../backend/newsVideos/<?php echo $videoName; ?>" type="video/mp4">
+                                      <!-- <source src="movie.ogg" type="video/ogg"> -->
+                                    Your browser does not support the video tag.
+                                    </video>
+												</a>
+												    <div class="card-body">
+												      <h5><a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $value['news_title']; ?></a></h5>
+												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $value['news_writtenby']; ?><br/>
+													   <?php $datetime = $value['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+													</div>
+												  </div>
+								<!-- php close here --><?php } ?>
+										</div>
+	
+		
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					<!-- previously latest article -->
 				</div>
 
 				<div class="col-md-10 col-lg-4">
 					<div class="p-l-10 p-rl-0-sr991 p-b-20">
 						<!-- Video -->
-						<div class="p-b-55">
-							<div class="how2 how2-cl4 flex-s-c m-b-35">
-								<h3 class="f1-m-2 cl3 tab01-title">
-									<?php
-								$newsVideo = getAVideoNews($conn);
-								//dump($newsVideo);
-								foreach ($newsVideo as $key => $value) {
-									$videoName=$value['news_video'];
-									$encryptedURL=encryptionFunction($value['news_id']);
-									$encryptedSubCatUrl=encryptionFunction($value['subcategory_id']);
-									
-								
-								?>
-									Featured Video 
-								</h3><a href="subCategoryViewAll.php?ref=<?php echo $encryptedSubCatUrl; ?>"><span style="padding-left: 85px;color:grey; ">View More Videos</span></a>
-							</div>
-
-							<div>
-								
-
-								<div class="wrap-pic-w pos-relative">
-									<!-- <img src="images/video-01.jpg" alt="IMG">
-
-									<button class="s-full ab-t-l flex-c-c fs-32 cl0 hov-cl10 trans-03" data-toggle="modal" data-target="#modal-video-01">
-										<span class="fab fa-youtube"></span>
-									</button> -->
-									
-                                      <video width="398" height="250" controls>
-                                      <source src="../backend/newsVideos/<?php echo $videoName; ?>" type="video/mp4">
-                                      <!-- <source src="movie.ogg" type="video/ogg"> -->
-                                    Your browser does not support the video tag.
-                                    </video>
-								</div>
-
-								<div class="p-tb-16 p-rl-25 bg3">
-									<h5 class="p-b-5">
-										
-											<?php echo $value['news_title']; ?>
-										
-									</h5>
-									<h5 class="p-b-5">
-										<a href="videoNewsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-m-3 cl0 hov-cl10 trans-03">
-											See Detail About Video 
-										</a>
-									</h5>
-
-									<span class="cl15">
-										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											by <?php echo $value['news_writtenby']; ?>
-										</a>
-
-										<span class="f1-s-3 m-rl-3">
-											-
-										</span>
-
-										<span class="f1-s-3">
-											<?php $datetime = $value['created_at']; 
-															$time_elapsed = timeAgo($datetime);
-															echo $time_elapsed;?>
-										</span>
-									</span>
-								</div>
-							<?php } ?>
-							</div>	
-						</div>
+						
 							
 						<!-- Subscribe -->
-						<div class="bg10 p-rl-35 p-t-28 p-b-35 m-b-55">
-							<h5 class="f1-m-5 cl0 p-b-10">
-								Subscribe
-							</h5>
-
-							<p class="f1-s-1 cl0 p-b-25">
-								Get all latest content delivered to your email a few times a month.
-							</p>
-
-							<form class="size-a-9 pos-relative">
-								<input class="s-full f1-m-6 cl6 plh9 p-l-20 p-r-55" type="text" name="email" placeholder="Email">
-
-								<button class="size-a-10 flex-c-c ab-t-r fs-16 cl9 hov-cl10 trans-03">
-									<i class="fa fa-arrow-right"></i>
-								</button>
-							</form>
-						</div>
+						
 						
 						<!-- Tag -->
 						<div class="p-b-55">

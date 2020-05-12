@@ -473,64 +473,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							</a>
 						</div>
 						<?php }	?>
-						<!--  -->
-						<div class="p-t-50">
-							<div class="how2 how2-cl4 flex-s-c">
-								<h3 class="f1-m-2 cl3 tab01-title">
-									<span>Stay Connected<span>
-								</h3>
-							</div>
-
-							<ul class="p-t-35">
-								<li class="flex-wr-sb-c p-b-20">
-									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-facebook fs-16 cl0 hov-cl0">
-										<span class="fab fa-facebook-f"></span>
-									</a>
-
-									<div class="size-w-3 flex-wr-sb-c">
-										<span class="f1-s-8 cl3 p-r-20">
-											6879 Fans
-										</span>
-
-										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
-											Like
-										</a>
-									</div>
-								</li>
-
-								<li class="flex-wr-sb-c p-b-20">
-									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-twitter fs-16 cl0 hov-cl0">
-										<span class="fab fa-twitter"></span>
-									</a>
-
-									<div class="size-w-3 flex-wr-sb-c">
-										<span class="f1-s-8 cl3 p-r-20">
-											568 Followers
-										</span>
-
-										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
-											Follow
-										</a>
-									</div>
-								</li>
-
-								<li class="flex-wr-sb-c p-b-20">
-									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-youtube fs-16 cl0 hov-cl0">
-										<span class="fab fa-youtube"></span>
-									</a>
-
-									<div class="size-w-3 flex-wr-sb-c">
-										<span class="f1-s-8 cl3 p-r-20">
-											5039 Subscribers
-										</span>
-
-										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
-											Subscribe
-										</a>
-									</div>
-								</li>
-							</ul>
-						</div>
+						
 						<?php 
 						$specificArea = 'third_side';
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$area,$specificArea) ;
@@ -831,18 +774,7 @@ foreach($result as $key){
 		</span>
 	</div>
 
-	<!-- Modal Video 01-->
-	<div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document" data-dismiss="modal">
-			<div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
-
-			<div class="wrap-video-mo-01">
-				<div class="video-mo-01">
-					<iframe src="https://www.youtube.com/embed/wJnBTPUQS5A?rel=0" allowfullscreen></iframe>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>

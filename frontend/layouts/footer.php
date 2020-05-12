@@ -9,25 +9,30 @@
 						</div>
 						<br>
 						<div class="p-t-15">
-						<a href="#" style="padding-right:5px">
-							<i class="fa fa-facebook-square"  style="font-size:24px"></i>
+						<a href="#" style="margin-right:2px">
+							<!-- <i class="fa fa-facebook-square" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/facebook.png" id="grow" style="width:10%"/>
 						</a>
 
-						<a href="#" style="padding-right:5px">
-							<i class="fa fa-twitter-square"  style="font-size:24px"></i>
+						<a href="#"  style="margin-right:2px">
+							<!-- <i class="fa fa-twitter-square" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/twitter.png" id="grow" style="width:10%"/>
 						</a>
 
-						<a href="#" style="padding-right:5px">
-							<i class="fa fa-google-plus-square"  style="font-size:24px"></i>
+						<a href="#"  style="margin-right:2px">
+							<!-- <i class="fa fa-google-plus-square" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/google+.png" id="grow" style="width:10%"/>
 						</a>
 
-						<a href="#" style="padding-right:5px">
-							<i class="fa fa-instagram"  style="font-size:24px"></i>
+						<a href="#" style="margin-right:2px">
+							<!-- <i class="fa fa-instagram" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/instaresizeimage.png" id="grow" style="width:10%"/>
 						</a>
 
-						<a href="#" style="padding-right:5px">
-							<i class="fa fa-youtube-play"  style="font-size:24px"></i>
-						</a>		
+						<a href="#" style="margin-right:2px">
+							<!-- <i class="fa fa-youtube-play" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/utube.png" id="grow" style="width:10%"/>
+						</a>	
 						</div>
 
 						<div>

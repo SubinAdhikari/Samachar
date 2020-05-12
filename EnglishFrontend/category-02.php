@@ -55,7 +55,15 @@ $decryptID=decryptionFunction($category_id);
 		?>
 		<!-- <div class="how2 how2-cl4 flex-s-c"> -->
 		<center><h3 class="f1-m-2 cl3 tab01-title" style="font-size:35px">
-					<?php echo '<span><strong>'.$key['category_name'].'</strong><span>';?>		
+					<?php
+					if($key['category_name']=='वातावरण') { echo 'Environment';}
+								 else if(strcasecmp($key['category_name'], 'बिचार')=='1') { 
+								 	echo 'Opinion';
+								}else if(strcasecmp($key['category_name'], 'कानुन')=='0') { 
+								 	echo 'Law';
+								}
+								else{echo $key['category_name'];}
+					 ?>		
 				</h3></center>
 							</div>
 			<?php }?>

@@ -467,7 +467,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 									?>
 									<div class="col-sm-4">
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
-												  	<?php if($key['subcategory_id']=='42'){
+												  	<?php if($key['subcategory_id']=='76'){
 												  		$videoName =$key['news_video'];
 													
 												?>

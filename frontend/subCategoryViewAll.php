@@ -86,11 +86,11 @@ include "layouts/header.php";
 												<?php
 												$Subdetail = SelectSubCategoryDetailsFromId($conn,$key['subcategory_id']);
 												
-												
+												//echo strcasecmp($Subdetail['subcategory_name'],'फोटो - भिडियो');
  
 												?>
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
-												  	<?php if(strcasecmp($Subdetail['subcategory_name'],'फोटो / भिडियो')=='-192'){
+												  	<?php if($key['subcategory_id']=='76'){
 												  		$videoName =$key['news_video'];
 													
 												?>

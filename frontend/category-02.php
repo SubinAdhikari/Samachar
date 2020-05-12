@@ -85,7 +85,7 @@ $decryptID=decryptionFunction($category_id);
 									?>
 									<div class="col-sm-3">
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
-												  	<?php if($key['subcategory_id']=='42'){
+												  	<?php if($key['subcategory_id']=='76'){
 												  		$videoName =$key['news_video'];?>
 												  	<a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
 												  		<video width="auto" height="250" controls class="card-img-top">

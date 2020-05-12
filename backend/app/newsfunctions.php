@@ -49,8 +49,8 @@ function insertNews($conn, $data, $fileNameNew, $fileNameNew1, $fileNameNew2){
 	return false;
 }
 function insertNewsWithVideo($conn, $data, $fileNameNew1,$videoName){
-    $num1=13;
-    $num2=42;
+    $num1=20;
+    $num2=76;
     $stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_writtenby`,`news_title`,`category_id`,`subcategory_id`,`news_deails`,`news_video`,`news_featuredimage`,`is_active`,`top_news`) VALUES (:news_writtenby, :news_title, :category_id, :subcategory_id,:news_deails, :news_video,:news_featuredimage, :is_active, :top_news)");
 
     $stmtinsert->bindParam(':news_writtenby', $data['news_writtenby']);
@@ -170,7 +170,7 @@ function getAllVideoNewsDetails($conn){
 }
 function getVideoNewsSubCategoryId($conn){
     $value='';
-    $stmtSelect = $conn->prepare("SELECT subcategory_id FROM tblnews WHERE news_video<>:news_video"); 
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video<>:news_video"); 
     $stmtSelect->bindParam(':news_video',$value);   
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);

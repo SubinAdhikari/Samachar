@@ -62,7 +62,7 @@ function GetForthLastNews($conn){
     return $stmtSelect->fetchAll();
 }
 function getNewsByCategoryID($conn,$key){
-    $value = 42;
+    $value = 76;
     $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE category_id=:category_id AND subcategory_id<>:subcategory_id ORDER BY news_id DESC LIMIT 3");
     $stmtSelect->bindParam(':category_id',$key);
     $stmtSelect->bindParam(':subcategory_id',$value);

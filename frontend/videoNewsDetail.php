@@ -470,7 +470,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 									?>
 									<div class="col-sm-4">
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
-												  	<?php if(strcasecmp($Subdetail['subcategory_name'],'फोटो / भिडियो')=='-192'){
+												  	<?php if($key['subcategory_id']=='76'){
 												  		$videoName =$key['news_video'];
 													
 												?>

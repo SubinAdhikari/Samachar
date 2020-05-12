@@ -109,20 +109,10 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 						<div class="fb-share-button" data-href="<?php $actual_link; ?>" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> -->
 
 
-<!-- AddToAny BEGIN -->
-<div class="a2a_kit a2a_kit_size_40 a2a_default_style">
-<!-- <a class="a2a_dd" href="https://www.addtoany.com/share"></a> -->
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_twitter"></a>
-<a class="a2a_button_whatsapp"></a>
-<a class="a2a_button_facebook_messenger"></a>
-<!-- <a class="a2a_button_viber"></a> -->
-<!-- <a class="a2a_button_google_gmail"></a> -->
-<a class="a2a_dd a2a_counter" href="https://www.addtoany.com/share"></a>
-
-</div>
-<script async src="https://static.addtoany.com/menu/page.js"></script>
-<!-- AddToAny END -->
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5eb93c9cdd0ff66d"></script>
+ <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox"></div>
 						
 
 

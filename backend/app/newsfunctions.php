@@ -159,7 +159,7 @@ function getAllNewsDetails($conn){
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
-}
+} 
 function getAllVideoNewsDetails($conn){
     $value='';
     $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video<>:news_video"); 

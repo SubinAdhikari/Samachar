@@ -161,7 +161,7 @@ $(document).ready(function(){
 					<a href="index.php"><img  src="images/icons/samachar.png"  alt="LOGO"></a>
 				</div>	
 
-				
+			
 				
 			</div>	 -->
 
@@ -402,17 +402,17 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#027ab5!important;height: 45px;"> -->
 						<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#222222!important;height: 45px;">
 							
-  								<a class="navbar-brand" href="index.php"><i style="padding-left:80px;color:white"; class="fas fa-home"></i></a>
+  								<a class="navbar-brand" href="index.php"><i style="padding-left:20px;color:white"; class="fas fa-home"></i></a>
   						
   						<div class="collapse navbar-collapse" id="navbarNavDropdown">
-    						<ul class="navbar-nav" style="padding-left:50px";>
+    						<ul class="navbar-nav" style="padding-left:10px";>
 							<?php foreach($categoryList as $key){
 								 ?>
 								<?php
 $encryptedURL=encryptionFunction($key['category_id']);  
 ?>
 								 <li class="nav-item dropdown" onclick="location.href='category-02.php?ref=<?php echo $encryptedURL;  ?>';">
-        						<a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:17px; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif">
+        						<a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:100%; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif">
 								<?php echo $key['category_name'];?>
         							</a>
 							<!-- <li> 
@@ -424,7 +424,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 										// foreach($key as $value){
 											$encryptedURL=encryptionFunction($key['subcategory_id']); 
 									?>
-									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $encryptedURL ?>" style="font-size:20px; color:black;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['subcategory_name']; ?></a>
+									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $encryptedURL ?>" style="font-size:17px; color:black;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['subcategory_name']; ?></a>
 										<?php }  ?>
 										</div>
 

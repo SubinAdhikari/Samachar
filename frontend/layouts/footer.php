@@ -1,7 +1,8 @@
 
-<footer>
+<center><footer>
 		<div class="bg2 p-t-40 p-b-25">
-			<div class="container">
+		<!-- class="container" border:2px red solid; below div -->
+			<div style="width:95% !important">
 				<div class="row">
 					<div class="col-lg-4 p-b-20" >
 						<div class="size-h-3 flex-s-c" >
@@ -70,7 +71,7 @@
 
 					<div >
 					<div class="size-h-3 flex-s-c"  style="height:50px">
-						<span style="color:white;padding-left:25px"><strong>हाम्रो टिम</strong><span>
+						<span style="color:white;padding-left:50px"><strong>हाम्रो टिम</strong><span>
 						</div>
 						<br>
 						<div style="padding-left:15px;padding-right:15px">
@@ -86,26 +87,29 @@
 					</div>
 
 
+					
 
 
 					<div  >
 					<div class="size-h-3 flex-s-c"  style="height:50px">
-						<span style="color:white;padding-left:15px;"><strong>प्रदेश प्रतिनिधि</strong><span>
+						<span style="color:white;padding-left:80px;"><strong>प्रदेश प्रतिनिधि</strong><span>
 						</div>
 						<br>
 						<div style="padding-left:15px;padding-right:15px">
-					<p><span style="color:#027ab5">प्रदेश नम्बर १ :</span></p>
-					<p><span style="color:white">सुबिन अधिकारी</span></p>
-					<p><span style="color:#027ab5">प्रदेश नम्बर २ :</span></p>
-					<p><span style="color:white">श्रीधर भण्डारी</span></p>
-					<p><span style="color:#027ab5">प्रदेश नम्बर ३ :</span></p>
-					<p><span style="color:white">अभिषेक कार्की</span></p>
-					<p><span style="color:#027ab5">प्रदेश नम्बर ५ :</span></p>
-					<p><span style="color:white">आयुष्मान् आर्यान</span></p>
-					<p><span style="color:#027ab5">प्रदेश नम्बर ६ :</span></p>
-					<p><span style="color:white">अभिषेक कार्की</span></p>
+					<p><span style="color:#027ab5">प्रदेश नम्बर १ :</span><span style="color:#027ab5;margin-left:20px">प्रदेश नम्बर 2 :</span></p>
+					<p><span style="color:white">सुबिन अधिकारी</span><span style="color:white;margin-left:20px">अभिषेक कार्की</span></p>
+					<p><span style="color:#027ab5">प्रदेश नम्बर 3 :</span><span style="color:#027ab5;margin-left:20px">प्रदेश नम्बर 4 :</span></p>
+					<p><span style="color:white">श्रीधर भण्डारी</span><span style="color:white;margin-left:20px">आयुष्मान् आर्यान</span></p>
+					<p><span style="color:#027ab5">प्रदेश नम्बर ५ :</span><span style="color:#027ab5;margin-left:20px">प्रदेश नम्बर ६ :</span></p>
+					<p><span style="color:white">अभिषेक कार्की</span><span style="color:white;margin-left:20px">आयुष्मान् आर्यान</span></p>
 					<p><span style="color:#027ab5">प्रदेश नम्बर ७ :</span></p>
 					<p><span style="color:white">आयुष्मान् आर्यान</span></p>
+					<!-- <p><span style="color:#027ab5">प्रदेश नम्बर ५ :</span></p>
+					<p><span style="color:white">आयुष्मान् आर्यान</span></p> -->
+					<!-- <p><span style="color:#027ab5">प्रदेश नम्बर ६ :</span></p>
+					<p><span style="color:white">अभिषेक कार्की</span></p>
+					<p><span style="color:#027ab5">प्रदेश नम्बर ७ :</span></p>
+					<p><span style="color:white">आयुष्मान् आर्यान</span></p> -->
 					</div>
 					</div>
 
@@ -172,4 +176,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				</span>
 			</div>
 		</div>
-	</footer>
+	</footer></center>

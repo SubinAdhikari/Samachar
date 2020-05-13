@@ -660,8 +660,10 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						
 						$encryptedSubcategoryURL=encryptionFunction($videoInfo['subcategory_id']);
 						?>
-						<a href="subCategoryViewAll.php?ref=<?php echo $encryptedSubcategoryURL ?>"  class="tab01-link f1-s-1 cl9 hov-cl10 trans-03"><span style="padding-left: 500px;">
-									View all</span>
+						<a href="subCategoryViewAll.php?ref=<?php echo $encryptedSubcategoryURL ?>"  class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
+						<!-- <span style="padding-left: 500px;"> -->
+									View all
+									<!-- </span> -->
 									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
 								</a>
 								  

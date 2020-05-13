@@ -431,16 +431,61 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							}?>
 							</ul>
 						</div> 
-				<div class="p-b-30">
-					<div id="erscrt2">
-					
+				<!-- <div class="p-b-30">
+					<div id="erscrt2"> -->
+<!-- 					
 				<iframe src="https://www.ashesh.com.np/forex/widget2.php?api=792047j282" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%; height:400px; border-radius:5px;" allowtransparency="true">
-					</iframe><br><span style="text-align:left">© <a href="https://www.ashesh.com.np/forex/" title="Forex Nepal for Nepalese Rupee" target="_top" style="text-decoration:none;">Forex Nepal</a></span>
+					</iframe><br><span style="text-align:left">© <a href="https://www.ashesh.com.np/forex/" title="Forex Nepal for Nepalese Rupee" target="_top" style="text-decoration:none;">Forex Nepal</a></span> -->
 						
-           			</div>
+
+
+
+
+<div class="tabForE" style="width:100%!important">
+<button class="tablinks" id="defaultOpen" onclick="openCity(event, 'Rashifal')">Horoscope</button>
+  <button class="tablinks" onclick="openCity(event, 'exchange')">Exchange Rate</button>
+  <button class="tablinks" onclick="openCity(event, 'GSRate')">Gold/Silver Rate</button>
+  <button class="tablinks" onclick="openCity(event, 'calender')">Calender</button>
+</div>
+
+
+<div id="Rashifal" class="tabcontent">
+<iframe src="https://www.ashesh.com.np/rashifal/widget.php?header_title=Nepali Rashifal&header_color=f0b03f&api=371150j499" frameborder="0" scrolling="yes" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%; height:400px; border-radius:5px;" allowtransparency="true">
+</iframe><br><span style="color:gray; font-size:8px; text-align:left">© <a href="https://www.ashesh.com.np/rashifal/" title="Nepali horoscope" target="_top" style="text-decoration:none; color:gray;">Nepali horoscope</a></span>
+</div>
+
+<div id="exchange" class="tabcontent">
+<iframe src="https://www.ashesh.com.np/forex/widget2.php?api=381152j011" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%; height:400px; border-radius:5px;" allowtransparency="true">
+</iframe><br><span style="text-align:left">© <a href="https://www.ashesh.com.np/forex/" title="Foreign Exchange Rates for Nepalese Rupee" target="_top" style="text-decoration:none;">Foreign Exchange Rates</a></span>
+</div>
+
+<div id="GSRate" class="tabcontent">
+<iframe src="https://www.ashesh.com.np/gold/widget.php?api=371150j463&header_color=0077e5" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%; height:400px; border-radius:5px;" allowtransparency="true">
+</iframe><br><span style="text-align:left">© <a href="https://www.ashesh.com.np/gold/" title="Gold & Silver Rates Nepal" target="_top" style="text-decoration:none;">Gold & Silver Rates Nepal</a></span>
+</div>
+
+<div id="calender" class="tabcontent">
+<!-- Start of nepali calendar widget -->
+<script type="text/javascript"> <!--
+var nc_width = 'responsive';
+var nc_height = 400;
+var nc_api_id = 31620200513392; //-->
+</script>
+<script type="text/javascript" src="https://www.ashesh.com.np/calendarlink/nc.js"></script><div id="ncwidgetlink">Powered by © <a href="https://www.ashesh.com.np/nepali-calendar/" id="nclink" title="Nepali calendar" target="_blank">nepali calendar</a></div>
+<!-- End of nepali calendar widget -->
+</div>
+
+
+
+
+
+
+
+
+           			<!-- </div> -->
 <!-- Simple Currency Rates Table END -->
 <!-- Simple Currency Rates Table END -->
-				</div>
+				<!-- </div> -->
 
 						<!-- Fisrt Side Advertisement -->
 						<?php 
@@ -775,7 +820,27 @@ foreach($result as $key){
 		</span>
 	</div>
 
-	
+	<!-- TAB SCRIPT -->
+	<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+
+
 
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>

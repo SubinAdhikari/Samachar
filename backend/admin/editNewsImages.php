@@ -107,13 +107,13 @@ $result=selectNewsFromId($conn,$ref);
                             <div class="control-group">
                                 <label class="control-label">News Featured or Banner Image<br>(Select One)</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" required name="news_featuredimageup"  />                              
+                                    <input type="file" class="span6" required name="news_featuredimageup" accept="image/png, image/jpeg, image/gif" />                              
                                 </div>
                             </div>  
                             <div class="control-group">
                                 <label class="control-label">News Image <br>(Select Multiple)</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" required name="file1up[]" multiple />                              
+                                    <input type="file" class="span6" required name="file1up[]" multiple accept="image/png, image/jpeg, image/gif" />                              
                                 </div>
                             </div>
 

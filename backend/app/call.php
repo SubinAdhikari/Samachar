@@ -13,4 +13,5 @@ require 'advertisementfunction.php';
 require 'searchFunction.php';
 require 'encryptAndDecryptFunction.php';
 require 'trendingfunctions.php';
+require 'archivefunctions.php';
 ?>

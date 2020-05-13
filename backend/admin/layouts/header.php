@@ -5,6 +5,10 @@ if (!checkAdminLogin()) {
   redirection('login.php');
 }
 
+if(insertToArchive($conn)){
+  deleteNewsToArchive($conn);
+}
+
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->

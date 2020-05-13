@@ -114,7 +114,7 @@ $result=selectNewsFromId($conn,$ref);
                             <div class="control-group">
                                 <label class="control-label">Writer Photo</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" required name="news_writerImage"  />                              
+                                    <input type="file" class="span6" required name="news_writerImage"  accept="image/png, image/jpeg, image/gif"/>                              
                                 </div>
                             </div>  
                             

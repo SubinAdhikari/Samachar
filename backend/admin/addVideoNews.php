@@ -111,7 +111,7 @@
                             <div class="control-group">
                                 <label class="control-label">News Subcategory</label>
                                 <div class="controls">
-                                    <input type="text" class="span6" readonly value ="फोटो / भिडियो" name="subcategory_name" />
+                                    <input type="text" class="span6" readonly value ="फोटो - भिडियो" name="subcategory_name" />
                                     <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
@@ -123,15 +123,15 @@
                                 </div>
                             </div> 
                             <div class="control-group">
-                                <label class="control-label">News Image</label>
+                                <label class="control-label">Video Thumbnail</label>
                                 <div class="controls">
-                                    <input type="file" class="span6"  name="news_featuredimage" />                              
+                                    <input type="file" class="span6" required="png,jpeg,gif"  name="news_featuredimage" accept="image/png, image/jpeg, image/gif"/>                              
                                 </div>
                             </div> 
                             <div class="control-group">
                                 <label class="control-label">News Video</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" required name="news_video" />                              
+                                    <input type="file" class="span6" required name="news_video"  accept="video/mp4" />                              
                                 </div>
                             </div> 
                             <div class="control-group">

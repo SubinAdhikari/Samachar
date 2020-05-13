@@ -232,7 +232,7 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group writerPP">
                                 <label class="control-label">Writer Photo</label>
                                 <div class="controls">
-                                    <input type="file" class="span6 " name="news_writerImage"/>
+                                    <input type="file" class="span6 " name="news_writerImage" accept="image/png, image/jpeg, image/gif"/>
                                     
                                 </div>
                             </div>
@@ -263,13 +263,13 @@ if(req.readyState==4 && req.status==200){
                             <div class="control-group">
                                 <label class="control-label">News Image</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" name="file1[]" multiple required  />                              
+                                    <input type="file" class="span6" name="file1[]" multiple required  accept="image/png, image/jpeg, image/gif"/>                              
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Featured or Banner Image</label>
                                 <div class="controls">
-                                    <input type="file" class="span6 " name="news_featuredimage" required  />
+                                    <input type="file" class="span6 " name="news_featuredimage" required  accept="image/png, image/jpeg, image/gif"/>
                                     
                                 </div>
                             </div>

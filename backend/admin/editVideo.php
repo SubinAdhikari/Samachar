@@ -106,7 +106,7 @@
                             <div class="control-group">
                                 <label class="control-label">News Video</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" required name="news_video" />                              
+                                    <input type="file" class="span6" required name="news_video" accept="video/mp4" />                              
                                 </div>
                             </div>  
      

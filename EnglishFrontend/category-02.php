@@ -55,15 +55,7 @@ $decryptID=decryptionFunction($category_id);
 		?>
 		<!-- <div class="how2 how2-cl4 flex-s-c"> -->
 		<center><h3 class="f1-m-2 cl3 tab01-title" style="font-size:35px">
-					<?php
-					if($key['category_name']=='वातावरण') { echo 'Environment';}
-								 else if(strcasecmp($key['category_name'], 'बिचार')=='1') { 
-								 	echo 'Opinion';
-								}else if(strcasecmp($key['category_name'], 'कानुन')=='0') { 
-								 	echo 'Law';
-								}
-								else{echo $key['category_name'];}
-					 ?>		
+					<?php echo '<span><strong>'.$key['category_name'].'</strong><span>';?>		
 				</h3></center>
 							</div>
 			<?php }?>
@@ -85,18 +77,35 @@ $decryptID=decryptionFunction($category_id);
 				
 							<?php 
   											$SubcategoryNews=getAllNewsBySubCategoryId($conn,$key['subcategory_id']);
+  											$Subdetail = SelectSubCategoryDetailsFromId($conn,$key['subcategory_id']);
   
-									// print_r($getNews);
+									// print_r($Subdetail);
 												 foreach($SubcategoryNews as $key){ 
 											$encryptedURL=encryptionFunction($key['news_id']);
 									?>
 									<div class="col-sm-3">
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
-												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												  	<?php if($key['subcategory_id']=='76'){
+												  		$videoName =$key['news_video'];?>
+												  	<a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												  		<video width="auto" height="250" controls class="card-img-top">
+                                      <source src="../backend/newsVideos/<?php echo $videoName; ?>" type="video/mp4">
+                                      <!-- <source src="movie.ogg" type="video/ogg"> -->
+                                    Your browser does not support the video tag.
+                                    </video>
+												    <!-- <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="..."> -->
+												</a>
+												    <div class="card-body">
+												      <h5><a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a>
+												      	</h5>
+												      <?php } else{ ?>
+												      	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
 												    <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
 												    <div class="card-body">
 												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+
+												     <?php } ?>
 												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
 															<?php $datetime = $key['created_at']; 
 															$time_elapsed = timeAgo($datetime);
@@ -332,63 +341,7 @@ $decryptID=decryptionFunction($category_id);
 	</div>
 						
 						<!--  -->
-						<div class="p-t-50">
-							<div class="how2 how2-cl4 flex-s-c">
-								<h3 class="f1-m-2 cl3 tab01-title">
-									<span>Stay Connected</span>
-								</h3>
-							</div>
-
-							<ul class="p-t-35">
-								<li class="flex-wr-sb-c p-b-20">
-									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-facebook fs-16 cl0 hov-cl0">
-										<span class="fab fa-facebook-f"></span>
-									</a>
-
-									<div class="size-w-3 flex-wr-sb-c">
-										<span class="f1-s-8 cl3 p-r-20">
-											6879 Fans
-										</span>
-
-										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
-											Like
-										</a>
-									</div>
-								</li>
-
-								<li class="flex-wr-sb-c p-b-20">
-									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-twitter fs-16 cl0 hov-cl0">
-										<span class="fab fa-twitter"></span>
-									</a>
-
-									<div class="size-w-3 flex-wr-sb-c">
-										<span class="f1-s-8 cl3 p-r-20">
-											568 Followers
-										</span>
-
-										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
-											Follow
-										</a>
-									</div>
-								</li>
-
-								<li class="flex-wr-sb-c p-b-20">
-									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-youtube fs-16 cl0 hov-cl0">
-										<span class="fab fa-youtube"></span>
-									</a>
-
-									<div class="size-w-3 flex-wr-sb-c">
-										<span class="f1-s-8 cl3 p-r-20">
-											5039 Subscribers
-										</span>
-
-										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
-											Subscribe
-										</a>
-									</div>
-								</li>
-							</ul>
-						</div>
+						
 						<div class="container">
 							<?php
 								
@@ -474,113 +427,9 @@ $decryptID=decryptionFunction($category_id);
 					
 				
 	</div></center>
-	<!-- Banner -->
-	<!-- <div class="container m-b-15">
-		<div class="flex-c-c">
-			<a href="#">
-				<img class="max-w-full" src="images/banner-01.jpg" alt="IMG">
-			</a>
-		</div>
-	</div> -->
+	
 
-	<!-- Latest -->
-	<section class="bg0 p-t-60 p-b-35" style="width:95%;margin-left:35px">
-		<div >
-			<div class="row justify-content-center">
-				<div class="col-md-10 col-lg-8 p-b-20">
-					
 
-					<!-- Previously Latest Article -->
-				</div>
-
-				<div class="col-md-10 col-lg-4">
-					<div class="p-l-10 p-rl-0-sr991 p-b-20">
-						<!-- Video -->
-						<div class="p-b-55">
-							<div class="how2 how2-cl4 flex-s-c m-b-35">
-								<h3 class="f1-m-2 cl3 tab01-title">
-									Featured Video
-								</h3>
-							</div>
-
-							<div>
-								<div class="wrap-pic-w pos-relative">
-									<img src="images/video-01.jpg" alt="IMG">
-
-									<button class="s-full ab-t-l flex-c-c fs-32 cl0 hov-cl10 trans-03" data-toggle="modal" data-target="#modal-video-01">
-										<span class="fab fa-youtube"></span>
-									</button>
-								</div>
-
-								<div class="p-tb-16 p-rl-25 bg3">
-									<h5 class="p-b-5">
-										<a href="#" class="f1-m-3 cl0 hov-cl10 trans-03">
-											Featured Video Here
-										</a>
-									</h5>
-
-									<span class="cl15">
-										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-											by John Alvarado
-										</a>
-
-										<span class="f1-s-3 m-rl-3">
-											-
-										</span>
-
-										<span class="f1-s-3">
-											Feb 18
-										</span>
-									</span>
-								</div>
-							</div>	
-						</div>
-							
-						<!-- Subscribe -->
-						<div class="bg10 p-rl-35 p-t-28 p-b-35 m-b-55">
-							<h5 class="f1-m-5 cl0 p-b-10">
-								Subscribe
-							</h5>
-
-							<p class="f1-s-1 cl0 p-b-25">
-								Get all latest content delivered to your email a few times a month.
-							</p>
-
-							<form class="size-a-9 pos-relative">
-								<input class="s-full f1-m-6 cl6 plh9 p-l-20 p-r-55" type="text" name="email" placeholder="Email">
-
-								<button class="size-a-10 flex-c-c ab-t-r fs-16 cl9 hov-cl10 trans-03">
-									<i class="fa fa-arrow-right"></i>
-								</button>
-							</form>
-						</div>
-						
-						<!-- Tag -->
-						<div class="p-b-55">
-							<div class="how2 how2-cl4 flex-s-c m-b-30">
-								<h3 class="f1-m-2 cl3 tab01-title">
-									Tags
-								</h3>
-							</div>
-
-							<div class="flex-wr-s-s m-rl--5">
-							<?php $result=getSubCategoriesDetails($conn);
-// print_r($result);
-foreach($result as $key){
-	$encryptedURL=encryptionFunction($key['subcategory_id']);
-?>
-								<a href="subCategoryViewAll.php?ref=<?php echo $encryptedURL; ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-									<?php echo $key['subcategory_name']; ?>
-								</a>
-								<?php } ?>
-							</div>	
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<!-- Footer -->
 	<?php
@@ -594,18 +443,7 @@ foreach($result as $key){
 		</span>
 	</div>
 
-	<!-- Modal Video 01-->
-	<div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document" data-dismiss="modal">
-			<div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
-
-			<div class="wrap-video-mo-01">
-				<div class="video-mo-01">
-					<iframe src="https://www.youtube.com/embed/wJnBTPUQS5A?rel=0" allowfullscreen></iframe>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>

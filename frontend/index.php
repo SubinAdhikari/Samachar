@@ -342,7 +342,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							</div>
 								<br>
 							<!-- Tab panes -->
-							<div class="card-group">
+							<div class="card-group"> 
 										<?php
 							
 									$getNews=getNewsByCategoryID($conn,$key['category_id']);
@@ -350,6 +350,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 									foreach($getNews as $key){
 										$encryptedURL=encryptionFunction($key['news_id']);
 									?>
+									<div class="col-sm-4">
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
 												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
 												    <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
@@ -361,6 +362,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 															$time_elapsed = timeAgo($datetime);
 															echo $time_elapsed;?></small></p>
 												    </div>
+													</div>
 												  </div>
 												  <?php } ?>
 										</div>

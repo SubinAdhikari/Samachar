@@ -103,13 +103,16 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 						?>
 
 
-													<div id="fb-root"></div>
+													<!-- <div id="fb-root"></div>
 						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 
-						<div class="fb-share-button" data-href="<?php $actual_link; ?>" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+						<div class="fb-share-button" data-href="<?php $actual_link; ?>" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> -->
 
 
-
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5eb93c9cdd0ff66d"></script>
+ <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox"></div>
 						
 
 
@@ -321,7 +324,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 							</div> -->
 
 							<!-- Share -->
-							<div class="flex-s-s">
+							<!-- <div class="flex-s-s">
 								<span class="f1-s-12 cl5 p-t-1 m-r-15">
 									Share:
 								</span>
@@ -332,17 +335,8 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 									<div style="margin-left:5px">
 								<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>	
 									</div>
-									<!-- <a href="#" class="dis-block f1-s-13 cl0 bg-google borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
-										<i class="fab fa-google-plus-g m-r-7"></i>
-										Google+
-									</a>
-
-									<a href="#" class="dis-block f1-s-13 cl0 bg-pinterest borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
-										<i class="fab fa-pinterest-p m-r-7"></i>
-										Pinterest
-									</a> -->
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<?php
 								$area = 'news_detailpage';
@@ -469,14 +463,37 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 									// print_r($getNews);
 												 foreach($category as $key){ 
 											$encryptedURL=encryptionFunction($key['news_id']);
+											$Subdetail = SelectSubCategoryDetailsFromId($conn,$key['subcategory_id']);
 									?>
 									<div class="col-sm-4">
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
-												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												  	<?php if($key['subcategory_id']=='76'){
+												  		$videoName =$key['news_video'];
+													
+												?>
+												  	<a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												  		<video width="auto" height="250" controls class="card-img-top">
+                                      <source src="../backend/newsVideos/<?php echo $videoName; ?>" type="video/mp4">
+                                      <!-- <source src="movie.ogg" type="video/ogg"> -->
+                                    Your browser does not support the video tag.
+                                    </video>
+												    <!-- <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="..."> -->
+												</a>
+												    <div class="card-body">
+												      <h5><a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a>
+												      	</h5>
+												      	<?php }else{
+
+
+												      		?>
+												      		<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+
 												    <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
 												    <div class="card-body">
-												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a>
+
+												      <?php	} ?></h5>
 												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
 															<?php $datetime = $key['created_at']; 
 															$time_elapsed = timeAgo($datetime);

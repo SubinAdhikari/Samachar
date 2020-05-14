@@ -126,24 +126,29 @@ $(document).ready(function(){
 					</div>
 
 					<div class="right-topbar">
-						<a href="#">
-							<i class="fa fa-facebook-square" id="grow" style="font-size:24px"></i>
+					<a href="#">
+							<!-- <i class="fa fa-facebook-square" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/facebook.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-twitter-square" id="grow" style="font-size:24px"></i>
+							<!-- <i class="fa fa-twitter-square" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/twitter.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-google-plus-square" id="grow" style="font-size:24px"></i>
+							<!-- <i class="fa fa-google-plus-square" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/google+.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-instagram" id="grow" style="font-size:24px"></i>
+							<!-- <i class="fa fa-instagram" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/instaresizeimage.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-youtube-play" id="grow" style="font-size:24px"></i>
+							<!-- <i class="fa fa-youtube-play" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/utube.png" id="grow" style="width:10%"/>
 						</a>
 					</div>
 				</div>
@@ -240,23 +245,28 @@ $(document).ready(function(){
 
 					<li class="right-topbar">
 					<a href="#">
-							<i class="fa fa-facebook-square" style="font-size:24px"></i>
+							<!-- <i class="fa fa-facebook-square" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/facebook.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-twitter-square" style="font-size:24px"></i>
+							<!-- <i class="fa fa-twitter-square" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/twitter.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-google-plus-square" style="font-size:24px"></i>
+							<!-- <i class="fa fa-google-plus-square" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/google+.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-instagram" style="font-size:24px"></i>
+							<!-- <i class="fa fa-instagram" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/instaresizeimage.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#">
-							<i class="fa fa-youtube-play" style="font-size:24px"></i>
+							<!-- <i class="fa fa-youtube-play" id="grow" style="font-size:24px"></i> -->
+							<img src="images/icons/utube.png" id="grow" style="width:10%"/>
 						</a>
 					</li>
 				</ul>
@@ -276,7 +286,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 ?>
 					<!-- <li style="background-color:#027ab5!important;"> -->
 					<li style="background-color:#222222!important;">
-						<a href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:17px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif;"><?php echo $key['category_name'];?></a>
+						<a href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:10px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif;"><?php echo $key['category_name'];?></a>
 						
 						<ul class="sub-menu-m">
 						<?php 
@@ -383,7 +393,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 			</div>	
 
 
-
+ 
 					<!-- Menu desktop -->
 					
 						<a class="logo-stick" href="index.html">
@@ -394,17 +404,17 @@ $encryptedURL=encryptionFunction($key['category_id']);
 						<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#027ab5!important;height: 45px;"> -->
 						<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#222222!important;height: 45px;">
 							
-  								<a class="navbar-brand" href="index.php"><i style="padding-left:30px;color:white"; class="fas fa-home"></i></a>
+  								<a class="navbar-brand" href="index.php"><i style="padding-left:20px;color:white"; class="fas fa-home"></i></a>
   						
   						<div class="collapse navbar-collapse" id="navbarNavDropdown">
-    						<ul class="navbar-nav" style="padding-left:50px";>
+    						<ul class="navbar-nav" style="padding-left:10px";>
 							<?php foreach($categoryList as $key){
 								 ?>
 								<?php
 $encryptedURL=encryptionFunction($key['category_id']);  
 ?>
 								 <li class="nav-item dropdown" onclick="location.href='category-02.php?ref=<?php echo $encryptedURL;  ?>';">
-								<a class="nav-link dropdown-toggle" href="category-02.php?ref=<?php echo $encryptedURL; ?>" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:12px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php
+								<a class="nav-link dropdown-toggle" href="category-02.php?ref=<?php echo $encryptedURL; ?>" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:11px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php
 								//echo strcmp($key['category_name'], 'कानुन');
 								 if($key['category_name']=='वातावरण') { echo 'Environment';}
 								 else if(strcasecmp($key['category_name'], 'बिचार')=='1') { 
@@ -423,7 +433,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 										// foreach($key as $value){
 											$encryptedURL=encryptionFunction($key['subcategory_id']); 
 									?>
-									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $encryptedURL ?>" style="font-size:14px; color:black;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['subcategory_name']; ?></a>
+									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $encryptedURL ?>" style="font-size:12px; color:black;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['subcategory_name']; ?></a>
 										<?php }  ?>
 										</div>
 

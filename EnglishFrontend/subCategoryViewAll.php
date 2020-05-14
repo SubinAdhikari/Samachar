@@ -82,13 +82,43 @@ include "layouts/header.php";
 												 foreach($SubcategoryNews as $key){ 
 											$encryptedURL=encryptionFunction($key['news_id']);
 									?>
-																		<div class="col-sm-3">
+											<div class="col-sm-3">
+												<?php
+												$Subdetail = SelectSubCategoryDetailsFromId($conn,$key['subcategory_id']);
+												
+												//echo strcasecmp($Subdetail['subcategory_name'],'फोटो - भिडियो');
+ 
+												?>
 												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
-												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												  	<?php if($key['subcategory_id']=='76'){
+												  		$videoName =$key['news_video'];
+													
+												?>
+												  	<a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												  		<video width="auto" height="250" poster="../backend/videoImage/<?php echo $key['news_featuredimage'] ?>" controls class="card-img-top">
+                                      <source src="../backend/newsVideos/<?php echo $videoName; ?>" type="video/mp4">
+                                      <!-- <source src="movie.ogg" type="video/ogg"> -->
+                                    Your browser does not support the video tag.
+                                    </video>
+												    <!-- <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="..."> -->
+												</a>
+												    <div class="card-body">
+												      <h5><a href="videoNewsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a>
+												      	</h5>
+												      	<?php }else{
+
+
+												      		?>
+												      		<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+
 												    <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
 												</a>
 												    <div class="card-body">
-												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a>
+
+												      <?php	} ?>
+
+												      	</h5>
 												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
 															<?php $datetime = $key['created_at']; 
 															$time_elapsed = timeAgo($datetime);
@@ -305,63 +335,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 					?>
 					</div>
 						<!--  -->
-						<div class="p-t-50">
-							<div class="how2 how2-cl4 flex-s-c">
-								<h3 class="f1-m-2 cl3 tab01-title">
-									<span>Stay Connected<span>
-								</h3>
-							</div>
-
-							<ul class="p-t-35">
-								<li class="flex-wr-sb-c p-b-20">
-									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-facebook fs-16 cl0 hov-cl0">
-										<span class="fab fa-facebook-f"></span>
-									</a>
-
-									<div class="size-w-3 flex-wr-sb-c">
-										<span class="f1-s-8 cl3 p-r-20">
-											6879 Fans
-										</span>
-
-										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
-											Like
-										</a>
-									</div>
-								</li>
-
-								<li class="flex-wr-sb-c p-b-20">
-									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-twitter fs-16 cl0 hov-cl0">
-										<span class="fab fa-twitter"></span>
-									</a>
-
-									<div class="size-w-3 flex-wr-sb-c">
-										<span class="f1-s-8 cl3 p-r-20">
-											568 Followers
-										</span>
-
-										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
-											Follow
-										</a>
-									</div>
-								</li>
-
-								<li class="flex-wr-sb-c p-b-20">
-									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-youtube fs-16 cl0 hov-cl0">
-										<span class="fab fa-youtube"></span>
-									</a>
-
-									<div class="size-w-3 flex-wr-sb-c">
-										<span class="f1-s-8 cl3 p-r-20">
-											5039 Subscribers
-										</span>
-
-										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
-											Subscribe
-										</a>
-									</div>
-								</li>
-							</ul>
-						</div>
+						
 						<hr>
 						<!-- ADVERTISMENT HERE -->
 					<div class="container">

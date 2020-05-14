@@ -94,7 +94,7 @@
                                 <th style="width:8px;"><input type="hidden" class="group-checkable" data-set="#sample_1 .checkboxes" />S.N</th>
                                 <th>Heading/Title</th>
                                 <th>Author</th>                               
-                                <th class="hidden-phone">Featured Image</th>
+                                <th class="hidden-phone">Thumbnail</th>
                                 <th class="hidden-phone">Video</th>
                                 <th class="hidden-phone">Status</th>
                                 <th class="hidden-phone">Top Video</th>
@@ -159,6 +159,9 @@
                                   Edit
                                 </a>
                                 <hr>
+                                <a href="editVideoThumbnail.php?ref=<?php echo $video['news_id'];?>" class="btn btn-xs btn-info">
+                                  Change Thumbnail
+                                </a>
                                 <a href="editVideo.php?ref=<?php echo $video['news_id'];?>" class="btn btn-xs btn-info">
                                   Change Video
                                 </a>

@@ -87,7 +87,7 @@ $(document).ready(function(){
 	foreach($advertisement_banner as $key => $value){		
  		$date_expiry = $value['advertisement_expiry_date'];
  		$date_today = date("Y-m-d");
- 		if ($date_expiry==$date_today) {
+ 		if ($date_expiry==$date_today || $date_expiry < $date_today) {
  			$advertisement_id =  $value['advertisement_id'];
  			deleteAdvertisement($conn, $advertisement_id);
  		}

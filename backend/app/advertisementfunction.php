@@ -37,12 +37,10 @@ function selectIfAdvertisementIsFull($conn,$Advertisment_category){
 }
 function deleteAdvertisement($conn, $advertisement_id){
     $advertisement = selectAdvertisementFromId($conn,$advertisement_id);
-    if (!unlink('../advertisementImage/'.$advertisement['advertisement_image'])) {  
-        echo ("file_pointer cannot be deleted due to an error");  
-    }  
-    else {  
-        echo ("file_pointer has been deleted");  
+    if(file_exists('../advertisementImage/'.$advertisement['advertisement_image'])){
+        unlink('../advertisementImage/'.$advertisement['advertisement_image']);
     }
+        
     $stmtdelete=$conn->prepare("DELETE FROM tbladvertisement WHERE advertisement_id=:advertisement_id");
     $stmtdelete->bindParam(':advertisement_id', $advertisement_id);
     if ($stmtdelete->execute()) {

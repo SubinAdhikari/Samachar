@@ -93,12 +93,13 @@
                             <tr>
                                 <th style="width:8px;"><input type="hidden" class="group-checkable" data-set="#sample_1 .checkboxes" />S.N</th>
                                 <th>Heading/Title</th>
+                                <th>Writer</th>
                                 <th>Category Name</th>
                                 <th>Sub-Category Name</th>                                
-                                <th class="hidden-phone">News Url</th>
                                 <th class="hidden-phone">Status</th>
                                 <th class="hidden-phone">Banner News</th>
                                 <th class="hidden-phone">Top News</th>
+                                
                                 <th class="hidden-phone">Action</th>
                             </tr>
                             </thead>
@@ -124,7 +125,6 @@
                                 <td class="hidden-phone"><?php $subCategoryNames=getSubCategoryNameByCategoryId($conn,$news['subcategory_id']); 
                                 $subCategoryName = implode("", $subCategoryNames);  
                                 echo $subCategoryName; ?></td>
-                                <td class="hidden-phone"><?php echo $news['news_url']; ?></td>
                                 <td class="center hidden-phone"><?php if($news['is_active']=='active'): ?>
                               <span class="label label-sm label-success">
                                 Active</span>
@@ -146,6 +146,7 @@
                                 <span class="label label-sm label-danger">
                                   No</span>
                               <?php endif; ?></td>
+                              
                                 <td class="hidden-phone"><a href="restoreDeletedNews.php?ref=<?php echo $news['trash_id'];?>" class="btn btn-xs btn-info">
                                   Restore
                                 </a>

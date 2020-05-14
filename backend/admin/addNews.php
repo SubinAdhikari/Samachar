@@ -20,9 +20,10 @@ req.onreadystatechange=function(){
 if(req.readyState==4 && req.status==200){
     document.getElementById("categoryid").innerHTML=req.responseText;
     simpleValue =  req.responseText;
-    varLen =simpleValue.substr(-10);
-    specificLen = varLen.charAt(0);
-    console.log(specificLen);
+    varLen =simpleValue.substr(10);
+    specificLen = varLen.charAt(7);
+    //console.log(varLen);
+    //console.log(specificLen);
     $('.writerPP').hide();
     if (specificLen=='4') {
        $('.writerPP').show();

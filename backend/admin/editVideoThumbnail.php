@@ -189,7 +189,7 @@ if(isset($_POST['updateThumbnail'])){
     $random = rand()*rand()+rand();
     $tmp= $_FILES['news_featuredimage']['tmp_name'];
     $videoName = $random.'.'.$type;  
-    move_uploaded_file($tmp, '../videoImage/'.$random.'.'.$type);
+    move_uploaded_file($tmp, '../videoImage/'.$random.'.'.$type); 
     
 if(updateVideoThumbnail($conn, $_POST,$ref,$videoName)){
     echo '<script language="javascript">';

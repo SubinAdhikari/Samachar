@@ -117,7 +117,7 @@ function updateVideoThumbnail($conn, $data, $ref,$videoThumbnailName){
 function insertNewsIntoTrash($conn, $data, $newsId){
     
 
-	$stmtinsert=$conn->prepare("INSERT INTO tblnewstrash (`news_id`,`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`news_image`,`news_featuredimage`,`is_active`,`top_news`,`news_writerImage`,`news_video`) VALUES (:news_id, :news_title, :news_writtenby, :category_id, :subcategory_id, :is_bannerNews, :news_deails, :news_url, :news_image, :news_featuredimage, :is_active, :top_news, :news_writerImage, :news_video)");
+	$stmtinsert=$conn->prepare("INSERT INTO tblnewstrash (`news_id`,`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`news_image`,`news_featuredimage`,`is_active`,`top_news`,`news_writerImage`,`news_video`,`news_visit`) VALUES (:news_id, :news_title, :news_writtenby, :category_id, :subcategory_id, :is_bannerNews, :news_deails, :news_url, :news_image, :news_featuredimage, :is_active, :top_news, :news_writerImage, :news_video, :news_visit)");
     $stmtinsert->bindParam(':news_id', $data['news_id']);
 	$stmtinsert->bindParam(':news_title', $data['news_title']);
     $stmtinsert->bindParam(':news_writtenby', $data['news_writtenby']);
@@ -132,6 +132,7 @@ function insertNewsIntoTrash($conn, $data, $newsId){
     $stmtinsert->bindParam(':top_news', $data['top_news']);
     $stmtinsert->bindParam(':news_writerImage', $data['news_writerImage']);
     $stmtinsert->bindParam(':news_video', $data['news_video']);
+    $stmtinsert->bindParam(':news_visit', $data['news_visit']);
     
 
 	if ($stmtinsert->execute()) {
@@ -148,7 +149,7 @@ function getDeletedNewsByID($conn,$ref){
 }
 
 function restoreDeletedNews($conn, $data){
-	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`news_image`,`news_featuredimage`,`is_active`,`top_news`,`news_writerImage`,`news_video`) VALUES (:news_title, :news_writtenby, :category_id, :subcategory_id,:is_bannerNews,:news_deails, :news_url, :news_image, :news_featuredimage, :is_active, :top_news, :news_writerImage, :news_video)");
+	$stmtinsert=$conn->prepare("INSERT INTO tblnews (`news_title`,`news_writtenby`,`category_id`,`subcategory_id`,`is_bannerNews`,`news_deails`,`news_url`,`news_image`,`news_featuredimage`,`is_active`,`top_news`,`news_writerImage`,`news_video`,`news_visit`) VALUES (:news_title, :news_writtenby, :category_id, :subcategory_id,:is_bannerNews,:news_deails, :news_url, :news_image, :news_featuredimage, :is_active, :top_news, :news_writerImage, :news_video, :news_visit)");
 	$stmtinsert->bindParam(':news_title', $data['news_title']);
     $stmtinsert->bindParam(':news_writtenby', $data['news_writtenby']);
     $stmtinsert->bindParam(':category_id', $data['category_id']);
@@ -162,6 +163,7 @@ function restoreDeletedNews($conn, $data){
     $stmtinsert->bindParam(':top_news', $data['top_news']);
     $stmtinsert->bindParam(':news_writerImage', $data['news_writerImage']);
     $stmtinsert->bindParam(':news_video', $data['news_video']);
+    $stmtinsert->bindParam(':news_visit', $data['news_visit']);
     
 	if ($stmtinsert->execute()) {
 		return true;

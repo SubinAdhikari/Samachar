@@ -101,31 +101,31 @@ $(document).ready(function(){
 		<div class="container-menu-desktop">
 			<div class="topbar">
 				<div class="content-topbar container h-100">
-					<div class="left-topbar">
+					<div class="left-topbar" style="margin-left:-140px!important">
 						<span class="left-topbar-item flex-wr-s-c">
 							<span>
 									<!-- <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=17&api=800144j563&" width="165" height="20"></iframe> -->
 										<iframe src="http://free.timeanddate.com/clock/i7a2ixxb/n117/tlnp/fcfff/tc222/pc222/ftb/pd2/tt0/tw0/th2/ts1" frameborder="0" width="198" height="18"></iframe>
-
+											&ensp;
 							</span>
 						</span>
 
 						<a href="about.php" class="left-topbar-item" style="color:white;font-size:15px;margin-left:-20px!important">
-						हाम्रो बारेमा
+						हाम्रो बारेमा &ensp;
 						</a>
 
 						<a href="contact.php" class="left-topbar-item" style="color:white;font-size:15px">
-						सम्पर्क
+						सम्पर्क &ensp;
 						</a>
 						<a href="converter.php" class="left-topbar-item" style="color:white;font-size:15px">
-						प्रीति - युनिकोड
+						प्रीति - युनिकोड 
 						</a>
 						
 
 						
 					</div>
 
-					<div class="right-topbar">
+					<div class="right-topbar" style="margin-right: -100px!important">
 					<a href="#">
 							<!-- <i class="fa fa-facebook-square" id="grow" style="font-size:24px"></i> -->
 							<img src="images/icons/facebook.png" id="grow" style="width:10%"/>
@@ -414,14 +414,16 @@ $encryptedURL=encryptionFunction($key['category_id']);
 $encryptedURL=encryptionFunction($key['category_id']);  
 ?>
 								 <li class="nav-item dropdown" onclick="location.href='category-02.php?ref=<?php echo $encryptedURL;  ?>';">
-								<a class="nav-link dropdown-toggle" href="category-02.php?ref=<?php echo $encryptedURL; ?>" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:11px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php
+								<a class="nav-link dropdown-toggle" href="category-02.php?ref=<?php echo $encryptedURL; ?>" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="category-02.php?ref=<?php echo $encryptedURL;  ?>" style="font-size:14px; font-weight: bold; color:white;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php
 								//echo strcmp($key['category_name'], 'कानुन');
-								 if($key['category_name']=='वातावरण') { echo 'Environment';}
+								 if($key['category_name']=='जलवायु तथा वातावरण') { echo 'Environment';}
 								 else if(strcasecmp($key['category_name'], 'बिचार')=='1') { 
 								 	echo 'Opinion';
-								}else if(strcasecmp($key['category_name'], 'कानुन')=='0') { 
+								}else if(strcasecmp($key['category_name'], 'कानून र न्यायपालिका')=='0') { 
 								 	echo 'Law';
-								}
+								}else if(strcasecmp($key['category_name'], 'विज्ञान र प्रविधि')=='0') { 
+									echo 'Science And IT';
+							   }
 								else{echo $key['category_name'];}?>
         							</a>
 							<!-- <li> 
@@ -433,7 +435,11 @@ $encryptedURL=encryptionFunction($key['category_id']);
 										// foreach($key as $value){
 											$encryptedURL=encryptionFunction($key['subcategory_id']); 
 									?>
-									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $encryptedURL ?>" style="font-size:12px; color:black;font-family:Ek Mukta,Arial,Helvetica,san-serif"><?php echo $key['subcategory_name']; ?></a>
+									<a class="dropdown-item" href="subCategoryViewAll.php?ref=<?php echo $encryptedURL ?>" style="font-size:14px;font-weight:bold; color:black;font-family:Ek Mukta,Arial,Helvetica,san-serif">
+									<?php 
+									if($key['subcategory_name']=='छिमेकी भारत'){echo 'Neighbouring India';}
+									else{echo $key['subcategory_name']; }
+									?></a>
 										<?php }  ?>
 										</div>
 

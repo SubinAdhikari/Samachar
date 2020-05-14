@@ -101,19 +101,20 @@ $(document).ready(function(){
 		<div class="container-menu-desktop">
 			<div class="topbar">
 				<div class="content-topbar container h-100">
-					<div class="left-topbar">
+					<div class="left-topbar" style="margin-left:-100px!important">
 						<span class="left-topbar-item flex-wr-s-c">
 							<span>
 									<iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=FFFFFF&font_size=17&api=800144j563&" width="165" height="20"></iframe>
+										&ensp;
 							</span>
 						</span>
 
 						<a href="about.php" class="left-topbar-item" style="color:white;font-size:15px;margin-left:-20px!important">
-						हाम्रो बारेमा
+						हाम्रो बारेमा &ensp;
 						</a>
-
+						
 						<a href="contact.php" class="left-topbar-item" style="color:white;font-size:15px">
-						सम्पर्क
+						सम्पर्क &ensp;
 						</a>
 						<a href="converter.php" class="left-topbar-item" style="color:white;font-size:15px">
 						प्रीति - युनिकोड
@@ -123,7 +124,7 @@ $(document).ready(function(){
 						
 					</div>
 
-					<div class="right-topbar">
+					<div class="right-topbar" style="margin-right: -100px!important">
 						<a href="#">
 							<!-- <i class="fa fa-facebook-square" id="grow" style="font-size:24px"></i> -->
 							<img src="images/icons/facebook.png" id="grow" style="width:10%"/>

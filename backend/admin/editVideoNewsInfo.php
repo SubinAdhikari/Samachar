@@ -1,8 +1,6 @@
 <?php include 'layouts/header.php'; 
   $ref=$_GET['ref'];
   $result=selectNewsFromId($conn,$ref);
-
-  //$subCategoryName=retriveSubCategories($conn);
   
 ?>
 

@@ -102,7 +102,6 @@
                             </thead>
                             <tbody>
                             <?php $adminUsers=getAllAdminUsers($conn);
-                            //dump($adminUsers);
                             foreach ($adminUsers as $key => $adminUser):
                             ?>
                             <tr class="odd gradeX">

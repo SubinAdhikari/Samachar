@@ -6,8 +6,6 @@ function insertComment($conn, $data, $newsId){
 	$stmtinsert->bindParam(':name', $data['name']);
 	$stmtinsert->bindParam(':useremail', $data['email']);
 	$stmtinsert->bindParam(':comment', $data['comment']);
-	// $stmtinsert->bindParam(':is_active', 'active');	
-
 	if ($stmtinsert->execute()) {
 		return true;
 	}

@@ -2,9 +2,7 @@
 $categoryName=retriveCategories($conn);
 $ref=$_GET['ref'];
 $result=SelectSubCategoryDetailsFromId($conn,$ref);
-// print_r($result['category_id']);
 $categoryNameAndID=selectNameBYID($conn,$result['category_id']);
-// print_r($categoryNameAndID);
 ?>
 
    <!-- END HEADER -->
@@ -103,9 +101,6 @@ $categoryNameAndID=selectNameBYID($conn,$result['category_id']);
                                 <div class="controls">
                                 <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" onchange="fetchId(this.value)"  id="selCSI" readonly>
                                         <option value="<?php echo $categoryNameAndID['category_name']; ?>"><?php echo $categoryNameAndID['category_name']; ?></option>
-                                        
-                                        <!-- <option>catagory1</option>
-                                        <option>catagory2</option> -->
                                     </select>
                                 </div>
                             </div>
@@ -115,8 +110,6 @@ $categoryNameAndID=selectNameBYID($conn,$result['category_id']);
                                     <select name="category_id" id="categoryid" class="span6" readonly>
                                     <option value="<?php echo $categoryNameAndID['category_id']; ?>"><?php echo $categoryNameAndID['category_id']; ?></option>
                                     </select>
-                                    <!-- <input type="text"  class="span6 " name="category_id" id="categoryid"   /> -->
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
@@ -130,8 +123,6 @@ $categoryNameAndID=selectNameBYID($conn,$result['category_id']);
                                 <label class="control-label">Sub-Category Description</label>
                                 <div class="controls">
                                 <textarea name="subcategory_descrption" class="span6"><?php echo $result['subcategory_descrption']; ?></textarea>
-                                    <!-- <input type="text" class="span6 " name="category_name" /> -->
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">

@@ -3,7 +3,6 @@
   include 'layouts/header.php'; 
   $ref=$_GET['ref'];
   $result=selectAdvertisementFromId($conn,$ref);
-  //dump($result);
 ?>
 
    <!-- END HEADER -->

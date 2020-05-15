@@ -1,7 +1,4 @@
 <?php
-// function redirect($path){ 
-// header('location:'.$path);
-// }
 
 function redirection($path){
  	echo '<script>window.location.href="'.$path.'";</script>';
@@ -14,15 +11,7 @@ function checkAdminLogin(){
     	return false;
 	}
 }
-// function checkUserLogin()
-// {
-// 	if(isset($_SESSION['user'] ['email'])){
-//         return true;
-//     }
-// else{
-//     return false;
-// }
-// }
+
  function dump($data){
  	echo "<pre>";
  	print_r($data);

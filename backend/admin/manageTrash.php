@@ -105,7 +105,6 @@
                             </thead>
                             <tbody>
                             <?php $allNews=getAllTrashNewsDetails($conn);
-                            //dump($allNews);
                             foreach ($allNews as $key => $news):
                                 
                             ?>

@@ -101,7 +101,6 @@
                             </thead>
                             <tbody>
                             <?php $catagories=getSubCategoriesDetails($conn);
-                            //dump($catagories);
                             foreach ($catagories as $key => $catagory):
                                 $categoryname=selectCategoryNameByID($conn,$catagory['category_id']);
                             ?>

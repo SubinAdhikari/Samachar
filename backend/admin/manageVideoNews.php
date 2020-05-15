@@ -104,7 +104,6 @@
                             </thead>
                             <tbody>
                             <?php $newsVideos=getAllVideoNewsDetails($conn);
-                            //dump($newsVideos);
                             foreach ($newsVideos as $key => $video):
                                 
                             ?>

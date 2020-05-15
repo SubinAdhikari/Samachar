@@ -102,7 +102,6 @@
                             </thead>
                             <tbody>
                             <?php $allAdvertisement=selectAllAdvertisement($conn);
-                            //dump($allAriticles);
                             foreach ($allAdvertisement as $key => $value):
                                 
                             ?>

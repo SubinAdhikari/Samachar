@@ -2,7 +2,6 @@
   include 'layouts/header.php';
   $category_id=$_GET['ref'];
   $category=getCategoryById($conn, $category_id);
-  //dump($category);
   if (isset($_POST['savebtn'])) {
     if(updatecategory($conn, $_POST)){
         //echo "User Updated SuccessFully";

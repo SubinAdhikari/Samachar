@@ -100,7 +100,6 @@
                             </thead>
                             <tbody>
                             <?php $catagories=getAllCategories($conn);
-                            //dump($catagories);
                             foreach ($catagories as $key => $catagory):
                             ?>
                             <tr class="odd gradeX">

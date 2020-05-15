@@ -143,7 +143,6 @@
                                 
                                 <td><?php
                                 if ($news['news_video']=='') {
-                                   # code...
                                   
                                   $s=$news['news_image'];
                                   $arr = explode(",", $s);

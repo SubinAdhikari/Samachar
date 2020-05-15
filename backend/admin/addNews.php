@@ -1,7 +1,6 @@
 <?php include 'layouts/header.php'; 
   $categoryName=retriveCategories($conn);
 
-  //$subCategoryName=retriveSubCategories($conn);
   
 ?>
 <script>
@@ -22,12 +21,10 @@ if(req.readyState==4 && req.status==200){
     simpleValue =  req.responseText;
     varLen =simpleValue.substr(10);
     specificLen = varLen.charAt(7);
-    //console.log(varLen);
-    //console.log(specificLen);
+
     $('.writerPP').hide();
     if (specificLen=='4') {
        $('.writerPP').show();
-     // $('.newsPP').append("");
                             
                                     
                                 
@@ -47,16 +44,14 @@ $.ajax({
       data: dataString,
       datatype : "json",
       success: function (response) {
-        //console.log(response);
+
          var a = '<option value="">No Sub-Catagory Available</option>';        
         if (response==0) {
           $('#subCategory').html(a);
-          $("#data").hide();
-          //console.log(response);
-                     
+          $("#data").hide();                   
         }
         else{
-          //console.log(response);
+
           $("#data").show();
           $('#subCategory').html(response);
        
@@ -175,7 +170,6 @@ if(req.readyState==4 && req.status==200){
                                 <label class="control-label">Heading/Title</label>
                                 <div class="controls">
                                     <input type="text" class="span6 " name="news_title" required />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>  
                             <div class="control-group">
@@ -190,8 +184,6 @@ if(req.readyState==4 && req.status==200){
                                      <?php   } }
                                         
                                         ?>
-                                        <!-- <option>catagory1</option>
-                                        <option>catagory2</option> -->
                                     </select>
                                 </div>
                             </div>
@@ -200,8 +192,6 @@ if(req.readyState==4 && req.status==200){
                                 <div class="controls">
                                     <select name="category_id" id="categoryid" class="span6" required >
                                     </select>
-                                    <!-- <input type="text"  class="span6 " name="category_id" id="categoryid"   /> -->
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="newsPP">
@@ -219,15 +209,12 @@ if(req.readyState==4 && req.status==200){
                                 <div class="controls">
                                     <select name="subcategory_id" id="subcategoryid"   class="span6">
                                     </select>
-                                    <!-- <input type="text"  class="span6 " name="category_id" id="categoryid"   /> -->
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Written By</label>
                                 <div class="controls">
                                     <input type="text" class="span6 " name="news_writtenby" required />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div> 
                             <div class="control-group writerPP">
@@ -258,7 +245,6 @@ if(req.readyState==4 && req.status==200){
                                 <label class="control-label">News Url</label>
                                 <div class="controls">
                                     <input type="text" class="span6 " name="news_url" required />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
@@ -377,11 +363,11 @@ if(isset($_POST['addNews'])){
       $fileNameNew = uniqid('',true).".".$fileActualExt;
       $fileNamesInString.=$fileNameNew.","; 
       $path='../newsImage/'.$fileNameNew;
-  //    chmod('uploads/',0777);
+
       move_uploaded_file($tmp_name, $path);
     }
     $fileNamesInString = rtrim($fileNamesInString, ",");
-    // for featured image
+
 
     $fileName1 = $_FILES['news_featuredimage']['name'];
     $tmp_name1=$_FILES['news_featuredimage']['tmp_name'];
@@ -389,7 +375,7 @@ if(isset($_POST['addNews'])){
     $fileActualExt1 = strtolower(end($fileExt1));
     $fileNameNew1 = uniqid('',true).".".$fileActualExt1;
     $path='../newsFeaturedImage/'.$fileNameNew1;
-   // chmod('uploads/',0777);
+
     move_uploaded_file($tmp_name1, $path);
 
     
@@ -401,7 +387,7 @@ if(isset($_POST['addNews'])){
     $path='../newsWriterImage/'.$fileNameNew2;
     chmod('../newsWriterImage/',0777);
     move_uploaded_file($tmp_name2, $path);    
-// print_r($_POST);
+
 if(insertNews($conn, $_POST, $fileNamesInString, $fileNameNew1, $fileNameNew2)){
     echo '<script language="javascript">';
     echo '</script>';

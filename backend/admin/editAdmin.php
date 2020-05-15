@@ -2,10 +2,8 @@
   include 'layouts/header.php';
   $admin_id=$_GET['ref'];
   $adminUser=getAdminUserById($conn, $admin_id);
-  //dump($adminUser);
   if (isset($_POST['savebtn'])) {
     if(updateAdminUser($conn, $_POST)){
-        //echo "User Updated SuccessFully";
          showMsg('User Updated Successfully');
          redirection('manageadmin.php');
 }

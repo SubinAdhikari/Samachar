@@ -100,7 +100,6 @@
                             </thead>
                             <tbody>
                             <?php $trendings=getAllTrending($conn);
-                            //dump($adminUsers);
                             foreach ($trendings as $key => $trending):
                             ?>
                             <tr class="odd gradeX">

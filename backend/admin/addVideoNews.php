@@ -98,34 +98,30 @@
                                 <label class="control-label">Heading/Title</label>
                                 <div class="controls">
                                     <input type="text" class="span6 " required name="news_title" />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div> 
                             <div class="control-group">
                                 <label class="control-label">News Category</label>
                                 <div class="controls">
                                     <input type="text" class="span6" readonly value ="अन्य"  name="category_name" />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">News Subcategory</label>
                                 <div class="controls">
                                     <input type="text" class="span6" readonly value ="फोटो - भिडियो" name="subcategory_name" />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Writer</label>
                                 <div class="controls">
                                     <input type="text" class="span6 " required  name="news_writtenby" />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div> 
                             <div class="control-group">
                                 <label class="control-label">Video Thumbnail</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" required="png,jpeg,gif"  name="news_featuredimage" accept="image/png, image/jpeg, image/gif"/>                              
+                                    <input type="file" class="span6"   name="news_featuredimage" accept="image/png, image/jpeg, image/gif"/>                              
                                 </div>
                             </div> 
                             <div class="control-group">

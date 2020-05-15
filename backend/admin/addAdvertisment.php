@@ -92,13 +92,6 @@
                         <div class="widget-body form">
                             <!-- BEGIN FORM-->
                             <form method="POST" accept-charset="utf-8" class="form-horizontal" enctype="multipart/form-data">
-                            <!-- <div class="control-group">
-                                <label class="control-label">Advertisment Category</label>
-                                <div class="controls">
-                                    <input type="text" class="span6 " value="<?php echo $Advertisment_category; ?>" required name="advertisement_category" readonly/>
-                                    
-                                </div>
-                            </div> -->
                             <div class="control-group">
                                 <label class="control-label">Area</label>
                                 <div class="controls">
@@ -134,7 +127,7 @@
                             <div class="control-group">
                                 <label class="control-label">Advertisment Image</label>
                                 <div class="controls">
-                                    <input type="file" class="span6" required name="advertisement_image" />                              
+                                    <input type="file" class="span6" required name="advertisement_image" accept="image/png, image/jpeg, image/gif"/>                              
                                 </div>
                             </div>
                             
@@ -187,7 +180,6 @@
    <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
    <script type="text/javascript" src="assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>
    <script type="text/javascript" src="assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-   <!-- <script type="text/javascript" src="assets/bootstrap/js/bootstrap-fileupload.js"></script> -->
    <script src="assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
    <!-- <script src="js/jquery.blockui.js"></script> -->
@@ -224,20 +216,13 @@
 <?php
 if(isset($_POST['addAdvertisment'])){
 
-//   print_r($_POST);
-
-
-//dump($_POST);
-    // for featured image
     $fileName1 = $_FILES['advertisement_image']['name'];
     $tmp_name1=$_FILES['advertisement_image']['tmp_name'];
     $fileExt1 = explode('.', $fileName1);
     $fileActualExt1 = strtolower(end($fileExt1));
     $fileNameNew1 = uniqid('',true).".".$fileActualExt1;
     $path='../advertisementImage/'.$fileNameNew1;
-    //chmod('uploads/',0777);
     move_uploaded_file($tmp_name1, $path);
-// print_r($_POST);
 if(insertAdvertisement($conn, $_POST, $fileNameNew1)){
     echo '<script language="javascript">';
     echo '</script>';

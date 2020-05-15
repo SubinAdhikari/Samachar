@@ -13,8 +13,7 @@ req.onreadystatechange=function(){
 if(req.readyState==4 && req.status==200){
     document.getElementById("categoryid").innerHTML=req.responseText;
 }
-}; 
-// alert(123);  
+};  
 }
  
     </script>
@@ -120,8 +119,6 @@ if(req.readyState==4 && req.status==200){
                                      <?php   } }
                                         
                                         ?>
-                                        <!-- <option>catagory1</option>
-                                        <option>catagory2</option> -->
                                     </select>
                                 </div>
                             </div>
@@ -130,23 +127,18 @@ if(req.readyState==4 && req.status==200){
                                 <div class="controls">
                                     <select name="category_id" id="categoryid" class="span6">
                                     </select>
-                                    <!-- <input type="text"  class="span6 " name="category_id" id="categoryid"   /> -->
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Sub-Category Name</label>
                                 <div class="controls">
                                     <input type="text" required  class="span6 " name="subcategory_name" />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Sub-Category Description</label>
                                 <div class="controls">
                                 <textarea name="subcategory_descrption" required class="span6"></textarea>
-                                    <!-- <input type="text" class="span6 " name="category_name" /> -->
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div>
                             <div class="control-group">

@@ -2,8 +2,6 @@
 $categoryName=retriveCategories($conn);
 $ref=$_GET['ref'];
 $result=selectNewsFromId($conn,$ref);
-// print_r($result['category_id']);
-// print_r($categoryNameAndID);
 ?>
    
    <!-- END HEADER -->

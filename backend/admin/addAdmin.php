@@ -349,7 +349,6 @@ $(document).ready(function(){
         url : 'validations.php',
         dataType : 'JSON',
         beforeSend : function(){
-          // <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
           $(".username-error").html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
         },
         data : {'check_username':store },
@@ -391,7 +390,6 @@ $(document).ready(function(){
 				url : 'validations.php',
 				dataType : 'JSON',
         beforeSend : function(){
-          // <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
           $(".email-error").html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
         },
 				data : {'check_email':store },
@@ -487,8 +485,7 @@ $(document).ready(function(){
         url : 'validations.php?signup=true',
         data : $("#signup").serialize(),
         success : function(feedback){
-          window.location.href="manageAdmin.php";
-          // alert("Sup")  ;     
+          window.location.href="manageAdmin.php";   
         }
       })
     }

@@ -107,7 +107,6 @@
                             </thead>
                             <tbody>
                             <?php $allNews=getAllNewsDetails($conn);
-                            //dump($allNews);
                             foreach ($allNews as $key => $news):
                                 
                             ?>

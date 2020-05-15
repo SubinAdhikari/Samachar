@@ -2,8 +2,6 @@
 $categoryName=retriveCategories($conn);
 $ref=$_GET['ref'];
 $result=selectNewsFromId($conn,$ref);
-// print_r($result['category_id']);
-// print_r($categoryNameAndID);
 ?>
    
    <!-- END HEADER -->
@@ -139,9 +137,6 @@ $result=selectNewsFromId($conn,$ref);
                                   <?php $subCategoryNames=getSubCategoryNameByCategoryId($conn,$result['subcategory_id']); 
                                 $subCategoryName = implode("", $subCategoryNames);  ?>
                                         <option value="<?php echo $subCategoryName; ?>"><?php echo $subCategoryName; ?></option>
-                                        
-                                        <!-- <option>catagory1</option>
-                                        <option>catagory2</option> -->
                                     </select>
                                 </div>
                             </div>

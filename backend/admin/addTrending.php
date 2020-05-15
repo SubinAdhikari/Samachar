@@ -96,14 +96,12 @@
                                 <label class="control-label">Topic Name</label>
                                 <div class="controls">
                                     <input type="text" class="span6 " required name="trending_topic" />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div> 
                             <div class="control-group">
                                 <label class="control-label">Trending Rank</label>
                                 <div class="controls">
                                     <input type="text" class="span6 " required name="trending_rank" />
-                                    <!-- <span class="help-inline">Some hint here</span> -->
                                 </div>
                             </div> 
                             <div class="control-group">

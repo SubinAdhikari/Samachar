@@ -331,8 +331,8 @@ foreach($forthLastNews as $key){
 									</li>
 								</ul>
 								<?php 
-$encryptedURL=encryptionFunction($key['category_id']); 
-?>
+								$encryptedURL=encryptionFunction($key['category_id']); 
+									?>
 
 								<!--  -->
 								<a href="category-02.php?ref=<?php echo $encryptedURL; ?>" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
@@ -684,6 +684,91 @@ var nc_api_id = 31620200513392; //-->
 			<div class="row justify-content-center">
 				<div class="col-md-10 col-lg-8 p-b-20">
 					
+
+
+
+
+
+
+
+
+
+				<div class="tab01 p-b-20">
+							<div class="tab01-head how2 how2-cl0 bocl12 flex-s-c m-r-10 m-r-0-sr991">
+								<!-- Brand tab -->
+								<h1 class="f1-m-2 cl19 tab01-title" style="font-size:30px; color:#027ab5!important;">
+									<?php
+									$data=getHPSpecialNews($conn);
+									// print_r($data);
+									echo '<span>HP- विशेष</span>'; ?>
+								</h1>
+
+								<!-- Nav tabs -->
+								<ul class="nav nav-tabs" role="tablist">
+									
+									<li class="nav-item-more dropdown dis-none">
+										<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+											<i class="fa fa-ellipsis-h"></i>
+										</a>
+
+										<ul class="dropdown-menu">
+											
+										</ul>
+									</li>
+								</ul>
+								<?php 
+								foreach($data as $key){
+								$encryptedURL=encryptionFunction($key['subcategory_id']); 
+							}
+									?>
+
+								<!--  -->
+								<a href="subCategoryViewAll.php?ref=<?php echo $encryptedURL; ?>" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
+									View all
+									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
+								</a>
+							</div>
+								<br>
+							<!-- Tab panes -->
+							<div class="card-group"> 
+										<?php
+							foreach($data as $key){
+									$encryptedNewsUrl=encryptionFunction($key['news_id']);
+									?>
+									<div class="col-sm-4">
+												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
+												  	<a href="newsDetail.php?ref=<?php echo $encryptedNewsUrl;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
+												    <img id="cardImage" src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
+												</a>
+												    <div class="card-body">
+												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedNewsUrl;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
+												      <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
+															<?php $datetime = $key['created_at']; 
+															$time_elapsed = timeAgo($datetime);
+															echo $time_elapsed;?></small></p>
+												    </div>
+													</div>
+												  </div>
+							<!-- php close here --><?php } ?>
+										</div>
+										
+						</div>
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -419,9 +419,9 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								 if($key['category_name']=='जलवायु तथा वातावरण') { echo 'Environment';}
 								 else if(strcasecmp($key['category_name'], 'बिचार')=='1') { 
 								 	echo 'Opinion';
-								}else if(strcasecmp($key['category_name'], 'कानून र न्यायपालिका')=='0') { 
+								}else if(strcasecmp($key['category_name'], 'कानून तथा न्यायपालिका')=='0') { 
 								 	echo 'Law';
-								}else if(strcasecmp($key['category_name'], 'विज्ञान र प्रविधि')=='0') { 
+								}else if(strcasecmp($key['category_name'], 'विज्ञान तथा प्रविधि')=='0') { 
 									echo 'Science And IT';
 							   }
 								else{echo $key['category_name'];}?>

@@ -197,7 +197,7 @@ function getVideoNewsSubCategoryId($conn){
 }
 function getAVideoNews($conn){
     $value='';
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video<>:news_video ORDER BY news_id DESC LIMIT 4"); 
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video<>:news_video ORDER BY news_id DESC LIMIT 2"); 
     $stmtSelect->bindParam(':news_video',$value);   
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
@@ -328,4 +328,13 @@ function UpdateNewsVisitPage($conn,$data,$ref){
     }
     return false;
 }
+
+function getHPSpecialNews($conn){
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE subcategory_id=78 ORDER BY news_id DESC LIMIT 3"); 
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
+}
+
+
 ?>

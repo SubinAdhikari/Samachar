@@ -39,14 +39,7 @@ include 'layouts/header.php';
 								</div>
 							  <?php } ?>
 							  
-						<!-- Old Comment Section -->
-
-
-						
-						<!-- End of old comment Section -->
-
-
-						<!-- Leave a comment -->
+					
 						
 					</div>
 				</div>

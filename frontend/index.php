@@ -4,36 +4,7 @@ include "layouts/header.php"
 
 	<!-- Headline -->
 	<div class="container" >
-		<!-- <div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
-			<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
-				<span class="text-uppercase cl2 p-r-8" style="margin-left:-22px;font-weight:bold;font-size:15px;color:black">
-					Breaking News :
-				</span>
-
-				<span class="dis-inline-block cl6 slide100-txt pos-relative size-w-0" data-in="fadeInDown" data-out="fadeOutDown">
-					<span class="dis-inline-block slide100-txt-item animated visible-false">
-						Abhishek Karki
-					</span>
-					
-					<span class="dis-inline-block slide100-txt-item animated visible-false">
-						Subin Adhikari
-					</span>
-
-					<span class="dis-inline-block slide100-txt-item animated visible-false">
-						Shreedhar Bhandari
-					</span>
-				</span>
-			</div>
-
-			<form method="POST" action="searchResult.php">
-			<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
-				<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
-				<button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03" name="searchBtn">
-					<i class="zmdi zmdi-search"></i>
-				</button>
-			</div>
-			</form>
-		</div> -->
+		
 		<nav aria-label="breadcrumb" >
 			  <ol class="breadcrumb" style="margin-left:-120px;width:115%;height: 45px">
 			    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;padding-left:100px;margin-top:5px ">TRENDING NOW : </span></li></strong>
@@ -155,9 +126,7 @@ $encryptedURL=encryptionFunction($key['news_id']);
 						<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="dis-block how1-child1 trans-03"></a>
 
 						<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-							<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-								National
-							</a> -->
+							
 
 							<h3 class="how1-child2 m-t-14 m-b-10">
 								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
@@ -165,19 +134,7 @@ $encryptedURL=encryptionFunction($key['news_id']);
 								</a>
 							</h3>
 
-							<!-- <span class="how1-child2">
-								<span class="f1-s-4 cl11">
-									Abhishek Karki
-								</span>
-
-								<span class="f1-s-3 cl11 m-rl-3">
-									-
-								</span>
-
-								<span class="f1-s-3 cl11">
-								<?php echo $key['created_at']; ?>
-								</span>
-							</span> -->
+							
 						</div>
 					</div>
 				</div>
@@ -198,9 +155,7 @@ foreach($secondLastNews as $key){
 								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="dis-block how1-child1 trans-03"></a>
 
 								<div class="flex-col-e-s s-full p-rl-25 p-tb-24">
-									<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-										Entertainment
-									</a> -->
+									
 
 									<h3 class="how1-child2 m-t-14">
 										<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-a-7 f1-l-2 cl0 hov-cl10 trans-03">
@@ -224,9 +179,7 @@ $encryptedURL=encryptionFunction($key['news_id']);
 								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="dis-block how1-child1 trans-03"></a>
 
 								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-									<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-										Life Style
-									</a> -->
+									
 
 									<h3 class="how1-child2 m-t-14">
 										<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
@@ -249,9 +202,7 @@ foreach($forthLastNews as $key){
 								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="dis-block how1-child1 trans-03"></a>
 
 								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-									<!-- <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-										Sport
-									</a> -->
+									
 
 									<h3 class="how1-child2 m-t-14">
 										<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
@@ -279,7 +230,7 @@ foreach($forthLastNews as $key){
 						$getallcategory=selectAllCategory($conn);
 						foreach($getallcategory as $key){
 						?>
-						<!-- National -->
+						
 
 <!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
 <?php 
@@ -433,21 +384,17 @@ foreach($forthLastNews as $key){
 							}?>
 							</ul>
 						</div> 
-				<!-- <div class="p-b-30">
-					<div id="erscrt2"> -->
-<!-- 					
-				<iframe src="https://www.ashesh.com.np/forex/widget2.php?api=792047j282" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%; height:400px; border-radius:5px;" allowtransparency="true">
-					</iframe><br><span style="text-align:left">© <a href="https://www.ashesh.com.np/forex/" title="Forex Nepal for Nepalese Rupee" target="_top" style="text-decoration:none;">Forex Nepal</a></span> -->
+				
 						
 
 
 
 
 <div class="tabForE" style="width:100%!important">
-<button class="tablinks" id="defaultOpen" onclick="openCity(event, 'Rashifal')">Horoscope</button>
-  <button class="tablinks" onclick="openCity(event, 'exchange')">Exchange Rate</button>
-  <button class="tablinks" onclick="openCity(event, 'GSRate')">Gold/Silver Rate</button>
-  <button class="tablinks" onclick="openCity(event, 'calender')">Calender</button>
+<button class="tablinks" id="defaultOpen" onclick="openRate(event, 'Rashifal')">Horoscope</button>
+  <button class="tablinks" onclick="openRate(event, 'exchange')">Exchange Rate</button>
+  <button class="tablinks" onclick="openRate(event, 'GSRate')">Gold/Silver Rate</button>
+  <button class="tablinks" onclick="openRate(event, 'calender')">Calender</button>
 </div>
 
 
@@ -484,10 +431,7 @@ var nc_api_id = 31620200513392; //-->
 
 
 
-           			<!-- </div> -->
-<!-- Simple Currency Rates Table END -->
-<!-- Simple Currency Rates Table END -->
-				<!-- </div> -->
+           			
 
 						<!-- Fisrt Side Advertisement -->
 						<?php 
@@ -671,14 +615,14 @@ var nc_api_id = 31620200513392; //-->
 	<center><div  style="border:1px black solid;width:95%">
 		<div style="width:100%">
 			<a href="#" >
-				<!-- <img class="max-w-full" src="images/banner-01.jpg" alt="IMG"> -->
+				
 				<img  src="../backend/advertisementImage/<?php echo $key['advertisement_image']; ?>" width="95%" alt="IMG"> 
 			</a>
 		</div>
 	</div></center>
 	<?php } ?>
 
-	<!-- Latest Article-->
+	<!-- Latest videos And HP Special-->
 <section class="bg0 p-t-60 p-b-35" style="width:95%;margin-left:35px">
 		<div>
 			<div class="row justify-content-center">
@@ -793,9 +737,9 @@ var nc_api_id = 31620200513392; //-->
 						$encryptedSubcategoryURL=encryptionFunction($videoInfo['subcategory_id']);
 						?>
 						<a href="subCategoryViewAll.php?ref=<?php echo $encryptedSubcategoryURL ?>"  class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
-						<!-- <span style="padding-left: 500px;"> -->
+						
 									View all
-									<!-- </span> -->
+									
 									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
 								</a>
 								  
@@ -909,7 +853,7 @@ foreach($result as $key){
 
 	<!-- TAB SCRIPT -->
 	<script>
-function openCity(evt, cityName) {
+function openRate(evt, Name) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -919,7 +863,7 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(Name).style.display = "block";
   evt.currentTarget.className += " active";
 }
 // Get the element with id="defaultOpen" and click on it

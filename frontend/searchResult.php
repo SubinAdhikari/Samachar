@@ -70,33 +70,7 @@ if(isset($_POST['searchBtn'])){
 												  <?php } } } ?>
 										</div>
 	
-		<!-- <div >
-			<div class="row m-rl--1">
-				<?php foreach($searchResult as $key){ 
-                    if(preg_match("/{$searchMsg}/i", $key['news_title'])) {
-                        // echo $key['news_id'];
-                        $selectNewsById=searchNewsByID($conn,$key['news_id']);
-                    foreach($selectNewsById as $key){
-						$encryptedURL=encryptionFunction($key['news_id']);
-                    ?>
-
-				<div class="col-sm-6 col-lg-4 p-rl-1 p-b-2">
-					<div class="bg-img1 size-a-12 how1 pos-relative" style="background-image: url(../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>);">
-
-						<div class="flex-col-e-s s-full p-rl-25 p-tb-11">
-							
-
-							<h3 class="how1-child2 m-t-10">
-								<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
-									<?php echo $key['news_title']; ?>
-								</a>
-							</h3>
-						</div>
-					</div>
-				</div>
-				<?php } } }?>
-			</div>
-		</div> -->
+		
 	</section>
 	<!-- Advertisement -->
 
@@ -131,7 +105,7 @@ if(isset($_POST['searchBtn'])){
 						$getallcategory=selectAllCategory($conn);
 						foreach($getallcategory as $key){
 						?>
-						<!-- National -->
+						
 						<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
 <?php 
 						$areaPurposeOfCategory ='front_page';

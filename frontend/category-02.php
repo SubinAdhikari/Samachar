@@ -5,28 +5,8 @@ $decryptID=decryptionFunction($category_id);
 ?>
 
 		
-	<!-- Headline -->
-	<!-- <?php 
-	$categoryName=getCategoryDetailByCategoryID($conn,$decryptID);
-	foreach($categoryName as $key){
-		?>
-	<center><div style="width:95%">
-		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
-			<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
-				<h3 class="f1-m-2 cl3 tab01-title" style="font-size:20px">
-					<?php echo '<strong>'.$key['category_name'].'</strong>';?>		
-				</h3>
-			</div>
-
-			<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
-				<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
-				<button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
-					<i class="zmdi zmdi-search"></i>
-				</button>
-			</div>
-		</div>
-	<?php }?>
-	</div></center> -->
+	
+	
 	<center><div style="width:95%">
 		<?php
 								$area = 'category_page';
@@ -53,7 +33,7 @@ $decryptID=decryptionFunction($category_id);
 	$categoryName=getCategoryDetailByCategoryID($conn,$decryptID);
 	foreach($categoryName as $key){
 		?>
-		<!-- <div class="how2 how2-cl4 flex-s-c"> -->
+		
 		<center><h3 class="f1-m-2 cl3 tab01-title" style="font-size:35px">
 					<?php echo '<span><strong>'.$key['category_name'].'</strong><span>';?>		
 				</h3></center>
@@ -117,37 +97,13 @@ $decryptID=decryptionFunction($category_id);
 												   
 										</div><br>
 			<?php }?>
-			<!-- </div> -->
+			
 
 
 
 
 
-				<!-- <div class="card-group">
 				
-										<?php
- 										 $category=getAllNewsByCategoryId($conn,$decryptID);
-									
-												 foreach($category as $key){ 
-											$encryptedURL=encryptionFunction($key['news_id']);
-									?>
-									<div class="col-sm-3">
-												  <div class="card" id="grow" style="margin:3px;border-radius:20px">
-												  	<a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" >
-												    <img src="../backend/newsFeaturedImage/<?php echo $key['news_featuredimage']; ?>" style="border-radius:20px" class="card-img-top" alt="...">
-												</a>
-												    <div class="card-body">
-												      <h5><a href="newsDetail.php?ref=<?php echo $encryptedURL;?>" class="f1-s-5 cl3 hov-cl10 trans-03" class="card-title" style="font-size:20px; color:black" ><?php echo $key['news_title']; ?></a></h5>
-												       <p class="card-text"><small class="text-muted"><?php echo 'Written By:'. $key['news_writtenby']; ?><br/>
-															<?php $datetime = $key['created_at']; 
-															$time_elapsed = timeAgo($datetime);
-															echo $time_elapsed;?></small></p>
-												    </div>
-												  </div>
-												  </div>
-												  <?php } ?>
-												  
-										</div> -->
 										
 	</section>
 	<hr>
@@ -182,7 +138,7 @@ $decryptID=decryptionFunction($category_id);
 						foreach($getallcategory as $key){
 							$encryptedURL=encryptionFunction($key['category_id']);
 						?>
-						<!-- National -->
+						
 						<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
 <?php 
 						$areaPurposeOfCategory ='front_page';
@@ -340,7 +296,7 @@ $decryptID=decryptionFunction($category_id);
 				
 	</div>
 						
-						<!--  -->
+						
 						
 						<div class="container">
 							<?php

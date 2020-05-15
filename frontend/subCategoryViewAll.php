@@ -5,39 +5,9 @@ include "layouts/header.php";
  ?>
 
 
-	<!-- Breadcrumb -->
-	<!-- <?php 
-    $subcategoryName=SelectSubCategoryNameFromId($conn,$decryptID);
-    // print_r($subcategoryName);
-	foreach($subcategoryName as $key){
-		?>
-<center>	<div style="width:95%">
-		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
-			<div class="f2-s-1 p-r-30 m-tb-6">
-				<a href="index.php" class="breadcrumb-item f1-s-3 cl9">
-					Home 
-				</a>
+	
 
-				<span class="breadcrumb-item f1-s-3 cl9">
-					<?php echo $key?>
-				</span>
-			</div>
-			<?php } ?>
-		</div>
-	</div></center> -->
-
-	<!-- Page heading -->
-	<!-- <?php 
-	$subcategoryName=SelectSubCategoryNameFromId($conn,$decryptID);
-    // print_r($subcategoryName);
-	foreach($subcategoryName as $key){
-		?>
-	<div style="width:95%;margin-left:45px">
-		<h2 class="f1-l-1 cl2">
-			<?php echo $key; ?>
-		</h2>
-	</div>
-<?php }?> -->
+	
 
 <center><div style="width:95%">
 		<?php
@@ -160,7 +130,7 @@ include "layouts/header.php";
 						$getallcategory=selectAllCategory($conn);
 						foreach($getallcategory as $key){
 						?>
-						<!-- National -->
+						
 						<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
 <?php 
 						$areaPurposeOfCategory ='front_page';

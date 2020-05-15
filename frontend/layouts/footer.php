@@ -11,27 +11,27 @@
 						<br>
 						<div class="p-t-15">
 						<a href="#" style="margin-right:2px">
-							<!-- <i class="fa fa-facebook-square" id="grow" style="font-size:24px"></i> -->
+							
 							<img src="images/icons/facebook.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#"  style="margin-right:2px">
-							<!-- <i class="fa fa-twitter-square" id="grow" style="font-size:24px"></i> -->
+							
 							<img src="images/icons/twitter.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#"  style="margin-right:2px">
-							<!-- <i class="fa fa-google-plus-square" id="grow" style="font-size:24px"></i> -->
+							
 							<img src="images/icons/google+.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#" style="margin-right:2px">
-							<!-- <i class="fa fa-instagram" id="grow" style="font-size:24px"></i> -->
+							
 							<img src="images/icons/instaresizeimage.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#" style="margin-right:2px">
-							<!-- <i class="fa fa-youtube-play" id="grow" style="font-size:24px"></i> -->
+							
 							<img src="images/icons/utube.png" id="grow" style="width:10%"/>
 						</a>	
 						</div>
@@ -104,12 +104,7 @@
 					<p><span style="color:white">अभिषेक कार्की</span><span style="color:white;margin-left:20px">आयुष्मान् आर्यान</span></p>
 					<p><span style="color:#027ab5">प्रदेश नम्बर ७ :</span></p>
 					<p><span style="color:white">आयुष्मान् आर्यान</span></p>
-					<!-- <p><span style="color:#027ab5">प्रदेश नम्बर ५ :</span></p>
-					<p><span style="color:white">आयुष्मान् आर्यान</span></p> -->
-					<!-- <p><span style="color:#027ab5">प्रदेश नम्बर ६ :</span></p>
-					<p><span style="color:white">अभिषेक कार्की</span></p>
-					<p><span style="color:#027ab5">प्रदेश नम्बर ७ :</span></p>
-					<p><span style="color:white">आयुष्मान् आर्यान</span></p> -->
+					
 					</div>
 					</div>
 
@@ -123,7 +118,7 @@
 						</div>
 						<br>
 						<div>
-					<!-- <p><span style="font-weight:bold;font-size:17px;color:white">नेपाल रिपब्लिक मिडिया (प्रा) लि</span></p><br> -->
+					
 					<p><span style="color:white">रजिस्टर्ड नंः १६३/०५४/०५५</span></p>
 					<p><span style="color:white">जेडिए कम्प्लेक्स</span></p>
 					<p><span style="color:white">सुन्धारा, काठमाडौं</span></p>
@@ -136,28 +131,7 @@
 					</div>
 
 					
-					<!-- <div class="col-sm-6 col-lg-4 p-b-20">
-						<?php $result=getAllCategories($conn);
-						?>
-						<div class="size-h-3 flex-s-c">
-							<h5 class="f1-m-7 cl0">
-								Category
-							</h5>
-						</div>
-						<div class="flex-wr-s-s m-rl--5">
-						<?php
-                          foreach($result as $key){ 
-							$encryptedURL=encryptionFunction($key['category_id']);
-                          	?>
-						
-							
-								<a href="category-02.php?ref=<?php echo $encryptedURL;  ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5" style="color:white;">
-									<?php echo $key['category_name']; ?>
-								</a>
-							
-						
-					<?php } ?>
-					</div> -->
+					
 					
 				</div>
 			</div>
@@ -169,10 +143,10 @@
 				<span class="f1-s-1 cl0 txt-center">
 					Copyright © 2020
 
-					<a href="#" class="f1-s-1 cl10 hov-link1"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					<a href="#" class="f1-s-1 cl10 hov-link1">
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Website Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://mounttechsolutions.com" target="_blank">MountTech Solution </a>
 
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
 				</span>
 			</div>
 		</div>

@@ -18,6 +18,7 @@ req.send();
 req.onreadystatechange=function(){
 if(req.readyState==4 && req.status==200){
     document.getElementById("categoryid").innerHTML=req.responseText;
+    
     simpleValue =  req.responseText;
     varLen =simpleValue.substr(10);
     specificLen = varLen.charAt(7);
@@ -71,7 +72,7 @@ if(req.readyState==4 && req.status==200){
     document.getElementById("subcategoryid").innerHTML=req.responseText;
 }
 }; 
-// alert(123);  
+
 }
 
  
@@ -187,7 +188,7 @@ if(req.readyState==4 && req.status==200){
                                     </select>
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group hide">
                                 <label class="control-label">Category Id</label>
                                 <div class="controls">
                                     <select name="category_id" id="categoryid" class="span6" required >
@@ -204,7 +205,7 @@ if(req.readyState==4 && req.status==200){
                                     </select>
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group hide">
                                 <label class="control-label">Sub-Category Id</label>
                                 <div class="controls">
                                     <select name="subcategory_id" id="subcategoryid"   class="span6">
@@ -240,13 +241,6 @@ if(req.readyState==4 && req.status==200){
                                     <textarea class="span12 ckeditor"   name="news_details" rows="6"></textarea>
                                  </div>                               
                             </div>    
-                            
-                            <div class="control-group">
-                                <label class="control-label">News Url</label>
-                                <div class="controls">
-                                    <input type="text" class="span6 " name="news_url" required />
-                                </div>
-                            </div>
                             <div class="control-group">
                                 <label class="control-label">News Image</label>
                                 <div class="controls">
@@ -282,6 +276,7 @@ if(req.readyState==4 && req.status==200){
                             </div>       
                              <div class="form-actions">
                                 <button class="btn btn-success" name="addNews" type="submit">Add News</button>
+                                <a href="manageNews.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>   
                             </form>
                             <!-- END FORM-->

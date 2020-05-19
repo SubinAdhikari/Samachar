@@ -118,7 +118,7 @@
                         
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-success" name="submitBtn">Submit</button>
-                                <button type="button" class="btn">Cancel</button>
+                                <a href="manageCategory.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>
                             </form>
                             <!-- END FORM-->

@@ -663,11 +663,12 @@ var nc_api_id = 31620200513392; //-->
 								<?php 
 								foreach($data as $key){
 								$encryptedURL=encryptionFunction($key['subcategory_id']); 
+								// print_r ($key['subcategory_id']);
 							}
 									?>
 
 								<!--  -->
-								<a href="subCategoryViewAll.php?ref=<?php echo $encryptedURL; ?>" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
+								<a href="subCategoryViewAll.php?ref=<?php echo 'Isw='; ?>" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
 									View all
 									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
 								</a>
@@ -737,9 +738,9 @@ var nc_api_id = 31620200513392; //-->
 						$encryptedSubcategoryURL=encryptionFunction($videoInfo['subcategory_id']);
 						?>
 						<a href="subCategoryViewAll.php?ref=<?php echo $encryptedSubcategoryURL ?>"  class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
-						
+						<span style="padding-left:560px;">
 									View all
-									
+								</span>	
 									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
 								</a>
 								  

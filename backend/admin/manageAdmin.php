@@ -78,7 +78,8 @@
                 <div class="span12">
                 <!-- BEGIN EXAMPLE TABLE widget-->
                 <div class="widget red">
-                <?php if (isset(($_SESSION['msg'])))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
+                <?php if (isset($_SESSION['msg'])){  echo $_SESSION['msg']; }
+                unset($_SESSION['msg']);?>
                     <div class="widget-title">
                         <h4><i class="icon-reorder"></i> Users' Information</h4>
                         
@@ -121,7 +122,7 @@
 																	Edit
 																</a>
 
-																<a href="deleteadmin.php?ref=<?php echo $adminUser['admin_id'];?>" onclick="return confirm('Really Deleting that user??');" class="btn btn-xs btn-danger">
+																<a href="deleteAdmin.php?ref=<?php echo $adminUser['admin_id'];?>" onclick="return confirm('Really Deleting that user??');" class="btn btn-xs btn-danger">
 																	Delete
 																</a></td>
                             </tr>

@@ -5,39 +5,9 @@ include "layouts/header.php";
  ?>
 
 
-	<!-- Breadcrumb -->
-	<!-- <?php 
-    $subcategoryName=SelectSubCategoryNameFromId($conn,$decryptID);
-    // print_r($subcategoryName);
-	foreach($subcategoryName as $key){
-		?>
-<center>	<div style="width:95%">
-		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
-			<div class="f2-s-1 p-r-30 m-tb-6">
-				<a href="index.php" class="breadcrumb-item f1-s-3 cl9">
-					Home 
-				</a>
+	
 
-				<span class="breadcrumb-item f1-s-3 cl9">
-					<?php echo $key?>
-				</span>
-			</div>
-			<?php } ?>
-		</div>
-	</div></center> -->
-
-	<!-- Page heading -->
-	<!-- <?php 
-	$subcategoryName=SelectSubCategoryNameFromId($conn,$decryptID);
-    // print_r($subcategoryName);
-	foreach($subcategoryName as $key){
-		?>
-	<div style="width:95%;margin-left:45px">
-		<h2 class="f1-l-1 cl2">
-			<?php echo $key; ?>
-		</h2>
-	</div>
-<?php }?> -->
+	
 
 <center><div style="width:95%">
 		<?php
@@ -64,19 +34,18 @@ include "layouts/header.php";
 
 	<section class="bg0 p-t-70" style="width:95%;margin-left:35px">
 	<?php 
-	$subcategoryName=SelectSubCategoryNameFromId($conn,$decryptID);
-    // print_r($subcategoryName);
-	foreach($subcategoryName as $key){
+	$subcategoryName=SelectSubCategoryNameFromIdEnglish($conn,$decryptID);
+    
+	
 		?>
 	<div class="how2 how2-cl4 flex-s-c">
 		<h3 class="f1-m-2 cl3 tab01-title" style="font-size:20px">
-			<?php echo '<span><strong>'.$key.'</strong><span>'; ?>
+			<?php echo '<span><strong>'.$subcategoryName['subcategory_name'].'</strong><span>'; ?>
 		</h2>
 	</div>
-<?php }?>
 		<div class="card-group">
 										<?php 
-  											$SubcategoryNews=getAllNewsBySubCategoryId($conn,$decryptID);
+  											$SubcategoryNews=getAllNewsBySubCategoryIdEnglish($conn,$decryptID);
   
 									// print_r($getNews);
 												 foreach($SubcategoryNews as $key){ 
@@ -84,7 +53,7 @@ include "layouts/header.php";
 									?>
 											<div class="col-sm-3">
 												<?php
-												$Subdetail = SelectSubCategoryDetailsFromId($conn,$key['subcategory_id']);
+												$Subdetail = SelectSubCategoryDetailsFromIdEnglish($conn,$key['subcategory_id']);
 												
 												//echo strcasecmp($Subdetail['subcategory_name'],'फोटो - भिडियो');
  
@@ -157,10 +126,10 @@ include "layouts/header.php";
 					<div class="p-b-20">
 						<?php 
 						
-						$getallcategory=selectAllCategory($conn);
+						$getallcategory=selectAllCategoryEnglish($conn);
 						foreach($getallcategory as $key){
 						?>
-						<!-- National -->
+						
 						<!-- ADVERTESMENT ABOVE ALL CATEGORY NAME -->
 <?php 
 						$areaPurposeOfCategory ='front_page';
@@ -215,7 +184,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 							<div class="card-group">
 										<?php
 							
-									$getNews=getNewsByCategoryID($conn,$key['category_id']);
+									$getNews=getNewsByCategoryIDEnglish($conn,$key['category_id']);
 									// print_r($getNews);
 									foreach($getNews as $key){
 										$encryptedURL=encryptionFunction($key['news_id']);
@@ -269,7 +238,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 								</h3>
 							</div>
 							<?php 
-							$latestNewsDetails=GetLatestThreeNews($conn);
+							$latestNewsDetails=GetLatestThreeNewsEnglish($conn);
 							?>
 							<ul class="p-t-35">
 								<?php foreach ($latestNewsDetails as $latestNewsDetail ) {
@@ -291,7 +260,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 
 										<span class="cl8 txt-center p-b-24">
 											<a href="newsDetail.php?ref=<?php echo $encryptedURL; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
-												<?php $categoryNames=getCategoryNameByCategoryId($conn,$latestNewsDetail['category_id']); 
+												<?php $categoryNames=getCategoryNameByCategoryIdEnglish($conn,$latestNewsDetail['category_id']); 
                                 $categoryName = implode("", $categoryNames);  ?>
 												<?php echo $categoryName; ?>
 											</a>

@@ -78,9 +78,9 @@
                 <div class="span12">
                 <!-- BEGIN EXAMPLE TABLE widget-->
                 <div class="widget red">
-                <?php if (isset(($_SESSION['msg'])))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
+                <?php if (isset($_SESSION['msg']))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
                     <div class="widget-title">
-                        <h4><i class="icon-reorder"></i> Users' Information</h4>
+                        <h4><i class="icon-reorder"></i> Sub-Category Information</h4>
                         
                             <span class="tools">
                                 <a href="javascript:;" class="icon-chevron-down"></a>

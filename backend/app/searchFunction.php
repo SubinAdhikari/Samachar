@@ -15,4 +15,22 @@ function searchNewsByID($conn,$newsId){
     return $stmtSelect->fetchAll();
 }
 
+
+// English search
+
+function RetriveAllNewsEnglish($conn){
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnewsenglish");
+ 	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetchAll();
+}
+
+function searchNewsByIDEnglish($conn,$newsId){
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnewsenglish WHERE news_id=:news_id");
+    $stmtSelect->bindParam(':news_id',$newsId);
+    $stmtSelect->execute();
+    $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmtSelect->fetchAll();
+}
+
 ?>

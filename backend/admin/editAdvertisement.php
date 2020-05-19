@@ -49,7 +49,7 @@
                    <!-- END THEME CUSTOMIZER-->
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                    <h3 class="page-title">
-                     Add News
+                     Edit Advertisement
                    </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -61,7 +61,7 @@
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Add Advertisment 
+                           Edit Advertisment 
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -116,6 +116,7 @@
                                 <input type="hidden" name="advertisement_id" value="<?php echo $result['advertisement_id']; ?>">
                              <div class="form-actions">
                                 <button class="btn btn-success" name="updateDate" type="submit">Update Expiry Date</button>
+                                <a href="manageAdvertisment.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>   
                             </form>
                             <!-- END FORM-->

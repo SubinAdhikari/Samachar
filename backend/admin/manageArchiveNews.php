@@ -78,9 +78,10 @@
                 <div class="span12">
                 <!-- BEGIN EXAMPLE TABLE widget-->
                 <div class="widget red">
-                <?php if (isset(($_SESSION['msg'])))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
+                <?php if (isset($_SESSION['msg'])){  echo $_SESSION['msg']; }
+                unset($_SESSION['msg']);?>
                     <div class="widget-title">
-                        <h4><i class="icon-reorder"></i> News' Information</h4>
+                        <h4><i class="icon-reorder"></i>Archive News' Information</h4>
                         
                             <span class="tools">
                                 <a href="javascript:;" class="icon-chevron-down"></a>
@@ -92,6 +93,7 @@
                             <thead>
                             <tr>
                                 <th style="width:8px;"><input type="hidden" class="group-checkable" data-set="#sample_1 .checkboxes" />S.N</th>
+                                <th>Language</th>
                                 <th>Created At</th>
                                 <th>Heading/Title</th>
                                 <th>Written By</th>
@@ -114,6 +116,8 @@
                             <tr class="odd gradeX">
                                 <td><input type="hidden" class="checkboxes" value="1" /><?php echo ++$key; ?></td>
                                 <td class="hidden-phone"><?php
+                                echo $news['news_language']; ?></td>
+                                <td class="hidden-phone"><?php
                                 $time_ago = strtotime($news['created_at']);
                                 $date = date('d-M-Y', $time_ago);
                                 echo $date; ?></td>
@@ -124,11 +128,11 @@
                                 echo $news['news_writtenby']; ?></td>
 
                                 <td class="hidden-phone"><?php
-                                $categoryNames=getCategoryNameByCategoryId($conn,$news['category_id']); 
+                                $categoryNames=getCategoryNameByCategoryIdEnglish($conn,$news['category_id']); 
                                 $categoryName = implode("", $categoryNames);  
                                 echo $categoryName; ?></td>
 
-                                <td class="hidden-phone"><?php $subCategoryNames=getSubCategoryNameByCategoryId($conn,$news['subcategory_id']); 
+                                <td class="hidden-phone"><?php $subCategoryNames=getSubCategoryNameByCategoryIdEnglish($conn,$news['subcategory_id']); 
                                 $subCategoryName = implode("", $subCategoryNames);  
                                 echo $subCategoryName; ?></td>
                                 
@@ -188,13 +192,22 @@
                                 <span class="label label-sm label-danger">
                                   No</span>
                               <?php endif; ?></td>
-                                <td class="hidden-phone"><a href="restoreArchiveNews.php?ref=<?php echo $news['archive_id'];?>" class="btn btn-xs btn-info">
+                                <td class="hidden-phone">
+                                  <?php  if($news['news_language']=='english'){ ?>
+                                  <a href="restoreArchiveNewsEnglish.php?ref=<?php echo $news['archive_id'];?>" class="btn btn-xs btn-info">
                                   Restore
                                 </a>
-                                
+                              <?php }else {?>
+                                <a href="restoreArchiveNews.php?ref=<?php echo $news['archive_id'];?>" class="btn btn-xs btn-info">
+                                  Restore
+                                </a>
+                              <?php }?>
+                              
                                 <a href="deleteArchiveNews.php?ref=<?php echo $news['archive_id'];?>" onclick="return confirm('Really Deleting that News??');" class="btn btn-xs btn-danger">
                                   Delete
-                                </a></td> 
+                                </a>
+                                
+                              </td> 
                             </tr>
                             <?php endforeach; ?>
                             </tbody>

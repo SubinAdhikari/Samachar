@@ -5,33 +5,33 @@
 			<div style="width:95% !important">
 				<div class="row">
 					<div class="col-lg-4 p-b-20" >
-						<div class="size-h-3 flex-s-c" >
-						<a href="index.php"><img style="width:100%;height:100%" src="images/icons/lokpath.png"  alt="LOGO"></a>
+						<div class="size-h-3 flex-s-c">
+						<a href="index.php"><img style="width:100%;height:100%" src="images/icons/himalaya.png"  alt="LOGO"></a>
 						</div>
 						<br>
 						<div class="p-t-15">
 						<a href="#" style="margin-right:2px">
-							<!-- <i class="fa fa-facebook-square" id="grow" style="font-size:24px"></i> -->
+							
 							<img src="images/icons/facebook.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#"  style="margin-right:2px">
-							<!-- <i class="fa fa-twitter-square" id="grow" style="font-size:24px"></i> -->
+							
 							<img src="images/icons/twitter.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#"  style="margin-right:2px">
-							<!-- <i class="fa fa-google-plus-square" id="grow" style="font-size:24px"></i> -->
+							
 							<img src="images/icons/google+.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#" style="margin-right:2px">
-							<!-- <i class="fa fa-instagram" id="grow" style="font-size:24px"></i> -->
+							
 							<img src="images/icons/instaresizeimage.png" id="grow" style="width:10%"/>
 						</a>
 
 						<a href="#" style="margin-right:2px">
-							<!-- <i class="fa fa-youtube-play" id="grow" style="font-size:24px"></i> -->
+							
 							<img src="images/icons/utube.png" id="grow" style="width:10%"/>
 						</a>	
 						</div>
@@ -39,7 +39,7 @@
 						<div>
 							<br>
 							<p>
-							About Company here
+							    हिमालय प्रिन्ट डटकम (himalayaprint.com) थर्ड पोल मल्टी मिडिया (प्रा० लि) द्धारा संञ्चालित अनलाइन न्यूज प्रोटल हो । पाठकको सुविधाको लागि न्यूज प्रोटल नेपाली तथा अंग्रेजी संस्करणमा उपलव्ध रहेको छ ।
 							</p>
 
 							
@@ -54,13 +54,13 @@
 						<br>
 						<div>
 						<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5" style="color:white;">
-						About Us
+						हाम्रो बारेमा
 								</a>
-								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5" style="color:white;">
-								Contact Us
+								<a href="contact.php" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5" style="color:white;">
+								सम्पर्क गर्नुहोस्
 								</a>
-								<a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5" style="color:white;">
-								Advertisement
+								<a href="contact.php" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5" style="color:white;">
+								विज्ञापन
 								</a>
 							
 
@@ -69,22 +69,22 @@
 					</div>
 
 
-					<!-- <div >
+					<div >
 					<div class="size-h-3 flex-s-c"  style="height:50px">
-						<span style="color:white;padding-left:20px"><strong>हाम्रो टिम</strong><span>
+						<span style="color:white;padding-left:25px"><strong>हाम्रो टिम</strong><span>
 						</div>
 						<br>
 						<div style="padding-left:15px;padding-right:15px">
-					<p><span style="color:#027ab5">अध्यक्ष / सम्पादक</span></p>
-					<p><span style="color:white">Subin Adhikari</span></p>
-					<p><span style="color:#027ab5">कार्यकारी सम्पादक</span></p>
-					<p><span style="color:white">Shreedhar Bhandari</span></p>
-					<p><span style="color:#027ab5">Desk Officer</span></p>
-					<p><span style="color:white">Abhisek Karki</span></p>
-					<p><span style="color:#027ab5">ग्राफिक्स</span></p>
-					<p><span style="color:white">Ayushman Acharya</span></p>
+					<p><span style="color:#027ab5">बोर्ड / प्रशासनिक</span></p>
+					<p><span style="color:white"></span></p>
+					<p><span style="color:#027ab5">सम्पादकीय</span></p>
+					<p><span style="color:white"></span></p>
+					<p><span style="color:#027ab5">फिल्ड रिपोर्टर</span></p>
+					<p><span style="color:white"></span></p>
+					<p><span style="color:#027ab5">प्राविधिक सहयोग</span></p>
+					<p><span style="color:white"></span></p>
 					</div>
-					</div> -->
+					</div>
 
 
 					
@@ -92,24 +92,19 @@
 
 					<div  >
 					<div class="size-h-3 flex-s-c"  style="height:50px">
-						<span style="color:white;padding-left:80px;"><strong>Provience Reporter</strong><span>
+						<span style="color:white;padding-left:60px;"><strong>प्रदेश प्रतिनिधि</strong><span>
 						</div>
 						<br>
 						<div style="padding-left:15px;padding-right:15px">
-					<p><span style="color:#027ab5">Provience 1 :</span><span style="color:#027ab5;margin-left:20px">Provience 2 :</span></p>
-					<p><span style="color:white">Subin Adhikari</span><span style="color:white;margin-left:20px">Abhisek Karki</span></p>
-					<p><span style="color:#027ab5">Provience 3 :</span><span style="color:#027ab5;margin-left:20px">Provience 4 :</span></p>
-					<p><span style="color:white">Shreedhar Bhandari</span><span style="color:white;margin-left:20px">Ayushman Acharya</span></p>
-					<p><span style="color:#027ab5">Provience ५ :</span><span style="color:#027ab5;margin-left:20px">Provience ६ :</span></p>
-					<p><span style="color:white">Abhisek Karki</span><span style="color:white;margin-left:20px">Ayushman Acharya</span></p>
-					<p><span style="color:#027ab5">Provience ७ :</span></p>
-					<p><span style="color:white">Ayushman Acharya</span></p>
-					<!-- <p><span style="color:#027ab5">Provience ५ :</span></p>
-					<p><span style="color:white">Ayushman Acharya</span></p> -->
-					<!-- <p><span style="color:#027ab5">Provience ६ :</span></p>
-					<p><span style="color:white">Abhisek Karki</span></p>
-					<p><span style="color:#027ab5">Provience ७ :</span></p>
-					<p><span style="color:white">Ayushman Acharya</span></p> -->
+					<p><span style="color:#027ab5">प्रदेश नम्बर १ :</span><span style="color:#027ab5;margin-left:20px">प्रदेश नम्बर 2 :</span></p>
+					<p><span style="color:white"></span><span style="color:white;margin-left:20px"></span></p>
+					<p><span style="color:#027ab5">प्रदेश नम्बर 3 :</span><span style="color:#027ab5;margin-left:20px">प्रदेश नम्बर 4 :</span></p>
+					<p><span style="color:white"></span><span style="color:white;margin-left:20px"></span></p>
+					<p><span style="color:#027ab5">प्रदेश नम्बर ५ :</span><span style="color:#027ab5;margin-left:20px">प्रदेश नम्बर ६ :</span></p>
+					<p><span style="color:white"></span><span style="color:white;margin-left:20px"></span></p>
+					<p><span style="color:#027ab5">प्रदेश नम्बर ७ :</span></p>
+					<p><span style="color:white"></span></p>
+					
 					</div>
 					</div>
 
@@ -117,47 +112,26 @@
 
 
 
-					<div  style="margin-left:0px">
+					<div  style="margin-left:15px;text-align:left!important">
 					<div class="size-h-3 flex-s-c" style="height:50px">
 						<span style="font-weight:bold;font-size:17px;color:white"><strong>हिमालय प्रिन्ट्स (प्रा) लि</strong><span>
 						</div>
 						<br>
 						<div>
-					<!-- <p><span style="font-weight:bold;font-size:17px;color:white">नेपाल रिपब्लिक मिडिया (प्रा) लि</span></p><br> -->
-					<p><span style="color:white">रजिस्टर्ड नंः १६३/०५४/०५५</span></p>
-					<p><span style="color:white">जेडिए कम्प्लेक्स</span></p>
-					<p><span style="color:white">सुन्धारा, काठमाडौं</span></p>
-					<p><span style="color:white">फोनः ४२६५१००</span></p>
-					<p><span style="color:white">फ्याक्सः ४२५२२६२</span></p>
-					<p><span style="color:white">प्रबन्ध निर्देशकः विनोदराज ज्ञवाली</span></p>
-					<p><span style="color:white">निर्देशकः शोभा ज्ञवाली</span></p>
-					<p><span style="color:white">प्रधान सम्पादक: गुणराज लुइँटेल</span></p>
+					<p><span style="color:white">थर्ड पोल मल्टी मिडिया (प्रा० लि)</span></p> 
+					<p><span style="color:white">रजिस्टर्ड नंः</span></p>
+					<p><span style="color:white">काठमाडौं महानगरपालिका-29,अनामनगर</span></p>
+					<p><span style="color:white">काठमाण्डु, नेपाल</span></p>
+					<p><span style="color:white">फोनः 9800586527</span></p>
+					<p><span style="color:white">ईमेल:</span></p>
+					<p><span style="color:white">अध्यक्ष / प्रकाशक:</span></p>
+					<p><span style="color:white">प्रबन्ध निर्देशक:</span></p>
+					<p><span style="color:white">प्रमुख सम्पादक:</span></p></p>
 					</div>
 					</div>
 
 					
-					<!-- <div class="col-sm-6 col-lg-4 p-b-20">
-						<?php $result=getAllCategories($conn);
-						?>
-						<div class="size-h-3 flex-s-c">
-							<h5 class="f1-m-7 cl0">
-								Category
-							</h5>
-						</div>
-						<div class="flex-wr-s-s m-rl--5">
-						<?php
-                          foreach($result as $key){ 
-							$encryptedURL=encryptionFunction($key['category_id']);
-                          	?>
-						
-							
-								<a href="category-02.php?ref=<?php echo $encryptedURL;  ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5" style="color:white;">
-									<?php echo $key['category_name']; ?>
-								</a>
-							
-						
-					<?php } ?>
-					</div> -->
+					
 					
 				</div>
 			</div>
@@ -169,10 +143,10 @@
 				<span class="f1-s-1 cl0 txt-center">
 					Copyright © 2020
 
-					<a href="#" class="f1-s-1 cl10 hov-link1"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Website Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://mounttechsolutions.com" target="_blank">MountTech Solution </a>
+					<a href="#" class="f1-s-1 cl10 hov-link1">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Website Redesigned with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://mountechsolutions.com/" target="_blank">MountTech Solution </a> Provided by <a href="https://colorlib.com/">Colorlib</a>
 
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
 				</span>
 			</div>
 		</div>

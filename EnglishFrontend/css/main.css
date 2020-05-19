@@ -1829,7 +1829,7 @@ a.breadcrumb-item:hover {
   cursor: pointer;
   padding: 16px 6px;
   transition: 0.3s;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bolder;
 }
 

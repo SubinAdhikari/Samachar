@@ -5,7 +5,7 @@
   if (isset($_POST['savebtn'])) {
     if(updateAdminUser($conn, $_POST)){
          showMsg('User Updated Successfully');
-         redirection('manageadmin.php');
+         redirection('manageAdmin.php');
 }
 }
  ?>
@@ -148,7 +148,7 @@
 
                             <div class="form-actions">
                                 <button type="submit" name ="savebtn" class="btn btn-success">Save</button>
-                                <button type="button" class="btn">Cancel</button>
+                                <a href="manageAdmin.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>
                             </form>
                             <!-- END FORM-->

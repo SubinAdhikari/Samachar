@@ -78,7 +78,7 @@
                 <div class="span12">
                 <!-- BEGIN EXAMPLE TABLE widget-->
                 <div class="widget red">
-                <?php if (isset(($_SESSION['msg'])))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
+                <?php if (isset($_SESSION['msg']))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
                     <div class="widget-title">
                         <h4><i class="icon-reorder"></i> News' Information</h4>
                         
@@ -97,7 +97,7 @@
                                 <th>Category Name</th>
                                 <th>Sub-Category Name</th>
                                 <th>Banner News</th>                                  
-                                <th class="hidden-phone">News Url</th>
+                                
                                 <th class="hidden-phone">Image</th>
                                 <th class="hidden-phone">Banner or Featured Image</th>
                                 <th class="hidden-phone">Status</th>
@@ -134,8 +134,7 @@
                                 <span class="label label-sm label-danger">
                                   No</span>
                               <?php endif; ?></td>
-                                <td class="hidden-phone"><?php echo $news['news_url']; ?></td>
-                                
+
                                 <td><?php 
                                   $s=$news['news_image'];
                                   $arr = explode(",", $s);

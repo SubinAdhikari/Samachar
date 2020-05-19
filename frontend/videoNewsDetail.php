@@ -64,10 +64,7 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 									<?php echo $news_visit; ?> Views
 								</span>
 
-								<!-- <a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">
-									<?php $comments1 = getAllCommentsByNewsId($conn, $decryptURL); ?>
-									<?php echo count($comments1); ?> Comment
-								</a> -->
+								
 							</div>
 
 						<?php	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -581,22 +578,4 @@ UpdateNewsVisitPage($conn,$news_visit,$decryptURL);
 	
 </body>
 </html>
-<?php
-if(isset($_POST['submitBtn'])){
-	
-if (!empty($_POST['name'])) {
-	
-if(insertComment($conn, $_POST, $decryptURL)){
 
-    redirection("newsDetail.php?ref=$ref");
-    
-}}else{
-    
-    echo 'alert("Failed to create new comment ")';
-    
-}
-
-}
-
-
-?>

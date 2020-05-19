@@ -85,7 +85,7 @@ $result=selectNewsFromId($conn,$ref);
                     <!-- BEGIN  widget-->
                     <div class="widget yellow">
                         <div class="widget-title">
-                            <h4><i class="icon-reorder"></i> Add News</h4>
+                            <h4><i class="icon-reorder"></i> Change Image</h4>
                         <span class="tools">
                            <a href="javascript:;" class="icon-chevron-down"></a>
                            <a href="javascript:;" class="icon-remove"></a>
@@ -120,7 +120,7 @@ $result=selectNewsFromId($conn,$ref);
                                 
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-success" name="updateBtn">Update Image</button>
-                                <button type="button" class="btn">Cancel</button>
+                                <a href="manageNews.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>
                             </form>
                             <!-- END FORM-->

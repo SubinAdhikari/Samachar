@@ -102,7 +102,7 @@
                                         <option value="front_page">Front Page</option>
                                         <option value="category_page">Category Page</option>
                                         <option value="subcategory_page">Sub-Category Page</option>
-                                        <option value="news_detailpage">News Detail Page</option>     <option value="article_detailpage">Article Page</option>
+                                        <option value="news_detailpage">News Detail Page</option>
                                         <option value="search_resultpage">Search Result Page</option>
                                     </select>
                                 </div>
@@ -146,6 +146,7 @@
                                 
                              <div class="form-actions">
                                 <button class="btn btn-success" name="addAdvertisment" type="submit">Add Advertisment</button>
+                                <a href="manageAdvertisment.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>   
                             </form>
                             <!-- END FORM-->

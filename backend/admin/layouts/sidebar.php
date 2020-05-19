@@ -26,17 +26,6 @@
               <li class="sub-menu">
                   <a href="javascript:;" class="">
                       <i class="icon-th"></i>
-                      <span>Support</span>
-                      <span class="arrow"></span>
-                  </a>
-                  <ul class="sub">
-                      <li><a class="" href="donaters.php">Supporters/Donaters</a></li>
-                      <li><a class="" href="donation.php">Support/Donation</a></li>
-                  </ul>
-              </li>
-              <li class="sub-menu">
-                  <a href="javascript:;" class="">
-                      <i class="icon-th"></i>
                       <span>Trending</span>
                       <span class="arrow"></span>
                   </a>
@@ -52,8 +41,10 @@
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">
-                      <li><a class="" href="addCategory.php">Add catagory</a></li>
-                      <li><a class="" href="manageCategory.php">Managecatagory</a></li>
+                      <li><a class="" href="addCategory.php">Add Nepali Category</a></li>
+                      <li><a class="" href="manageCategory.php">Manage Nepali Category</a></li>
+                      <li><a class="" href="addCategoryEnglish.php">Add English Category</a></li>
+                      <li><a class="" href="manageCategoryEnglish.php">Manage English Category</a></li>
                       
                   </ul>
               </li>
@@ -64,15 +55,17 @@
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">
-                      <li><a class="" href="addSubCatagory.php">Add Sub-Catagory</a></li>
-                      <li><a class="" href="manageSubCategory.php">Manage Sub-Catagory</a></li>
+                      <li><a class="" href="addSubCatagory.php">Add Nepali Sub-Catagory</a></li>
+                      <li><a class="" href="manageSubCategory.php">Manage Nepali Sub-Catagory</a></li>
+                      <li><a class="" href="addSubCatagoryEnglish.php">Add English Sub-Catagory</a></li>
+                      <li><a class="" href="manageSubCategoryEnglish.php">Manage English Sub-Catagory</a></li>
                       
                   </ul>
               </li>
               <li class="sub-menu">
                   <a href="javascript:;" class="">
                       <i class="icon-th"></i>
-                      <span>News</span>
+                      <span>Nepali News</span>
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">
@@ -80,6 +73,19 @@
                       <li><a class="" href="manageNews.php">Manage News</a></li>
                       <li><a class="" href="addVideoNews.php">Add Video News</a></li>
                       <li><a class="" href="manageVideoNews.php">Manage Video News</a></li>                            
+                  </ul>
+              </li>
+              <li class="sub-menu">
+                  <a href="javascript:;" class="">
+                      <i class="icon-th"></i>
+                      <span>English News</span>
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="addNewsEnglish.php">Add News</a></li>
+                      <li><a class="" href="manageNewsEnglish.php">Manage News</a></li>
+                      <li><a class="" href="addVideoNewsEnglish.php">Add Video News</a></li>
+                      <li><a class="" href="manageVideoNewsenglish.php">Manage Video News</a></li>                            
                   </ul>
               </li>
               <li class="sub-menu">
@@ -111,81 +117,34 @@
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">
-                      <li><a class="" href="addAdvertisment.php?>">Add Advertisment</a></li>
+                      <li><a class="" href="addAdvertisment.php">Add Advertisment</a></li>
 
                       <li><a class="" href="manageAdvertisment.php">Manage Advertisment</a></li>
                      
                   </ul>
               </li>
-              <!-- <li class="sub-menu">
+              <li class="sub-menu">
                   <a href="javascript:;" class="">
-                      <i class="icon-fire"></i>
-                      <span>Icons</span>
+                      <i class="icon-th"></i>
+                      <span>Contacts</span>
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">
-                      <li><a class="" href="font_awesome.html">Font Awesome</a></li>
-                      <li><a class="" href="glyphicons.html">Glyphicons</a></li>
-                  </ul>
-              </li>
-              <li class="sub-menu">
-                  <a class="" href="javascript:;">
-                      <i class="icon-trophy"></i>
-                      <span>Portlets</span>
-                      <span class="arrow"></span>
-                  </a>
-                  <ul class="sub">
-                      <li><a href="general_portlet.html" class=""> General Portlet</a></li>
-                      <li><a href="draggable_portlet.html" class="">Draggable Portlet</a></li>
-                  </ul>
-              </li>
-              <li class="sub-menu">
-                  <a class="" href="javascript:;">
-                      <i class="icon-map-marker"></i>
-                      <span>Maps</span>
-                      <span class="arrow"></span>
-                  </a>
-                  <ul class="sub">
-                      <li><a href="vector_map.html" class="">Vector Maps</a></li>
-                      <li><a href="google_map.html" class="">Google Map</a></li>
+                      <li><a class="" href="viewContact.php">View</a></li>
+                     
                   </ul>
               </li>
               <li class="sub-menu">
                   <a href="javascript:;" class="">
-                      <i class="icon-file-alt"></i>
-                      <span>Sample Pages</span>
+                      <i class="icon-th"></i>
+                      <span>Image Size</span>
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">
-                      <li><a class="" href="blank.html">Blank Page</a></li>
-                      <li><a class="" href="blog.html">Blog</a></li>
-                      <li><a class="" href="timeline.html">Timeline</a></li>
-                      <li><a class="" href="profile.html">Profile</a></li>
-                      <li><a class="" href="about_us.html">About Us</a></li>
-                      <li><a class="" href="contact_us.html">Contact Us</a></li>
+                      <li><a class="" href="advSize.php">Advertisment Size</a></li>
+                       <li><a class="" href="ImgSize.php">Image Size</a></li>
+                     
                   </ul>
               </li>
-              <li class="sub-menu">
-                  <a href="javascript:;" class="">
-                      <i class="icon-glass"></i>
-                      <span>Extra</span>
-                      <span class="arrow"></span>
-                  </a>
-                  <ul class="sub">
-                      <li><a class="" href="lock.html">Lock Screen</a></li>
-                      <li><a class="" href="invoice.html">Invoice</a></li>
-                      <li><a class="" href="pricing_tables.html">Pricing Tables</a></li>
-                      <li><a class="" href="search_result.html">Search Result</a></li>
-                      <li><a class="" href="faq.html">FAQ</a></li>
-                      <li><a class="" href="404.html">404 Error</a></li>
-                      <li><a class="" href="500.html">500 Error</a></li>
-                  </ul>
-              </li>
-
-              <li>
-                  <a class="" href="login.html">
-                    <i class="icon-user"></i>
-                    <span>Login Page</span>
-                  </a>
-              </li> -->
+              
           </ul>

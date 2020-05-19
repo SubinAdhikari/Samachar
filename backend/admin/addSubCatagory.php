@@ -154,7 +154,7 @@ if(req.readyState==4 && req.status==200){
                         
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-success" name="submitBtn">Submit</button>
-                                <button type="button" class="btn">Cancel</button>
+                                <a href="manageSubCategory.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>
                             </form>
                             <!-- END FORM-->
@@ -221,7 +221,7 @@ if(req.readyState==4 && req.status==200){
 <!-- END BODY -->
 </html>
 <?php
-if(isset($_POST)){
+if(isset($_POST['submitBtn'])){
     if(insertSubCategory($conn,$_POST)){
         echo '<script language="javascript">';
         echo 'alert("Subcategory Created Successfully ")';

@@ -48,7 +48,7 @@ $result=selectNewsFromId($conn,$ref);
                    <!-- END THEME CUSTOMIZER-->
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                    <h3 class="page-title">
-                     Add News
+                     Edit News
                    </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -170,13 +170,6 @@ $result=selectNewsFromId($conn,$ref);
                                  </div>                               
                             </div>                              
                             <div class="control-group">
-                                <label class="control-label">News Url</label>
-                                <div class="controls">
-                                    <input type="text" class="span6 " name="news_url" value="<?php echo $result['news_url'];?>"/>
-                                    <!-- <span class="help-inline">Some hint here</span> -->
-                                </div>
-                            </div>                                                  
-                            <div class="control-group">
                                 <label class="control-label"> Status</label>
                                 <div class="controls">
                                     <select data-placeholder="Your Favorite Type of Bear" class="chzn-select-deselect span6" tabindex="-1" name="is_active" id="selCSI">
@@ -209,7 +202,7 @@ $result=selectNewsFromId($conn,$ref);
                         
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-success" name="updateBtn">Update</button>
-                                <button type="button" class="btn">Cancel</button>
+                                <a href="manageNews.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>
                             </form>
                             <!-- END FORM-->

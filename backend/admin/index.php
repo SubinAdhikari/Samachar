@@ -80,77 +80,148 @@
                     <div class="metro-nav-block nav-block-orange">
                         <a data-original-title="" href="#">
                             <i class="icon-user"></i>
-                            <div class="info">321</div>
-                            <div class="status">New User</div>
+                            <?php
+                            $data=getAllAdminUsers($conn);
+                            $totalAdmin=0;
+                            foreach($data as $key){
+                                $totalAdmin ++;
+                            }
+                            ?>
+                            <div class="info"><?php echo $totalAdmin; ?></div>
+                            <div class="status" style="font-size:large">Total Admin</div>
                         </a>
                     </div>
                     <div class="metro-nav-block nav-olive">
                         <a data-original-title="" href="#">
-                            <i class="icon-tags"></i>
-                            <div class="info">+970</div>
-                            <div class="status">Sales</div>
-                        </a>
-                    </div>
-                    <div class="metro-nav-block nav-block-yellow">
-                        <a data-original-title="" href="#">
-                            <i class="icon-comments-alt"></i>
-                            <div class="info">49</div>
-                            <div class="status">Comments</div>
+                            <i class="icon-list"></i>
+                            <?php
+                            $data=getAllCategories($conn);
+                            $totalCategories=0;
+                            foreach($data as $key){
+                                $totalCategories ++;
+                            }
+                            ?>
+                            <div class="info"><?php echo $totalCategories; ?></div>
+                            <div class="status" style="font-size:large">Total News Categories</div>
                         </a>
                     </div>
                     <div class="metro-nav-block nav-block-green double">
                         <a data-original-title="" href="#">
-                            <i class="icon-eye-open"></i>
-                            <div class="info">+897</div>
-                            <div class="status">Unique Visitor</div>
+                            <i class="icon-list"></i>
+                            <?php
+                            $data=getSubCategoriesDetails($conn);
+                            $totalSubCategories=0;
+                            foreach($data as $key){
+                                $totalSubCategories ++;
+                            }
+                            ?>
+                            <div class="info"><?php echo $totalSubCategories; ?></div>
+                            <div class="status" style="font-size:large">Total News Subcategories</div>
                         </a>
                     </div>
+                    <div class="metro-nav-block nav-block-yellow">
+                        <a data-original-title="" href="#">
+                            <i class="icon-file"></i>
+                            <?php
+                            $data=getAllNews($conn);
+                            $totalNews=0;
+                            foreach($data as $key){
+                                $totalNews ++;
+                            }
+                            ?>
+                            <div class="info"><?php echo $totalNews; ?></div>
+                            <div class="status" style="font-size:large">Total Active News</div>
+                        </a>
+                    </div>
+                    
                     <div class="metro-nav-block nav-block-red">
                         <a data-original-title="" href="#">
                             <i class="icon-bar-chart"></i>
-                            <div class="info">+288</div>
-                            <div class="status">Update</div>
+                            <?php
+                            $data=getAllVideoNewsDetails($conn);
+                            $totalVideos=0;
+                            foreach($data as $key){
+                                $totalVideos ++;
+                            }
+                            ?>
+                            <div class="info"><?php echo $totalVideos; ?></div>
+                            <div class="status" style="font-size:large">Total Active Videos</div>
                         </a>
                     </div>
                 </div>
-                <div class="metro-nav">
-                    <div class="metro-nav-block nav-light-purple">
-                        <a data-original-title="" href="#">
-                            <i class="icon-shopping-cart"></i>
-                            <div class="info">29</div>
-                            <div class="status">New Order</div>
-                        </a>
+                
+                <!-- BEGIN ADVANCED TABLE widget-->
+            <div class="row-fluid">
+                <div class="span12">
+                <!-- BEGIN EXAMPLE TABLE widget-->
+                <div class="widget red">
+                <?php if (isset($_SESSION['msg'])){  echo $_SESSION['msg']; }
+                unset($_SESSION['msg']);?>
+                    <div class="widget-title">
+                        <h4><i class="icon-reorder"></i>Advertisment Image Size Information</h4>
+                        
+                            <span class="tools">
+                                <a href="javascript:;" class="icon-chevron-down"></a>
+                                <a href="javascript:;" class="icon-remove"></a>
+                            </span>
                     </div>
-                    <div class="metro-nav-block nav-light-blue double">
-                        <a data-original-title="" href="#">
-                            <i class="icon-tasks"></i>
-                            <div class="info">$37624</div>
-                            <div class="status">Stock</div>
-                        </a>
-                    </div>
-                    <div class="metro-nav-block nav-light-green">
-                        <a data-original-title="" href="#">
-                            <i class="icon-envelope"></i>
-                            <div class="info">123</div>
-                            <div class="status">Messages</div>
-                        </a>
-                    </div>
-                    <div class="metro-nav-block nav-light-brown">
-                        <a data-original-title="" href="#">
-                            <i class="icon-remove-sign"></i>
-                            <div class="info">34</div>
-                            <div class="status">Cancelled</div>
-                        </a>
-                    </div>
-                    <div class="metro-nav-block nav-block-grey ">
-                        <a data-original-title="" href="#">
-                            <i class="icon-external-link"></i>
-                            <div class="info">$53412</div>
-                            <div class="status">Total Profit</div>
-                        </a>
+                    <div class="widget-body">
+                        <table class="table table-striped table-bordered" id="sample_1">
+                            <thead>
+                            <tr>
+                                <th style="width:8px;"><input type="hidden" class="group-checkable" data-set="#sample_1 .checkboxes" />S.N</th>
+                                <th class="hidden-phone">Advertisement Area</th>
+                                <th class="hidden-phone">Width</th>
+                                <th class="hidden-phone">Height</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="odd gradeX">
+                                <td><input type="hidden" class="checkboxes" value="1" />1</td>
+                                <td class="hidden-phone">Header Advertisment</td>
+                                <td class="hidden-phone">921px</td>
+                                <td class="hidden-phone">90px</td>
+                            </tr>
+                            <tr class="odd gradeX">
+                                <td><input type="hidden" class="checkboxes" value="1" />2</td>
+                                <td class="hidden-phone">First Top Two Advertisment below Trending</td>
+                                <td class="hidden-phone">1282px</td>
+                                <td class="hidden-phone">144px</td>
+                            </tr>
+                            <tr class="odd gradeX">
+                                <td><input type="hidden" class="checkboxes" value="1" />3</td>
+                                <td class="hidden-phone">Three Banner News Advertisment below Banner News</td>
+                                <td class="hidden-phone">1281px</td>
+                                <td class="hidden-phone">160px</td>
+                            </tr>
+                            <tr class="odd gradeX">
+                                <td><input type="hidden" class="checkboxes" value="1" />4</td>
+                                <td class="hidden-phone">Above Categories Advertisment</td>
+                                <td class="hidden-phone">802px</td>
+                                <td class="hidden-phone">65px</td>
+                            </tr>
+                            <tr class="odd gradeX">
+                                <td><input type="hidden" class="checkboxes" value="1" />5</td>
+                                <td class="hidden-phone">All Right-Side Advertisment</td>
+                                <td class="hidden-phone">397px</td>
+                                <td class="hidden-phone">258px</td>
+                            </tr>
+                            <tr class="odd gradeX">
+                                <td><input type="hidden" class="checkboxes" value="1" />6</td>
+                                <td class="hidden-phone">Above HP-Special Advertisment</td>
+                                <td class="hidden-phone">1281px</td>
+                                <td class="hidden-phone">98px</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="space10"></div>
+                <!-- END EXAMPLE TABLE widget-->
+                </div>
+            </div>
+
+            <!-- END ADVANCED TABLE widget-->
+                
                 <!--END METRO STATES-->
             </div>
             

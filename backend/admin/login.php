@@ -51,7 +51,7 @@
     <div class="lock-header">
         <!-- BEGIN LOGO -->
         <a class="center" id="logo" href="index.html">
-            <img class="center" alt="logo" src="img/logo.png">
+            <img class="center" alt="logo" src="img/admin-login-png-5.png" width="160px!important" height="20px!important">
         </a>
         <!-- END LOGO -->
     </div>

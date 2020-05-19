@@ -54,11 +54,11 @@
                            <span class="divider">/</span>
                        </li>
                        <li>
-                           <a href="#">Article</a>
+                           <a href="#">Video News</a>
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Manage Article
+                           Manage Video News
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -78,9 +78,9 @@
                 <div class="span12">
                 <!-- BEGIN EXAMPLE TABLE widget-->
                 <div class="widget red">
-                <?php if (isset(($_SESSION['msg'])))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
+                <?php if (isset($_SESSION['msg']))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
                     <div class="widget-title">
-                        <h4><i class="icon-reorder"></i> Articles' Information</h4>
+                        <h4><i class="icon-reorder"></i> Video News' Information</h4>
                         
                             <span class="tools">
                                 <a href="javascript:;" class="icon-chevron-down"></a>

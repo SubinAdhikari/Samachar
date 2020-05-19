@@ -74,5 +74,14 @@ function updateDateOfAdvertisement($conn, $data){
     }
     return false;
 }
+function alterEnumValues($conn){
+    $stmtalter = $conn->prepare("ALTER TABLE tbladvertisement MODIFY COLUMN `advertisement_specific_area`
+    ENUM('first_top','second_top','first_banner','second_banner','third_banner','देश','राजनिती','अर्थतन्त्र','बिचार','कूटनीति','सुरक्षा','जलवायु तथा वातावरण','विज्ञान तथा प्रविधि','अन्तर्राष्ट्रिय','कानून तथा न्यायपालिका','अन्य','first_side','second_side','third_side','fourth_side','fifth_side','sixth_side','seventh_side','eighth_side','nineth_side','tenth_side','eleventh_side','twelveth_side','first_bottom','below_categoryTitleFirst','below_categoryTitleSecond','below_categoryNewsFirstSide','below_categoryNewsSecondSide','below_categoryNewsThirdSide','below_categoryNewsFourthSide','below_categoryNewsFifthSide','below_categoryNewsSixthSide','below_categoryNewsList','above_categoryFooter','below_subcategoryTitleFirst','below_subcategoryTitleSecond','below_subcategoryNewsFirstSide','below_subcategoryNewsSecondSide','below_subcategoryNewsThirdSide','below_subcategoryNewsFourthSide','below_subcategoryNewsFifthSide','below_subcategoryNewsSixthSide','below_subcategoryNewsList','above_subcategoryFooter','below_searchResultNavbarFirst','below_searchResultNavbarSecond','below_searchResultFirstSide','below_searchResultSecondSide','below_searchResultThirdSide','below_searchResultFourthSide','below_searchResultFifthSide','below_searchResultSixthSide','below_searchResultNewsList','above_searchResultFooter','below_newsTitle','below_newsPhoto','below_newsFirstSide','below_newsSecondSide','below_newsThirdSide','below_newsFourthSide','below_newsFifthSide','below_newsSixthSide','below_newsSeventhSide','below_newsFirstPara','below_newsLastPara','above_newsComment')");
+    if ($stmtalter->execute()) {
+        return true;
+    }
+    return false;
+
+}
 
 ?>

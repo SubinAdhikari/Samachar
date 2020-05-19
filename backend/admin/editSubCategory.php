@@ -49,7 +49,7 @@ $categoryNameAndID=selectNameBYID($conn,$result['category_id']);
                    <!-- END THEME CUSTOMIZER-->
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                    <h3 class="page-title">
-                     Add Subcatagory
+                     Edit Subcatagory
                    </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -61,7 +61,7 @@ $categoryNameAndID=selectNameBYID($conn,$result['category_id']);
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Add Sub-Catagory
+                           Update Sub-Catagory
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -86,7 +86,7 @@ $categoryNameAndID=selectNameBYID($conn,$result['category_id']);
                     <!-- BEGIN SAMPLE FORMPORTLET-->
                     <div class="widget green">
                         <div class="widget-title">
-                            <h4><i class="icon-reorder"></i> Add sub-catagory Form </h4>
+                            <h4><i class="icon-reorder"></i> Update sub-catagory Form </h4>
                             <span class="tools">
                             <a href="javascript:;" class="icon-chevron-down"></a>
                             <a href="javascript:;" class="icon-remove"></a>
@@ -143,7 +143,7 @@ $categoryNameAndID=selectNameBYID($conn,$result['category_id']);
                         
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-success" name="updateBtn">Update</button>
-                                <button type="button" class="btn">Cancel</button>
+                                <a href="manageNews.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>
                             </form>
                             <!-- END FORM-->

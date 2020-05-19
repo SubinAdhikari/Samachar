@@ -109,6 +109,7 @@
      
                              <div class="form-actions">
                                 <button class="btn btn-success" name="updateThumbnail" type="submit">Change Thumbnail</button>
+                                <a href="manageVideoNews.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>   
                             </form>
                             <!-- END FORM-->

@@ -117,6 +117,7 @@
                                 
                              <div class="form-actions">
                                 <button class="btn btn-success" name="addTrending" type="submit">Add Topic</button>
+                                <a href="manageTrending.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>   
                             </form>
                             <!-- END FORM-->
@@ -200,4 +201,5 @@ if(insertTrending($conn, $_POST)){
     echo '</script>';
 }
 }
+
 ?>

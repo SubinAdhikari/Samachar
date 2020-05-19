@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!--===============================================================================================-->	   
-	<link rel="icon" type="image/png" href="images/icons/samachar.png"/>
+	<link rel="icon" type="image/png" href="images/icons/himalaya.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -180,7 +180,7 @@ $(document).ready(function(){
 			<div class="wrap-header-mobile">
 				<!-- Logo moblie -->		
 				<div class="logo-mobile">
-				<a href="index.php"><img src="images/icons/lokpath.png" alt="LOGO"></a>
+				<a href="index.php"><img style="width:50%;height:350%" src="images/icons/himalaya.png" alt="LOGO"></a>
 				</div>
 
 				<!-- Button show menu -->
@@ -338,7 +338,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 			<div class="wrap-logo" style="margin-left:50px">
 				<!-- Logo desktop -->		
 				<div class="logo">
-				<a href="index.php"><img style="width:100%;height:100%" src="images/icons/lokpath.png"  alt="LOGO"></a>
+				<a href="index.php"><img style="width:100%;height:100%" src="images/icons/himalaya.png"  alt="LOGO"></a>
 				</div>	
 
 				<!-- Banner -->
@@ -367,7 +367,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 					<!-- Menu desktop -->
 					
 						<a class="logo-stick" href="index.html">
-							<img src="images/icons/samachar.png" alt="LOGO">
+							<img src="images/icons/himalaya.png" alt="LOGO">
 						</a>
 					 
 
@@ -404,7 +404,7 @@ $encryptedURL=encryptionFunction($key['category_id']);
 
 							
 						</ul>
-						<strong><a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3"><span style="color:white!important;font-weight:bold">ENGLISH</span></a></strong>
+						<strong><a href="../EnglishFrontend/index.php" target="_blank" class="moen ml-3"><span style="color:black!important;font-weight:bold">ENGLISH</span></a></strong>
 						<button class="blackThem" style="color:white!important;font-weight:bold;margin-left:15px"><input type="checkbox" checked data-toggle="toggle" data-on="Dark Mode" data-off="Dark Mode" data-onstyle="secondary" data-offstyle="secondary"></button>
 						<button class="whiteThem" style="color:white!important;font-weight:bold;margin-left:15px;display:none"> <input type="checkbox" checked data-toggle="toggle" data-on="Light" data-off="Dark Mode" data-onstyle="secondary" data-offstyle="secondary"></button>
 

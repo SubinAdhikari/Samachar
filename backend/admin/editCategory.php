@@ -2,13 +2,7 @@
   include 'layouts/header.php';
   $category_id=$_GET['ref'];
   $category=getCategoryById($conn, $category_id);
-  if (isset($_POST['savebtn'])) {
-    if(updatecategory($conn, $_POST)){
-        //echo "User Updated SuccessFully";
-         showMsg('Category Updated Successfully');
-         redirection('managecategory.php');
-}
-}
+ 
  ?>
    <!-- BEGIN CONTAINER -->
    <div id="container" class="row-fluid">
@@ -54,7 +48,7 @@
                    <!-- END THEME CUSTOMIZER-->
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                    <h3 class="page-title">
-                     User Form
+                     Category 
                    </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -62,11 +56,11 @@
                            <span class="divider">/</span>
                        </li>
                        <li>
-                           <a href="#">User</a>
+                           <a href="#">Category</a>
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Update User
+                           Update Category
                        </li>
                    </ul>
                    <!-- END PAGE TITLE & BREADCRUMB-->
@@ -125,7 +119,7 @@
 
                             <div class="form-actions">
                                 <button type="submit" name ="savebtn" class="btn btn-success">Save</button>
-                                <button type="button" class="btn">Cancel</button>
+                                <a href="manageCategory.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>
                             </form>
                             <!-- END FORM-->
@@ -210,3 +204,11 @@
 </body>
 <!-- END BODY -->
 </html>
+<?php 
+ if (isset($_POST['savebtn'])) {
+    if(updateCategory($conn, $_POST)){
+        showMsg('Category Updated Successfully');
+        redirection('manageCategory.php');
+}
+}
+?>

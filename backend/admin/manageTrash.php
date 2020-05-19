@@ -54,11 +54,11 @@
                            <span class="divider">/</span>
                        </li>
                        <li>
-                           <a href="#">User</a>
+                           <a href="#">Trash News</a>
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Manage Subcategory
+                           Manage Trash News
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="search_result.html" class="hidden-phone">
@@ -78,9 +78,9 @@
                 <div class="span12">
                 <!-- BEGIN EXAMPLE TABLE widget-->
                 <div class="widget red">
-                <?php if (isset(($_SESSION['msg'])))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
+                <?php if (isset($_SESSION['msg']))  echo $_SESSION['msg']; unset($_SESSION['msg']);?>
                     <div class="widget-title">
-                        <h4><i class="icon-reorder"></i> Users' Information</h4>
+                        <h4><i class="icon-reorder"></i> Trash News' Information</h4>
                         
                             <span class="tools">
                                 <a href="javascript:;" class="icon-chevron-down"></a>
@@ -92,6 +92,7 @@
                             <thead>
                             <tr>
                                 <th style="width:8px;"><input type="hidden" class="group-checkable" data-set="#sample_1 .checkboxes" />S.N</th>
+                                <th>Language</th>
                                 <th>Heading/Title</th>
                                 <th>Writer</th>
                                 <th>Category Name</th>
@@ -111,17 +112,19 @@
                             <tr class="odd gradeX">
                                 <td><input type="hidden" class="checkboxes" value="1" /><?php echo ++$key; ?></td>
                                 <td class="hidden-phone"><?php
+                                echo $news['news_language']; ?></td>
+                                <td class="hidden-phone"><?php
                                 echo $news['news_title']; ?></td>
 
                                 <td class="hidden-phone"><?php
                                 echo $news['news_writtenby']; ?></td>
 
                                 <td class="hidden-phone"><?php
-                                $categoryNames=getCategoryNameByCategoryId($conn,$news['category_id']); 
+                                $categoryNames=getCategoryNameByCategoryIdEnglish($conn,$news['category_id']); 
                                 $categoryName = implode("", $categoryNames);  
                                 echo $categoryName; ?></td>
 
-                                <td class="hidden-phone"><?php $subCategoryNames=getSubCategoryNameByCategoryId($conn,$news['subcategory_id']); 
+                                <td class="hidden-phone"><?php $subCategoryNames=getSubCategoryNameByCategoryIdEnglish($conn,$news['subcategory_id']); 
                                 $subCategoryName = implode("", $subCategoryNames);  
                                 echo $subCategoryName; ?></td>
                                 <td class="center hidden-phone"><?php if($news['is_active']=='active'): ?>
@@ -146,9 +149,17 @@
                                   No</span>
                               <?php endif; ?></td>
                               
-                                <td class="hidden-phone"><a href="restoreDeletedNews.php?ref=<?php echo $news['trash_id'];?>" class="btn btn-xs btn-info">
+                                <td class="hidden-phone">
+                                <?php  if($news['news_language']=='english'){ ?>
+                                  <a href="restoreDeletedNewsEnglish.php?ref=<?php echo $news['trash_id'];?>" class="btn btn-xs btn-info">
                                   Restore
                                 </a>
+                              <?php  }else{?>
+
+                                  <a href="restoreDeletedNews.php?ref=<?php echo $news['trash_id'];?>" class="btn btn-xs btn-info">
+                                  Restore
+                                </a>
+                             <?php }?>
                                 <a href="deleteTrashNews.php?ref=<?php echo $news['trash_id'];?>" onclick="return confirm('Really Deleting that News??');" class="btn btn-xs btn-danger">
                                   Delete
                                 </a></td> 

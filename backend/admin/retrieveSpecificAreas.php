@@ -18,8 +18,6 @@ if ($area == 'header') {
     array_push($specificAreas,'below_searchResultNavbarFirst','below_searchResultNavbarSecond','below_searchResultFirstSide','below_searchResultSecondSide','below_searchResultThirdSide','below_searchResultFourthSide','below_searchResultFifthSide','below_searchResultSixthSide','below_searchResultNewsList','above_searchResultFooter');
 }elseif ($area == 'news_detailpage') {
     array_push($specificAreas,'below_newsTitle','below_newsPhoto','below_newsFirstSide','below_newsSecondSide','below_newsThirdSide','below_newsFourthSide','below_newsFifthSide','below_newsSixthSide','below_newsSeventhSide','below_newsFirstPara','below_newsLastPara','above_newsComment');
-}elseif ($area == 'article_detailpage') {
-    array_push($specificAreas,'below_articleTitle','below_articlePhoto','below_articleFirstSide','below_articleSecondSide','below_articleThirdSide','below_articleFourthSide','below_articleFifthSide','below_articleSixthSide','below_articleSeventhSide','below_articleFirstPara','below_articleLastPara','above_articleComment');
 }
 
 $specificAreasDb = getSpecificAreas($conn, $area);

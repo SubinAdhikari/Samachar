@@ -157,7 +157,7 @@
                             </div> -->
                             <div class="form-actions">
                                 <button type="submit" id="submit" class="btn btn-success" name="submitBtn">Submit</button>
-                                <button type="button" class="btn">Cancel</button>
+                                <a href="manageAdmin.php" class="btn btn-xs btn-danger"> Cancel </a>
                             </div>
                             </form>
                             <!-- END FORM-->

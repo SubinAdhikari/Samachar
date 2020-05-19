@@ -170,7 +170,7 @@ function restoreDeletedNews($conn, $data){
 
 function getAllNewsDetails($conn){
     $value='';
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video=:news_video");
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video=:news_video ORDER BY news_id DESC");
     $stmtSelect->bindParam(':news_video',$value);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
@@ -178,7 +178,7 @@ function getAllNewsDetails($conn){
 } 
 function getAllVideoNewsDetails($conn){
     $value='';
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video<>:news_video"); 
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnews WHERE news_video<>:news_video ORDER BY news_id DESC"); 
     $stmtSelect->bindParam(':news_video',$value);   
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
@@ -201,7 +201,7 @@ function getAVideoNews($conn){
     return $stmtSelect->fetchAll();
 }
 function getAllTrashNewsDetails($conn){
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnewstrash");
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnewstrash ORDER BY trash_id DESC");
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();
@@ -494,7 +494,7 @@ function restoreDeletedNewsEnglish($conn, $data){
 
 function getAllNewsDetailsEnglish($conn){
     $value='';
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnewsenglish WHERE news_video=:news_video");
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnewsenglish WHERE news_video=:news_video ORDER BY news_id DESC");
     $stmtSelect->bindParam(':news_video',$value);
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
@@ -502,7 +502,7 @@ function getAllNewsDetailsEnglish($conn){
 } 
 function getAllVideoNewsDetailsEnglish($conn){
     $value='';
-    $stmtSelect = $conn->prepare("SELECT * FROM tblnewsenglish WHERE news_video<>:news_video"); 
+    $stmtSelect = $conn->prepare("SELECT * FROM tblnewsenglish WHERE news_video<>:news_video ORDER BY news_id DESC"); 
     $stmtSelect->bindParam(':news_video',$value);   
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);

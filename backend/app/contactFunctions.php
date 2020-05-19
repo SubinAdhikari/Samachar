@@ -13,7 +13,7 @@ function insertContact($conn, $data){
 	return false; 
 }
 function getAllContacts($conn){
- 	$stmtSelect = $conn->prepare("SELECT * FROM tblcontact");
+ 	$stmtSelect = $conn->prepare("SELECT * FROM tblcontact ORDER BY contact_id DESC");
  	$stmtSelect->execute();
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
  	return $stmtSelect->fetchAll();

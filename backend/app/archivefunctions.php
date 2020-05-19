@@ -24,7 +24,7 @@ function deleteNewsToArchive($conn){
 
 function getAllArchiveNewsDetails($conn){
     
-    $stmtSelect = $conn->prepare("SELECT * FROM tblarchive");
+    $stmtSelect = $conn->prepare("SELECT * FROM tblarchive ORDER BY archive_id DESC");
     $stmtSelect->execute();
     $stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
     return $stmtSelect->fetchAll();

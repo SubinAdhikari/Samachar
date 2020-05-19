@@ -8,6 +8,9 @@ if (!checkAdminLogin()) {
 if(insertToArchive($conn)){
   deleteNewsToArchive($conn);
 }
+if(insertToArchiveEnglish($conn)){
+  deleteNewsToArchiveEnglish($conn);
+}
 
 ?>
 <!DOCTYPE html>

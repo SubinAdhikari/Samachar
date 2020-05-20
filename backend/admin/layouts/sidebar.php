@@ -30,8 +30,10 @@
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">
-                      <li><a class="" href="addTrending.php">Add Trending Topics</a></li>
-                      <li><a class="" href="manageTrending.php">Manage Trending Topics </a></li>
+                      <li><a class="" href="addTrending.php">Add Nepali Trending Topics</a></li>
+                      <li><a class="" href="manageTrending.php">Manage Nepali Trending Topics </a></li>
+                      <li><a class="" href="addTrendingEnglish.php">Add English Trending Topics</a></li>
+                      <li><a class="" href="manageTrendingEnglish.php">Manage English Trending Topics </a></li>
                   </ul>
               </li>
               <li class="sub-menu">

@@ -62,7 +62,7 @@ include "layouts/header.php";
 								</h3>
 							</div>
 							<?php
-							$latestNewsDetails=GetLatestThreeNews($conn);
+							$latestNewsDetails=GetLatestThreeNewsEnglish($conn);
 							?>
 							<ul class="p-t-35">
 								<?php foreach ($latestNewsDetails as $latestNewsDetail ) {
@@ -83,7 +83,7 @@ include "layouts/header.php";
 
 										<span class="cl8 txt-center p-b-24">
 											<a href="newsDetail.php?ref=<?php echo $latestNewsDetail['news_id']; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
-												<?php $categoryNames=getCategoryNameByCategoryId($conn,$latestNewsDetail['category_id']); 
+												<?php $categoryNames=getCategoryNameByCategoryIdEnglish($conn,$latestNewsDetail['category_id']); 
                                 $categoryName = implode("", $categoryNames);  ?>
 												<?php echo $categoryName; ?>
 											</a>

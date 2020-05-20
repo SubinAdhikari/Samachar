@@ -1,3 +1,4 @@
+
 <?php
 include "layouts/header.php"
 ?>
@@ -8,7 +9,7 @@ include "layouts/header.php"
 		<nav aria-label="breadcrumb" >
 			  <ol class="breadcrumb" style="margin-left:-120px;width:115%;height: 45px">
 			    <strong><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:20px;padding-left:100px;margin-top:5px ">TRENDING NOW : </span></li></strong>
-			    <?php 					$trendings=GetTrendingTopics($conn);
+			    <?php 					$trendings=GetTrendingTopicsEnglish($conn);
 			                            //dump($adminUsers);
 			                            foreach ($trendings as $key => $trending){ ?>
 			    <a href="searchResult.php?ref=<?php echo $trending['trending_topic'];?>"><li class="breadcrumb-item active" aria-current="page"><span style="font-size:15px;color:black;padding-right:24px;margin-top:5px">#<?php echo $trending['trending_topic']; ?> </span></li></a>
@@ -236,13 +237,34 @@ foreach($forthLastNews as $key){
 <?php 
 						$areaPurposeOfCategory ='front_page';
 						
-						$specificArea = $key['category_name'];
-						if (strcasecmp($specificArea, 'कूटनीति')=='-192') {
+						if ($key['category_name']=='National') {
+							$specificArea = 'देश';
+						}if ($key['category_name']=='Politics') {
+							$specificArea = 'राजनिती';
+						}if ($key['category_name']=='Economy') {
+							$specificArea = 'अर्थतन्त्र';
+						}if ($key['category_name']=='Opinion') {
+							$specificArea = 'बिचार';
+						}if ($key['category_name']=='Diplomacy') {
 							$specificArea = 'कूटनीति';
+						}if ($key['category_name']=='Security') {
+							$specificArea = 'सुरक्षा';
+						}if ($key['category_name']=='Climate and environment') {
+							$specificArea = 'जलवायु तथा वातावरण';
+						}if ($key['category_name']=='Science and technology') {
+							$specificArea = 'विज्ञान तथा प्रविधि';
+						}if ($key['category_name']=='International') {
+							$specificArea = 'अन्तर्राष्ट्रिय';
+						}if ($key['category_name']=='Law and judiciary') {
+							$specificArea = 'कानून तथा न्यायपालिका';
+						}if ($key['category_name']=='Others') {
+							$specificArea = 'अन्य';
 						}
+						// if (strcasecmp($specificArea, 'कूटनीति')=='-192') {
+						// 	$specificArea = 'कूटनीति';
+						// }
 						
-						
-						
+											
 								$advertisement1 = selectAllAdvertisementSpecificArea($conn,$areaPurposeOfCategory,$specificArea) ;
 
 								
